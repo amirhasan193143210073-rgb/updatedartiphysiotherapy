@@ -602,17 +602,17 @@
       gap: 16px;
     }
 
-    .announcement-inner {
+    .announcement-marquee {
       white-space: nowrap;
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 20px;
       animation: marquee-left 40s linear infinite;
       font-size: 0.9rem;
       font-weight: 500;
     }
 
-    .announcement-item {
+    .announcement-marquee span {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -624,56 +624,60 @@
       border-radius: 999px;
       background: #000;
       opacity: 0.7;
+      display: inline-block;
     }
 
     .offer-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       padding: 6px 14px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       background: #ff6347;
-      color: #ffffff;
+      color: #fff;
+      font-size: 0.8rem;
       font-weight: 700;
-      font-size: 0.85rem;
-      box-shadow: inset 0 3px 4px rgba(255, 255, 255, 0.4), inset 0 -3px 4px rgba(0, 0, 0, 0.3);
-      transition: box-shadow 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+      box-shadow: inset 6px 7px 5px -6px rgba(255, 255, 255, 0.4),
+                  inset -6px -7px 5px -7px rgba(0, 0, 0, 0.4);
       white-space: nowrap;
     }
 
-    .offer-button span.old-price {
-      position: relative;
-      font-weight: 500;
-      opacity: 0.9;
-      font-size: 0.8rem;
+    .offer-button-prices {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 4px;
     }
 
-    .offer-button span.old-price::after {
+    .offer-old-price {
+      position: relative;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .offer-old-price::after {
       content: "";
       position: absolute;
       left: 0;
       right: 0;
       top: 50%;
       height: 1.5px;
-      background: #2c7be5;
-      transform: rotate(-12deg);
+      background: #1e90ff;
+      transform: rotate(12deg);
     }
 
-    .offer-button span.new-price {
+    .offer-new-price {
       font-weight: 800;
+      font-size: 0.9rem;
     }
 
-    .offer-button:hover {
-      box-shadow: inset 0 5px 4px rgba(255, 255, 255, 0.4), inset 0 -4px 4px rgba(0, 0, 0, 0.4);
-    }
-
-    .offer-button:active {
-      box-shadow: inset 0 0 3px 2px rgba(0, 0, 0, 0.25);
-      filter: brightness(0.95);
-      transform: translateY(1px);
+    .offer-button-icon {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 4px;
     }
 
     @keyframes marquee-left {
@@ -686,23 +690,19 @@
     }
 
     @media (max-width: 768px) {
-      .announcement-band {
-        padding: 4px 0;
-      }
-
-      .announcement-inner {
-        font-size: 0.75rem;
-        gap: 24px;
-      }
-
       .announcement-band-inner {
         width: 96%;
         gap: 8px;
       }
 
+      .announcement-marquee {
+        font-size: 0.75rem;
+        gap: 12px;
+      }
+
       .offer-button {
-        padding: 4px 10px;
         font-size: 0.7rem;
+        padding: 4px 10px;
       }
     }
   </style>
@@ -733,61 +733,25 @@
       </ul>
     </nav>
   </header>
-
   <div class="announcement-band">
     <div class="announcement-band-inner">
-      <div class="announcement-inner">
-        <div class="announcement-item">
-          <span>Care That Moves With You</span>
-          <span class="announcement-dot"></span>
-          <span>Online physiotherapy for busy schedules</span>
-        </div>
-
-        <div class="announcement-item">
-          <span>New Patient Offer</span>
-          <span class="announcement-dot"></span>
-          <span>First consultation at a special price</span>
-        </div>
-
-        <div class="announcement-item">
-          <span>Move Better</span>
-          <span class="announcement-dot"></span>
-          <span>Live Pain-Free</span>
-        </div>
-
-        <div class="announcement-item">
-          <span>Care Beyond Exercise</span>
-          <span class="announcement-dot"></span>
-          <span>Personalized rehab plans</span>
-        </div>
-
-        <!-- Duplicate content for seamless loop -->
-        <div class="announcement-item">
-          <span>Care That Moves With You</span>
-          <span class="announcement-dot"></span>
-          <span>Online physiotherapy for busy schedules</span>
-        </div>
-
-        <div class="announcement-item">
-          <span>New Patient Offer</span>
-          <span class="announcement-dot"></span>
-          <span>First consultation at a special price</span>
-        </div>
-
-        <div class="announcement-item">
-          <span>Move Better</span>
-          <span class="announcement-dot"></span>
-          <span>Live Pain-Free</span>
-        </div>
-
-        <div class="announcement-item">
-          <span>Care Beyond Exercise</span>
-          <span class="announcement-dot"></span>
-          <span>Personalized rehab plans</span>
-        </div>
+      <div class="announcement-marquee">
+        <span>Care That Moves With You<span class="announcement-dot"></span>Indias only online rehab<span class="announcement-dot"></span>Christmas &amp; New Year Special<span class="announcement-dot"></span>A Healthier Start Begins This Season<span class="announcement-dot"></span>Move Better<span class="announcement-dot"></span>Live Better<span class="announcement-dot"></span>Start Today<span class="announcement-dot"></span>Care Beyond Exercise<span class="announcement-dot"></span>Pain-Free Living Starts Here<span class="announcement-dot"></span>Choose a Pain-Free Tomorrow</span>
       </div>
+
+      <button type="button" class="offer-button" onclick="openPopup()">
+        <span>Grab your offer now</span>
+        <span class="offer-button-prices">
+          <span class="offer-old-price">₹1500</span>
+          <span class="offer-new-price">₹249</span>
+        </span>
+        <span class="offer-button-icon">
+          <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </span>
+      </button>
     </div>
   </div>
+
   <section id="hero">
     <div class="hero-card">
       <div class="hero-section">
