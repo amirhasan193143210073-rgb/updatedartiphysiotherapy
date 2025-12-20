@@ -594,6 +594,15 @@
       overflow: hidden;
     }
 
+    .announcement-band-inner {
+      width: 90%;
+      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
     .announcement-inner {
       white-space: nowrap;
       display: flex;
@@ -618,6 +627,56 @@
       opacity: 0.7;
     }
 
+    .offer-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: #ff6347;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: inset 0 3px 4px rgba(255, 255, 255, 0.4), inset 0 -3px 4px rgba(0, 0, 0, 0.3);
+      transition: box-shadow 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .offer-button span.old-price {
+      position: relative;
+      font-weight: 500;
+      opacity: 0.9;
+      font-size: 0.8rem;
+    }
+
+    .offer-button span.old-price::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1.5px;
+      background: #2c7be5;
+      transform: rotate(-12deg);
+    }
+
+    .offer-button span.new-price {
+      font-weight: 800;
+    }
+
+    .offer-button:hover {
+      box-shadow: inset 0 5px 4px rgba(255, 255, 255, 0.4), inset 0 -4px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .offer-button:active {
+      box-shadow: inset 0 0 3px 2px rgba(0, 0, 0, 0.25);
+      filter: brightness(0.95);
+      transform: translateY(1px);
+    }
+
     @keyframes marquee-left {
       0% {
         transform: translateX(0);
@@ -636,6 +695,16 @@
       .announcement-inner {
         font-size: 0.75rem;
         gap: 24px;
+      }
+
+      .announcement-band-inner {
+        width: 96%;
+        gap: 8px;
+      }
+
+      .offer-button {
+        padding: 4px 10px;
+        font-size: 0.7rem;
       }
     }
   </style>
@@ -668,55 +737,63 @@
   </header>
 
   <div class="announcement-band">
-    <div class="announcement-inner">
-      <div class="announcement-item">
-        <span>Care That Moves With You</span>
-        <span class="announcement-dot"></span>
-        <span>Online physiotherapy for busy schedules</span>
+    <div class="announcement-band-inner">
+      <div class="announcement-inner">
+        <div class="announcement-item">
+          <span>Care That Moves With You</span>
+          <span class="announcement-dot"></span>
+          <span>Online physiotherapy for busy schedules</span>
+        </div>
+
+        <div class="announcement-item">
+          <span>New Patient Offer</span>
+          <span class="announcement-dot"></span>
+          <span>First consultation at a special price</span>
+        </div>
+
+        <div class="announcement-item">
+          <span>Move Better</span>
+          <span class="announcement-dot"></span>
+          <span>Live Pain-Free</span>
+        </div>
+
+        <div class="announcement-item">
+          <span>Care Beyond Exercise</span>
+          <span class="announcement-dot"></span>
+          <span>Personalized rehab plans</span>
+        </div>
+
+        <!-- Duplicate content for seamless loop -->
+        <div class="announcement-item">
+          <span>Care That Moves With You</span>
+          <span class="announcement-dot"></span>
+          <span>Online physiotherapy for busy schedules</span>
+        </div>
+
+        <div class="announcement-item">
+          <span>New Patient Offer</span>
+          <span class="announcement-dot"></span>
+          <span>First consultation at a special price</span>
+        </div>
+
+        <div class="announcement-item">
+          <span>Move Better</span>
+          <span class="announcement-dot"></span>
+          <span>Live Pain-Free</span>
+        </div>
+
+        <div class="announcement-item">
+          <span>Care Beyond Exercise</span>
+          <span class="announcement-dot"></span>
+          <span>Personalized rehab plans</span>
+        </div>
       </div>
 
-      <div class="announcement-item">
-        <span>New Patient Offer</span>
-        <span class="announcement-dot"></span>
-        <span>First consultation at a special price</span>
-      </div>
-
-      <div class="announcement-item">
-        <span>Move Better</span>
-        <span class="announcement-dot"></span>
-        <span>Live Pain-Free</span>
-      </div>
-
-      <div class="announcement-item">
-        <span>Care Beyond Exercise</span>
-        <span class="announcement-dot"></span>
-        <span>Personalized rehab plans</span>
-      </div>
-
-      <!-- Duplicate content for seamless loop -->
-      <div class="announcement-item">
-        <span>Care That Moves With You</span>
-        <span class="announcement-dot"></span>
-        <span>Online physiotherapy for busy schedules</span>
-      </div>
-
-      <div class="announcement-item">
-        <span>New Patient Offer</span>
-        <span class="announcement-dot"></span>
-        <span>First consultation at a special price</span>
-      </div>
-
-      <div class="announcement-item">
-        <span>Move Better</span>
-        <span class="announcement-dot"></span>
-        <span>Live Pain-Free</span>
-      </div>
-
-      <div class="announcement-item">
-        <span>Care Beyond Exercise</span>
-        <span class="announcement-dot"></span>
-        <span>Personalized rehab plans</span>
-      </div>
+      <button type="button" class="offer-button" style="margin-left: 16px;" onclick="openPopup()">
+        <span>Grab your offer now</span>
+        <span class="old-price">₹1500</span>
+        <span class="new-price">₹249</span>
+      </button>
     </div>
   </div>
   <section id="hero">
