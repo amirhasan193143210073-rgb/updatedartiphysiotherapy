@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Send Video via WhatsApp Cloud API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/Admin-style.css">
+  <style>
+    #content nav {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+      border-bottom: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .arrowicon {
+      color: #fff !important;
+    }
+
+    #sidebar {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+    }
+
+    #sidebar .brand {
+      background: transparent !important;
+      color: #fff !important;
+    }
+
+    #sidebar .brand .bx {
+      color: #fff !important;
+    }
+
+    #sidebar .side-menu li a {
+      background: transparent !important;
+      color: #fff !important;
+    }
+
+    #sidebar .side-menu.top li a:hover {
+      color: #CFE8FF !important;
+    }
+
+    #sidebar .side-menu.top li.active a {
+      color: #CFE8FF !important;
+    }
+
+    #sidebar .side-menu li.active {
+      background: rgba(255, 255, 255, .15) !important;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 991px;
+      margin: 20px auto;
+      margin-left: 25%;
+    }
+
+    .card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 480px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #075e54;
+    }
+
+    label {
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 10px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+
+    button {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+
+    .status.error {
+      color: #c0392b;
+    }
+
+    .status.success {
+      color: #27ae60;
+    }
+
+    .note {
+      font-size: 11px;
+      color: #777;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <!-- SIDEBAR -->
+  <section id="sidebar">
+    <a href="#" class="brand">
+      <i class='bx bxs-smile'></i>
+      <span class="text">Admin Panel</span>
+    </a>
+    <ul class="side-menu top">
+      <li><a href="Blog.html"><i class='bx bxs-dashboard icon'></i><span class="text">Dashboard</span></a></li>
+      <li><a href="SubBlog.html"><i class='bx bxs-image-add icon'></i><span class="text">Service Gallery</span></a></li>
+      <li><a href="select_section_view.html"><i class='bx bxs-slideshow icon'></i><span class="text">Section View</span></a></li>
+      <li><a href="prescription_form.html"><i class='bx bxs-cog icon'></i><span class="text">Create Prescription</span></a></li>
+      <li><a href="invoice.html"><i class='bx bxs-cog icon'></i><span class="text">Create Invoice</span></a></li>
+      <li><a href="video-consultation.html"><i class='bx bxs-video icon'></i><span class="text">Video Consultation</span></a></li>
+    <li><a href="send-video-whatsapp.html"><i class='bx bxs-share icon'></i><span class="text">Shre Video</span></a></li>
+    </ul>
+  </section>
+
+  <section id="content">
+    <nav>
+      <i class='bx bx-left-arrow-alt arrowicon'></i>
+      <i class='bx bx-right-arrow-alt arrowicon' style="display: none;"></i>
+    </nav>
+
+    <div class="container">
+      <div class="card">
+    <h1>Send Video via WhatsApp</h1>
+
+    <label for="phone">Recipient WhatsApp Number (with country code)</label>
+    <input id="phone" type="text" placeholder="e.g. 9198XXXXXXX" />
+
+    <label for="caption">Caption (optional)</label>
+    <textarea id="caption" placeholder="Type a caption..."></textarea>
+
+    <label for="video">Choose video file</label>
+    <input id="video" type="file" accept="video/*" />
+
+    <button id="sendBtn">Upload & Send</button>
+
+    <div class="note">
+      This demo sends requests directly from the browser using your WhatsApp Cloud API token.
+      For production, move this logic to a secure backend so the token is not exposed to users.
+    </div>
+
+    <div id="status" class="status"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // WARNING: These credentials are hard-coded for DEMO only.
+    // In a real app, never expose your permanent access token in frontend code.
+    const WABA_ID = "1352106806564501";
+    const PHONE_NUMBER_ID = "829751103552244";
+    const PERMANENT_ACCESS_TOKEN = "EAAL4gcSM2z0BQNrMwIHFm7v0TyTpmzBZBHmiCG3StYPwiGlSc7yHoShCTYeA7rRnPVrb1MMVI2SiUjpq9TtidCqBh58uH9WiRWq654zTD9FIrmcyW02pT1iHS5yUpgxMqZBOyWYJcyY0gn1qvsaWXxjPO5u8SZCqiV8MCVDvU3HZCOAws8eTYjICXyE1oZAKXRAZDZD";
+
+    const statusEl = document.getElementById("status");
+    const sendBtn = document.getElementById("sendBtn");
+
+    function setStatus(msg, type) {
+      statusEl.textContent = msg;
+      statusEl.className = "status" + (type ? " " + type : "");
+    }
+
+    async function uploadMedia(file) {
+      const url = `https://graph.facebook.com/v21.0/${PHONE_NUMBER_ID}/media`;
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("messaging_product", "whatsapp");
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${PERMANENT_ACCESS_TOKEN}`,
+        },
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error("Media upload failed: " + JSON.stringify(data));
+      }
+      return data.id; // media ID
+    }
+
+    async function sendVideoMessage(to, mediaId, caption) {
+      const url = `https://graph.facebook.com/v21.0/${PHONE_NUMBER_ID}/messages`;
+      const body = {
+        messaging_product: "whatsapp",
+        recipient_type: "individual",
+        to: to,
+        type: "video",
+        video: {
+          id: mediaId,
+          caption: caption || "",
+        },
+      };
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${PERMANENT_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error("Send message failed: " + JSON.stringify(data));
+      }
+      return data;
+    }
+
+    sendBtn.addEventListener("click", async () => {
+      const phone = document.getElementById("phone").value.trim();
+      const caption = document.getElementById("caption").value.trim();
+      const fileInput = document.getElementById("video");
+      const file = fileInput.files[0];
+
+      if (!phone) {
+        setStatus("Please enter recipient WhatsApp number.", "error");
+        return;
+      }
+      if (!file) {
+        setStatus("Please choose a video file.", "error");
+        return;
+      }
+
+      try {
+        sendBtn.disabled = true;
+        setStatus("Uploading video to WhatsApp...", "");
+
+        const mediaId = await uploadMedia(file);
+        setStatus("Media uploaded. Sending WhatsApp message...", "");
+
+        const res = await sendVideoMessage(phone, mediaId, caption);
+        setStatus("Message sent successfully. Message ID: " + (res.messages?.[0]?.id || "(unknown)"), "success");
+      } catch (err) {
+        console.error(err);
+        setStatus(err.message || String(err), "error");
+      } finally {
+        sendBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

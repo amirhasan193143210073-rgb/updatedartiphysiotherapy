@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Section || Arti Physiotherapy</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- Theme Styles - Matching index.html -->
+    <style>
+        /* Cool and Catchy Navbar Styles */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3) !important;
+            transition: all 0.3s ease !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1000 !important;
+            padding: 15px 7% !important;
+        }
+
+        header:hover {
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        header .logo {
+            display: flex !important;
+            align-items: center !important;
+            transition: all 0.3s ease !important;
+        }
+
+        header .logo:hover {
+            transform: scale(1.05) !important;
+        }
+
+        header .logo img {
+            height: 50px !important;
+            width: auto !important;
+            border-radius: 10px !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        header .logo img:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        header .navbars ul {
+            display: flex !important;
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            gap: 30px !important;
+        }
+
+        header .navbars ul li {
+            position: relative !important;
+        }
+
+        header .navbars ul li a,
+        header .navbars ul li a:link,
+        header .navbars ul li a:visited,
+        header .navbars ul li a:hover,
+        header .navbars ul li a:active {
+            color: white !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            font-size: 16px !important;
+            padding: 10px 20px !important;
+            border-radius: 25px !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        header .navbars ul li a::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -100% !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+            transition: left 0.5s ease !important;
+        }
+
+        header .navbars ul li a:hover::before {
+            left: 100% !important;
+        }
+
+        header .navbars ul li a:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        /* Dropdown Menu Styling */
+        header .navbars ul li ul {
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+            padding: 10px 0 !important;
+            margin-top: 10px !important;
+            min-width: 200px !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(-10px) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        header .navbars ul li:hover ul {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+
+        header .navbars ul li ul li a {
+            color: #333 !important;
+            padding: 12px 20px !important;
+            display: block !important;
+            transition: all 0.3s ease !important;
+            text-shadow: none !important;
+        }
+
+        header .navbars ul li ul li a:hover {
+            background: rgba(102, 126, 234, 0.1) !important;
+            color: #667eea !important;
+            transform: translateX(5px) !important;
+        }
+
+        /* Body padding for fixed header */
+        body {
+            padding-top: 80px !important;
+        }
+
+        /* Hero Service Section Styling */
+        #hero_service_section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            padding: 60px 20px !important;
+            margin: 20px 0 !important;
+            border-radius: 20px !important;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        #hero_service_section::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%) !important;
+            pointer-events: none !important;
+        }
+
+        #hero_service_section .service-content {
+            position: relative !important;
+            z-index: 10 !important;
+            text-align: center !important;
+            padding: 20px !important;
+        }
+
+        /* Hide any service-overlay divs that might interfere */
+        #hero_service_section .service-overlay {
+            display: none !important;
+        }
+
+        #hero_service_section h1 {
+            color: white !important;
+            font-size: 2.5rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 20px !important;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+            position: relative !important;
+            z-index: 11 !important;
+        }
+
+        #hero_service_section p {
+            color: rgba(255,255,255,0.95) !important;
+            font-size: 1.1rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 15px !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+            position: relative !important;
+            z-index: 11 !important;
+        }
+
+        /* Program Service Section Styling */
+        #program_service_section {
+            background: white !important;
+            padding: 40px !important;
+            margin: 30px 0 !important;
+            border-radius: 15px !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
+            display: flex !important;
+            gap: 30px !important;
+            align-items: flex-start !important;
+        }
+
+        #program-service-content {
+            flex: 1 !important;
+        }
+
+        #program-service-content h2 {
+            color: #667eea !important;
+            font-size: 2rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 20px !important;
+        }
+
+        #program-service-content p {
+            color: #555 !important;
+            font-size: 1.1rem !important;
+            line-height: 1.8 !important;
+            margin-bottom: 15px !important;
+        }
+
+        #service-image-container {
+            flex: 1 !important;
+            border-radius: 15px !important;
+            overflow: hidden !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+        }
+
+        #service-image-container iframe {
+            width: 100% !important;
+            height: 400px !important;
+            border: none !important;
+            border-radius: 15px !important;
+        }
+
+        /* Service Section Styling */
+        #service_section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%) !important;
+            padding: 40px !important;
+            margin: 30px 0 !important;
+            border-radius: 15px !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        .service-section-title {
+            color: #667eea !important;
+            font-size: 2rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 20px !important;
+            text-align: center !important;
+        }
+
+        .service-section-description {
+            color: #555 !important;
+            font-size: 1.1rem !important;
+            line-height: 1.8 !important;
+            text-align: center !important;
+        }
+
+        /* Service Card Container Styling */
+        #service_card_video_container {
+            margin: 30px 0 !important;
+        }
+
+        .service_card_video {
+            background: white !important;
+            padding: 20px !important;
+            margin-bottom: 20px !important;
+            border-radius: 15px !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+        }
+
+        .service_card_video iframe {
+            width: 100% !important;
+            border-radius: 10px !important;
+        }
+
+        #service_card_container {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 30px !important;
+            margin: 30px 0 !important;
+        }
+
+        .service-card {
+            background: white !important;
+            border-radius: 15px !important;
+            overflow: hidden !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
+        }
+
+        .service-card img {
+            width: 100% !important;
+            height: 200px !important;
+            object-fit: cover !important;
+        }
+
+        .service-card-content {
+            padding: 20px !important;
+        }
+
+        .service-card-content h3 {
+            color: #667eea !important;
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 15px !important;
+        }
+
+        .service-card-content ul {
+            list-style: none !important;
+            padding: 0 !important;
+        }
+
+        .service-card-content ul li {
+            color: #555 !important;
+            padding: 8px 0 !important;
+            border-bottom: 1px solid #eee !important;
+            position: relative !important;
+            padding-left: 25px !important;
+        }
+
+        .service-card-content ul li:before {
+            content: '✓' !important;
+            position: absolute !important;
+            left: 0 !important;
+            color: #667eea !important;
+            font-weight: bold !important;
+        }
+
+        .service-card-content ul li:last-child {
+            border-bottom: none !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #program_service_section {
+                flex-direction: column !important;
+            }
+
+            #service-image-container iframe {
+                height: 250px !important;
+            }
+
+            #hero_service_section h1 {
+                font-size: 1.8rem !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo"><img src="images/riky.png" alt=""></a>
+        <input type="checkbox" id="menu-bar"><label id="hamburg" for="menu-bar" class="fas fa-bars"></label>
+        <nav class="navbars">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li>
+                    <a href="#">For Patients ▼</a>
+                    <ul>
+                        <li><a href="#Review">Patient Reviews</a></li>
+                        <!-- <li><a href="#">Prescription</a></li> -->
+                    </ul>
+                </li>
+                <li><a href="contactus.html">Contact Us</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+        <div id="hero_service_section" class="hero-service-section">
+            <div class="service-content">
+                <h1>Sports Physiotherapy & Fitness</h1>
+                <p>For Performance, Injury Prevention and Recovery with Sports Physiotherapy</p>
+                <p>Home &raquo; Physiotherapy Specializations &raquo; Sports Physiotherapy</p>
+            </div>
+        </div>
+
+    <div id="program_service_section" class="program-service-section">
+        <div class="program-service-content">
+            <h2>Sports Physiotherapy Program</h2>
+            <p>Sports physiotherapy for treating sports injury and addressing performance and training issues of
+                sportspersons and athletes. Whether you are a 18 year old professional tennis player or a 45 year old
+                taking up marathon running, our sports physiotherapist can help you achieve your goals with fewer
+                injuries and faster recovery.</p>
+            <p>ReLiva has also provided support to marathons, corporate sports programs and elite soccer training
+                programs. We can develop personalised, sport-specific programs to help athletes of all performance
+                levels with the following objectives:</p>
+            <ul class="service-objectives-list">
+                <li>Restore function</li>
+                <li>Decrease pain</li>
+                <li>Increase strength and flexibility</li>
+                <li>Injury prevention and education</li>
+                <li>Optimize performance</li>
+            </ul>
+        </div>
+        <div class="service-image-container">
+            <img src="images/ph-sports-physio.webp" alt="Physiotherapy Session">
+        </div>
+    </div>
+
+    <div id="service_section" class="service-section">
+        <h2 class="service-section-title">Sports Injuries and Conditions We Treat</h2>
+        <p class="service-section-description">
+            Recover from common sports injury with expert sports physiotherapy for &nbsp;
+            <a href="#">Ankle Sprain</a>,&nbsp;
+            <a href="#">Tennis Elbow</a>, &nbsp;
+            <a href="#">ACL Tear</a>, &nbsp;
+            <a href="#">Shoulder dislocation</a> &nbsp;
+            to get back to your daily active life
+        </p>
+    </div>
+
+    <!-- <div id="service_card_video" class="service_card_video">
+
+    </div> -->
+    <div id="service_card_video_container" class="service_card_video_container"></div>
+
+
+    <div id="service_card_container" class="service-card-container">
+        <div class="service-card">
+            <img src="images/leg.webp" alt="Leg and Foot Pain">
+            <div class="service-card-content">
+                <h3>Leg and Foot Pain</h3>
+                <ul>
+                    <li>Plantar Fasciitis : Heel pain</li>
+                    <li>ACL injury, ACL tear treatment</li>
+                    <li>Runner’s knee, shin splints</li>
+                    <li>Hip pain, hamstring, shin pain</li>
+                    <li>Tailbone pain – coccydynia</li>
+                    <li>Ankle sprain and ankle pain</li>
+                </ul>
+            </div>
+        </div>
+        <div class="service-card">
+            <img src="images/arm&shoulders.webp" alt="Arm and Shoulder Pain">
+            <div class="service-card-content">
+                <h3>Arm and Shoulder Pain</h3>
+                <ul>
+                    <li>Frozen Shoulder, Adhesive Capsulitis</li>
+                    <li>Tennis elbow</li>
+                    <li>Shoulder pain, shoulder tendinitis</li>
+                    <li>Fracture and Dislocation</li>
+                    <li>Wrist pain, hand pain</li>
+                    <li>Elbow pain</li>
+                </ul>
+            </div>
+        </div>
+        <div class="service-card">
+            <img src="images/fitnessandrehab.webp" alt="Fitness & Sports Rehab">
+            <div class="service-card-content">
+                <h3>Fitness & Sports Rehab</h3>
+                <ul>
+                    <li>Post operative physio (ligament repair)</li>
+                    <li>Muscle strain and ankle sprains</li>
+                    <li>Treatment for gym injuries, football injuries</li>
+                    <li>Running injury and knee pain</li>
+                    <li>Core strengthening for lower back pain</li>
+                    <li>Zumba and dance injuries</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="footer">
+        <footer>
+          <div class="container-footer">
+            <div class="row">
+              <div class="col" id="company">
+                <img src="images/riky.png" alt="" class="logo">
+                <!-- <p>
+                  Providing expert physiotherapy care focused on your health, recovery, and long-term well-being.
+                </p> -->
+    
+                <p>
+                <div class="map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14741.47130297816!2d88.3230831!3d22.52789!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0279716a70b761%3A0x9c161231a774d50a!2sArti%20Physiotherapy%20Center!5e0!3m2!1sen!2sin!4v1724669192123!5m2!1sen!2sin"
+                    width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                </p>
+    
+              </div>
+    
+    
+              <!-- <div class="col" id="services">
+                <h3>Services</h3>
+                <div class="links">
+                  <a href="#">Illustration</a>
+                  <a href="#">Creatives</a>
+                  <a href="#">Poster Design</a>
+                  <a href="#">Card Design</a>
+                </div>
+              </div> -->
+    
+              <div class="col" id="useful-links">
+                <h3 class="useful-links-h3">Links</h3>
+                <div class="links">
+                  <a href="#">Home</a>
+                  <a href="#">About</a>
+                  <a href="#">Contact Us</a>
+                  <a href="#"></a>
+                  <!--<a href="#">Help</a> -->
+                </div>
+              </div>
+    
+              <div class="col" id="contact">
+                <h3>Contact</h3>
+                <div class="contact-details">
+                  <i class="fa fa-location"></i>
+                  <!-- <p>FF-42, Procube Avenue, <br> NY, USA</p> -->
+                  <p>G-84 Battikal First Lane Garden Reach Kolkata 700024</p>
+                </div>
+                <div class="contact-detailss">
+                  <i class="fa fa-phone"></i>
+                  <p>+91-8910924206 / <br>+91- 9330227965 / <br>+91- 9038657263</p>
+                </div>
+                <div class="contact-details">
+                  <i class="fa-solid fa-clock"></i> 10Am to 2PM / 6PM to 10PM
+                </div>
+              </div>
+            </div>
+    
+            <!-- <div class="row">
+              <div class="form">
+                <form action="">
+                  <input type="text" placeholder="Email here...">
+                  <button><i class="fa fa-paper-plane"></i></button>
+                </form>
+              </div>
+            </div> -->
+    
+            <div class="subsection">
+              <h1 class="credit">©2024 Arti Physiotherapists | all rights reserved!</h1>
+            </div>
+    
+          </div>
+    
+    
+    
+    
+        </footer>
+      </section>
+    <script>
+        // Clear sections
+        document.getElementById("hero_service_section").innerHTML = ''
+        document.getElementById('program_service_section').innerHTML = ''
+        document.getElementById("service_section").innerHTML = ''
+        document.getElementById('service_card_video_container').innerHTML = ''
+        document.getElementById('service_card_container').innerHTML = ''
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        
+        console.log("ID from URL:", id);
+
+        // Check if ID exists
+        if (!id) {
+            console.error("No ID found in URL");
+            document.getElementById("hero_service_section").innerHTML = '<div class="service-content"><h1 style="color: white !important;">Error</h1><p style="color: rgba(255,255,255,0.95) !important;">No blog ID provided in the URL.</p></div>';
+        } else {
+            $.ajax({
+                url: 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com/users/' + id,
+                type: 'get',
+                dataType: "json",
+                success: function (response, status) {
+                    console.log("API Response:", response);
+                    
+                    // Check if response exists and has required fields
+                    if (!response || !response.heading) {
+                        console.error("Invalid response:", response);
+                        document.getElementById("hero_service_section").innerHTML = '<div class="service-content"><h1 style="color: white !important;">Error</h1><p style="color: rgba(255,255,255,0.95) !important;">Unable to load blog content. Please try again.</p></div>';
+                    } else {
+                        var content = '<div id="remove"><div class="service-content"><h1 style="color: white !important; text-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;">' + (response.heading || 'No Title') + '</h1><p style="color: rgba(255,255,255,0.95) !important; text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;">' + (response.subheading || '') + '</p><p style="color: rgba(255,255,255,0.95) !important; text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;">Home &raquo; Physiotherapy Specializations &raquo; ' + (response.heading || 'Blog Post') + '</p></div></div>';
+                        $('#hero_service_section').append(content);
+
+                        // Only show YouTube videos, skip Google Drive content
+                        var videoIframe = '';
+                        if (response.Youtube_Video_Id) {
+                            // YouTube embed URL
+                            videoIframe = '<iframe src="https://www.youtube.com/embed/' + response.Youtube_Video_Id + '" width="77%" height="280" allow="autoplay; encrypted-media" allowfullscreen frameborder="0" hspace="0" vspace="0" marginheight="0" marginwidth="0" style="border:none;"></iframe>';
+                        }
+                        
+                        var blog = '<div id="program-service-content" class="program-service-content"><h2>' + (response.blogheading || '') + '</h2><p>' + (response.ArticleBlog_1 || '') + '</p><p>' + (response.ArticleBlog_2 || '') + '</p><ul class="service-objectives-list"></ul></div><div id="service-image-container" class="service-image-container">' + videoIframe + '</div>';
+
+                        $('#program_service_section').append(blog);
+
+                        var service_section = '<h2 class="service-section-title">' + (response.SubHeading || '') + '</h2><p class="service-section-description">' + (response.SubDescription || '') + '</p>';
+                        $('#service_section').append(service_section);
+
+                        $.ajax({
+                            url: 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com/blogsub/' + id,
+                            type: 'get',
+                            dataType: "json",
+                            success: function (response, status) {
+                                console.log(response);
+                                for (let i = 0; i < response.length; i++) {
+                                    console.log(response[i]);
+                                    console.log(response[i].SubHeading);
+
+
+
+
+
+                                    var mime_Type = response[i].mime_Type;
+
+                                    mime_Type.forEach(function(mimeType, index) {
+                                        if (mimeType == 'video/mp4') {
+                                            console.log(mimeType, index);
+                                            console.log(response[i].SubImageId[index]);
+                                            var service_card_video = '<div class="service_card_video"><iframe src="https://drive.google.com/file/d/' + response[i].SubImageId[index] + '/preview" width="77%" height="280" allow="autoplay" frameBorder="0" hspace="0" vspace="0" marginheight="0" marginwidth="0" style="border:none;"></iframe></div>';
+                                            $('#service_card_video_container').append(service_card_video);
+                                        } else if (mimeType == 'image/jpg' || mimeType == 'image/png' || mimeType == 'image/webp' || mimeType == 'image/jpeg') {
+                                            console.log(mimeType, index);
+                                            console.log(response[i].SubImageId[index]);
+                                            var newDiv = document.createElement("div");
+                                            newDiv.className = "service-card";
+                                            newDiv.id = 'service_card' + i;
+                                            $('#service_card_container').append(newDiv);
+                                            var service_card = '<img src="https://drive.google.com/thumbnail?id=' + response[i].SubImageId[index] + '" alt="Leg and Foot Pain">';
+                                            $('#service_card' + i).append(service_card);
+                                        }
+                                    });
+                                    var Service_card_content = '<div class="service-card-content"><h3>' + (response[i].SectionHeading || '') + '</h3><ul><li>' + (response[i].SubPart1 || '') + '</li><li>' + (response[i].SubPart2 || '') + '</li><li>' + (response[i].SubPart3 || '') + '</li><li>' + (response[i].SubPart4 || '') + '</li><li>' + (response[i].SubPart5 || '') + '</li></ul></div>';
+                                    $('#service_card' + i).append(Service_card_content);
+                                }
+                            },
+                            error: function (data) {
+                                console.log("Error", data);
+                            }
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX Error:", status, error);
+                    console.error("Response:", xhr.responseText);
+                    
+                    // Show error message in hero section
+                    document.getElementById("hero_service_section").innerHTML = '<div class="service-content"><h1 style="color: white !important;">Error Loading Content</h1><p style="color: rgba(255,255,255,0.95) !important;">Unable to load blog content. Please check the URL and try again.</p><p style="color: rgba(255,255,255,0.95) !important;">Error: ' + (error || 'Unknown error') + '</p></div>';
+                }
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

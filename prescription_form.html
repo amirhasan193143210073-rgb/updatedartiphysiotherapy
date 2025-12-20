@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Form</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/Admin-style.css">
+    <style>
+      /* Themed header and sidebar to match admin pages */
+      #content nav {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: #fff !important;
+        border-bottom: 1px solid rgba(255,255,255,.15);
+      }
+      .arrowicon { color: #fff !important; }
+
+      #sidebar {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: #fff !important;
+      }
+      #sidebar .brand { background: transparent !important; color: #fff !important; }
+      #sidebar .brand .bx { color: #fff !important; }
+      #sidebar .side-menu li a { background: transparent !important; color: #fff !important; }
+      #sidebar .side-menu.top li a:hover { color: #CFE8FF !important; }
+      #sidebar .side-menu.top li.active a { color: #CFE8FF !important; }
+      #sidebar .side-menu li.active { background: rgba(255,255,255,.15) !important; }
+    </style>
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-smile'></i>
+            <span class="text">Admin Panel</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="Blog.html">
+                    <i class='bx bxs-dashboard icon'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="SubBlog.html">
+                    <i class='bx bxs-image-add icon'></i>
+                    <span class="text">Service gallery</span>
+                </a>
+            </li>
+            <li>
+                <a href="select_section_view.html">
+                    <i class='bx bxs-slideshow icon'></i>
+                    <span class="text">section view</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="prescription_form.html">
+                    <i class='bx bxs-cog icon'></i>
+                    <span class="text">Create Prescription</span>
+                </a>
+            </li>
+            <li>
+                <a href="invoice.html">
+                    <i class='bx bxs-receipt icon'></i>
+                    <span class="text">Create Invoice</span>
+                </a>
+            </li>
+              <li>
+        <a href="video-consultation.html">
+          <i class='bx bxs-video icon'></i>
+          <span class="text">Video Consultation</span>
+        </a>
+      </li>
+      <li>
+        <a href="send-video-whatsapp.html">
+          <i class='bx bxs-share icon'></i>
+          <span class="text">Shre Video</span>
+        </a>
+      </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+    <section id="content">
+        <nav>
+            <!-- <i class='bx bx-menu' ></i> -->
+            <i class='bx bx-left-arrow-alt arrowicon'></i>
+            <i class='bx bx-right-arrow-alt arrowicon' style="display: none;"></i>
+        </nav>
+    </section>
+
+    <form enctype="multipart/form-data" id="upload_submit">
+        <div class="container" style="background:#fff; border:1px solid #eef1f6; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.06);">
+            <div class="section">
+                <h2 style="color:#111827; margin-top:0;">Prescription Form</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="name">Phone:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" required>
+                <label for="age">Age:</label>
+                <input type="number" name="age" id="age" required>
+                <h3>Gender:</h3>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input type="radio" id="check-male" name="gender" />
+                        <label for="check-male">male</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-female" name="gender" />
+                        <label for="check-female">Female</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-other" name="gender" />
+                        <label for="check-other">Others</label>
+                    </div>
+                </div>
+                <label for="problem">Patient Problem:</label>
+                <textarea id="problem" name="problem" rows="2" required></textarea>
+                <label for="dr_note">Doctor Note:</label>
+                <textarea id="dr_note" name="dr_note" rows="4" required></textarea>
+                <button class="btn" id="upload-submit">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+
+
+        document.getElementById("upload-submit").addEventListener("click", function () {
+            event.preventDefault();
+            // Get the selected gender radio button
+            
+            var name = document.getElementById("name").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var Age = document.getElementById("age").value;
+            var Patient_Problem = document.getElementById("problem").value;
+            var Doctor_Note = document.getElementById("dr_note").value;
+            const selectedGender = document.querySelector('input[name="gender"]:checked');
+            console.log(selectedGender)
+
+            if (selectedGender) {
+                // If a radio button is selected, get its value
+                const label = document.querySelector(`label[for="${selectedGender.id}"]`).innerText;
+                const url = `/prescription.html?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}&age=${encodeURIComponent(Age)}&patientProblem=${encodeURIComponent(Patient_Problem)}&doctorNote=${encodeURIComponent(Doctor_Note)}&gender=${encodeURIComponent(label)}`;
+
+                console.log(name, Age, Patient_Problem, Doctor_Note, label)
+                window.location.href = url;
+            } else {
+                // If no radio button is selected
+                alert("No gender selected!");
+            }
+          
+
+        });
+    </script>
+    <script src="js/admin-script.js"></script>
+
+</body>
+
+</html>

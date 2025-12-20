@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Consultation | Arti Physiotherapy</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .consultation-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    
+    .consultation-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .consultation-header h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .user-badge {
+      background: rgba(255,255,255,0.2);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse 2s infinite;
+    }
+    
+    .status-dot.disconnected {
+      background: #ef4444;
+      animation: none;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Video Container - Side by Side Layout */
+    .video-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 30px;
+      min-height: 600px;
+    }
+    
+    @media (max-width: 768px) {
+      .video-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .video-wrapper {
+      position: relative;
+      background: #000;
+      border-radius: 15px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .video-label {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #999;
+      font-size: 1.1rem;
+    }
+    
+    .video-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 15px;
+      opacity: 0.5;
+    }
+    
+    /* Controls */
+    .controls {
+      background: #f8f9fa;
+      padding: 25px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .control-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .control-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    .control-btn.mute {
+      background: #ef4444;
+      color: white;
+    }
+    
+    .control-btn.mute.active {
+      background: #4ade80;
+    }
+    
+    .control-btn.video {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    .control-btn.video.active {
+      background: #6b7280;
+    }
+    
+    .control-btn.end-call {
+      background: #ef4444;
+      color: white;
+      width: 70px;
+      height: 70px;
+    }
+    
+    .session-info {
+      padding: 20px 30px;
+      background: #f8f9fa;
+      border-top: 1px solid #e5e7eb;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    
+    .session-info-item {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .session-info-item strong {
+      color: #667eea;
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+    }
+    
+    .session-info-item span {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    .error-message {
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 15px;
+      margin: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+    
+    .error-message.show {
+      display: block;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 50px;
+      color: #666;
+    }
+    
+    .loading i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    .btn-primary {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(79, 70, 229, 0.35);
+      background: #4238d9;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #4f46e5;
+      border: 1px solid rgba(79, 70, 229, 0.4);
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background: rgba(79, 70, 229, 0.1);
+      border-color: rgba(79, 70, 229, 0.6);
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 999;
+      backdrop-filter: blur(6px);
+    }
+    .modal-overlay.show {
+      display: flex;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 28px;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 25px 60px rgba(79, 70, 229, 0.25);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-content h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1f2937;
+    }
+    .modal-content p {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+    .role-options {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .role-options label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      color: #374151;
+      cursor: pointer;
+    }
+    .role-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .role-fields label {
+      font-weight: 600;
+      color: #374151;
+    }
+    .role-fields input {
+      padding: 10px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+    .role-fields input:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .error-text {
+      font-size: 0.9rem;
+      color: #dc2626;
+      margin-top: 4px;
+    }
+    .hidden {
+      display: none !important;
+    }
+    .modal-open {
+      overflow: hidden;
+    }
+    .user-info .btn-primary {
+      box-shadow: none;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      border-radius: 999px;
+    }
+    .user-info .btn-primary:hover {
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="joinModal" class="modal-overlay">
+    <div class="modal-content">
+      <h2>Start or Join a Consultation</h2>
+      <p>Select your role and click Continue. No ID is required.</p>
+      <form id="joinForm">
+        <div class="role-options">
+          <label>
+            <input type="radio" name="role" value="patient" checked>
+            Patient
+          </label>
+          <label>
+            <input type="radio" name="role" value="therapist">
+            Physiotherapist
+          </label>
+        </div>
+        <div id="patientFields" class="role-fields">
+          <p style="margin: 6px 0; color:#374151;">No ID needed. Click Continue to join as a patient. We’ll automatically connect you when your physiotherapist starts the session.</p>
+        </div>
+        <div id="therapistFields" class="role-fields hidden">
+          <p style="margin: 6px 0; color:#374151;">No ID needed. Click Continue to start a session as a physiotherapist. We’ll handle IDs automatically.</p>
+        </div>
+        <p id="joinError" class="error-text hidden"></p>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelJoin">Cancel</button>
+          <button type="submit" class="btn-primary"><i class="fas fa-arrow-right"></i> Continue</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="consultation-container">
+    <div class="consultation-header">
+      <div>
+        <h1><i class="fas fa-video"></i> Video Consultation</h1>
+        <p style="margin-top: 5px; font-size: 0.9rem; opacity: 0.9;">One-to-One Consultation</p>
+      </div>
+      <div class="user-info">
+        <span class="user-badge" id="userTypeBadge">
+          <i class="fas fa-user"></i> <span id="userTypeText">Patient</span>
+        </span>
+        <div class="status-indicator">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="statusText">Connecting...</span>
+        </div>
+        <button class="btn-primary" id="joinSessionButton" type="button">
+          <i class="fas fa-link"></i> Join Session
+        </button>
+      </div>
+    </div>
+    
+    <div class="error-message" id="errorMessage"></div>
+    
+    <div id="loadingIndicator" class="loading">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>Initializing video consultation...</p>
+    </div>
+    
+    <div id="videoSection" style="display: none;">
+      <div class="video-container">
+        <!-- Local Video (You) -->
+        <div class="video-wrapper">
+          <video id="localVideo" autoplay playsinline muted></video>
+          <div class="video-label">
+            <i class="fas fa-user"></i> You
+          </div>
+          <div id="localVideoPlaceholder" class="video-placeholder">
+            <i class="fas fa-user"></i>
+            <p>Waiting for camera...</p>
+          </div>
+        </div>
+        
+        <!-- Remote Video (Peer) -->
+        <div class="video-wrapper">
+          <video id="remoteVideo" autoplay playsinline></video>
+          <div class="video-label">
+            <i class="fas fa-user-md" id="remoteVideoIcon"></i> 
+            <span id="remoteVideoLabel">Waiting for peer...</span>
+          </div>
+          <div id="remoteVideoPlaceholder" class="video-placeholder">
+            <i class="fas fa-user-md"></i>
+            <p>Waiting for peer to join...</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="controls">
+        <button class="control-btn mute" id="toggleAudio" title="Toggle Microphone">
+          <i class="fas fa-microphone"></i>
+        </button>
+        <button class="control-btn video" id="toggleVideo" title="Toggle Camera">
+          <i class="fas fa-video"></i>
+        </button>
+        <button class="control-btn end-call" id="endCall" title="End Call">
+          <i class="fas fa-phone-slash"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="session-info">
+      <div class="session-info-item">
+        <strong>Session ID</strong>
+        <span id="sessionIdDisplay">-</span>
+      </div>
+      <div class="session-info-item">
+        <strong>Your Role</strong>
+        <span id="userRoleDisplay">-</span>
+      </div>
+      <div class="session-info-item">
+        <strong>Peer</strong>
+        <span id="peerNameDisplay">-</span>
+      </div>
+      <div class="session-info-item">
+        <strong>Connection Status</strong>
+        <span id="connectionStatus">-</span>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    /**
+     * WebRTC Client for Video Consultation
+     * Handles WebRTC peer connection and signaling via WebSocket
+     */
+    class WebRTCClient {
+      constructor(config) {
+        this.apiBaseUrl = config.apiBaseUrl || '';
+        this.wsEndpoint = config.wsEndpoint || '';
+        this.sessionId = config.sessionId || null;
+        this.userId = config.userId || '';
+        this.userType = config.userType || 'patient';
+        
+        this.ws = null;
+        this.pc = null;
+        this.localStream = null;
+        this.remoteStream = null;
+        
+        this.rtcConfig = {
+          iceServers: [
+            { urls: 'stun:stun.l.google.com:19302' },
+            { urls: 'stun:stun1.l.google.com:19302' }
+          ]
+        };
+        
+        this.isCallActive = false;
+        this.isLocalVideoEnabled = true;
+        this.isLocalAudioEnabled = true;
+        
+        this.onRemoteStream = config.onRemoteStream || (() => {});
+        this.onLocalStream = config.onLocalStream || (() => {});
+        this.onConnectionStateChange = config.onConnectionStateChange || (() => {});
+        this.onError = config.onError || (() => {});
+        this.onCallEnded = config.onCallEnded || (() => {});
+      }
+      
+      async connectWebSocket() {
+        return new Promise((resolve, reject) => {
+          try {
+            let wsUrl = this.wsEndpoint.replace('https://', 'wss://').replace('http://', 'ws://');
+            const params = new URLSearchParams({
+              userId: this.userId,
+              userType: this.userType
+            });
+            if (this.sessionId) {
+              params.append('sessionId', this.sessionId);
+            }
+            wsUrl = `${wsUrl}?${params.toString()}`;
+            
+            this.ws = new WebSocket(wsUrl);
+            
+            this.ws.onopen = () => {
+              console.log('WebSocket connected');
+              this.sendWebSocketMessage({
+                type: 'join',
+                sessionId: this.sessionId,
+                userId: this.userId,
+                userType: this.userType
+              });
+              resolve();
+            };
+            
+            this.ws.onmessage = (event) => {
+              try {
+                const message = JSON.parse(event.data);
+                // Only handle signaling messages (offer, answer, ice-candidate, call-ended)
+                // Ignore server status messages (message, waiting, etc.)
+                if (message.type && ['offer', 'answer', 'ice-candidate', 'call-ended'].includes(message.type)) {
+                  this.handleSignalingMessage(message);
+                } else if (message.type) {
+                  console.log('Received non-signaling message:', message.type, message);
+                } else {
+                  console.log('Received server message:', message);
+                }
+              } catch (error) {
+                console.error('Error parsing WebSocket message:', error, event.data);
+              }
+            };
+            
+            this.ws.onerror = (error) => {
+              console.error('WebSocket error:', error);
+              this.onError('WebSocket connection error');
+              reject(error);
+            };
+            
+            this.ws.onclose = () => {
+              console.log('WebSocket closed');
+              this.onConnectionStateChange('disconnected');
+            };
+          } catch (error) {
+            console.error('Error connecting WebSocket:', error);
+            reject(error);
+          }
+        });
+      }
+      
+      sendWebSocketMessage(message) {
+        if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+          this.ws.send(JSON.stringify(message));
+        } else {
+          console.error('WebSocket not connected');
+        }
+      }
+      
+      handleSignalingMessage(message) {
+        if (!message || !message.type) {
+          console.warn('Invalid signaling message:', message);
+          return;
+        }
+        
+        console.log('Received signaling message:', message.type);
+        
+        switch (message.type) {
+          case 'offer':
+            if (message.sdp) {
+              this.handleOffer(message.sdp);
+            } else {
+              console.error('Offer message missing SDP');
+            }
+            break;
+          case 'answer':
+            if (message.sdp) {
+              this.handleAnswer(message.sdp);
+            } else {
+              console.error('Answer message missing SDP');
+            }
+            break;
+          case 'ice-candidate':
+            if (message.candidate) {
+              this.handleIceCandidate(message.candidate);
+            } else {
+              console.error('ICE candidate message missing candidate');
+            }
+            break;
+          case 'call-ended':
+            this.endCall();
+            break;
+          default:
+            console.log('Unknown signaling message type:', message.type);
+        }
+      }
+      
+      async startCall() {
+        try {
+          // Use existing stream if already available, otherwise request new one
+          if (!this.localStream) {
+            this.localStream = await navigator.mediaDevices.getUserMedia({
+              video: true,
+              audio: true
+            });
+            
+            if (this.onLocalStream) {
+              this.onLocalStream(this.localStream);
+            }
+          }
+          
+          this.createPeerConnection();
+          
+          this.localStream.getTracks().forEach(track => {
+            this.pc.addTrack(track, this.localStream);
+          });
+          
+          const offer = await this.pc.createOffer();
+          await this.pc.setLocalDescription(offer);
+          
+          this.sendWebSocketMessage({
+            type: 'offer',
+            sessionId: this.sessionId,
+            sdp: offer
+          });
+          
+          this.isCallActive = true;
+          this.onConnectionStateChange('connecting');
+          
+        } catch (error) {
+          console.error('Error starting call:', error);
+          this.onError('Failed to start call: ' + error.message);
+        }
+      }
+      
+      createPeerConnection() {
+        this.pc = new RTCPeerConnection(this.rtcConfig);
+        
+        this.pc.ontrack = (event) => {
+          console.log('Received remote track');
+          this.remoteStream = event.streams[0];
+          this.onRemoteStream(this.remoteStream);
+          this.onConnectionStateChange('connected');
+        };
+        
+        this.pc.onicecandidate = (event) => {
+          if (event.candidate) {
+            this.sendWebSocketMessage({
+              type: 'ice-candidate',
+              sessionId: this.sessionId,
+              candidate: event.candidate
+            });
+          }
+        };
+        
+        this.pc.onconnectionstatechange = () => {
+          console.log('Connection state:', this.pc.connectionState);
+          this.onConnectionStateChange(this.pc.connectionState);
+          
+          if (this.pc.connectionState === 'failed' || this.pc.connectionState === 'disconnected') {
+            this.onError('Connection failed');
+          }
+        };
+        
+        this.pc.oniceconnectionstatechange = () => {
+          console.log('ICE connection state:', this.pc.iceConnectionState);
+        };
+      }
+      
+      async handleOffer(offerSdp) {
+        try {
+          // Use existing stream if already available, otherwise request new one
+          if (!this.localStream) {
+            this.localStream = await navigator.mediaDevices.getUserMedia({
+              video: true,
+              audio: true
+            });
+            
+            if (this.onLocalStream) {
+              this.onLocalStream(this.localStream);
+            }
+          }
+          
+          if (!this.pc) {
+            this.createPeerConnection();
+            this.localStream.getTracks().forEach(track => {
+              this.pc.addTrack(track, this.localStream);
+            });
+          }
+          
+          await this.pc.setRemoteDescription(new RTCSessionDescription(offerSdp));
+          
+          const answer = await this.pc.createAnswer();
+          await this.pc.setLocalDescription(answer);
+          
+          this.sendWebSocketMessage({
+            type: 'answer',
+            sessionId: this.sessionId,
+            sdp: answer
+          });
+          
+          this.isCallActive = true;
+          this.onConnectionStateChange('connecting');
+          
+        } catch (error) {
+          console.error('Error handling offer:', error);
+          this.onError('Failed to handle offer: ' + error.message);
+        }
+      }
+      
+      async handleAnswer(answerSdp) {
+        try {
+          if (this.pc) {
+            await this.pc.setRemoteDescription(new RTCSessionDescription(answerSdp));
+          }
+        } catch (error) {
+          console.error('Error handling answer:', error);
+          this.onError('Failed to handle answer: ' + error.message);
+        }
+      }
+      
+      async handleIceCandidate(candidate) {
+        try {
+          if (this.pc) {
+            await this.pc.addIceCandidate(new RTCIceCandidate(candidate));
+          }
+        } catch (error) {
+          console.error('Error handling ICE candidate:', error);
+        }
+      }
+      
+      toggleVideo() {
+        if (this.localStream) {
+          const videoTrack = this.localStream.getVideoTracks()[0];
+          if (videoTrack) {
+            this.isLocalVideoEnabled = !this.isLocalVideoEnabled;
+            videoTrack.enabled = this.isLocalVideoEnabled;
+            return this.isLocalVideoEnabled;
+          }
+        }
+        return false;
+      }
+      
+      toggleAudio() {
+        if (this.localStream) {
+          const audioTrack = this.localStream.getAudioTracks()[0];
+          if (audioTrack) {
+            this.isLocalAudioEnabled = !this.isLocalAudioEnabled;
+            audioTrack.enabled = this.isLocalAudioEnabled;
+            return this.isLocalAudioEnabled;
+          }
+        }
+        return false;
+      }
+      
+      async endCall() {
+        try {
+          if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+            this.sendWebSocketMessage({
+              type: 'call-ended',
+              sessionId: this.sessionId
+            });
+          }
+          
+          if (this.pc) {
+            this.pc.close();
+            this.pc = null;
+          }
+          
+          if (this.localStream) {
+            this.localStream.getTracks().forEach(track => track.stop());
+            this.localStream = null;
+          }
+          
+          if (this.ws) {
+            this.ws.close();
+            this.ws = null;
+          }
+          
+          this.isCallActive = false;
+          this.onCallEnded();
+          
+          if (this.sessionId) {
+            try {
+              await fetch(`${this.apiBaseUrl}/sessions/${this.sessionId}/end`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              });
+            } catch (error) {
+              console.error('Error ending session:', error);
+            }
+          }
+          
+        } catch (error) {
+          console.error('Error ending call:', error);
+          this.onError('Failed to end call: ' + error.message);
+        }
+      }
+      
+      destroy() {
+        this.endCall();
+      }
+    }
+  </script>
+  <script>
+    // Configuration - API endpoints (deployed)
+    const API_BASE_URL = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com';
+    const WS_ENDPOINT = 'wss://zmfqfft5za.execute-api.ap-south-1.amazonaws.com/dev';
+
+    // URL parameters & state
+    const urlParams = new URLSearchParams(window.location.search);
+    let sessionId = urlParams.get('sessionId') || '';
+    let userType = urlParams.get('userType') || '';
+    let userId = urlParams.get('userId') || '';
+    let peerId = urlParams.get('peerId') || '';
+    let autoJoin = urlParams.get('autoJoin') === '1';
+
+    let webrtcClient = null;
+    let currentSession = null;
+
+    // Modal elements
+    const joinModal = document.getElementById('joinModal');
+    const joinForm = document.getElementById('joinForm');
+    const joinError = document.getElementById('joinError');
+    const patientFields = document.getElementById('patientFields');
+    const therapistFields = document.getElementById('therapistFields');
+    const roleRadios = document.querySelectorAll('input[name="role"]');
+    const cancelJoinBtn = document.getElementById('cancelJoin');
+    const joinSessionButton = document.getElementById('joinSessionButton');
+    const patientIdInput = document.getElementById('patientIdInput');
+    const therapistIdInput = document.getElementById('therapistIdInput');
+    const therapistPatientIdInput = document.getElementById('therapistPatientIdInput');
+
+    function updateUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      if (userType) params.set('userType', userType); else params.delete('userType');
+      if (userId) params.set('userId', userId); else params.delete('userId');
+      if (peerId) params.set('peerId', peerId); else params.delete('peerId');
+      if (sessionId) params.set('sessionId', sessionId); else params.delete('sessionId');
+      window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+    }
+
+    function updateUIForUserType() {
+      const userTypeBadge = document.getElementById('userTypeBadge');
+      const userTypeText = document.getElementById('userTypeText');
+      const userRoleDisplay = document.getElementById('userRoleDisplay');
+      const remoteVideoLabel = document.getElementById('remoteVideoLabel');
+      const remoteVideoIcon = document.getElementById('remoteVideoIcon');
+      const role = userType === 'therapist' ? 'therapist' : 'patient';
+
+      if (!userTypeBadge || !userTypeText || !userRoleDisplay || !remoteVideoLabel || !remoteVideoIcon) {
+        console.warn('Consultation header elements not found. Skipping UI update.');
+        return;
+      }
+
+      if (role === 'therapist') {
+        userTypeText.textContent = 'Physiotherapist';
+        userRoleDisplay.textContent = 'Physiotherapist';
+        remoteVideoLabel.textContent = 'Patient';
+        remoteVideoIcon.className = 'fas fa-user';
+        userTypeBadge.innerHTML = '<i class="fas fa-user-md"></i> Physiotherapist';
+      } else {
+        userTypeText.textContent = 'Patient';
+        userRoleDisplay.textContent = 'Patient';
+        remoteVideoLabel.textContent = 'Physiotherapist';
+        remoteVideoIcon.className = 'fas fa-user-md';
+        userTypeBadge.innerHTML = '<i class="fas fa-user"></i> Patient';
+      }
+    }
+
+    function showJoinModal() {
+      if (!joinModal) return;
+      joinModal.classList.add('show');
+      document.body.classList.add('modal-open');
+      joinError.classList.add('hidden');
+      joinError.textContent = '';
+      const selectedRole = document.querySelector('input[name="role"]:checked')?.value || 'patient';
+      toggleRoleFields(selectedRole);
+      populateJoinDefaults(selectedRole);
+    }
+
+    function hideJoinModal() {
+      if (!joinModal) return;
+      joinModal.classList.remove('show');
+      document.body.classList.remove('modal-open');
+    }
+
+    function toggleRoleFields(role) {
+      if (role === 'therapist') {
+        therapistFields.classList.remove('hidden');
+        patientFields.classList.add('hidden');
+      } else {
+        patientFields.classList.remove('hidden');
+        therapistFields.classList.add('hidden');
+      }
+    }
+
+    function populateJoinDefaults(role) {
+      const timestamp = Date.now();
+      if (therapistIdInput) {
+        therapistIdInput.value = `therapist_${timestamp}`;
+      }
+      if (therapistPatientIdInput) {
+        therapistPatientIdInput.value = `patient_${timestamp}`;
+      }
+      if (patientIdInput) {
+        patientIdInput.value = `patient_${timestamp}`;
+      }
+    }
+
+    function updateStatus(state, text) {
+      const statusDot = document.getElementById('statusDot');
+      const statusText = document.getElementById('statusText');
+      const connectionStatus = document.getElementById('connectionStatus');
+      statusText.textContent = text;
+      connectionStatus.textContent = text;
+      if (state === 'connected' || state === 'active') {
+        statusDot.classList.remove('disconnected');
+      } else {
+        statusDot.classList.add('disconnected');
+      }
+    }
+
+    function showError(message) {
+      const errorDiv = document.getElementById('errorMessage');
+      errorDiv.textContent = message;
+      errorDiv.classList.add('show');
+      setTimeout(() => {
+        errorDiv.classList.remove('show');
+      }, 5000);
+    }
+
+    async function initConsultation() {
+      try {
+        document.getElementById('errorMessage').classList.remove('show');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        loadingIndicator.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i>' +
+          '<p>Initializing video consultation...</p>';
+
+        if (!userType) userType = 'patient';
+        if (!userId) userId = userType === 'therapist' ? `therapist_${Date.now()}` : `patient_${Date.now()}`;
+        if (userType === 'patient' && !peerId) peerId = 'therapist1';
+        if (userType === 'therapist' && !peerId) peerId = 'patient1';
+
+        updateUrlParams();
+        updateUIForUserType();
+
+        document.getElementById('sessionIdDisplay').textContent = sessionId || '-';
+        document.getElementById('peerNameDisplay').textContent = peerId || '-';
+
+        loadingIndicator.style.display = 'block';
+        document.getElementById('videoSection').style.display = 'none';
+
+        if (webrtcClient) {
+          webrtcClient.destroy();
+          webrtcClient = null;
+        }
+
+        let sessionIdToUse = sessionId;
+        if (!sessionIdToUse) {
+          if (userType === 'therapist') {
+            throw new Error('Session ID is required to join as a physiotherapist. Please start a consultation first.');
+          } else {
+            throw new Error('No scheduled consultation found for this patient ID. Please ask your physiotherapist to start the session.');
+          }
+        }
+
+        const response = await fetch(`${API_BASE_URL}/sessions/${sessionIdToUse}`);
+        const data = await response.json();
+        if (data.success) {
+          currentSession = data.session;
+          if (userType === 'patient') {
+            peerId = data.session.physiotherapistId || peerId;
+          } else {
+            peerId = data.session.patientId || peerId;
+          }
+        }
+
+        sessionId = sessionIdToUse;
+        updateUrlParams();
+        document.getElementById('sessionIdDisplay').textContent = sessionIdToUse;
+        document.getElementById('peerNameDisplay').textContent = currentSession
+          ? (userType === 'patient'
+              ? (currentSession.physiotherapistName || peerId)
+              : (currentSession.patientName || peerId))
+          : (peerId || '-');
+
+        webrtcClient = new WebRTCClient({
+          apiBaseUrl: API_BASE_URL,
+          wsEndpoint: WS_ENDPOINT,
+          sessionId: sessionIdToUse,
+          userId,
+          userType,
+          onRemoteStream: (stream) => {
+            const remoteVideo = document.getElementById('remoteVideo');
+            remoteVideo.srcObject = stream;
+            document.getElementById('remoteVideoPlaceholder').style.display = 'none';
+            updateStatus('connected', 'Connected');
+          },
+          onLocalStream: (stream) => {
+            const localVideo = document.getElementById('localVideo');
+            localVideo.srcObject = stream;
+            document.getElementById('localVideoPlaceholder').style.display = 'none';
+          },
+          onConnectionStateChange: (state) => {
+            const statusMap = {
+              connecting: 'Connecting...',
+              connected: 'Connected',
+              disconnected: 'Disconnected',
+              failed: 'Connection Failed',
+              waiting: 'Waiting for peer...'
+            };
+            updateStatus(state, statusMap[state] || state);
+          },
+          onError: (error) => {
+            showError(error);
+          },
+          onCallEnded: () => {
+            updateStatus('disconnected', 'Call Ended');
+            setTimeout(() => {
+              alert('Call ended. You will be redirected.');
+              window.location.href = 'index.html';
+            }, 2000);
+          }
+        });
+
+        await webrtcClient.connectWebSocket();
+
+        try {
+          const stream = webrtcClient.localStream || await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: true
+          });
+          webrtcClient.localStream = stream;
+          if (webrtcClient.onLocalStream) {
+            webrtcClient.onLocalStream(stream);
+          }
+          const localVideo = document.getElementById('localVideo');
+          localVideo.srcObject = stream;
+          document.getElementById('localVideoPlaceholder').style.display = 'none';
+        } catch (mediaError) {
+          console.error('Error accessing camera/microphone:', mediaError);
+          showError('Failed to access camera/microphone: ' + mediaError.message);
+        }
+
+        if (userType === 'patient') {
+          await webrtcClient.startCall();
+          updateStatus('connecting', 'Connecting...');
+        } else {
+          updateStatus('waiting', 'Waiting for patient...');
+        }
+
+        loadingIndicator.style.display = 'none';
+        document.getElementById('videoSection').style.display = 'block';
+        hideJoinModal();
+      } catch (error) {
+        console.error('Error initializing consultation:', error);
+        showError(error.message || 'Failed to initialize consultation.');
+        document.getElementById('loadingIndicator').innerHTML =
+          '<i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>' +
+          '<p style="color: #ef4444; margin-top: 15px;">Failed to initialize. Please adjust details and try again.</p>';
+        showJoinModal();
+      }
+    }
+
+    // Control button handlers
+    document.getElementById('toggleAudio').addEventListener('click', () => {
+      if (webrtcClient) {
+        const enabled = webrtcClient.toggleAudio();
+        const btn = document.getElementById('toggleAudio');
+        btn.classList.toggle('active', !enabled);
+        btn.innerHTML = enabled ? '<i class="fas fa-microphone"></i>' : '<i class="fas fa-microphone-slash"></i>';
+      }
+    });
+
+    document.getElementById('toggleVideo').addEventListener('click', () => {
+      if (webrtcClient) {
+        const enabled = webrtcClient.toggleVideo();
+        const btn = document.getElementById('toggleVideo');
+        btn.classList.toggle('active', !enabled);
+        btn.innerHTML = enabled ? '<i class="fas fa-video"></i>' : '<i class="fas fa-video-slash"></i>';
+      }
+    });
+
+    document.getElementById('endCall').addEventListener('click', () => {
+      if (confirm('Are you sure you want to end the call?')) {
+        if (webrtcClient) {
+          webrtcClient.endCall();
+        }
+      }
+    });
+
+    roleRadios.forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        const role = event.target.value;
+        toggleRoleFields(role);
+        populateJoinDefaults(role);
+      });
+    });
+
+    joinSessionButton?.addEventListener('click', () => {
+      const role = document.querySelector('input[name="role"]:checked')?.value || 'patient';
+      populateJoinDefaults(role);
+      showJoinModal();
+    });
+
+    cancelJoinBtn?.addEventListener('click', () => {
+      hideJoinModal();
+    });
+
+    joinForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const selectedRole = document.querySelector('input[name="role"]:checked')?.value || 'patient';
+      joinError.classList.add('hidden');
+      joinError.textContent = '';
+
+      if (selectedRole === 'patient') {
+        userType = 'patient';
+        userId = `patient_${Date.now()}`;
+        peerId = '';
+        sessionId = '';
+        hideJoinModal();
+        updateUrlParams();
+        updateUIForUserType();
+        autoJoinPatientSession();
+      } else {
+        const therapistIdVal = `therapist_${Date.now()}`;
+        const generatedPatientId = `patient_${Date.now()}`;
+        userType = 'therapist';
+        userId = therapistIdVal;
+        peerId = generatedPatientId;
+        sessionId = '';
+        hideJoinModal();
+        updateUrlParams();
+        updateUIForUserType();
+        createSessionForPhysiotherapist(therapistIdVal, generatedPatientId);
+      }
+    });
+
+    async function createSessionForPhysiotherapist(therapistIdVal, patientIdVal) {
+      const loadingIndicator = document.getElementById('loadingIndicator');
+      try {
+        document.getElementById('errorMessage').classList.remove('show');
+        updateStatus('connecting', 'Creating consultation session...');
+        loadingIndicator.style.display = 'block';
+
+        const response = await fetch(`${API_BASE_URL}/sessions`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            patientId: patientIdVal,
+            patientName: 'Patient',
+            physiotherapistId: therapistIdVal,
+            physiotherapistName: 'Physiotherapist'
+          })
+        });
+
+        const data = await response.json();
+        if (!data.success || !data.session) {
+          throw new Error(data.error || 'Failed to create consultation session.');
+        }
+
+        currentSession = data.session;
+        sessionId = data.session.sessionId;
+        peerId = patientIdVal;
+        userType = 'therapist';
+        userId = therapistIdVal;
+        updateUrlParams();
+        updateUIForUserType();
+        initConsultation();
+      } catch (error) {
+        console.error('Error creating session:', error);
+        if (loadingIndicator) loadingIndicator.style.display = 'none';
+        joinError.textContent = error.message || 'Failed to create session. Please try again.';
+        joinError.classList.remove('hidden');
+        showJoinModal();
+      }
+    }
+
+    async function loadSessionForPatient(patientIdVal) {
+      const loadingIndicator = document.getElementById('loadingIndicator');
+      try {
+        document.getElementById('errorMessage').classList.remove('show');
+        updateStatus('connecting', 'Searching for scheduled session...');
+        loadingIndicator.style.display = 'block';
+
+        const response = await fetch(`${API_BASE_URL}/sessions?patientId=${encodeURIComponent(patientIdVal)}`);
+        const data = await response.json();
+        if (!data.success || !Array.isArray(data.sessions) || data.sessions.length === 0) {
+          throw new Error('No upcoming consultations found. Please ask your physiotherapist to start the session.');
+        }
+
+        const session =
+          data.sessions.find((s) => s.status === 'pending') ||
+          data.sessions.find((s) => s.status === 'active') ||
+          data.sessions[0];
+
+        if (!session) {
+          throw new Error('No active consultation found. Please try again shortly.');
+        }
+
+        currentSession = session;
+        sessionId = session.sessionId;
+        peerId = session.physiotherapistId || peerId || 'therapist1';
+        userType = 'patient';
+        userId = patientIdVal;
+        updateUrlParams();
+        updateUIForUserType();
+        initConsultation();
+      } catch (error) {
+        console.error('Error loading patient session:', error);
+        if (loadingIndicator) loadingIndicator.style.display = 'none';
+        joinError.textContent = error.message || 'Failed to find a session. Please verify your patient ID.';
+        joinError.classList.remove('hidden');
+        showJoinModal();
+      }
+    }
+
+    async function autoJoinPatientSession() {
+      const loadingIndicator = document.getElementById('loadingIndicator');
+      try {
+        document.getElementById('errorMessage').classList.remove('show');
+        updateStatus('waiting', 'Waiting for physiotherapist to start...');
+        if (loadingIndicator) loadingIndicator.style.display = 'block';
+        const maxAttempts = 15;
+        const intervalMs = 2000;
+        for (let attempt = 0; attempt < maxAttempts; attempt++) {
+          try {
+            const resp = await fetch(`${API_BASE_URL}/sessions?status=pending`);
+            const data = await resp.json();
+            if (data.success && Array.isArray(data.sessions) && data.sessions.length > 0) {
+              const latest = data.sessions.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))[0];
+              currentSession = latest;
+              sessionId = latest.sessionId;
+              peerId = latest.physiotherapistId || peerId || 'therapist1';
+              userType = 'patient';
+              userId = userId || `patient_${Date.now()}`;
+              updateUrlParams();
+              updateUIForUserType();
+              await initConsultation();
+              return;
+            }
+          } catch (e) {
+            console.warn('Polling pending sessions failed:', e);
+          }
+          await new Promise((r) => setTimeout(r, intervalMs));
+        }
+        // Try active sessions as a fallback
+        try {
+          const respActive = await fetch(`${API_BASE_URL}/sessions?status=active`);
+          const dataActive = await respActive.json();
+          if (dataActive.success && Array.isArray(dataActive.sessions) && dataActive.sessions.length > 0) {
+            const latestActive = dataActive.sessions.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))[0];
+            currentSession = latestActive;
+            sessionId = latestActive.sessionId;
+            peerId = latestActive.physiotherapistId || peerId || 'therapist1';
+            userType = 'patient';
+            userId = userId || `patient_${Date.now()}`;
+            updateUrlParams();
+            updateUIForUserType();
+            await initConsultation();
+            return;
+          }
+        } catch (e2) {
+          console.warn('Polling active sessions failed:', e2);
+        }
+        showError('No consultation available yet. Please try again shortly.');
+        showJoinModal();
+      } finally {
+        if (loadingIndicator) loadingIndicator.style.display = 'none';
+      }
+    }
+
+    // Initialize on page load
+    window.addEventListener('load', () => {
+      if (!userType) userType = 'patient';
+      if (!userId) userId = userType === 'therapist' ? `therapist_${Date.now()}` : `patient_${Date.now()}`;
+      updateUIForUserType();
+      if (autoJoin && userType === 'patient') {
+        autoJoinPatientSession();
+        return;
+      }
+      const autoStart = (userType === 'therapist' && sessionId) || (userType === 'patient' && (peerId || sessionId));
+      if (autoStart) {
+        initConsultation();
+      } else {
+        showJoinModal();
+      }
+    });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+      if (webrtcClient) {
+        webrtcClient.destroy();
+      }
+    });
+  </script>
+</body>
+</html>

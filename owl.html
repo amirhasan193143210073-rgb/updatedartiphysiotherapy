@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="myjs2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+    body
+{
+    font-family:Arial;
+    font-size : 10pt;
+    padding:15px;
+}
+
+.ui-datepicker-calendar {
+    display: none;
+}
+h1 
+{
+    text-align: center;
+    color: white;
+    margin: 20px;
+}
+.owl-item 
+{
+    background-color: black;
+}
+#close
+{
+    float: right;
+    align-items: right;
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+    font-size: 24px;
+    z-index: 999;
+}
+</style>
+    <title>yes</title>
+</head>
+<body>
+<div class="test"></div>
+<div id="owl-demo" class="owl-carousel owl-theme">
+</div>
+
+<br> <br> <br> <br>
+<button id="addCarous"> Add Carousel</button>
+
+<script>
+
+$(document).ready(function() {
+ 
+ $("#owl-demo").owlCarousel({
+
+     navigation : true, // Show next and prev buttons
+     slideSpeed : 300,
+     paginationSpeed : 400,
+     items : 3, 
+     itemsDesktop : false,
+     itemsDesktopSmall : false,
+     margin:10,
+     nav:true,
+     itemsTablet: false,
+     itemsMobile : false
+ });
+
+});
+
+$("#addCarous").click(function(e){
+
+owl =  $("#owl-demo").owlCarousel({
+
+navigation : true, // Show next and prev buttons
+slideSpeed : 300,
+paginationSpeed : 400,
+items : 3, 
+itemsDesktop : false,
+itemsDesktopSmall : false,
+margin:10,
+nav:true,
+itemsTablet: false,
+itemsMobile : false
+});
+            
+var number = document.getElementsByClassName("item").length +1;
+    e.preventDefault(); //-- prevent form submit
+    $('#owl-demo').trigger('add.owl.carousel', ['<div class="item" id='+number+'> <span class="close" id="close" onclick="remove_image(this);"> X </span> <br> <h1> slide '+number+'  <h1> <br> <img src="test.jpg">  </div>'])
+        .trigger('refresh.owl.carousel');
+});
+
+
+function remove_image(trigger) {
+    var $item = $(trigger).closest('.owl-item');
+    var index = $item.closest('.owl-stage').children().index($item);
+    alert(index);
+    $item.closest('.owl-carousel').owlCarousel('remove', index).owlCarousel('update');
+    
+ if(owl.hasClass('owl-theme')){
+
+owl.trigger('destroy.owl.carousel');
+owl.find('.owl-stage-outer').children().unwrap();
+owl.removeClass("owl-center owl-loaded owl-text-select-on");
+owl = $("#owl-demo").owlCarousel({
+
+navigation : true, // Show next and prev buttons
+
+slideSpeed : 300,
+paginationSpeed : 400,
+
+items : 3, 
+itemsDesktop : false,
+itemsDesktopSmall : false,
+margin:10,
+nav:true,
+itemsTablet: false,
+itemsMobile : false
+
+});
+owl.owlCarousel();
+
+}
+
+owl.trigger('refresh.owl.carousel');
+
+
+}
+
+</script>
+</body>
+</html>

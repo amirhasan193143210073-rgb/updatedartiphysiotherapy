@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physiotherapy Blog Upload</title>
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/Admin-style.css">
+
+  <style>
+    #content nav {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+      border-bottom: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .arrowicon {
+      color: #fff !important;
+    }
+
+    #sidebar {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+    }
+
+    #sidebar .brand {
+      background: transparent !important;
+      color: #fff !important;
+    }
+
+    #sidebar .brand .bx {
+      color: #fff !important;
+    }
+
+    #sidebar .side-menu li a {
+      background: transparent !important;
+      color: #fff !important;
+    }
+
+    #sidebar .side-menu.top li a:hover {
+      color: #CFE8FF !important;
+    }
+
+    #sidebar .side-menu.top li.active a {
+      color: #CFE8FF !important;
+    }
+
+    #sidebar .side-menu li.active {
+      background: rgba(255, 255, 255, .15) !important;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 991px;
+      margin: 20px auto;
+      margin-left: 25%;
+    }
+
+    h2 {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      color: #555;
+    }
+
+    button.btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #0056b3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    button.btn:hover {
+      background-color: #004494;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <section id="sidebar">
+    <a href="#" class="brand">
+      <i class='bx bxs-smile'></i>
+      <span class="text">Admin Panel</span>
+    </a>
+    <ul class="side-menu top">
+      <li class="active"><a href="Blog.html"><i class='bx bxs-dashboard icon'></i><span class="text">Dashboard</span></a></li>
+      <li><a href="SubBlog.html"><i class='bx bxs-image-add icon'></i><span class="text">Service Gallery</span></a></li>
+      <li><a href="select_section_view.html"><i class='bx bxs-slideshow icon'></i><span class="text">Section View</span></a></li>
+      <li><a href="prescription_form.html"><i class='bx bxs-cog icon'></i><span class="text">Create Prescription</span></a></li>
+      <li><a href="invoice.html"><i class='bx bx-receipt icon'></i><span class="text">Create Invoice</span></a></li>
+      <li><a href="video-consultation.html"><i class='bx bxs-video icon'></i><span class="text">Video Consultation</span></a></li>
+      <li><a href="send-video-whatsapp.html"><i class='bx bxs-share icon'></i><span class="text">Shre Video</span></a></li>
+    </ul>
+  </section>
+
+  <section id="content">
+    <nav>
+      <i class='bx bx-left-arrow-alt arrowicon'></i>
+      <i class='bx bx-right-arrow-alt arrowicon' style="display: none;"></i>
+    </nav>
+  </section>
+
+  <form enctype="multipart/form-data" id="upload_submit">
+    <div class="container">
+      <div class="section">
+        <h2>Heading Part</h2>
+        <label for="heading">Heading:</label>
+        <input type="text" id="heading" name="heading" required>
+        <label for="subHeading">Subheading:</label>
+        <input type="text" name="subHeading" id="subHeading" required>
+      </div>
+
+      <div class="section">
+        <h2>Write Article/blog</h2>
+        <label for="Blog-Heading">Blog-Heading:</label>
+        <input type="text" name="blog_heading" id="blog_heading" required>
+        <label for="article/blog1">Article/Blog 1:</label>
+        <textarea id="article1" name="article1" rows="8" required></textarea>
+        <label for="article/blog2">Article/Blog 2:</label>
+        <textarea id="article2" name="article2" rows="8" required></textarea>
+
+        <label for="blogimage">Image:</label>
+        <input type="file" name="LiveLectureThumbNailFile" id="LiveLectureThumbNailFile" required>
+
+        <h2>Add the SubSection</h2>
+        <label for="heading">SubHeading:</label>
+        <input type="text" id="sub_heading" name="sub_heading">
+        <label for="Description">Subdescription:</label>
+        <textarea name="sub_description" id="sub_description" rows="4"></textarea>
+
+        <button class="btn" id="upload-submit">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="container">
+    <progress id="progress-bar" value="0" max="100"></progress><br>
+    <label id="progress-label">0%</label>
+  </div>
+
+  <script>
+    $('#upload_submit').submit(async function (e) {
+      e.preventDefault();
+ var headings = document.getElementById("heading").value;
+    var subHeading = document.getElementById("subHeading").value;
+    var blog_heading = document.getElementById("blog_heading").value;
+    var article1 = document.getElementById("article1").value;
+    var article2 = document.getElementById("article2").value;
+    var subheading = document.getElementById("sub_heading").value;
+    var subdescription = document.getElementById("sub_description").value;
+      const fileInput = $('#LiveLectureThumbNailFile')[0];
+      const file = fileInput.files[0];
+      var mimetype = file.type;
+      if (!file) {
+        alert("Please select an image file.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("LiveLectureThumbNailFile", file);
+      formData.append("heading", $('#heading').val());
+      formData.append("subheading", $('#subHeading').val());
+      formData.append("blogheading", $('#blog_heading').val());
+      formData.append("ArticleBlog_1", $('#article1').val());
+      formData.append("ArticleBlog_2", $('#article2').val());
+      formData.append("SubHeading", $('#sub_heading').val());
+      formData.append("SubDescription", $('#sub_description').val());
+
+      const progressBar = document.getElementById('progress-bar');
+      const progressLabel = document.getElementById('progress-label');
+
+      $.ajax({
+        url: "https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com/upload-youtube",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        xhr: function () {
+          const xhr = new window.XMLHttpRequest();
+          xhr.upload.addEventListener("progress", function (evt) {
+            if (evt.lengthComputable) {
+              const percentComplete = (evt.loaded / evt.total) * 100;
+              progressBar.value = percentComplete;
+              progressLabel.textContent = Math.round(percentComplete) + "%";
+            }
+          }, false);
+          return xhr;
+        },
+        success: function (data, textStatus, xhr) {
+          console.log("Success - data:", data);
+          console.log("Success - textStatus:", textStatus);
+          console.log("Success - xhr.responseText:", xhr.responseText);
+          
+          // Try to get video ID from various possible response formats
+          let videoId = null;
+          
+          // If data is already an object with videoId
+          if (data && typeof data === 'object' && data.videoId) {
+            videoId = data.videoId;
+          }
+          // If data is a string, try to parse it
+          else if (typeof data === 'string') {
+            try {
+              const parsed = JSON.parse(data);
+              videoId = parsed.videoId;
+            } catch (e) {
+              console.error("Failed to parse string response:", e);
+            }
+          }
+          // Try parsing xhr.responseText directly
+          else if (xhr.responseText) {
+            try {
+              const parsed = JSON.parse(xhr.responseText);
+              videoId = parsed.videoId || parsed.video_id;
+            } catch (e) {
+              console.error("Failed to parse xhr.responseText:", e);
+            }
+          }
+          
+          if (!videoId) {
+            console.error("Could not extract video ID. Full response data:", data);
+            alert("Error: Could not extract video ID from server response. Check console for details.");
+            return;
+          }
+          
+          console.log("Successfully extracted Video ID:", videoId);
+          alert("Uploaded successfully! Video ID: " + videoId);
+          UploadFileToDB(videoId);
+        },
+        error: function (err) {
+          console.error("Error uploading:", err);
+          alert("Upload failed. Check console for details.");
+        }
+      });
+
+
+          function UploadFileToDB(VideoId) {
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                heading: headings,
+                subheading: subHeading,
+                blogheading: blog_heading,
+                ArticleBlog_1: article1,
+                ArticleBlog_2: article2,
+                Youtube_Video_Id: VideoId,
+                mime_Type: mimetype,
+                SubHeading: subheading,
+                SubDescription: subdescription
+            }),
+            url: "https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com/users",
+            success: function (data) {
+                alert("Blog + YouTube Video uploaded successfully!");
+                console.log(data);
+            },
+            error: function (xhr, status, error) {
+                console.log("Error saving to DB:", xhr, status, error);
+                console.log("Response text:", xhr.responseText);
+                let errorMsg = "Failed to save blog data. ";
+                try {
+                    const errorResponse = JSON.parse(xhr.responseText);
+                    errorMsg += errorResponse.error || error;
+                } catch (e) {
+                    errorMsg += error || "Unknown error";
+                }
+                alert(errorMsg);
+            }
+        });
+    }
+
+    });
+    
+  </script>
+</body>
+</html>

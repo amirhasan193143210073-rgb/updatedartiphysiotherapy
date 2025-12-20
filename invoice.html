@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinic Invoice</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/Admin-style.css">
+  <style>
+    /* Themed header and sidebar to match admin pages */
+    #content nav {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+    .arrowicon { color: #fff !important; }
+
+    #sidebar {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+    }
+    #sidebar .brand { background: transparent !important; color: #fff !important; }
+    #sidebar .brand .bx { color: #fff !important; }
+    #sidebar .side-menu li a { background: transparent !important; color: #fff !important; }
+    #sidebar .side-menu.top li a:hover { color: #CFE8FF !important; }
+    #sidebar .side-menu.top li.active a { color: #CFE8FF !important; }
+    #sidebar .side-menu li.active { background: rgba(255,255,255,.15) !important; }
+  </style>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; color: #222; }
+    h1 { margin-bottom: 8px; }
+    .hint { color: #666; margin-bottom: 16px; }
+    form { max-width: 820px; }
+    fieldset { border: 1px solid #ddd; padding: 12px; margin-bottom: 16px; }
+    legend { padding: 0 6px; color: #444; }
+    label { display: block; margin: 8px 0 4px; font-size: 14px; }
+    input[type="text"], input[type="number"], input[type="datetime-local"], select, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+    textarea { min-height: 72px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid #e5e5e5; padding: 8px; text-align: left; }
+    th { background: #fafafa; }
+    .row-actions { white-space: nowrap; }
+    .actions { display: flex; gap: 12px; margin-top: 16px; }
+    button { cursor: pointer; padding: 10px 14px; border: 0; background: #2563eb; color: white; border-radius: 4px; }
+    button.secondary { background: #111827; }
+    button.ghost { background: transparent; color: #2563eb; border: 1px solid #2563eb; }
+    .status { margin-top: 12px; font-size: 14px; color: #0f5132; }
+    .error { color: #842029; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  
+  /* Responsive helpers */
+  .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table-responsive table { min-width: 600px; }
+  .card { border:1px solid #eef1f6; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.06); background:#fff; }
+  
+  @media (max-width: 768px) {
+    #content main { padding: 16px !important; }
+    .card { border-radius: 10px; }
+    h1 { font-size: 22px; }
+    .hint, label { font-size: 13px; }
+    input, select, textarea { font-size: 16px; } /* prevent iOS zoom */
+    .two-col { grid-template-columns: 1fr; }
+    fieldset { padding: 10px; }
+    th, td { padding: 8px 10px; }
+    .actions { flex-direction: column; }
+    .actions button { width: 100%; }
+  }
+  
+  @media (max-width: 480px) {
+    #content nav { padding: 8px; }
+    #content main { padding: 12px !important; }
+    h1 { font-size: 20px; }
+    .table-responsive table { min-width: 520px; }
+  }
+  /* Items table: mobile stacking */
+  @media (max-width: 680px) {
+    #items-table thead { display: none; }
+    #items-body tr {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+    #items-body td { border: 0; padding: 0; }
+    #items-body td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 6px;
+    }
+    /* Make Add Item button larger and full-width on mobile */
+    .add-item-btn { width: 100%; padding: 12px 16px; font-size: 16px; font-weight: 600; }
+  }
+  /* History Results table: mobile stacking */
+  @media (max-width: 680px) {
+    #history-table thead { display: none; }
+    #history-body tr {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+    #history-body td { border: 0; padding: 0; }
+    #history-body td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 6px;
+    }
+  }
+
+   /* Button loading spinner */
+   .btn-spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.75); border-top-color: transparent; border-radius: 50%; display: none; vertical-align: middle; margin-left: 8px; animation: spin .8s linear infinite; }
+   button.loading { opacity: .9; pointer-events: none; }
+   button.loading .btn-spinner { display: inline-block; }
+   @keyframes spin { to { transform: rotate(360deg); } }
+ </style>
+   <script>
+    // SET YOUR API BASE URL HERE (no trailing slash)
+    const API_BASE = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com'; // HTTP API base has no stage path; use root
+    // Normalize API base by stripping an accidental '/dev' stage if present
+    const API = API_BASE.replace(/\/dev\/?$/, '');
+    console.warn('Using API base:', API);
+    function setButtonLoading(btn, isLoading, textWhileLoading = 'Loading...', textNormal = 'Create Invoice') {
+      if (!btn) return;
+      const label = btn.querySelector('.btn-label');
+      if (isLoading) {
+        btn.classList.add('loading');
+        btn.disabled = true;
+        if (label) label.textContent = textWhileLoading;
+      } else {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        if (label) label.textContent = textNormal;
+      }
+    }
+    function makeEl(tag, attrs = {}, children = []) {
+      const el = document.createElement(tag);
+      Object.entries(attrs).forEach(([k, v]) => {
+        if (k === 'class') el.className = v; else if (k === 'text') el.textContent = v; else el.setAttribute(k, v);
+      });
+      children.forEach(c => el.appendChild(c));
+      return el;
+    }
+
+    function addItemRow(prefill = {}) {
+      const tbody = document.getElementById('items-body');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td data-label="Description"><input type="text" id="TreatmentDescription" name="description" placeholder="Description" value="${prefill.description || ''}" required></td>
+        <td data-label="Quantity"><input type="number" name="quantity" step="1" min="1" value="${prefill.quantity || 1}" required oninput="recalcRow(this)"></td>
+        <td data-label="Unit Price"><input type="number" name="unitPrice" step="0.01" min="0" value="${prefill.unitPrice || 0}" required oninput="recalcRow(this)"></td>
+        <td class="row-actions" data-label="Amount"><input type="text" name="amount" readonly value="${(prefill.quantity||1)*(prefill.unitPrice||0)}"></td>
+      `;
+      tbody.appendChild(tr);
+    }
+
+    function recalcRow(el){
+      const tr = el.closest('tr');
+      const qty = parseFloat(tr.querySelector('input[name="quantity"]').value || '0');
+      const price = parseFloat(tr.querySelector('input[name="unitPrice"]').value || '0');
+      tr.querySelector('input[name="amount"]').value = (qty*price).toFixed(2);
+    }
+
+    async function createInvoice(e) {
+      e.preventDefault();
+      const status = document.getElementById('status');
+      status.textContent = '';
+      status.classList.remove('error');
+      const createBtn = e.submitter || document.getElementById('createBtn');
+      setButtonLoading(createBtn, true, 'Creating...', 'Create Invoice');
+      const dlRef = document.getElementById('downloadBtn');
+      if (dlRef) dlRef.disabled = true;
+
+      if (!API_BASE || API_BASE.includes('YOUR_API_BASE_URL')) {
+        status.textContent = 'Please set API_BASE at top of this file.';
+        status.classList.add('error');
+        setButtonLoading(createBtn, false, 'Creating...', 'Create Invoice');
+        return;
+      }
+
+      // Remove reading invoiceNumber from the DOM; server is authoritative
+      // const invoiceNumber = document.getElementById('invoiceNumber').value.trim();
+      const date = document.getElementById('date').value;
+      const patientName = document.getElementById('patientName').value.trim();
+      const patientId = document.getElementById('patientId').value.trim();
+      const ageValue = document.getElementById('patientAge').value;
+      const age = ageValue ? parseInt(ageValue, 10) : undefined;
+      const sex = document.getElementById('patientSex').value;
+      const sessionFrom = document.getElementById('sessionFrom').value;
+      const sessionTo = document.getElementById('sessionTo').value;
+      // clinic details fixed in PDF header; do not send from UI
+      const taxRateEl = document.getElementById('taxRate');
+      const taxRate = taxRateEl ? parseFloat(taxRateEl.value || '0') / 100 : 0;
+      const notesEl = document.getElementById('notes');
+      const notes = notesEl ? notesEl.value.trim() : '';
+
+      const items = Array.from(document.querySelectorAll('#items-body tr')).map(tr => {
+        const description = tr.querySelector('input[name="description"]').value.trim();
+        const quantity = parseFloat(tr.querySelector('input[name="quantity"]').value || '0');
+        const unitPrice = parseFloat(tr.querySelector('input[name="unitPrice"]').value || '0');
+        return { description, quantity, unitPrice };
+      }).filter(it => it.description);
+
+      if (items.length === 0) {
+        status.textContent = 'Add at least one item.';
+        status.classList.add('error');
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API}/invoice`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            // invoiceNumber is not sent; server will assign
+            date,
+            patientName,
+            patientId,
+            age,
+            sex,
+            sessionFrom,
+            sessionTo,
+            items,
+            taxRate,
+            notes
+          })
+        });
+        if (!res.ok) {
+          const t = await res.text();
+          throw new Error(t);
+        }
+        const data = await res.json();
+        const id = data.id;
+        status.textContent = `Invoice created. ID: ${id}`;
+        const dl = document.getElementById('downloadBtn');
+        dl.disabled = false;
+        dl.dataset.invoiceId = id;
+        // Update UI with server-assigned invoice number
+        const invEl = document.getElementById('invoiceNumber');
+        if (data.invoiceNumber) {
+          invEl.value = data.invoiceNumber;
+        }
+        setButtonLoading(createBtn, false, 'Creating...', 'Create Invoice');
+      } catch (err) {
+        status.textContent = `Failed: ${err.message || err}`;
+        status.classList.add('error');
+        setButtonLoading(createBtn, false, 'Creating...', 'Create Invoice');
+      }
+    }
+
+    async function uploadPdfToWhatsApp(pdfBlob, filename, patientNumber,TreatmentDescription) {
+      try {
+        const formData = new FormData();
+        formData.append('file', pdfBlob, filename);
+        formData.append('PhonenumberID', '829751103552244');
+        formData.append('PermanentAccessToken', 'EAAL4gcSM2z0BQNrMwIHFm7v0TyTpmzBZBHmiCG3StYPwiGlSc7yHoShCTYeA7rRnPVrb1MMVI2SiUjpq9TtidCqBh58uH9WiRWq654zTD9FIrmcyW02pT1iHS5yUpgxMqZBOyWYJcyY0gn1qvsaWXxjPO5u8SZCqiV8MCVDvU3HZCOAws8eTYjICXyE1oZAKXRAZDZD');
+
+        const uploadRes = await fetch('https://botclap.com/getMediaID', { method: 'POST', body: formData });
+        const result = await uploadRes.json();
+                const mediaId = result['MediaID'];
+        if (!mediaId) throw new Error('Failed to obtain MediaID');
+const invoiceDate = new Date().toLocaleDateString("en-GB");
+const var1 = encodeURIComponent(TreatmentDescription);
+    const var2 = encodeURIComponent(invoiceDate);
+     const finalUrl = `https://botclap.com/apinotification/1352106806564501/919038657263/clinicreciept/UTILITY/${patientNumber}/ArtiPhysiotherapy-Invoice/EAAL4gcSM2z0BPZCsVU55Qo9NQvHnYHW1ZAcVSZCxBcYS0OPTrh2TEZA2Ags4Rz1k7OFwo2VmwZCrTSjj5nNmVgZB1ZB9a4B5nrIAWXpLe9jAIyGKxzYeJaBlu0MeKLcTTrJx6FId9pL9KNzXEneKZCTWkZCFgHfWEcvdml0uUzs5ZBdZCOr4QW5xlVIam1RbY7RgWTUGAZDZD/829751103552244?mediaURL=${mediaId}&body1=${var1}&body2=${var2}`;
+
+    console.log("📨 Final API URL:", finalUrl);
+
+    // 5️⃣ Hit your backend GET endpoint
+    const response = await fetch(finalUrl);
+        return true;
+      } catch (e) {
+        console.error('WhatsApp send failed:', e);
+        return false;
+      }
+    }
+
+    async function downloadPdf() {
+      const status = document.getElementById('status');
+      status.textContent = '';
+      const btn = document.getElementById('downloadBtn');
+      const id = btn.dataset.invoiceId;
+      if (!id) {
+        status.textContent = 'Create an invoice first.';
+        status.classList.add('error');
+        return;
+      }
+      try {
+        const res = await fetch(`${API}/invoice/${id}/pdf`);
+        if (!res.ok) {
+          const t = await res.text();
+          throw new Error(t);
+        }
+        const blob = await res.blob();
+        const filename = `invoice-${id}.pdf`;
+
+        // Send to WhatsApp using patient number if provided
+        const patientNumber = document.getElementById('patientId').value.trim();
+        const TreatmentDescription = document.getElementById('TreatmentDescription').value.trim();
+        if (patientNumber) {
+          const statusEl = document.getElementById('status');
+          statusEl.textContent = 'Sending invoice to WhatsApp...';
+          await uploadPdfToWhatsApp(blob, filename, patientNumber,TreatmentDescription);
+          statusEl.textContent = 'Invoice sent to WhatsApp (if number is valid).';
+        }
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        status.textContent = `Download failed: ${err.message || err}`;
+        status.classList.add('error');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      addItemRow({ description: 'Consultation', quantity: 1, unitPrice: 500 });
+
+      const dateEl = document.getElementById('date');
+      const invEl = document.getElementById('invoiceNumber');
+
+      // set date to today if empty
+      const setTodayIfEmpty = () => {
+        if (!dateEl.value) {
+          const t = new Date();
+          const yyyy = t.getFullYear();
+          const mm = String(t.getMonth() + 1).padStart(2, '0');
+          const dd = String(t.getDate()).padStart(2, '0');
+          dateEl.value = `${yyyy}-${mm}-${dd}`;
+        }
+      };
+
+      // Do not auto-generate invoice number on the client; show preview from server
+      setTodayIfEmpty();
+      invEl.value = '';
+      invEl.placeholder = 'Assigned by server';
+      invEl.readOnly = true;
+
+      const updateInvoicePreview = async () => {
+        try {
+          if (!API_BASE || API_BASE.includes('YOUR_API_BASE_URL')) return;
+          const d = dateEl.value;
+          const res = await fetch(`${API}/invoice/next?date=${encodeURIComponent(d)}`);
+          if (!res.ok) throw new Error(await res.text());
+          const data = await res.json();
+          if (data && data.invoiceNumber) {
+            invEl.value = data.invoiceNumber;
+          } else {
+            invEl.value = '';
+            invEl.placeholder = 'Assigned by server';
+          }
+        } catch (e) {
+          invEl.value = '';
+          invEl.placeholder = 'Assigned by server';
+        }
+      };
+
+      updateInvoicePreview();
+      dateEl.addEventListener('change', updateInvoicePreview);
+
+      // ----- Invoice History -----
+      const historyMonthEl = document.getElementById('historyMonth');
+      const historySearchEl = document.getElementById('historySearch');
+      const historyTableBody = document.getElementById('history-body');
+      const historyStatusEl = document.getElementById('history-status');
+      const historyPrevBtn = document.getElementById('history-prev');
+      const historyNextBtn = document.getElementById('history-next');
+      const historyPageEl = document.getElementById('history-page');
+
+      let historyPage = 1;
+      const historyLimit = 10;
+
+      async function loadHistory(page = 1) {
+        if (!API_BASE || API_BASE.includes('YOUR_API_BASE_URL')) return;
+        historyStatusEl.textContent = '';
+        try {
+          const params = new URLSearchParams();
+          params.set('page', String(page));
+          params.set('limit', String(historyLimit));
+          const monthVal = historyMonthEl.value.trim();
+          if (monthVal) params.set('month', monthVal);
+          const searchVal = historySearchEl.value.trim();
+          if (searchVal) params.set('patientName', searchVal);
+          const url = `${API}/invoices?${params.toString()}`;
+          const res = await fetch(url);
+          if (!res.ok) throw new Error(await res.text());
+          const data = await res.json();
+          const items = Array.isArray(data.items) ? data.items : [];
+
+          historyTableBody.innerHTML = '';
+          items.forEach((inv) => {
+            const tr = document.createElement('tr');
+            const d = inv.date ? new Date(inv.date) : null;
+            const ds = d ? d.toLocaleDateString() : '';
+            tr.innerHTML = `
+              <td data-label="Invoice Number">${inv.invoiceNumber || ''}</td>
+              <td data-label="Date">${ds}</td>
+              <td data-label="Patient">${inv.patientName || ''}</td>
+              <td data-label="Total">Rs. ${(Number(inv.total)||0).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+              <td data-label="Actions"><button type="button" class="ghost" data-id="${inv._id || ''}" onclick="downloadHistoryPdf('${inv._id || ''}', '${inv.invoiceNumber || ''}')">PDF</button></td>
+            `;
+            historyTableBody.appendChild(tr);
+          });
+
+          historyPage = data.page || page;
+          const totalPages = data.totalPages || 1;
+          historyPageEl.textContent = `Page ${historyPage} of ${totalPages}`;
+          historyPrevBtn.disabled = historyPage <= 1;
+          historyNextBtn.disabled = historyPage >= totalPages;
+        } catch (err) {
+          historyStatusEl.textContent = `Failed to load history: ${err.message || err}`;
+          historyStatusEl.classList.add('error');
+        }
+      }
+
+      historyPrevBtn.addEventListener('click', () => {
+        if (historyPage > 1) {
+          loadHistory(historyPage - 1);
+        }
+      });
+      historyNextBtn.addEventListener('click', () => {
+        loadHistory(historyPage + 1);
+      });
+      historyMonthEl.addEventListener('change', () => loadHistory(1));
+      historySearchEl.addEventListener('input', () => loadHistory(1));
+
+      // initial load
+      loadHistory(1);
+    });
+
+    // Helper to download from history table
+    async function downloadHistoryPdf(id, invNumber) {
+      try {
+        const res = await fetch(`${API}/invoice/${id}/pdf`);
+        if (!res.ok) throw new Error(await res.text());
+        const blob = await res.blob();
+        const filename = `invoice-${invNumber || id}.pdf`;
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      } catch (e) {
+        const status = document.getElementById('status');
+        status.textContent = `Download failed: ${e.message || e}`;
+        status.classList.add('error');
+      }
+    }
+  </script>
+  </head>
+<body>
+  <!-- SIDEBAR -->
+  <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-smile'></i>
+            <span class="text">Admin Panel</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="Blog.html">
+                    <i class='bx bxs-dashboard icon'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="SubBlog.html">
+                    <i class='bx bxs-image-add icon'></i>
+                    <span class="text">Service gallery</span>
+                </a>
+            </li>
+            <li>
+                <a href="select_section_view.html">
+                    <i class='bx bxs-slideshow icon'></i>
+                    <span class="text">section view</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="prescription_form.html">
+                    <i class='bx bxs-cog icon'></i>
+                    <span class="text">Create Prescription</span>
+                </a>
+            </li>
+            <li>
+                <a href="invoice.html">
+                    <i class='bx bxs-receipt icon'></i>
+                    <span class="text">Create Invoice</span>
+                </a>
+            </li>
+              <li>
+        <a href="video-consultation.html">
+          <i class='bx bxs-video icon'></i>
+          <span class="text">Video Consultation</span>
+        </a>
+      </li>
+      <li>
+        <a href="send-video-whatsapp.html">
+          <i class='bx bxs-share icon'></i>
+          <span class="text">Shre Video</span>
+        </a>
+      </li>
+        </ul>
+    </section>
+  <!-- SIDEBAR -->
+
+  <section id="content">
+    <nav>
+      <i class='bx bx-left-arrow-alt arrowicon'></i>
+      <i class='bx bx-right-arrow-alt arrowicon' style="display: none;"></i>
+    </nav>
+
+    <main style="padding: 24px;">
+      <div class="card" style="background:#fff; border:1px solid #eef1f6; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.06); padding:22px; max-width:920px;">
+        <h1 style="margin:0 0 4px; color:#111827;">Create Invoice</h1>
+        <p class="hint" style="margin:0 0 14px;">Fill the form and click Create Invoice, then Download PDF. This page stores only invoice metadata; PDFs are generated on demand.</p>
+
+        <form onsubmit="createInvoice(event)">
+    <fieldset>
+      <legend>Invoice Details</legend>
+      <div class="two-col">
+        <div>
+          <label for="invoiceNumber">Invoice Number</label>
+          <input id="invoiceNumber" type="text" placeholder="Assigned by server" readonly />
+        </div>
+        <div>
+          <label for="date">Date</label>
+          <input id="date" type="date" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Patient</legend>
+      <div class="two-col">
+        <div>
+          <label for="patientName">Patient Name</label>
+          <input id="patientName" type="text" required placeholder="John Doe" />
+        </div>
+        <div>
+          <label for="patientId">Patient Number</label>
+          <input id="patientId" type="text" placeholder="e.g. 900001" />
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <label for="patientAge">Age</label>
+          <input id="patientAge" type="number" min="0" placeholder="Age in years" />
+        </div>
+        <div>
+          <label for="patientSex">Sex</label>
+          <select id="patientSex">
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <label for="sessionFrom">Session From</label>
+          <input id="sessionFrom" type="datetime-local" />
+        </div>
+        <div>
+          <label for="sessionTo">Session To</label>
+          <input id="sessionTo" type="datetime-local" />
+        </div>
+      </div>
+    </fieldset>
+
+    
+
+    <fieldset>
+       <legend>Items</legend>
+       <div class="table-responsive">
+         <table id="items-table">
+           <thead>
+             <tr>
+               <th>Description</th>
+               <th style="width: 110px;">Quantity</th>
+               <th style="width: 160px;">Unit Price</th>
+               <th style="width: 120px;">Amount</th>
+             </tr>
+           </thead>
+           <tbody id="items-body"></tbody>
+         </table>
+       </div>
+       <div class="actions">
+         <button type="button" class="ghost add-item-btn" onclick="addItemRow()">Add Item</button>
+       </div>
+     </fieldset>
+
+        <div class="actions">
+          <button type="submit" id="createBtn"><span class="btn-label">Create Invoice</span><span class="btn-spinner" aria-hidden="true"></span></button>
+          <button type="button" id="downloadBtn" class="secondary" onclick="downloadPdf()" disabled>Download PDF</button>
+        </div>
+        <div id="status" class="status"></div>
+        </form>
+      </div>
+ 
+       <!-- Invoice History Card -->
+       <div class="card" style="background:#fff; border:1px solid #eef1f6; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.06); padding:22px; max-width:920px; margin-top:24px;">
+         <h2 style="margin:0 0 4px; color:#111827;">Invoice History</h2>
+         <p class="hint" style="margin:0 14px 14px 0;">Search by month or patient name. Click PDF to download an invoice.</p>
+
+         <fieldset>
+           <legend>Filters</legend>
+           <div class="two-col">
+             <div>
+               <label for="historyMonth">Month</label>
+               <input id="historyMonth" type="month" />
+             </div>
+             <div>
+               <label for="historySearch">Patient Name</label>
+               <input id="historySearch" type="text" placeholder="e.g. John" />
+             </div>
+           </div>
+         </fieldset>
+
+         <fieldset>
+           <legend>Results</legend>
+           <div class="table-responsive">
+             <!-- in Results fieldset table -->
+             <div class="table-responsive">
+               <table id="history-table">
+                 <thead>
+                   <tr>
+                     <th>Invoice Number</th>
+                     <th>Date</th>
+                     <th>Patient</th>
+                     <th>Total</th>
+                     <th>Actions</th>
+                   </tr>
+                 </thead>
+                 <tbody id="history-body"></tbody>
+               </table>
+             </div>
+           </div>
+           <div class="actions" style="align-items:center;">
+             <div>
+               <button type="button" class="ghost" id="history-prev">Prev</button>
+               <button type="button" class="ghost" id="history-next">Next</button>
+             </div>
+             <div id="history-page" style="margin-left:auto; color:#555;"></div>
+           </div>
+           <div id="history-status" class="status"></div>
+         </fieldset>
+       </div>
+     </main>
+  </section>
+  <script src="js/admin-script.js"></script>
+</body>
+</html>
+
+
+

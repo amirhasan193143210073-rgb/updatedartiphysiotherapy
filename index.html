@@ -1,0 +1,3487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> -->
+
+  <title>Arti Physiotherapy | Expert Pain Relief & Recovery Services in Kolkata</title>
+  <meta name="description"
+    content="Arti Physiotherapy | Arti Physiotherapy offers expert physiotherapy services for pain relief, injury recovery, and long-term wellness. Our experienced physiotherapists provide personalized treatment plans to help you regain mobility, improve strength, and enhance your quality of life. Conveniently located in Kolkata, we are dedicated to helping you feel your best." />
+  <meta name="keywords"
+    content="physiotherapy, physiotherapy services, pain relief, injury recovery, physiotherapy in Kolkata, expert physiotherapists, physical therapy, mobility improvement, strength recovery, wellness, personalized treatment, rehabilitation, sports injury therapy, Kolkata physiotherapy" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/> -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  
+  <!-- Hero Section Styles - Loaded after Bootstrap to override conflicts -->
+  <style>
+    .hero-section {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 40px !important;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      border-radius: 25px !important;
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3) !important;
+      margin: 20px 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .hero-section::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%) !important;
+      pointer-events: none !important;
+    }
+
+    .hero-section .content {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .hero-section h1 {
+      color: white !important;
+      font-size: 2.8rem !important;
+      font-weight: 800 !important;
+      margin-bottom: 20px !important;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+      background: linear-gradient(45deg, #fff, #f0f8ff) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      animation: fadeInUp 1s ease-out !important;
+    }
+
+    .hero-section p {
+      color: rgba(255,255,255,0.95) !important;
+      font-size: 1.3rem !important;
+      line-height: 1.6 !important;
+      margin-bottom: 30px !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+      animation: fadeInUp 1s ease-out 0.3s both !important;
+    }
+
+    .hero-section .image {
+      flex: 1 !important;
+      max-width: 50% !important;
+      overflow: hidden !important;
+      position: relative !important;
+      z-index: 2 !important;
+      backdrop-filter: blur(10px) !important;
+      border-radius: 20px !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      animation: fadeInRight 1s ease-out 0.6s both !important;
+    }
+
+    .hero-section .image img {
+      border-radius: 15px !important;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2) !important;
+      transition: transform 0.3s ease !important;
+    }
+
+    .hero-section .image img:hover {
+      transform: scale(1.05) !important;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* The Heart Behind Arti Section Styles */
+    .container_inspiration {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      padding: 80px 40px !important;
+      position: relative !important;
+      overflow: hidden !important;
+      margin: 40px 20px !important;
+      border-radius: 25px !important;
+      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3) !important;
+    }
+
+    .container_inspiration::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M25,15 C25,10 30,5 35,5 C40,5 45,10 45,15 C45,20 40,25 35,30 C30,25 25,20 25,15 Z" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>') !important;
+      pointer-events: none !important;
+    }
+
+    .container_inspiration h1 {
+      font-size: 3.5rem !important;
+      font-weight: 800 !important;
+      text-align: center !important;
+      margin-bottom: 40px !important;
+      color: white !important;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+      position: relative !important;
+      z-index: 2 !important;
+      animation: fadeInUp 1s ease-out !important;
+    }
+
+    .container_inspiration h1::after {
+      content: '💖' !important;
+      display: block !important;
+      font-size: 2rem !important;
+      margin-top: 15px !important;
+      animation: heartbeat 2s ease-in-out infinite !important;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .container_inspiration .row {
+      position: relative !important;
+      z-index: 2 !important;
+      align-items: center !important;
+    }
+
+    .container_inspiration img.inline-image {
+      width: 100% !important;
+      height: 400px !important;
+      object-fit: cover !important;
+      border-radius: 20px !important;
+      border: 3px solid rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+      transition: all 0.4s ease !important;
+      animation: fadeInLeft 1s ease-out 0.5s both !important;
+    }
+
+    .container_inspiration img.inline-image:hover {
+      transform: scale(1.05) !important;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3) !important;
+    }
+
+    .container_inspiration p {
+      font-size: 1.4rem !important;
+      line-height: 1.8 !important;
+      color: rgba(255, 255, 255, 0.95) !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+      margin: 0 !important;
+      padding: 30px !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-radius: 15px !important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      animation: fadeInRight 1s ease-out 0.7s both !important;
+      position: relative !important;
+    }
+
+    .container_inspiration p::before {
+      content: '"' !important;
+      font-size: 4rem !important;
+      color: rgba(255, 255, 255, 0.3) !important;
+      position: absolute !important;
+      top: -10px !important;
+      left: 20px !important;
+      font-family: serif !important;
+    }
+
+    .container_inspiration p::after {
+      content: '"' !important;
+      font-size: 4rem !important;
+      color: rgba(255, 255, 255, 0.3) !important;
+      position: absolute !important;
+      bottom: -20px !important;
+      right: 20px !important;
+      font-family: serif !important;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Mobile Responsive for Heart Section */
+    @media (max-width: 768px) {
+      .container_inspiration {
+        padding: 40px 20px !important;
+        margin: 20px 10px !important;
+        border-radius: 20px !important;
+      }
+
+      .container_inspiration h1 {
+        font-size: 2.5rem !important;
+        margin-bottom: 30px !important;
+        padding: 0 10px !important;
+      }
+
+      .container_inspiration .row {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+
+      .container_inspiration img.inline-image {
+        height: 300px !important;
+        margin-bottom: 20px !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .container_inspiration p {
+        font-size: 1.2rem !important;
+        padding: 20px !important;
+        margin: 0 10px !important;
+        text-align: center !important;
+      }
+
+      .container_inspiration p::before,
+      .container_inspiration p::after {
+        font-size: 3rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container_inspiration {
+        padding: 30px 15px !important;
+        margin: 15px 5px !important;
+        border-radius: 15px !important;
+      }
+
+      .container_inspiration h1 {
+        font-size: 2rem !important;
+        margin-bottom: 20px !important;
+        padding: 0 5px !important;
+      }
+
+      .container_inspiration img.inline-image {
+        height: 250px !important;
+        width: 95% !important;
+        margin-bottom: 15px !important;
+      }
+
+      .container_inspiration p {
+        font-size: 1.1rem !important;
+        padding: 15px !important;
+        margin: 0 5px !important;
+        line-height: 1.6 !important;
+      }
+
+      .container_inspiration p::before,
+      .container_inspiration p::after {
+        font-size: 2.5rem !important;
+      }
+
+      .container_inspiration h1::after {
+        font-size: 1.5rem !important;
+        margin-top: 10px !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container_inspiration {
+        padding: 20px 10px !important;
+        margin: 10px 5px !important;
+      }
+
+      .container_inspiration h1 {
+        font-size: 1.8rem !important;
+      }
+
+      .container_inspiration img.inline-image {
+        height: 200px !important;
+      }
+
+      .container_inspiration p {
+        font-size: 1rem !important;
+        padding: 12px !important;
+      }
+    }
+
+    /* Cool and Catchy Navbar Styles - Doctor Theme (Tomato variant) */
+    header {
+      background: #ff6347 !important;
+      backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25) !important;
+      transition: all 0.3s ease !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+      padding: 8px 7% !important;
+    }
+
+    header:hover {
+      box-shadow: 0 12px 40px rgba(44, 62, 80, 0.85) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    header .logo {
+      display: flex !important;
+      align-items: center !important;
+      transition: all 0.3s ease !important;
+    }
+
+    header .logo:hover {
+      transform: scale(1.05) !important;
+    }
+
+    header .logo img {
+      height: 50px !important;
+      width: auto !important;
+      border-radius: 10px !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    header .logo img:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    header .navbars ul {
+      display: flex !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 22px !important;
+    }
+
+    header .navbars ul li {
+      position: relative !important;
+    }
+
+    header .navbars ul li a {
+      color: white !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
+      padding: 6px 14px !important;
+      border-radius: 20px !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+      overflow: hidden !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    header .navbars ul li a::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: -100% !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+      transition: left 0.5s ease !important;
+    }
+
+    header .navbars ul li a:hover::before {
+      left: 100% !important;
+    }
+
+    header .navbars ul li a:hover {
+      background: rgba(255, 255, 255, 0.18) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    /* Dropdown Menu Styling */
+    header .navbars ul li ul {
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      border-radius: 15px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+      padding: 10px 0 !important;
+      min-width: 200px !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: translateY(-10px) !important;
+      transition: all 0.3s ease !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    header .navbars ul li:hover ul {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+    }
+
+    header .navbars ul li ul li a {
+      color: #333 !important;
+      padding: 12px 20px !important;
+      display: block !important;
+      border-radius: 0 !important;
+      text-shadow: none !important;
+    }
+
+    header .navbars ul li ul li a:hover {
+      background: #ff6347 !important;
+      color: #ffffff !important;
+      transform: translateX(5px) !important;
+    }
+
+    /* Hamburger Menu Styling */
+    #hamburg {
+      display: none !important;
+      color: white !important;
+      font-size: 24px !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      padding: 10px !important;
+      border-radius: 50% !important;
+    }
+
+    #hamburg:hover {
+      background: rgba(255, 255, 255, 0.2) !important;
+      transform: rotate(90deg) !important;
+    }
+
+    /* Mobile Responsive Navbar */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 5% !important;
+      }
+
+      header .logo img {
+        height: 40px !important;
+      }
+
+      #hamburg {
+        display: block !important;
+      }
+
+      header .navbars {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #ff6347 !important;
+        backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        display: none !important;
+        padding: 20px 0 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      #menu-bar:checked ~ .navbars {
+        display: block !important;
+        animation: slideDown 0.3s ease !important;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      header .navbars ul {
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 0 20px !important;
+      }
+
+      header .navbars ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      header .navbars ul li:last-child {
+        border-bottom: none !important;
+      }
+
+      header .navbars ul li a {
+        padding: 15px 20px !important;
+        border-radius: 0 !important;
+        display: block !important;
+      }
+
+      header .navbars ul li ul {
+        position: static !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 10px 0 !important;
+        border-radius: 10px !important;
+      }
+
+      header .navbars ul li ul li a {
+        padding: 10px 30px !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+    }
+
+    /* Gallery Section - Cool and Outstanding */
+    .gallery {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      padding: 100px 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .gallery::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="gallery-pattern" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="3" fill="%23ffffff" opacity="0.1"/><rect x="10" y="10" width="30" height="30" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23gallery-pattern)"/></svg>') !important;
+      pointer-events: none !important;
+    }
+
+    .gallery .heading {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 15px !important;
+      margin-bottom: 60px !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .gallery .heading span {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 4rem !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+      display: inline-block !important;
+      animation: letterBounce 2s ease-in-out infinite !important;
+      animation-delay: calc(var(--i) * 0.1s) !important;
+      transition: all 0.3s ease !important;
+      cursor: pointer !important;
+    }
+
+    .gallery .heading span:hover {
+      transform: translateY(-10px) scale(1.1) !important;
+      color: #ffd700 !important;
+      text-shadow: 0 6px 12px rgba(255, 215, 0, 0.5) !important;
+    }
+
+    .gallery .heading span:nth-child(1) { --i: 0; }
+    .gallery .heading span:nth-child(2) { --i: 1; }
+    .gallery .heading span:nth-child(3) { --i: 2; }
+    .gallery .heading span:nth-child(4) { --i: 3; }
+    .gallery .heading span:nth-child(5) { --i: 4; }
+    .gallery .heading span:nth-child(6) { --i: 5; }
+    .gallery .heading span:nth-child(7) { --i: 6; }
+
+    @keyframes letterBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    .box-container {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+      gap: 30px !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      padding: 0 20px !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .box {
+      position: relative !important;
+      border-radius: 20px !important;
+      overflow: hidden !important;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+      transition: all 0.4s ease !important;
+      background: transparent !important;
+      height: 300px !important;
+    }
+
+    .box:hover {
+      transform: translateY(-10px) scale(1.02) !important;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .box img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      transition: all 0.4s ease !important;
+      border-radius: 20px !important;
+      display: block !important;
+    }
+
+    .box:hover img {
+      transform: scale(1.1) !important;
+      filter: brightness(1.1) saturate(1.2) !important;
+    }
+
+    .box .contents {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      opacity: 0 !important;
+      transition: all 0.4s ease !important;
+      border-radius: 20px !important;
+    }
+
+    .box:hover .contents {
+      opacity: 1 !important;
+    }
+
+    .box .contents .btns {
+      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+      color: #ffffff !important;
+      padding: 15px 30px !important;
+      border-radius: 50px !important;
+      text-decoration: none !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1px !important;
+      box-shadow: 0 8px 20px rgba(31, 64, 55, 0.4) !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .box .contents .btns::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: -100% !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+      transition: left 0.5s ease !important;
+    }
+
+    .box .contents .btns:hover::before {
+      left: 100% !important;
+    }
+
+    .box .contents .btns:hover {
+      transform: translateY(-3px) scale(1.05) !important;
+      box-shadow: 0 12px 25px rgba(31, 64, 55, 0.6) !important;
+      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+      color: #ffffff !important;
+    }
+
+    /* Mobile Responsive for Gallery */
+    @media (max-width: 768px) {
+      .gallery {
+        padding: 60px 20px !important;
+      }
+
+      .gallery .heading span {
+        font-size: 2.5rem !important;
+        gap: 10px !important;
+      }
+
+      .box-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        gap: 20px !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .box {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 250px !important;
+      }
+
+      .box img {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: contain !important;
+        border-radius: 20px !important;
+      }
+
+      .box .contents .btns {
+        padding: 12px 25px !important;
+        font-size: 1rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        padding: 40px 15px !important;
+      }
+
+      .gallery .heading span {
+        font-size: 2rem !important;
+        gap: 8px !important;
+      }
+
+      .box-container {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .box {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        height: 220px !important;
+      }
+
+      .box img {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: contain !important;
+        border-radius: 20px !important;
+      }
+
+      .box .contents {
+        border-radius: 20px !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .gallery {
+        padding: 30px 10px !important;
+      }
+
+      .gallery .heading span {
+        font-size: 1.8rem !important;
+        gap: 6px !important;
+      }
+
+      .box-container {
+        gap: 12px !important;
+      }
+
+      .box {
+        height: 200px !important;
+      }
+
+      .box img {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: contain !important;
+        border-radius: 20px !important;
+      }
+    }
+
+    /* What Clients Say Section - Cool and Outstanding */
+    .testimonials-section {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+      padding: 100px 40px !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .testimonials-section::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="testimonial-pattern" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="2" fill="%23ffffff" opacity="0.1"/><path d="M15,15 L45,45 M45,15 L15,45" stroke="%23ffffff" stroke-width="1" opacity="0.05"/><circle cx="30" cy="30" r="15" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23testimonial-pattern)"/></svg>') !important;
+      pointer-events: none !important;
+    }
+
+    .section-header {
+      text-align: center !important;
+      margin-bottom: 60px !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .section-header h1 {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 3.5rem !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+      letter-spacing: 2px !important;
+      position: relative !important;
+      animation: fadeInUp 1s ease-out !important;
+    }
+
+    .section-header h1::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: -15px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 120px !important;
+      height: 4px !important;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%) !important;
+      border-radius: 2px !important;
+      box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3) !important;
+    }
+
+    .testimonials-container {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-radius: 25px !important;
+      padding: 0 !important;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      backdrop-filter: blur(10px) !important;
+      transition: all 0.4s ease !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px) scale(1.02) !important;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .testimonial-card::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%) !important;
+      opacity: 0 !important;
+      transition: opacity 0.3s ease !important;
+    }
+
+    .testimonial-card:hover::before {
+      opacity: 1 !important;
+    }
+
+    .test-card-body {
+      padding: 40px 30px !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .profile {
+      display: flex !important;
+      align-items: center !important;
+      margin-bottom: 25px !important;
+    }
+
+    .profile-image {
+      width: 60px !important;
+      height: 60px !important;
+      border-radius: 50% !important;
+      overflow: hidden !important;
+      margin-right: 15px !important;
+      border: 3px solid #667eea !important;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .testimonial-card:hover .profile-image {
+      transform: scale(1.1) !important;
+      border-color: #ffd700 !important;
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4) !important;
+    }
+
+    .profile-image img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .testimonial-card:hover .profile-image img {
+      transform: scale(1.1) !important;
+    }
+
+    .profile-desc span {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 1.2rem !important;
+      font-weight: 700 !important;
+      color: #2c3e50 !important;
+      text-transform: capitalize !important;
+    }
+
+    .quote {
+      margin-bottom: 20px !important;
+      position: relative !important;
+    }
+
+    .quote i {
+      font-size: 2rem !important;
+      color: #667eea !important;
+      margin-bottom: 10px !important;
+      display: block !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .testimonial-card:hover .quote i {
+      color: #ffd700 !important;
+      transform: scale(1.2) !important;
+    }
+
+    .quote h2 {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 1.4rem !important;
+      font-weight: 700 !important;
+      color: #2c3e50 !important;
+      margin: 0 !important;
+      line-height: 1.3 !important;
+    }
+
+    /* Read More button style (global fallback) */
+    .read-more {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 18px rgba(31, 64, 55, 0.35);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .read-more:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(31, 64, 55, 0.5);
+      opacity: 0.95;
+    }
+
+    .test-card-body p {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 1rem !important;
+      color: #5a6c7d !important;
+      line-height: 1.6 !important;
+      margin-bottom: 20px !important;
+      font-style: italic !important;
+    }
+
+    .ratings {
+      display: flex !important;
+      gap: 5px !important;
+      justify-content: center !important;
+    }
+
+    .ratings i {
+      font-size: 1.2rem !important;
+      color: #ffd700 !important;
+      text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .testimonial-card:hover .ratings i {
+      transform: scale(1.2) !important;
+      color: #ffed4e !important;
+      text-shadow: 0 3px 6px rgba(255, 215, 0, 0.5) !important;
+    }
+
+    /* Owl Carousel Custom Styling */
+    .owl-carousel .owl-nav {
+      position: absolute !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 100% !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      padding: 0 20px !important;
+      pointer-events: none !important;
+    }
+
+    .owl-carousel .owl-nav button {
+      width: 50px !important;
+      height: 50px !important;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      border: none !important;
+      border-radius: 50% !important;
+      color: white !important;
+      font-size: 1.5rem !important;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3) !important;
+      transition: all 0.3s ease !important;
+      pointer-events: all !important;
+    }
+
+    .owl-carousel .owl-nav button:hover {
+      transform: scale(1.1) !important;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4) !important;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%) !important;
+    }
+
+    .owl-carousel .owl-dots {
+      text-align: center !important;
+      margin-top: 30px !important;
+    }
+
+    .owl-carousel .owl-dots .owl-dot {
+      width: 12px !important;
+      height: 12px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.5) !important;
+      margin: 0 5px !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .owl-carousel .owl-dots .owl-dot.active {
+      background: #ffd700 !important;
+      transform: scale(1.2) !important;
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4) !important;
+    }
+
+    /* Mobile Responsive for Testimonials */
+    @media (max-width: 768px) {
+      .testimonials-section {
+        padding: 60px 20px !important;
+      }
+
+      .section-header h1 {
+        font-size: 2.5rem !important;
+        letter-spacing: 1px !important;
+      }
+
+      .test-card-body {
+        padding: 30px 20px !important;
+      }
+
+      .profile-image {
+        width: 50px !important;
+        height: 50px !important;
+      }
+
+      .profile-desc span {
+        font-size: 1.1rem !important;
+      }
+
+      .quote h2 {
+        font-size: 1.2rem !important;
+      }
+
+      .test-card-body p {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-header h1 {
+        font-size: 2rem !important;
+      }
+
+      .test-card-body {
+        padding: 25px 15px !important;
+      }
+
+      .profile {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+
+      .profile-image {
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+      }
+    }
+
+    /* From the Desk of DOCTOR Section Styles */
+    .container_inspiration_riki {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+      padding: 80px 40px !important;
+      position: relative !important;
+      overflow: hidden !important;
+      margin: 40px 20px !important;
+      border-radius: 25px !important;
+      box-shadow: 0 20px 60px rgba(44, 62, 80, 0.3) !important;
+    }
+
+    .container_inspiration_riki::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="medical" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><path d="M15,15 L25,25 M25,15 L15,25" stroke="%23ffffff" stroke-width="1" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23medical)"/></svg>') !important;
+      pointer-events: none !important;
+    }
+
+    .container_inspiration_riki h1 {
+      font-size: 3.5rem !important;
+      font-weight: 800 !important;
+      text-align: center !important;
+      margin-bottom: 40px !important;
+      color: white !important;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+      position: relative !important;
+      z-index: 2 !important;
+      animation: fadeInUp 1s ease-out !important;
+    }
+
+    .container_inspiration_riki h1 span {
+      color: #e74c3c !important;
+      text-shadow: 0 0 10px rgba(231, 76, 60, 0.5) !important;
+      animation: pulse 2s ease-in-out infinite !important;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .container_inspiration_riki h1::after {
+      content: '👨‍⚕️' !important;
+      display: block !important;
+      font-size: 2rem !important;
+      margin-top: 15px !important;
+      animation: bounce 2s ease-in-out infinite !important;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .container_inspiration_riki .row {
+      position: relative !important;
+      z-index: 2 !important;
+      align-items: center !important;
+    }
+
+    .container_inspiration_riki img.inline-image {
+      width: 100% !important;
+      height: 400px !important;
+      object-fit: cover !important;
+      border-radius: 20px !important;
+      border: 3px solid rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+      transition: all 0.4s ease !important;
+      animation: fadeInRight 1s ease-out 0.5s both !important;
+    }
+
+    .container_inspiration_riki img.inline-image:hover {
+      transform: scale(1.05) !important;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3) !important;
+    }
+
+    .container_inspiration_riki p {
+      font-size: 1.4rem !important;
+      line-height: 1.8 !important;
+      color: rgba(255, 255, 255, 0.95) !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+      margin: 0 !important;
+      padding: 30px !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-radius: 15px !important;
+      backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      animation: fadeInLeft 1s ease-out 0.7s both !important;
+      position: relative !important;
+    }
+
+    .container_inspiration_riki p::before {
+      content: '📋' !important;
+      font-size: 2rem !important;
+      position: absolute !important;
+      top: -10px !important;
+      left: 20px !important;
+      animation: rotate 3s linear infinite !important;
+    }
+
+    .container_inspiration_riki p::after {
+      content: '✍️' !important;
+      font-size: 2rem !important;
+      position: absolute !important;
+      bottom: -20px !important;
+      right: 20px !important;
+      animation: rotate 3s linear infinite reverse !important;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Mobile Responsive for Doctor Section */
+    @media (max-width: 768px) {
+      .container_inspiration_riki {
+        padding: 40px 20px !important;
+        margin: 20px 10px !important;
+        border-radius: 20px !important;
+      }
+
+      .container_inspiration_riki h1 {
+        font-size: 2.5rem !important;
+        margin-bottom: 30px !important;
+        padding: 0 10px !important;
+      }
+
+      .container_inspiration_riki .row {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+
+      .container_inspiration_riki img.inline-image {
+        height: 300px !important;
+        margin-bottom: 20px !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .container_inspiration_riki p {
+        font-size: 1.2rem !important;
+        padding: 20px !important;
+        margin: 0 10px !important;
+        text-align: center !important;
+      }
+
+      .container_inspiration_riki p::before,
+      .container_inspiration_riki p::after {
+        font-size: 1.5rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container_inspiration_riki {
+        padding: 30px 15px !important;
+        margin: 15px 5px !important;
+        border-radius: 15px !important;
+      }
+
+      .container_inspiration_riki h1 {
+        font-size: 2rem !important;
+        margin-bottom: 20px !important;
+        padding: 0 5px !important;
+      }
+
+      .container_inspiration_riki img.inline-image {
+        height: 250px !important;
+        width: 95% !important;
+        margin-bottom: 15px !important;
+      }
+
+      .container_inspiration_riki p {
+        font-size: 1.1rem !important;
+        padding: 15px !important;
+        margin: 0 5px !important;
+        line-height: 1.6 !important;
+      }
+
+      .container_inspiration_riki p::before,
+      .container_inspiration_riki p::after {
+        font-size: 1.2rem !important;
+      }
+
+      .container_inspiration_riki h1::after {
+        font-size: 1.5rem !important;
+        margin-top: 10px !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container_inspiration_riki {
+        padding: 20px 10px !important;
+        margin: 10px 5px !important;
+      }
+
+      .container_inspiration_riki h1 {
+        font-size: 1.8rem !important;
+      }
+
+      .container_inspiration_riki img.inline-image {
+        height: 200px !important;
+      }
+
+      .container_inspiration_riki p {
+        font-size: 1rem !important;
+        padding: 12px !important;
+      }
+    }
+
+    /* Mobile Responsive for Hero Section */
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column !important;
+        padding: 30px 20px !important;
+        text-align: center !important;
+        gap: 30px !important;
+      }
+
+      .hero-section h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 15px !important;
+      }
+
+      .hero-section p {
+        font-size: 1.1rem !important;
+        margin-bottom: 20px !important;
+      }
+
+      .hero-section .image {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 15px !important;
+      }
+
+      .hero-section .image img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 300px !important;
+        object-fit: cover !important;
+      }
+
+      .hero-section .content {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 20px 15px !important;
+      }
+
+      .hero-section h1 {
+        font-size: 1.8rem !important;
+      }
+
+      .hero-section p {
+        font-size: 1rem !important;
+      }
+
+      .hero-section .image {
+        padding: 10px !important;
+      }
+
+      .hero-section .image img {
+        max-height: 250px !important;
+      }
+    }
+
+    /* Our Services Section Styles */
+    #services {
+      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+      padding: 80px 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25) !important;
+      border-radius: 24px !important;
+      margin: 40px 20px !important;
+    }
+
+    #services::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%2399f2c8" opacity="0.15"/><circle cx="75" cy="75" r="1" fill="%231f4037" opacity="0.15"/><circle cx="50" cy="10" r="0.5" fill="%2399f2c8" opacity="0.15"/><circle cx="10" cy="60" r="0.5" fill="%231f4037" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') !important;
+      pointer-events: none !important;
+    }
+
+    #services .heading {
+      font-size: 3.2rem !important;
+      font-weight: 800 !important;
+      text-align: center !important;
+      margin-bottom: 20px !important;
+      background: linear-gradient(135deg, #ffffff 0%, #e0fffb 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      position: relative !important;
+      z-index: 2 !important;
+      animation: fadeInUp 1s ease-out !important;
+    }
+
+    #services .heading::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: -10px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 80px !important;
+      height: 4px !important;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      border-radius: 2px !important;
+    }
+
+    .service_card_container {
+      display: flex !important;
+      justify-content: space-between !important;
+      gap: 20px !important;
+      padding: 20px !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      z-index: 2 !important;
+      flex-wrap: nowrap !important;
+    }
+
+    .service_card {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-radius: 15px !important;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15) !important;
+      width: 32% !important;
+      text-align: center !important;
+      padding: 20px 15px !important;
+      transition: all 0.3s ease !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      backdrop-filter: blur(10px) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      flex-shrink: 0 !important;
+    }
+
+    .service_card::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%) !important;
+      opacity: 0 !important;
+      transition: opacity 0.3s ease !important;
+    }
+
+    .service_card:hover::before {
+      opacity: 1 !important;
+    }
+
+    .service_card:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2) !important;
+    }
+
+    .service_card img {
+      width: 100% !important;
+      height: 180px !important;
+      object-fit: cover !important;
+      border-radius: 10px !important;
+      margin-bottom: 15px !important;
+      transition: transform 0.3s ease !important;
+    }
+
+    .service_card:hover img {
+      transform: scale(1.02) !important;
+    }
+
+    .service_card h3 {
+      font-size: 1.8rem !important;
+      margin-bottom: 15px !important;
+      color: #2c3e50 !important;
+      font-weight: 700 !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .service_card p {
+      font-size: 1.1rem !important;
+      color: #5a6c7d !important;
+      margin-bottom: 15px !important;
+      line-height: 1.6 !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .service_card .book_service {
+      padding: 15px 30px !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+      color: #ffffff !important;
+      box-shadow: 0 10px 25px rgba(31, 64, 55, 0.5) !important;
+      border-radius: 30px !important;
+      text-decoration: none !important;
+      text-transform: uppercase !important;
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 8px !important;
+      width: 100% !important;
+      max-width: 260px !important;
+      border: none !important;
+      cursor: pointer !important;
+      letter-spacing: 0.05em !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .service_card .book_service:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4) !important;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      #services .heading {
+        font-size: 2.5rem !important;
+      }
+      
+      .service_card_container {
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 20px !important;
+      }
+      
+      .service_card {
+        width: 100% !important;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <header>
+    <a href="#" class="logo"><img src="images/riky.png" alt=""></a>
+    <input type="checkbox" id="menu-bar"><label id="hamburg" for="menu-bar" class="fas fa-bars"></label>
+    <nav class="navbars">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li>
+          <a href="#">For Patients ▼</a>
+          <ul>
+            <li><a href="#Review">Patient Reviews</a></li>
+            <!-- <li><a href="#">Prescription</a></li> -->
+          </ul>
+        </li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <section id="hero">
+    <div class="hero-card">
+      <div class="hero-section">
+        <div class="image">
+          <img src="images/gif_hero_section.gif" alt="Physiotherapy">
+        </div>
+        <div class="content">
+          <h1>The Physiotherapy Specialist</h1>
+          <p>Pain Relief and Recovery with the best physiotherapy near you. Arti has a team of experienced and
+            expert physiotherapists to keep you ahead</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <!-- <div class="container_first">
+    <div class="text-container">
+      <h1>World-Class Physiotherapy at Clinic, Home or Online</h1>
+      <p>Choose what works for you!</p>
+    </div>
+    <div class="cards-container">
+      <div class="card">
+        <i class="fa-solid fa-location-dot"></i>
+        <div class="badge">In your own locality</div>
+        <div class="card-content">
+          <h2>Physiotherapy Near Me</h2>
+          <p>Go for result-oriented physiotherapy at a fully-equipped Arti physiotherapy clinic nearby in
+            your own locality</p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-house"></i>
+        <div class="badge">No Travel + Saves Time</div>
+        <div class="card-content">
+          <h2>Physiotherapy at Home</h2>
+          <p>Recover with expert physiotherapy at home conveniently with a home visit physiotherapist</p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="fas fa-laptop-house"></i>
+        <div class="badge">From Wherever You Are!</div>
+        <div class="card-content">
+          <h2>Online Physiotherapy</h2>
+          <p>See a Physio online, so you need not come to clinic! Tele Physiotherapy which is Effective,
+            Convenient & Safe</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div id="services" style="margin-top: 5%; margin-bottom: 0; padding: 40px 20px; border-radius: 20px; background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%); box-shadow: 0 18px 40px rgba(0,0,0,0.18);">
+    <h1 class="heading" style="margin-bottom: 24px; text-align:center; color:#fff; text-shadow:0 3px 8px rgba(0,0,0,0.35);">Our Services</h1>
+    <div class="service_card_container" style="gap: 24px;">
+
+      <div class="service_card" style="background: rgba(0,0,0,0.28); border-radius: 18px; padding: 18px; box-shadow: 0 14px 32px rgba(0,0,0,0.32); color:#e0f7fa; border:1px solid rgba(255,255,255,0.28);">
+        <img src="images/Clint_Treatment.jpg" alt="Clinic Treatments" style="border-radius: 14px; margin-bottom: 12px; box-shadow: 0 10px 24px rgba(0,0,0,0.45);">
+        <h3 style="color:#ffffff; margin-bottom:8px;">Clinic Treatment</h3>
+        <p style="margin-bottom: 4px;">High-quality physiotherapy care at our clinic. Personalized treatment for pain
+          relief, mobility, and
+          recovery. </p>
+        <p style="text-align: center; margin-bottom: 0; font-weight: bold; color:#e0f7fa;"> Time</p>
+        <p style="text-transform: none; margin-bottom:0;"> <i class="fa-solid fa-clock"></i> 10Am to 2PM / 6PM to 10PM</p>
+      </div>
+      <div class="service_card" style="background: rgba(0,0,0,0.28); border-radius: 18px; padding: 18px; box-shadow: 0 14px 32px rgba(0,0,0,0.32); color:#e0f7fa; border:1px solid rgba(255,255,255,0.28);">
+        <img src="images/home_work.jpg" alt="Physio Home Visits" style="border-radius: 14px; margin-bottom: 12px; box-shadow: 0 10px 24px rgba(0,0,0,0.45);">
+        <h3 style="color:#ffffff; margin-bottom:8px;">Physio at Home</h3>
+        <p style="margin-bottom: 4px;">Certified physiotherapists provide home visits for convenient, personalized care
+          and effective recovery
+          solutions.</p>
+        <p style="text-align: center; margin-bottom: 0; font-weight: bold; color:#e0f7fa;">Call Us</p>
+        <p style="text-transform: none; margin-bottom:0;"><a href="tel: +918910924206" style="text-decoration:none; font-size: 16px; color:#e0f7fa;"
+            class="book_service"> <i class="fa-solid fa-phone phone"></i> +91-8910924206 </a></p>
+      </div>
+      <div class="service_card" style="background: rgba(0,0,0,0.28); border-radius: 18px; padding: 18px; box-shadow: 0 14px 32px rgba(0,0,0,0.32); color:#e0f7fa; border:1px solid rgba(255,255,255,0.28);">
+        <img src="images/online treatment.png" alt="Digital Care (Fizo)" style="border-radius: 14px; margin-bottom: 12px; box-shadow: 0 10px 24px rgba(0,0,0,0.45);">
+        <h3 style="color:#ffffff; margin-bottom:8px;">Virtual/Online Therapy</h3>
+        <p style="margin-bottom: 4px;">Digital physiotherapy with personalized exercises for home. Affordable, long-term
+          care managed conveniently
+          online.</p>
+        <p style="text-align: center; margin-bottom: 0; font-weight: bold; color:#e0f7fa;">Contact Us</p>
+        <p style="margin-bottom:0;"><a href="video-consultation.html?userType=patient&autoJoin=1" class="book_service" style="text-decoration:none; font-size: 12px; color:#e0f7fa;">Book online Service</a></p>
+
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* What we Treat - catchy themed look */
+    #treat-section {
+      padding: 26px 0;
+      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      border-radius: 24px;
+      margin: 24px 16px;
+    }
+
+    #treat-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="treat" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.15"/><circle cx="60" cy="60" r="2" fill="%2399f2c8" opacity="0.25"/><path d="M10,40 L30,40" stroke="%23ffffff" stroke-width="1" opacity="0.15"/><path d="M50,10 L50,30" stroke="%231f4037" stroke-width="1" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23treat)"/></svg>');
+      pointer-events: none;
+    }
+
+    #treat-section .heading {
+      margin-bottom: 10px !important;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      background: linear-gradient(135deg, #ffffff 0%, #e0fffb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+      position: relative;
+      z-index: 1;
+    }
+
+    #treat-section .owl-carousel .post-slide {
+      background: #fff;
+      border: 1px solid #eef1f6;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+
+    #treat-section .owl-carousel .post-img img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    #treat-section .owl-carousel .post-content {
+      padding: 10px 14px;
+    }
+
+    #treat-section .owl-carousel .post-title a {
+      color: #111827;
+      text-decoration: none;
+    }
+  </style>
+  <div id="treat-section" class="container-fluid">
+    <h1 class="heading">What we Treat</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="news-slider" class="owl-carousel">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="container-fluid doctor-section" style="padding: 50px 25px; margin: 30px 15px; border-radius: 20px; background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+    <div class="row align-items-center">
+      <div class="col-md-5 col-sm-12 mb-3">
+        <div class="doctor-card" style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.15); border-radius: 16px; padding: 12px;">
+          <img src="images/riky_photo.png" alt="Dr. Riky" style="width:200px; height:200px; object-fit:cover; object-position:center; border-radius:16px; border:2px solid rgba(255,255,255,.5);">
+        </div>
+      </div>
+      <div class="col-md-7 col-sm-12">
+        <div class="doctor-card" style="background: rgba(0,0,0,0.25); border-radius: 16px; padding: 24px; color: #fff;">
+          <h2 style="margin-bottom:10px;">From the Desk of DOCTOR</h2>
+          <h3 style="color:#e0f7fa; margin-bottom:16px;">Dr. Riky</h3>
+          <p style="font-size:1.05rem; line-height:1.8; margin:0;">The foundation of Arti Physiotherapist is deeply intertwined with the teachings and legacy of Dr. Riky, a distinguished physiotherapist whose innovative approach to patient care continues to guide our practice. Dr. Riky’s dedication to the art and science of physiotherapy has left an indelible mark on the field, inspiring countless practitioners, including myself.
+
+          From an early age, I was captivated by Dr. Riky’s ability to blend cutting-edge techniques with genuine empathy. His belief that physiotherapy is not just about physical rehabilitation, but about restoring hope and confidence, has profoundly influenced the way we treat our patients. Dr. Riky’s methods were always patient-centered, focusing on tailored treatments that addressed the unique needs of each individual.
+
+          At Arti Physiotherapist, we are committed to carrying forward Dr. Riky’s legacy. His pioneering spirit drives us to continuously seek the best for our patients, ensuring that they receive care that is both innovative and compassionate. We honor Dr. Riky by striving to make every interaction a step toward holistic healing, embodying the principles he held dear—dedication, empathy, and excellence in physiotherapy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid doctor-section" style="padding: 50px 25px; margin: 30px 15px; border-radius: 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #a1c4fd 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+     <div class="row align-items-center">
+       <div class="col-md-7 col-sm-12">
+         <div class="doctor-card" style="background: rgba(0,0,0,0.25); border-radius: 16px; padding: 24px; color: #fff;">
+           <h2 style="margin-bottom:10px;">Dr. Amir Hasan</h2>
+           <h3 style="color:#e0f7fa; margin-bottom:16px;">Physiotherapist (BPT)</h3>
+           <p style="font-size:1.05rem; line-height:1.8; margin:0;">Physiotherapist (BPT) with 5 years of clinical experience. I specialize in chronic pain management, post-stroke rehabilitation, arthritis care, and the management of muscular dystrophy.</p>
+         </div>
+       </div>
+       <div class="col-md-5 col-sm-12 mb-3">
+         <div class="doctor-card" style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.15); border-radius: 16px; padding: 12px;">
+           <img src="images/AmirHasan.jpeg" alt="Dr. Amir Hasan" style="width:100%; height:360px; object-fit:cover; object-position:center top; border-radius:12px; border: 2px solid rgba(255,255,255,0.4);">
+         </div>
+       </div>
+     </div>
+   </div>
+
+<div class="container-fluid container_inspiration">
+    <h1 class="mt-4" style="text-align: center;">The Heart Behind Arti Physiotherapist: My Mother’s Influence</h1>
+    <div class=" row ">
+      <div class="col-md-4 col-sm-6 "><img src="images/chachi.png" alt="about_who_we_are" class="inline-image ml-2">
+      </div>
+      <div class="col-md-8 col-sm-6">
+
+        <p class="p_1 mr-5">Arti Physiotherapist was born out of a deep admiration for my mother, Arti, whose unwavering
+          compassion and dedication to healing have been a constant source of inspiration in my life. Growing up, I
+          witnessed her selflessly caring for others, always putting their well-being above her own. Her natural ability
+          to connect with people and ease their pain left a lasting impression on me.
+
+          It was through her gentle guidance and wisdom that I discovered my passion for physiotherapy. She taught me
+          that healing is not just about treating the body, but also about nurturing the spirit. Her holistic approach
+          to care, which emphasizes empathy and understanding, became the foundation upon which I built this practice.
+
+          Every aspect of Arti Physiotherapist reflects the values she instilled in me. Our mission is to carry forward
+          her legacy of kindness, compassion, and exceptional care. In every treatment and interaction, we strive to
+          honor her influence by creating a space where healing and empathy go hand in hand.</p>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- <section class="section section-work-data">
+    <section id="counting-section-head">
+      <h2 class="counting-section-head-h2">About Us</h2>
+      <p>At Arti Physiotherapy , we provide compassionate, patient-centered care inspired by the legacy of Dr. Riky. Our
+        focus is on holistic healing , combining innovative physiotherapy techniques with empathy to help you achieve
+        optimal health and well-being.
+
+      </p>
+    </section> -->
+  <!-- <div class="container_2 grid grid-four-column">
+      <div>
+        <h2 class="counter-numbers" data-number="2000">0+</h2>
+        <p>project completed</p>
+      </div>
+      <div>
+        <h2 class="counter-numbers" data-number="6000">0+</h2>
+        <p>Happy Clients</p>
+      </div>
+      <!-- <div>
+        <h2 class="counter-numbers" data-number="5000">0+</h2>
+        <p>cups of coffee</p>
+      </div> 
+      <div>
+        <h2 class="counter-numbers" data-number="3000">0+</h2>
+        <p>real professionals</p>
+      </div>
+    </div>
+  </section> -->
+  <!-- <script>
+    const workSection = document.querySelector(".section-work-data");
+    const workObserver = new IntersectionObserver(
+      (entries, observer) => {
+        const [entry] = entries;
+        // console.log(entry);
+
+        // if (entry.isIntersecting == false)
+        if (!entry.isIntersecting) return;
+
+        // animate number counter
+
+        const counterNum = document.querySelectorAll(".counter-numbers");
+
+        const speed = 200;
+
+        counterNum.forEach((curElem) => {
+          const updateNumber = () => {
+            const targetNumber = parseInt(curElem.dataset.number);
+            // console.log(targetNumber);
+            const initialNum = parseInt(curElem.innerText);
+            // console.log(initialNum);
+
+            const incrementNumber = Math.trunc(targetNumber / speed);
+            // console.log(incrementNumber);
+
+            if (initialNum < targetNumber) {
+              curElem.innerText = `${initialNum + incrementNumber}+`;
+              setTimeout(updateNumber, 10);
+            }
+          };
+
+          updateNumber();
+        });
+
+        observer.unobserve(workSection);
+      },
+      {
+        root: null,
+        threshold: 0,
+      }
+    );
+
+    workObserver.observe(workSection);
+  </script> -->
+
+  
+
+
+
+
+  <section class="gallery" id="gallery">
+    <h1 class="heading">
+      <span>g</span>
+      <span>a</span>
+      <span>l</span>
+      <span>l</span>
+      <span>e</span>
+      <span>r</span>
+      <span>y</span>
+    </h1>
+
+    <!-- <div class="frame">
+      <iframe src="https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview" width="640" height="480"
+        allow="autoplay"></iframe>
+      <iframe src="https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview" width="640" height="480"
+        allow="autoplay"></iframe>
+      <iframe src="https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview" width="640" height="480"
+        allow="autoplay"></iframe>
+
+    </div> -->
+
+    <div id="box-container" class="box-container" style="margin-top: 3%;">
+      <div class="box">
+        <img src="images/g2.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div>
+
+      <!-- <div class="box">
+        <img src="images/r.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div> -->
+
+      <div class="box">
+        <img src="images/arti/3.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div>
+
+      <!-- <div class="box">
+        <img src="images/arti/4.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div> -->
+
+      <!-- <div class="box">
+        <img src="images/arti/5.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div> -->
+
+      <div class="box">
+        <img src="images/g1.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="images/arti/7.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="images/arti/8.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="images/arti/9.jpg" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
+            class="btns">Book Services</a>
+
+        </div>
+      </div>
+
+  </section>
+
+  <div class="testimonials-section">
+    <!-- Section Header Starts -->
+    <div id="Review" class="section-header">
+      <h1>What Clients Say</h1>
+    </div>
+    <!-- Section Header Ends -->
+
+    <!-- Owl Carousel Slider Starts -->
+    <div class="owl-carousel owl-theme testimonials-container">
+      <!-- Item1 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/srinu chintada.png">
+            </div>
+            <div class="profile-desc">
+              <span>srinu chintada</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>I had ACL and mencis repaire suragery. I Have been doing physiotherapy in this and i have recovered very
+            well👍</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item1 Ends -->
+
+      <!-- Item2 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/rahul sina.png">
+            </div>
+            <div class="profile-desc">
+              <span>rahul sinha</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>Highly knowledgeable, experienced, well-mannered, and trustworthy. Excellent service, strongly recommended
+            to everyone looking for reliable professionals.</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item2 Ends -->
+
+      <!-- Item3 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Ranjan Mishra.png">
+            </div>
+            <div class="profile-desc">
+              <span>Ranjan Mishra</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>I received excellent care at Arti Physiotherapy. The team is knowledgeable, attentive, and truly helped
+            with my recovery. Highly recommend!</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item3 Ends -->
+
+      <!-- Item4 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/putul sarkar.png">
+            </div>
+            <div class="profile-desc">
+              <span>putul sarkar</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>My husband was suffering from Parkinson's disease and was treated by Dr Riky was awesome. within few days
+            of physiotherapy he turned around. I like his treatment.</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+      </div>
+      <!-- Item4 Ends -->
+
+      <!-- Item5 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Gaurav Mehra.png">
+            </div>
+            <div class="profile-desc">
+              <span>Gaurav Mehra</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>My dad had foot drop, and within just 20 days of treatment, he’s showing great recovery. Highly recommend!
+          </p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+      </div>
+      <!-- Item5 Ends -->
+
+      <!-- Item6 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Piyush Chawla.png">
+            </div>
+            <div class="profile-desc">
+              <span>Piyush Chawla</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>The way they explain and handle things is very very appreciated. Polite and calm way to handle patience.
+            Highly recommended with good results.</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item6 Ends -->
+
+      <!-- Item7 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Shabbir Hussain.png">
+            </div>
+            <div class="profile-desc">
+              <span>Shabbir Hussain</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>I had ACL and Mucoid Degeneration. Dr. Amir and Dr. Riky's friendly, experienced care was excellent. Highly
+            recommended!</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item7 Ends -->
+
+      <!-- Item8 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Munir Ali.png">
+            </div>
+            <div class="profile-desc">
+              <span>Munir Ali</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>He is a good person and he treats the patient gently , he speak politely , he is currently curing my
+            patient and I have seen many improvement in just 5 to 6 days.</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item8 Ends -->
+
+      <!-- Item9 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Priti Chopra.png">
+            </div>
+            <div class="profile-desc">
+              <span>Priti Chopra</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>My mother received excellent arthritis treatment from Dr. Ricky and Dr. Amir. Their understanding, service,
+            and politeness were outstanding.</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item9 Ends -->
+
+      <!-- Item10 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Junaid Sultan Khan.png">
+            </div>
+            <div class="profile-desc">
+              <span>Junaid Sultan Khan</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>Diagnosed with Cervical Spondylosis, my recovery journey was amazing. The results were worth it, and
+            doctors were wonderful!</p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item10 Ends -->
+
+      <!-- Item11 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/shina gupta.png">
+            </div>
+            <div class="profile-desc">
+              <span>shina gupta</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>Had a very good experience with the treatment. I’ll surely recommend it to others. Highly satisfied! 👍👍
+          </p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item11 Ends -->
+
+      <!-- Item12 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Sk akbar Ali.png">
+            </div>
+            <div class="profile-desc">
+              <span>Sk akbar Ali</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>Had the best experience with the treatment. The service was excellent, and I would highly recommend it to
+            others!
+          </p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item12 Ends -->
+
+      <!-- Item13 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Rajnish Kumar Singh.png">
+            </div>
+            <div class="profile-desc">
+              <span>
+                Rajnish Kumar Singh</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>Such a very good physiotherapist and so nice behaviour & So laborious with patients always treat with
+            smiles
+          </p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item13 Ends -->
+
+      <!-- Item14 Starts -->
+      <div class="item testimonial-card">
+        <main class="test-card-body">
+          <div class="profile">
+            <div class="profile-image">
+              <img src="images/Wahid Khan.png">
+            </div>
+            <div class="profile-desc">
+              <span>
+                Wahid Khan</span>
+              
+            </div>
+          </div>
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <h2>Awesome Expirence</h2>
+          </div>
+          <p>I had an ACL problem. After treatment with Dr. Riky and Dr. Amir, I feel much better. Worth it!
+          </p>
+          <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </main>
+
+      </div>
+      <!-- Item14 Ends -->
+
+
+    </div>
+    <!-- Owl Carousel Slider Ends -->
+
+  </div>
+
+
+  <!-- <div id="id" class="site">
+    <div class="containers">
+        <div class="testi">
+            <div class="head">
+                <h3>Testimonials.</h3>
+                <p>see what people are saying..</p>
+            </div>
+            <div class="body swiper">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <div class="wrapper">
+                            <div class="thumbnail">
+                                <img src="images/riki-ramdani-PtJ5MUIoTNo-unsplash.jpg" alt="">
+                            </div>
+                            <div class="aside">
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque vel est autem. Minima ipsum tempora maxime unde modi voluptatum nam.</p>
+                                <div class="name">
+                                    <h4>Sarah Malik</h4>
+                                    <p>Graphic Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="wrapper">
+                            <div class="thumbnail">
+                                <img src="images/hamza-nouasria-n7f-4nbUFzw-unsplash.jpg" alt="">
+                            </div>
+                            <div class="aside">
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque vel est autem. Minima ipsum tempora maxime unde modi voluptatum nam.</p>
+                                <div class="name">
+                                    <h4>Sh Malik</h4>
+                                    <p>Graphic Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+
+                 <!-- If we need navigation buttons  
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+  </div>  -->
+
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide">
+        <img src="images/logo/aster-prime-logo.webp" height="100" width="100" alt="aster-prime-logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/download.jpg" height="100" width="100" alt="download">
+      </div>
+      <div class="slide">
+        <img src="images/logo/download.png" height="100" width="100" alt="download">
+      </div>
+      <div class="slide">
+        <img src="images/logo/google.png" height="100" width="100" alt="google">
+      </div>
+      <div class="slide">
+        <img src="images/logo/KNBH-Logo.webp" height="100" width="100" alt="KNBH-Logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/Manipal-Hospitals-Logo.webp" height="100" width="100" alt="Manipal-Hospitals-Logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/mehtas-hospital-logo.webp" height="100" width="100" alt="mehtas-hospital-logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/ProMed-Hospital-logo.webp" height="100" width="100" alt="ProMed-Hospital-logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/Sut-Logo.webp" height="100" width="100" alt="Sut-Logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/Vialife-clinic-logo.webp" height="100" width="100" alt="Vialife-clinic-logo">
+      </div>
+
+      <!-- same slide -->
+
+      <div class="slide">
+        <img src="images/logo/aster-prime-logo.webp" height="100" width="100" alt="aster-prime-logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/download.jpg" height="100" width="100" alt="download">
+      </div>
+      <div class="slide">
+        <img src="images/logo/download.png" height="100" width="100" alt="download">
+      </div>
+      <div class="slide">
+        <img src="images/logo/google.png" height="100" width="100" alt="google">
+      </div>
+      <div class="slide">
+        <img src="images/logo/KNBH-Logo.webp" height="100" width="100" alt="KNBH-Logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/Manipal-Hospitals-Logo.webp" height="100" width="100" alt="Manipal-Hospitals-Logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/mehtas-hospital-logo.webp" height="100" width="100" alt="mehtas-hospital-logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/ProMed-Hospital-logo.webp" height="100" width="100" alt="ProMed-Hospital-logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/Sut-Logo.webp" height="100" width="100" alt="Sut-Logo">
+      </div>
+      <div class="slide">
+        <img src="images/logo/Vialife-clinic-logo.webp" height="100" width="100" alt="Vialife-clinic-logo">
+      </div>
+    </div>
+  </div>
+
+  <section id="footer">
+    <footer>
+      <div class="container-footer">
+        <div class="row">
+          <div class="col" id="company">
+            <img src="images/riky.png" alt="" class="logo">
+            <!-- <p>
+              Providing expert physiotherapy care focused on your health, recovery, and long-term well-being.
+            </p> -->
+
+            <p>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14741.47130297816!2d88.3230831!3d22.52789!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0279716a70b761%3A0x9c161231a774d50a!2sArti%20Physiotherapy%20Center!5e0!3m2!1sen!2sin!4v1724669192123!5m2!1sen!2sin"
+                width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            </p>
+
+          </div>
+
+
+          <!-- <div class="col" id="services">
+            <h3>Services</h3>
+            <div class="links">
+              <a href="#">Illustration</a>
+              <a href="#">Creatives</a>
+              <a href="#">Poster Design</a>
+              <a href="#">Card Design</a>
+            </div>
+          </div> -->
+
+          <div class="col" id="useful-links">
+            <h3 class="useful-links-h3">Links</h3>
+            <div class="links">
+              <a href="index.html">Home</a>
+              <a href="aboutus.html">About</a>
+              <a href="contactus.html">Contact Us</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+              <a href="Blog.html">DashBoard</a>
+            </div>
+          </div>
+
+          <div class="col" id="contact">
+            <h3>Contact</h3>
+            <div class="contact-details">
+              <i class="fa fa-location"></i>
+              <!-- <p>FF-42, Procube Avenue, <br> NY, USA</p> -->
+              <p>G-84 Battikal First Lane Garden Reach Kolkata 700024</p>
+            </div>
+            <div class="contact-detailss">
+              <i class="fa fa-phone"></i>
+              <p>+91-8910924206 / <br>+91- 9330227965 / <br>+91- 9038657263</p>
+            </div>
+            <div class="contact-details">
+              <i class="fa-solid fa-clock"></i> 10Am to 2PM / 6PM to 10PM
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="form">
+            <form action="">
+              <input type="text" placeholder="Email here...">
+              <button><i class="fa fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div> -->
+
+        <div class="subsection">
+          <h1 class="credit">©2024 Arti Physiotherapists | all rights reserved!</h1>
+        </div>
+
+      </div>
+
+
+
+
+    </footer>
+  </section>
+
+
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    $.ajax({
+      url: 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com/v1/users',
+      type: 'get',
+      dataType: "json",
+      success: function (response, staus) {
+        console.log('response1-------------------')
+        console.log(response)
+        console.log('response2--------------------')
+        if (response.length > 0) {
+          response.forEach(function (row, index) {
+            console.log(row, index)
+            
+            // Only process rows that have Youtube_Video_Id (YouTube videos)
+            if (row.Youtube_Video_Id) {
+              // YouTube embed URL format
+              var youtubeEmbedUrl = `https://www.youtube.com/embed/${row.Youtube_Video_Id}`;
+              
+              var news_slider = `<div class="post-slide">
+              <div class="post-img">
+                <iframe src="${youtubeEmbedUrl}" width="640"
+                  height="300" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>
+              </div>
+              <div class="post-content">
+                <h3 class="post-title">
+                  <a href="#">${row.heading}</a>
+                </h3>
+                <p class="post-description">${row.subheading}</p>
+                
+                 <a  id="${row._id}" onclick="RedirectUrl('${row._id}')" class="read-more" style="display:inline-block; margin-top:8px; padding:8px 18px; border-radius:999px; background:linear-gradient(135deg,#1f4037 0%,#99f2c8 100%); color:#ffffff; font-size:0.9rem; font-weight:600; text-decoration:none; text-transform:uppercase; letter-spacing:0.04em; box-shadow:0 8px 18px rgba(31,64,55,0.35); text-align:center;">read-more</a>
+               
+               
+              </div>
+            </div>`;
+              //  $('.owl-stage').append(news_slider);
+              $('#news-slider').owlCarousel('add', news_slider).owlCarousel('update');
+            }
+            // Skip rows that only have Image_Id (Google Drive videos/images)
+
+          })
+          $('#news-slider').trigger('refresh.owl.carousel');
+
+        }
+
+      }
+
+    })
+    function RedirectUrl(id) {
+      alert(id)
+      window.location.href = `service.html?id=${id}`
+    }
+
+  </script>
+
+  <script>
+    $.ajax({
+      url: 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com/v1/blogsub',
+      type: 'get',
+      dataType: "json",
+      success: function (response, staus) {
+        console.log(response)
+        var i = 9;
+        response.forEach(function (row, index) {
+          var mime_Type = row.mime_Type
+          if (i != 0) {
+            mime_Type.forEach((mimeType, index) => {
+              if (mimeType == 'image/jpg' || mimeType == 'image/png' || mimeType == 'image/webp' || mimeType == 'image/jpeg') {
+                var box_container = `<div class="box">
+        <img src="https://drive.google.com/thumbnail?id=${row.SubImageId[index]}" alt="">
+        <div class="contents">
+          <a href="https://wa.me/918620803512?text=Hello I want cleaning Service" class="btns">Book Services</a>
+
+        </div>
+      </div>`;
+                $('#box-container').append(box_container)
+                i--;
+                console.log("value of i", i)
+              }
+            })
+          }
+        })
+      },
+      error: function (err) {
+        console.log('Error:', err);
+      }
+    })
+  </script>
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+      autoHeight: true,
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+    });
+  </script>
+  <script>
+    let menu = document.querySelector('#hamburg');
+    let navbar = document.querySelector('.navbar');
+
+    menu.addEventListener('click', () => {
+      menu.classList.toggle('fa-times');
+      navbar.classList.toggle('nav-toggle');
+    });
+
+    window.onscroll = () => {
+      menu.classList.remove('fa-times');
+      navbar.classList.remove('nav-toggle');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    $('.testimonials-container').owlCarousel({
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 6000,
+      margin: 10,
+      nav: true,
+      navText: ["<i class='fa-solid fa-arrow-left'></i>",
+        "<i class='fa-solid fa-arrow-right'></i>"],
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        600: {
+          items: 1,
+          nav: true
+        },
+        768: {
+          items: 2
+        },
+      }
+    })
+  </script>
+  <script>
+    jQuery('.owl-carousel').owlCarousel({
+      center: true,
+      items: 3,
+      loop: true,
+      margin: 30,
+      nav: false,
+      dots: true,
+      autoplay: true,
+      slideTransition: 'linear',
+      autoplayTimeout: 6000,
+      autoplaySpeed: 6000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 3
+        }
+      }
+    });
+
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#news-slider").owlCarousel({
+        items: 3,
+        itemsDesktop: [1199, 3],
+        itemsDesktopSmall: [980, 2],
+        itemsMobile: [600, 1],
+        navigation: true,
+        navigationText: ["", ""],
+        pagination: true,
+        autoPlay: true
+      });
+    });
+
+  </script>
+
+  <!-- Beautiful Pop-up Form -->
+  <div id="popupForm" class="popup-overlay">
+    <div class="popup-container">
+      <div class="popup-header">
+        <h3>Get Your Free Consultation!</h3>
+        <p>Fill in your details and we'll get back to you within 24 hours</p>
+        <button class="popup-close" onclick="closePopup()">&times;</button>
+      </div>
+      
+      <form class="popup-form" id="visitorForm">
+        <div class="form-group">
+          <label for="visitorName">Full Name *</label>
+          <input type="text" id="visitorName" name="name" required placeholder="Enter your full name">
+          <i class="fa-solid fa-user form-icon"></i>
+        </div>
+        
+        <div class="form-group">
+          <label for="visitorPhone">Phone Number *</label>
+          <input type="tel" id="visitorPhone" name="phone" required placeholder="Enter your phone number">
+          <i class="fa-solid fa-phone form-icon"></i>
+        </div>
+        
+        <div class="form-group">
+          <label for="visitorMessage">Message (Optional)</label>
+          <textarea id="visitorMessage" name="message" placeholder="Tell us about your condition or any specific requirements"></textarea>
+          <i class="fa-solid fa-comment form-icon"></i>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+            Get Free Consultation
+          </button>
+        </div>
+        
+        <div class="form-footer">
+          <p><i class="fa-solid fa-shield-halved"></i> Your information is 100% secure and will never be shared</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pop-up Trigger Button -->
+  <div class="popup-trigger" onclick="openPopup()">
+    <i class="fa-solid fa-phone"></i>
+    <span>Free Consultation</span>
+  </div>
+
+
+
+
+
+
+  <!-- Pop-up JavaScript -->
+  <script>
+    // Global functions for popup control
+    function openPopup() {
+      const popup = document.getElementById('popupForm');
+      if (popup) {
+        // Force all styles to make popup visible - override any CSS conflicts
+        popup.style.cssText = `
+          display: flex !important;
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          background: rgba(0, 0, 0, 0.8) !important;
+          z-index: 99999 !important;
+          justify-content: center !important;
+          align-items: center !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: none !important;
+        `;
+        document.body.style.overflow = 'hidden';
+        
+        // Force popup container to be visible with better styling
+        const container = popup.querySelector('.popup-container');
+        if (container) {
+          container.style.cssText = `
+            display: block !important;
+            background: #ffffff !important;
+            width: 450px !important;
+            max-height: 80vh !important;
+            border-radius: 15px !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative !important;
+            z-index: 1 !important;
+            overflow-y: auto !important;
+          `;
+          
+          // Style the header with reduced height
+          const header = container.querySelector('.popup-header');
+          if (header) {
+            header.style.cssText = `
+              background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+              color: white !important;
+              padding: 15px 25px !important;
+              border-radius: 15px 15px 0 0 !important;
+              text-align: center !important;
+              position: relative !important;
+              margin: 0 !important;
+            `;
+            
+            // Style header text
+            const headerH3 = header.querySelector('h3');
+            if (headerH3) {
+              headerH3.style.cssText = `
+                margin: 0 0 5px 0 !important;
+                font-size: 20px !important;
+                font-weight: 700 !important;
+                color: white !important;
+              `;
+            }
+            
+            const headerP = header.querySelector('p');
+            if (headerP) {
+              headerP.style.cssText = `
+                margin: 0 !important;
+                font-size: 12px !important;
+                opacity: 0.9 !important;
+                color: white !important;
+              `;
+            }
+          }
+          
+          // Style the form with reduced field heights
+          const form = container.querySelector('.popup-form');
+          if (form) {
+            form.style.cssText = `
+              padding: 20px !important;
+              margin: 0 !important;
+            `;
+            
+            // Style form fields
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+              input.style.cssText = `
+                width: 100% !important;
+                padding: 10px 35px 10px 12px !important;
+                border: 2px solid #e1e5e9 !important;
+                border-radius: 8px !important;
+                font-size: 14px !important;
+                background: #f8f9fa !important;
+                box-sizing: border-box !important;
+                margin-bottom: 5px !important;
+                transition: all 0.3s ease !important;
+              `;
+            });
+            
+            // Style labels
+            const labels = form.querySelectorAll('label');
+            labels.forEach(label => {
+              label.style.cssText = `
+                display: block !important;
+                margin-bottom: 3px !important;
+                font-weight: 600 !important;
+                color: #333 !important;
+                font-size: 13px !important;
+              `;
+            });
+            
+            // Style submit button
+            const submitBtn = form.querySelector('.submit-btn');
+            if (submitBtn) {
+              submitBtn.style.cssText = `
+                background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+                color: white !important;
+                border: none !important;
+                padding: 12px 30px !important;
+                border-radius: 25px !important;
+                font-size: 14px !important;
+                font-weight: 600 !important;
+                cursor: pointer !important;
+                width: 60% !important;
+                margin: 0px auto !important;
+                display: block !important;
+                text-align: center !important;
+              `;
+            }
+          }
+          
+        }
+      }
+    }
+
+    function closePopup() {
+      const popup = document.getElementById('popupForm');
+      if (popup) {
+        popup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        localStorage.setItem('popupShown', 'true');
+      }
+    }
+
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show popup after 3 seconds of page load
+      setTimeout(function() {
+        if (!localStorage.getItem('popupShown')) {
+          openPopup();
+        }
+      }, 3000);
+
+      // Close popup when clicking outside
+      const popupElement = document.getElementById('popupForm');
+      if (popupElement) {
+        popupElement.addEventListener('click', function(e) {
+          if (e.target === this) {
+            closePopup();
+          }
+        });
+      }
+
+      // Form submission
+      const formElement = document.getElementById('visitorForm');
+      if (formElement) {
+        formElement.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const formData = new FormData(this);
+          const Name = formData.get('name');
+          const PhoneNumber = formData.get('phone');
+          const message = formData.get('message');
+          
+        $.ajax({
+                    url: 'https://botclap.com/webhook/contact/1352106806564501',
+                    method: 'POST',
+                    data: {
+                        Name: Name,
+                        PhoneNumber: PhoneNumber,
+                        ContactList: [],
+                        Tags: [],
+                        CustomAttributes:{}
+                    },
+                    success: async function (response) {}
+                  })
+          
+          // Close popup
+          closePopup();
+        });
+      }
+
+      // Close with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closePopup();
+        }
+      });
+    });
+
+  </script>
+
+  <!-- Popup Styles - Loaded after Bootstrap to override conflicts -->
+  <style>
+    /* ====== BEAUTIFUL POP-UP FORM ====== */
+    #popupForm.popup-overlay {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: rgba(0, 0, 0, 0.8) !important;
+      backdrop-filter: blur(5px) !important;
+      display: none !important;
+      justify-content: center !important;
+      align-items: center !important;
+      z-index: 9999 !important;
+      animation: fadeIn 0.3s ease-out !important;
+    }
+
+    .popup-container {
+      background: #ffffff !important;
+      border-radius: 15px !important;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+      max-width: 500px !important;
+      width: 90% !important;
+      max-height: 90vh !important;
+      overflow-y: auto !important;
+      position: relative !important;
+      animation: slideInUp 0.4s ease-out !important;
+      border: 1px solid #e1e5e9 !important;
+      margin: 0 auto !important;
+    }
+
+    .popup-header {
+      background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%) !important;
+      color: white !important;
+      padding: 25px 30px !important;
+      border-radius: 15px 15px 0 0 !important;
+      text-align: center !important;
+      position: relative !important;
+      margin: 0 !important;
+    }
+
+    .popup-header h3 {
+      margin: 0 0 10px 0 !important;
+      font-size: 24px !important;
+      font-weight: 700 !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+      color: white !important;
+    }
+
+    .popup-header p {
+      margin: 0 !important;
+      font-size: 14px !important;
+      opacity: 0.9 !important;
+      font-weight: 300 !important;
+      color: white !important;
+    }
+
+    .popup-close {
+      position: absolute !important;
+      top: 15px !important;
+      right: 20px !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+      border: none !important;
+      color: white !important;
+      font-size: 24px !important;
+      width: 35px !important;
+      height: 35px !important;
+      border-radius: 50% !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .popup-close:hover {
+      background: rgba(255, 255, 255, 0.3) !important;
+      transform: rotate(90deg) !important;
+    }
+
+    .popup-form {
+      padding: 30px !important;
+      margin: 0 !important;
+    }
+
+    .form-group {
+      margin-bottom: 25px !important;
+      position: relative !important;
+    }
+
+    .form-group label {
+      display: block !important;
+      margin-bottom: 8px !important;
+      font-weight: 600 !important;
+      color: #333 !important;
+      font-size: 14px !important;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100% !important;
+      padding: 15px 45px 15px 15px !important;
+      border: 2px solid #e1e5e9 !important;
+      border-radius: 10px !important;
+      font-size: 16px !important;
+      transition: all 0.3s ease !important;
+      background: #f8f9fa !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none !important;
+      border-color: #2c5aa0 !important;
+      background: white !important;
+      box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .form-group textarea {
+      min-height: 100px !important;
+      resize: vertical !important;
+      font-family: inherit !important;
+    }
+
+    .form-icon {
+      position: absolute !important;
+      right: 15px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      color: #2c5aa0 !important;
+      font-size: 16px !important;
+      pointer-events: none !important;
+    }
+
+    .form-group textarea + .form-icon {
+      top: 25px !important;
+      transform: none !important;
+    }
+
+    .form-actions {
+      text-align: center !important;
+      margin: 30px 0 20px 0 !important;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%) !important;
+      color: white !important;
+      border: none !important;
+      padding: 15px 40px !important;
+      border-radius: 50px !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      margin: 0 !important;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(44, 90, 160, 0.4) !important;
+      background: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 100%) !important;
+    }
+
+    .submit-btn:active {
+      transform: translateY(0) !important;
+    }
+
+    .form-footer {
+      text-align: center !important;
+      margin-top: 20px !important;
+    }
+
+    .form-footer p {
+      color: #666 !important;
+      font-size: 12px !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+    }
+
+    .form-footer i {
+      color: #28a745 !important;
+    }
+
+    /* Pop-up Trigger Button */
+    .popup-trigger {
+      position: fixed !important;
+      bottom: 30px !important;
+      right: 30px !important;
+      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+      color: white !important;
+      padding: 15px 20px !important;
+      border-radius: 50px !important;
+      cursor: pointer !important;
+      box-shadow: 0 4px 20px rgba(31, 64, 55, 0.35) !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      font-weight: 600 !important;
+      transition: all 0.3s ease !important;
+      animation: pulse 2s infinite !important;
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .popup-trigger:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 6px 25px rgba(31, 64, 55, 0.5) !important;
+    }
+
+    .popup-trigger i {
+      font-size: 18px !important;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 4px 20px rgba(31, 64, 55, 0.3);
+      }
+      50% {
+        box-shadow: 0 4px 20px rgba(31, 64, 55, 0.6);
+      }
+      100% {
+        box-shadow: 0 4px 20px rgba(31, 64, 55, 0.3);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media(max-width:991px) {
+      .popup-container {
+        width: 95% !important;
+        max-width: 450px !important;
+        margin: 20px !important;
+      }
+
+      .popup-header {
+        padding: 20px 25px !important;
+      }
+
+      .popup-header h3 {
+        font-size: 20px !important;
+      }
+
+      .popup-form {
+        padding: 25px !important;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 12px 40px 12px 12px !important;
+        font-size: 14px !important;
+      }
+
+      .submit-btn {
+        padding: 12px 30px !important;
+        font-size: 14px !important;
+      }
+
+      .popup-trigger {
+        bottom: 20px !important;
+        right: 20px !important;
+        padding: 12px 16px !important;
+        font-size: 14px !important;
+      }
+
+      .popup-trigger span {
+        display: none !important;
+      }
+
+      .popup-trigger i {
+        font-size: 16px !important;
+      }
+    }
+  </style>
+
+  <!-- Dashboard Login Modal -->
+  <div id="dashboardLoginModal" style="position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: none; align-items: center; justify-content: center; z-index: 2000;">
+    <div style="background: #fff; width: 95%; max-width: 420px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden;">
+      <div style="padding: 16px 20px; background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%); color: #fff;">
+        <h3 style="margin: 0; font-size: 18px;">Secure Access</h3>
+        <p style="margin: 6px 0 0 0; opacity: 0.9; font-size: 13px;">Please enter your credentials to access the dashboard.</p>
+      </div>
+      <form id="dashboardLoginForm" style="padding: 18px 20px;">
+        <label for="dashboardUsername" style="display:block; font-weight:600; margin-bottom:6px; color:#1f2937;">Username</label>
+        <input id="dashboardUsername" type="text" placeholder="Enter username" style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; margin-bottom:12px; font-size:14px;">
+        <label for="dashboardPassword" style="display:block; font-weight:600; margin-bottom:6px; color:#1f2937;">Password</label>
+        <input id="dashboardPassword" type="password" placeholder="Enter password" style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; margin-bottom:10px; font-size:14px;">
+        <p id="dashboardLoginError" style="display:none; color:#dc2626; font-size:13px; margin: 6px 0 12px 0;">Invalid credentials. Please try again.</p>
+        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top: 6px;">
+          <button type="button" id="dashboardCancelBtn" style="padding:10px 14px; border-radius:999px; border:1px solid #d1d5db; background:#fff; color:#374151; cursor:pointer;">Cancel</button>
+          <button type="submit" style="padding:10px 16px; border-radius:999px; border:none; background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%); color:#fff; cursor:pointer; font-weight:600;">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const link = document.querySelector('#useful-links .links a[href="Blog.html"]');
+      const modal = document.getElementById('dashboardLoginModal');
+      const form = document.getElementById('dashboardLoginForm');
+      const cancelBtn = document.getElementById('dashboardCancelBtn');
+      const errorEl = document.getElementById('dashboardLoginError');
+      const usernameInput = document.getElementById('dashboardUsername');
+      const passwordInput = document.getElementById('dashboardPassword');
+
+      function openModal() {
+        if (!modal) return;
+        modal.style.display = 'flex';
+        errorEl.style.display = 'none';
+        usernameInput.value = '';
+        passwordInput.value = '';
+        setTimeout(()=>{ usernameInput.focus(); }, 50);
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        if (!modal) return;
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      link?.addEventListener('click', function(e){
+        e.preventDefault();
+        openModal();
+      });
+
+      cancelBtn?.addEventListener('click', function(){
+        closeModal();
+      });
+
+      modal?.addEventListener('click', function(evt){
+        if (evt.target === modal) {
+          closeModal();
+        }
+      });
+
+      form?.addEventListener('submit', function(e){
+        e.preventDefault();
+        const u = (usernameInput.value || '').trim();
+        const p = (passwordInput.value || '').trim();
+        if (u === 'amrik' && p === 'arti') {
+          errorEl.style.display = 'none';
+          closeModal();
+          window.location.href = 'Blog.html';
+        } else {
+          errorEl.style.display = 'block';
+        }
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
