@@ -587,23 +587,43 @@
 
     /* Scrolling announcement band below header */
     .announcement-band {
-      position: relative;
-      z-index: 900;
+      position: sticky;
+      top: 60px;
+      z-index: 29;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 6px 0;
-      background: linear-gradient(to bottom, #e0d4c2, #f5f4f0);
+      padding: 8px 0;
+      background: linear-gradient(to bottom, #E0D4C2, #F5F4F0);
       overflow: hidden;
     }
 
     .announcement-band-inner {
-      width: 90%;
+      width: 80%;
       max-width: 1100px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+    }
+
+    .announcement-leaf {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(-12deg);
+      height: auto;
+      width: 80px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .announcement-leaf-left {
+      left: -40px;
+      transform: translateY(-50%) scaleX(-1) rotate(-12deg);
+    }
+
+    .announcement-leaf-right {
+      right: -40px;
     }
 
     .announcement-marquee {
@@ -738,6 +758,8 @@
     </nav>
   </header>
   <div class="announcement-band">
+    <img src="images/christmas-leaves.jpg" alt="decorative leaves" class="announcement-leaf announcement-leaf-left">
+    <img src="images/christmas-leaves.jpg" alt="decorative leaves" class="announcement-leaf announcement-leaf-right">
     <div class="announcement-band-inner">
       <div class="announcement-marquee">
         <span>Care That Moves With You<span class="announcement-dot"></span>Indias only online rehab<span class="announcement-dot"></span>Christmas &amp; New Year Special<span class="announcement-dot"></span>A Healthier Start Begins This Season<span class="announcement-dot"></span>Move Better<span class="announcement-dot"></span>Live Better<span class="announcement-dot"></span>Start Today<span class="announcement-dot"></span>Care Beyond Exercise<span class="announcement-dot"></span>Pain-Free Living Starts Here<span class="announcement-dot"></span>Choose a Pain-Free Tomorrow</span>
@@ -794,73 +816,30 @@
           <div class="pain-dot pain-dot-knee"></div>
           <div class="pain-dot pain-dot-ankle"></div>
         </div>
-        <div class="pain-card-scroller">
-          <div class="pain-cards-track">
-            <!-- Neck Card -->
-            <article class="services-card pain-service-card">
-              <div class="services-card-body">
-                <h3 class="services-card-title">Neck Pain Relief</h3>
-                <div class="services-card-meta">
-                  <span>Disc issues, strains & posture</span>
-                  <span>10 min read</span>
-                </div>
-                <div class="services-card-divider"></div>
-                <button type="button" class="services-read-btn">
-                  <span>Know more</span>
-                  <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="services-card-image-wrap">
-                <img src="images/running.png" alt="Neck pain treatment" class="services-card-image">
-                <div class="services-card-image-overlay">
-                  <p>Relieve chronic neck pain and stiffness</p>
-                </div>
-              </div>
-            </article>
+        <div class="pain-right-panel">
+          <div class="pain-right-inner">
+            <ul class="pain-areas-list">
+              <li class="active"><span>Neck</span><span class="symbol">&bull;</span></li>
+              <li><span>Shoulder</span><span class="symbol">+</span></li>
+              <li><span>Elbow</span><span class="symbol">+</span></li>
+              <li><span>Lower Back</span><span class="symbol">+</span></li>
+              <li><span>Hip</span><span class="symbol">+</span></li>
+              <li><span>Wrist</span><span class="symbol">+</span></li>
+              <li><span>Hand</span><span class="symbol">+</span></li>
+              <li><span>Knee</span><span class="symbol">+</span></li>
+              <li><span>Ankle</span><span class="symbol">+</span></li>
+            </ul>
 
-            <!-- Shoulder Card -->
-            <article class="services-card pain-service-card">
-              <div class="services-card-body">
-                <h3 class="services-card-title">Shoulder Pain</h3>
-                <div class="services-card-meta">
-                  <span>Rotator cuff, frozen shoulder</span>
-                  <span>8 min read</span>
+            <div class="pain-detail-card">
+              <div class="pain-detail-header">
+                <div>
+                  <h3>Elbow</h3>
+                  <p>Tennis elbow, golfer&apos;s elbow and biceps tendinopathy</p>
                 </div>
-                <div class="services-card-divider"></div>
-                <button type="button" class="services-read-btn">
-                  <span>Know more</span>
-                  <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                </button>
+                <button class="pain-card-close" type="button">&times;</button>
               </div>
-              <div class="services-card-image-wrap">
-                <img src="images/running.png" alt="Shoulder pain treatment" class="services-card-image">
-                <div class="services-card-image-overlay">
-                  <p>Restore painless shoulder movement</p>
-                </div>
-              </div>
-            </article>
-
-            <!-- Knee Card -->
-            <article class="services-card pain-service-card">
-              <div class="services-card-body">
-                <h3 class="services-card-title">Knee & Leg Pain</h3>
-                <div class="services-card-meta">
-                  <span>Sports injuries & arthritis</span>
-                  <span>9 min read</span>
-                </div>
-                <div class="services-card-divider"></div>
-                <button type="button" class="services-read-btn">
-                  <span>Know more</span>
-                  <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="services-card-image-wrap">
-                <img src="images/running.png" alt="Knee pain treatment" class="services-card-image">
-                <div class="services-card-image-overlay">
-                  <p>Get back to walking and running pain‑free</p>
-                </div>
-              </div>
-            </article>
+              <button type="button" class="pain-know-more-btn">know more</button>
+            </div>
           </div>
         </div>
       </div>
