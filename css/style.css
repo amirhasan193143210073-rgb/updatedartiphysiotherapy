@@ -144,7 +144,7 @@ header .navbars ul li:hover>ul {
 }
 
 .hero-card {
-    background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+    background: #ff6347;
     border-radius: 50px;
     padding: 40px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -154,6 +154,237 @@ header .navbars ul li:hover>ul {
     max-width: 1200px;
     /* Ensures the card doesn't get too wide */
     overflow: hidden; /* Ensures that nothing overflows the card */
+}
+
+/* Pain / What We Treat section below hero */
+.pain-section {
+    padding: 28px 6%;
+    margin: 24px auto 0;
+    max-width: 1200px;
+    background: #ffe5dd; /* light tomato theme */
+    border-radius: 28px;
+    border: 1px solid rgba(255, 99, 71, 0.35);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+}
+
+.pain-section-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px; /* a bit tighter so image can be larger */
+}
+
+.pain-text {
+    flex: 1;
+}
+
+.pain-eyebrow {
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 8px;
+}
+
+.pain-text h2 {
+    font-size: 3.1rem;  /* bigger main tagline */
+    line-height: 1.05;
+    margin-bottom: 18px;
+    color: #111827;
+    font-weight: 800;
+}
+
+.pain-text h2 span {
+    color: #ff6347;
+}
+
+.pain-subtitle {
+    font-size: 1.06rem;
+    line-height: 1.7;
+    color: #4b5563;
+    max-width: 380px;
+}
+
+.pain-arrow-img {
+    margin-top: 30px;
+    width: 130px;
+    height: auto;
+}
+
+.pain-visual {
+    flex: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+    position: relative;
+}
+
+.pain-image {
+    flex: 1.8; /* give image even more space so it appears larger */
+    position: relative;
+    max-width: 520px; /* allow a larger visual size */
+}
+
+.pain-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 32px;
+    box-shadow: none;
+}
+
+/* Orange pain highlight dots on the running image */
+.pain-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: #ff6347;
+    box-shadow:
+        0 0 0 6px rgba(255, 99, 71, 0.4),
+        0 0 0 14px rgba(255, 99, 71, 0.2);
+}
+
+/* Positions are approximate and tuned for running.png proportions */
+.pain-dot-shoulder { top: 24%; right: 26%; }
+.pain-dot-elbow   { top: 35%; right: 38%; }
+.pain-dot-hip     { top: 43%; right: 52%; }
+.pain-dot-knee    { top: 60%; right: 30%; }
+.pain-dot-ankle   { top: 75%; right: 20%; }
+
+/* Decorative background behind image was orange circle; remove for theme match */
+.pain-visual::before {
+    content: none;
+}
+/* What We Treat - horizontal cards, matching Our Services style */
+.pain-card-scroller {
+    flex: 0 0 280px;
+    margin-left: 44px;
+    position: relative;
+    z-index: 1;
+    overflow-x: auto;
+    padding: 14px 14px 10px;
+    border-radius: 20px;
+    background: #f5f5f7; /* same light background as services-section */
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+.pain-cards-track {
+    display: flex;
+    gap: 16px;
+    min-width: max-content;
+}
+
+.pain-service-card {
+    min-width: 240px;
+    max-width: 260px;
+    scroll-snap-align: start;
+}
+
+.pain-card-scroller::-webkit-scrollbar {
+    height: 6px;
+}
+
+.pain-card-scroller::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.pain-card-scroller::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.7);
+    border-radius: 999px;
+}
+
+.pain-card-close {
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-radius: 999px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: default;
+}
+
+.pain-areas-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+}
+
+.pain-areas-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 4px;
+    font-size: 0.9rem;
+    border-radius: 999px;
+}
+
+.pain-areas-list li.active {
+    background: rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+}
+
+.pain-areas-list .symbol {
+    opacity: 0.9;
+}
+
+.pain-card-footer {
+    margin-top: 6px;
+}
+
+.pain-know-more-btn {
+    width: 100%;
+    border-radius: 999px;
+    border: none;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: #ffffff;
+    color: #ff6347;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .pain-section-inner {
+        flex-direction: column;
+    }
+
+    .pain-visual {
+        justify-content: center;
+    }
+
+    .pain-image {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 600px) {
+    .pain-section {
+        padding: 30px 5%;
+    }
+
+    .pain-text h2 {
+        font-size: 2rem;
+    }
+
+    .pain-visual {
+        flex-direction: column;
+    }
+
+    .pain-image {
+        max-width: 100%;
+    }
+
+    .pain-card {
+        width: 100%;
+    }
 }
 
 .hero-section {
@@ -350,74 +581,124 @@ header .navbars ul li:hover>ul {
     border-radius: 5px;
 }
 
-.service_card_container {
+/* Our Services section – article-style cards */
+.services-section {
+    margin-top: 5%;
+    margin-bottom: 0;
+    padding: 40px 20px 50px;
+    border-radius: 24px;
+    background: #f5f5f7;
+}
+
+.services-heading {
+    margin-bottom: 28px !important;
+    text-align: center;
+    color: #111827 !important;
+    text-shadow: none !important;
+}
+
+.services-cards-row {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
+    justify-content: center;
+    gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
-    /* Center the container */
     flex-wrap: wrap;
 }
 
-.service_card {
-    background-color: #8de0e866;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.services-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e5e7eb;
     width: 32%;
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 20px;
+    min-width: 260px;
     display: flex;
     flex-direction: column;
-    /* Ensures content stacks vertically */
-    justify-content: space-between;
+    overflow: hidden;
 }
 
-.service_card img {
-    width: 100%;
-    height: 250px;
-    /* Set a consistent height */
-    /* object-fit: cover; */
-    /* Ensures the image covers the area without distortion */
-    border-radius: 10px;
-
+.services-card-body {
+    padding: 18px 20px 16px;
 }
 
-.service_card h3 {
-    font-size: 1.7rem;
-    margin-top: 15px;
-    color: #03346E;
-}
-
-.service_card p {
+.services-card-title {
     font-size: 1.1rem;
-    color: #556382;
-    margin-top: 10px;
-    line-height: 1.5;
-    flex-grow: 1;
-    /* Ensures the text grows to take up space */
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 6px;
 }
 
-.service_card .book_service {
-    padding: 12px 20px;
-    font-size: 12px;
-    background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
-    color: #ffffff;
-    box-shadow: 0px 10px 20px -10px rgba(31, 64, 55, 0.8);
-    border-radius: 25px;
-    text-decoration: none;
-    text-transform: uppercase;
+.services-card-meta {
     display: flex;
-    justify-content: center;
-    width: 80%;
-    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: #6b7280;
 }
 
-.service_card .book_service .phone {
-    margin-top: 2%;
-    margin-right: 5%;
+.services-card-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 10px 0 12px;
+}
+
+.services-read-btn {
+    width: 100%;
+    border-radius: 999px;
+    border: none;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: #ff6347;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.services-read-btn i {
+    font-size: 0.8rem;
+}
+
+.services-card-image-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.services-card-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.services-card-image-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 14px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.services-card-image-overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+@media (max-width: 992px) {
+    .services-card {
+        width: 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-card {
+        width: 100%;
+    }
 }
 
 .container_first {
@@ -701,6 +982,129 @@ header .navbars ul li:hover>ul {
     opacity: 0.95;
 }
 
+/* Gallery hero section - dark band with center card and side thumbnails */
+.gallery {
+    padding: 70px 8% 80px;
+    margin-top: 5%;
+    background: #18181b;
+    color: #f9fafb;
+}
+
+.gallery-hero-header {
+    text-align: center;
+    margin: 0 auto 32px;
+}
+
+.gallery-hero-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #f9fafb;
+}
+
+.gallery-hero-header .accent {
+    color: #ff6347;
+}
+
+.gallery-hero-row {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.gallery-thumb img {
+    width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.65;
+}
+
+.gallery-main-card {
+    background: #27272f;
+    border-radius: 26px;
+    padding: 18px 22px 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-main-image-wrap {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.gallery-main-image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.gallery-play-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #ffffff;
+    color: #111827;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.gallery-play-btn i {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: #ff6347;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.gallery-meta h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.gallery-meta p {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.gallery-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: none;
+    background: #ff6347;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.gallery-caption {
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+    color: #e5e7eb;
+    text-align: center;
+}
+
 .gallery .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -879,7 +1283,7 @@ header .navbars ul li:hover>ul {
 .post-slide .read-more {
     padding: 12px 22px;
     font-size: 12px;
-    background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+    background: #ff6347;
     color: #ffffff;
     box-shadow: 0px 10px 20px -10px rgba(31, 64, 55, 0.8);
     border-radius: 999px;
@@ -897,7 +1301,7 @@ header .navbars ul li:hover>ul {
 
 .post-slide .read-more:hover {
     transform: translateY(-2px);
-    box-shadow: 0px 14px 26px -10px rgba(31, 64, 55, 0.95);
+    box-shadow: 0px 14px 26px -10px rgba(255, 99, 71, 0.9);
     opacity: 0.95;
 }
 
@@ -905,27 +1309,126 @@ header .navbars ul li:hover>ul {
 
 .testimonials-section {
     width: 100%;
-    padding: 0px 8%;
+    padding: 70px 8% 80px;
     margin-top: 5%;
+    background: #18181b;
+    color: #f9fafb;
 }
 
 .testimonials-section .section-header {
-    max-width: 700px;
+    max-width: 780px;
     text-align: center;
-    margin: 30px auto 40px;
+    margin: 0 auto 40px;
 }
 
-.section-header h1 {
-    position: relative;
+.client-hero-header h1 {
     font-size: 3rem;
-    /* color: var(--primary-clr); */
-    color: #03346E;
-    font-weight: 500;
-    margin-top: 2%;
+    font-weight: 800;
+    color: #f9fafb;
 }
 
-.testimonials-container {
+.client-hero-header h1 .accent {
+    color: #ff6347;
+}
+
+.client-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.client-thumb img {
+    width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.client-main-card {
+    background: #27272f;
+    border-radius: 26px;
+    padding: 18px 22px 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.client-main-image-wrap {
     position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.client-main-image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.client-play-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #ffffff;
+    color: #111827;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.client-play-btn i {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: #ff6347;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.client-meta h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.client-meta p {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.client-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: none;
+    background: #ff6347;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.client-quote {
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+    color: #e5e7eb;
+    text-align: center;
 }
 
 .testimonials-container .testimonial-card {

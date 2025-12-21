@@ -28,16 +28,15 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   
-  <!-- Hero Section Styles - Loaded after Bootstrap to override conflicts -->
+  /* Hero Section Styles - Loaded after Bootstrap to override conflicts */
   <style>
     .hero-section {
       display: flex !important;
       justify-content: space-between !important;
       align-items: center !important;
       padding: 40px !important;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      background: #ffffff !important;
       border-radius: 25px !important;
-      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3) !important;
       margin: 20px 0 !important;
       position: relative !important;
       overflow: hidden !important;
@@ -57,27 +56,32 @@
     .hero-section .content {
       position: relative !important;
       z-index: 2 !important;
+      background: #ffffff !important;
+      border-radius: 20px !important;
+      padding: 24px 28px !important;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12) !important;
+      color: #333333 !important;
     }
 
     .hero-section h1 {
-      color: white !important;
+      color: #ff6347 !important;
       font-size: 2.8rem !important;
       font-weight: 800 !important;
       margin-bottom: 20px !important;
-      text-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
-      background: linear-gradient(45deg, #fff, #f0f8ff) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
+      text-shadow: none !important;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      -webkit-text-fill-color: initial !important;
+      background-clip: initial !important;
       animation: fadeInUp 1s ease-out !important;
     }
 
     .hero-section p {
-      color: rgba(255,255,255,0.95) !important;
+      color: #ff6347 !important;
       font-size: 1.3rem !important;
       line-height: 1.6 !important;
       margin-bottom: 30px !important;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+      text-shadow: none !important;
       animation: fadeInUp 1s ease-out 0.3s both !important;
     }
 
@@ -727,7 +731,7 @@
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
 
         <li>
-          <a href="contactus.html" class="cta-header-btn" style="background-color: white; color: tomato; border-radius: 20px; padding: 10px 20px; text-decoration: none;">Book a Call Today</a>
+          <a href="#" onclick="openPopup(); return false;" class="cta-header-btn" style="background-color: white; color: tomato; border-radius: 20px; padding: 10px 20px; text-decoration: none;">Book a Call Today</a>
         </li>
 
       </ul>
@@ -768,107 +772,197 @@
 
   </section>
 
+  <!-- What We Treat style section below hero -->
+  <section class="pain-section">
+    <div class="pain-section-inner">
+      <div class="pain-text">
+        <p class="pain-eyebrow">WHAT WE TREAT</p>
+        <h2>Say <span>Goodbye</span> To Pain</h2>
+        <p class="pain-subtitle">Granimals provides treatment for all musculoskeletal issues from head to toe 
+          &mdash; neck, back, shoulder, knee and more &mdash; so you can move freely again.</p>
+        <img src="images/arrow.96051d509cdbe450ab10eee122c38e4c.svg" alt="Curved arrow" class="pain-arrow-img">
+      </div>
 
+      <div class="pain-visual">
+        <div class="pain-image">
+          <img src="images/running.png" alt="Running woman physiotherapy">
 
-  <!-- <div class="container_first">
-    <div class="text-container">
-      <h1>World-Class Physiotherapy at Clinic, Home or Online</h1>
-      <p>Choose what works for you!</p>
+          <!-- Orange pain highlight dots on body -->
+          <div class="pain-dot pain-dot-shoulder"></div>
+          <div class="pain-dot pain-dot-elbow"></div>
+          <div class="pain-dot pain-dot-hip"></div>
+          <div class="pain-dot pain-dot-knee"></div>
+          <div class="pain-dot pain-dot-ankle"></div>
+        </div>
+        <div class="pain-card-scroller">
+          <div class="pain-cards-track">
+            <!-- Neck Card -->
+            <article class="services-card pain-service-card">
+              <div class="services-card-body">
+                <h3 class="services-card-title">Neck Pain Relief</h3>
+                <div class="services-card-meta">
+                  <span>Disc issues, strains & posture</span>
+                  <span>10 min read</span>
+                </div>
+                <div class="services-card-divider"></div>
+                <button type="button" class="services-read-btn">
+                  <span>Know more</span>
+                  <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="services-card-image-wrap">
+                <img src="images/running.png" alt="Neck pain treatment" class="services-card-image">
+                <div class="services-card-image-overlay">
+                  <p>Relieve chronic neck pain and stiffness</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Shoulder Card -->
+            <article class="services-card pain-service-card">
+              <div class="services-card-body">
+                <h3 class="services-card-title">Shoulder Pain</h3>
+                <div class="services-card-meta">
+                  <span>Rotator cuff, frozen shoulder</span>
+                  <span>8 min read</span>
+                </div>
+                <div class="services-card-divider"></div>
+                <button type="button" class="services-read-btn">
+                  <span>Know more</span>
+                  <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="services-card-image-wrap">
+                <img src="images/running.png" alt="Shoulder pain treatment" class="services-card-image">
+                <div class="services-card-image-overlay">
+                  <p>Restore painless shoulder movement</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Knee Card -->
+            <article class="services-card pain-service-card">
+              <div class="services-card-body">
+                <h3 class="services-card-title">Knee & Leg Pain</h3>
+                <div class="services-card-meta">
+                  <span>Sports injuries & arthritis</span>
+                  <span>9 min read</span>
+                </div>
+                <div class="services-card-divider"></div>
+                <button type="button" class="services-read-btn">
+                  <span>Know more</span>
+                  <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="services-card-image-wrap">
+                <img src="images/running.png" alt="Knee pain treatment" class="services-card-image">
+                <div class="services-card-image-overlay">
+                  <p>Get back to walking and running pain‑free</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="cards-container">
-      <div class="card">
-        <i class="fa-solid fa-location-dot"></i>
-        <div class="badge">In your own locality</div>
-        <div class="card-content">
-          <h2>Physiotherapy Near Me</h2>
-          <p>Go for result-oriented physiotherapy at a fully-equipped Arti physiotherapy clinic nearby in
-            your own locality</p>
-        </div>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-house"></i>
-        <div class="badge">No Travel + Saves Time</div>
-        <div class="card-content">
-          <h2>Physiotherapy at Home</h2>
-          <p>Recover with expert physiotherapy at home conveniently with a home visit physiotherapist</p>
-        </div>
-      </div>
-      <div class="card">
-        <i class="fas fa-laptop-house"></i>
-        <div class="badge">From Wherever You Are!</div>
-        <div class="card-content">
-          <h2>Online Physiotherapy</h2>
-          <p>See a Physio online, so you need not come to clinic! Tele Physiotherapy which is Effective,
-            Convenient & Safe</p>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <div id="services" style="margin-top: 5%; margin-bottom: 0; padding: 40px 20px; border-radius: 20px; background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%); box-shadow: 0 18px 40px rgba(0,0,0,0.18);">
-    <h1 class="heading" style="margin-bottom: 24px; text-align:center; color:#fff; text-shadow:0 3px 8px rgba(0,0,0,0.35);">Our Services</h1>
-    <div class="service_card_container" style="gap: 24px;">
+  </section>
+  <div id="services" class="services-section">
+    <h1 class="heading services-heading">Our Services</h1>
+    <div class="service_card_container services-cards-row">
 
-      <div class="service_card" style="background: rgba(0,0,0,0.28); border-radius: 18px; padding: 18px; box-shadow: 0 14px 32px rgba(0,0,0,0.32); color:#e0f7fa; border:1px solid rgba(255,255,255,0.28);">
-        <img src="images/Clint_Treatment.jpg" alt="Clinic Treatments" style="border-radius: 14px; margin-bottom: 12px; box-shadow: 0 10px 24px rgba(0,0,0,0.45);">
-        <h3 style="color:#ffffff; margin-bottom:8px;">Clinic Treatment</h3>
-        <p style="margin-bottom: 4px;">High-quality physiotherapy care at our clinic. Personalized treatment for pain
-          relief, mobility, and
-          recovery. </p>
-        <p style="text-align: center; margin-bottom: 0; font-weight: bold; color:#e0f7fa;"> Time</p>
-        <p style="text-transform: none; margin-bottom:0;"> <i class="fa-solid fa-clock"></i> 10Am to 2PM / 6PM to 10PM</p>
-      </div>
-      <div class="service_card" style="background: rgba(0,0,0,0.28); border-radius: 18px; padding: 18px; box-shadow: 0 14px 32px rgba(0,0,0,0.32); color:#e0f7fa; border:1px solid rgba(255,255,255,0.28);">
-        <img src="images/home_work.jpg" alt="Physio Home Visits" style="border-radius: 14px; margin-bottom: 12px; box-shadow: 0 10px 24px rgba(0,0,0,0.45);">
-        <h3 style="color:#ffffff; margin-bottom:8px;">Physio at Home</h3>
-        <p style="margin-bottom: 4px;">Certified physiotherapists provide home visits for convenient, personalized care
-          and effective recovery
-          solutions.</p>
-        <p style="text-align: center; margin-bottom: 0; font-weight: bold; color:#e0f7fa;">Call Us</p>
-        <p style="text-transform: none; margin-bottom:0;"><a href="tel: +918910924206" style="text-decoration:none; font-size: 16px; color:#e0f7fa;"
-            class="book_service"> <i class="fa-solid fa-phone phone"></i> +91-8910924206 </a></p>
-      </div>
-      <div class="service_card" style="background: rgba(0,0,0,0.28); border-radius: 18px; padding: 18px; box-shadow: 0 14px 32px rgba(0,0,0,0.32); color:#e0f7fa; border:1px solid rgba(255,255,255,0.28);">
-        <img src="images/online treatment.png" alt="Digital Care (Fizo)" style="border-radius: 14px; margin-bottom: 12px; box-shadow: 0 10px 24px rgba(0,0,0,0.45);">
-        <h3 style="color:#ffffff; margin-bottom:8px;">Virtual/Online Therapy</h3>
-        <p style="margin-bottom: 4px;">Digital physiotherapy with personalized exercises for home. Affordable, long-term
-          care managed conveniently
-          online.</p>
-        <p style="text-align: center; margin-bottom: 0; font-weight: bold; color:#e0f7fa;">Contact Us</p>
-        <p style="margin-bottom:0;"><a href="video-consultation.html?userType=patient&autoJoin=1" class="book_service" style="text-decoration:none; font-size: 12px; color:#e0f7fa;">Book online Service</a></p>
+      <!-- Card 1: Clinic Treatment -->
+      <article class="service_card services-card">
+        <div class="services-card-body">
+          <h3 class="services-card-title">Clinic Treatment</h3>
+          <div class="services-card-meta">
+            <span>At Arti Physiotherapy Clinic</span>
+            <span>10 min read</span>
+          </div>
+          <div class="services-card-divider"></div>
+          <button type="button" class="services-read-btn">
+            <span>Read</span>
+            <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="services-card-image-wrap">
+          <img src="images/Clint_Treatment.jpg" alt="Clinic Treatments" class="services-card-image">
+          <div class="services-card-image-overlay">
+            <p>Reversing the Effects of High BMI on your Body</p>
+          </div>
+        </div>
+      </article>
 
-      </div>
+      <!-- Card 2: Physio at Home -->
+      <article class="service_card services-card">
+        <div class="services-card-body">
+          <h3 class="services-card-title">Physio at Home</h3>
+          <div class="services-card-meta">
+            <span>Home Visit Physiotherapy</span>
+            <span>10 min read</span>
+          </div>
+          <div class="services-card-divider"></div>
+          <button type="button" class="services-read-btn">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <span>+91-8910924206</span>
+          </button>
+        </div>
+        <div class="services-card-image-wrap">
+          <img src="images/home_work.jpg" alt="Physio Home Visits" class="services-card-image">
+          <div class="services-card-image-overlay">
+            <p>How Extra Weight Impacts Joint Pain and Sports Performance</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Virtual / Online Therapy -->
+      <article class="service_card services-card">
+        <div class="services-card-body">
+          <h3 class="services-card-title">Virtual / Online Therapy</h3>
+          <div class="services-card-meta">
+            <span>Digital Physiotherapy Programs</span>
+            <span>10 min read</span>
+          </div>
+          <div class="services-card-divider"></div>
+          <button type="button" class="services-read-btn">
+            <i class="fa fa-video-camera" aria-hidden="true"></i>
+            <span>Online Consultation</span>
+          </button>
+        </div>
+        <div class="services-card-image-wrap">
+          <img src="images/online treatment.png" alt="Digital Care (Fizo)" class="services-card-image">
+          <div class="services-card-image-overlay">
+            <p>Why Normal BMI doesn&apos;t mean you&apos;re Injury-Proof</p>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 
   <style>
-    /* What we Treat - catchy themed look */
+    /* What we Treat - tomato themed look */
     #treat-section {
       padding: 26px 0;
-      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+      background: #ffe5dd; /* light tomato background */
       position: relative;
       overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
       border-radius: 24px;
       margin: 24px 16px;
+      border: 1px solid rgba(255, 99, 71, 0.4);
     }
 
     #treat-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="treat" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.15"/><circle cx="60" cy="60" r="2" fill="%2399f2c8" opacity="0.25"/><path d="M10,40 L30,40" stroke="%23ffffff" stroke-width="1" opacity="0.15"/><path d="M50,10 L50,30" stroke="%231f4037" stroke-width="1" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23treat)"/></svg>');
-      pointer-events: none;
+      content: none;
     }
 
     #treat-section .heading {
-      margin-bottom: 10px !important;
+      margin: 0 !important;
+      padding: 0 !important;
       font-weight: 800;
       letter-spacing: 0.03em;
-      background: linear-gradient(135deg, #ffffff 0%, #e0fffb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+      color: #ff6347 !important; /* tomato text */
+      text-shadow: none;
       position: relative;
       z-index: 1;
     }
@@ -907,30 +1001,9 @@
     </div>
   </div>
 
-  
 
-  <div class="container-fluid doctor-section" style="padding: 50px 25px; margin: 30px 15px; border-radius: 20px; background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-    <div class="row align-items-center">
-      <div class="col-md-5 col-sm-12 mb-3">
-        <div class="doctor-card" style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.15); border-radius: 16px; padding: 12px;">
-          <img src="images/riky_photo.png" alt="Dr. Riky" style="width:200px; height:200px; object-fit:cover; object-position:center; border-radius:16px; border:2px solid rgba(255,255,255,.5);">
-        </div>
-      </div>
-      <div class="col-md-7 col-sm-12">
-        <div class="doctor-card" style="background: rgba(0,0,0,0.25); border-radius: 16px; padding: 24px; color: #fff;">
-          <h2 style="margin-bottom:10px;">From the Desk of DOCTOR</h2>
-          <h3 style="color:#e0f7fa; margin-bottom:16px;">Dr. Riky</h3>
-          <p style="font-size:1.05rem; line-height:1.8; margin:0;">The foundation of Arti Physiotherapist is deeply intertwined with the teachings and legacy of Dr. Riky, a distinguished physiotherapist whose innovative approach to patient care continues to guide our practice. Dr. Riky’s dedication to the art and science of physiotherapy has left an indelible mark on the field, inspiring countless practitioners, including myself.
 
-          From an early age, I was captivated by Dr. Riky’s ability to blend cutting-edge techniques with genuine empathy. His belief that physiotherapy is not just about physical rehabilitation, but about restoring hope and confidence, has profoundly influenced the way we treat our patients. Dr. Riky’s methods were always patient-centered, focusing on tailored treatments that addressed the unique needs of each individual.
-
-          At Arti Physiotherapist, we are committed to carrying forward Dr. Riky’s legacy. His pioneering spirit drives us to continuously seek the best for our patients, ensuring that they receive care that is both innovative and compassionate. We honor Dr. Riky by striving to make every interaction a step toward holistic healing, embodying the principles he held dear—dedication, empathy, and excellence in physiotherapy.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container-fluid doctor-section" style="padding: 50px 25px; margin: 30px 15px; border-radius: 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #a1c4fd 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+  <div class="container-fluid doctor-section" style="padding: 50px 25px; margin: 30px 15px; border-radius: 20px; background: #3fb3f5; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
      <div class="row align-items-center">
        <div class="col-md-7 col-sm-12">
          <div class="doctor-card" style="background: rgba(0,0,0,0.25); border-radius: 16px; padding: 24px; color: #fff;">
@@ -947,213 +1020,89 @@
      </div>
    </div>
 
-<div class="container-fluid container_inspiration">
-    <h1 class="mt-4" style="text-align: center;">The Heart Behind Arti Physiotherapist: My Mother’s Influence</h1>
-    <div class=" row ">
-      <div class="col-md-4 col-sm-6 "><img src="images/chachi.png" alt="about_who_we_are" class="inline-image ml-2">
-      </div>
-      <div class="col-md-8 col-sm-6">
 
-        <p class="p_1 mr-5">Arti Physiotherapist was born out of a deep admiration for my mother, Arti, whose unwavering
-          compassion and dedication to healing have been a constant source of inspiration in my life. Growing up, I
-          witnessed her selflessly caring for others, always putting their well-being above her own. Her natural ability
-          to connect with people and ease their pain left a lasting impression on me.
-
-          It was through her gentle guidance and wisdom that I discovered my passion for physiotherapy. She taught me
-          that healing is not just about treating the body, but also about nurturing the spirit. Her holistic approach
-          to care, which emphasizes empathy and understanding, became the foundation upon which I built this practice.
-
-          Every aspect of Arti Physiotherapist reflects the values she instilled in me. Our mission is to carry forward
-          her legacy of kindness, compassion, and exceptional care. In every treatment and interaction, we strive to
-          honor her influence by creating a space where healing and empathy go hand in hand.</p>
-
-      </div>
-
-    </div>
-  </div>
-  <!-- <section class="section section-work-data">
-    <section id="counting-section-head">
-      <h2 class="counting-section-head-h2">About Us</h2>
-      <p>At Arti Physiotherapy , we provide compassionate, patient-centered care inspired by the legacy of Dr. Riky. Our
-        focus is on holistic healing , combining innovative physiotherapy techniques with empathy to help you achieve
-        optimal health and well-being.
-
-      </p>
-    </section> -->
-  <!-- <div class="container_2 grid grid-four-column">
-      <div>
-        <h2 class="counter-numbers" data-number="2000">0+</h2>
-        <p>project completed</p>
-      </div>
-      <div>
-        <h2 class="counter-numbers" data-number="6000">0+</h2>
-        <p>Happy Clients</p>
-      </div>
-      <!-- <div>
-        <h2 class="counter-numbers" data-number="5000">0+</h2>
-        <p>cups of coffee</p>
-      </div> 
-      <div>
-        <h2 class="counter-numbers" data-number="3000">0+</h2>
-        <p>real professionals</p>
-      </div>
-    </div>
-  </section> -->
-  <!-- <script>
-    const workSection = document.querySelector(".section-work-data");
-    const workObserver = new IntersectionObserver(
-      (entries, observer) => {
-        const [entry] = entries;
-        // console.log(entry);
-
-        // if (entry.isIntersecting == false)
-        if (!entry.isIntersecting) return;
-
-        // animate number counter
-
-        const counterNum = document.querySelectorAll(".counter-numbers");
-
-        const speed = 200;
-
-        counterNum.forEach((curElem) => {
-          const updateNumber = () => {
-            const targetNumber = parseInt(curElem.dataset.number);
-            // console.log(targetNumber);
-            const initialNum = parseInt(curElem.innerText);
-            // console.log(initialNum);
-
-            const incrementNumber = Math.trunc(targetNumber / speed);
-            // console.log(incrementNumber);
-
-            if (initialNum < targetNumber) {
-              curElem.innerText = `${initialNum + incrementNumber}+`;
-              setTimeout(updateNumber, 10);
-            }
-          };
-
-          updateNumber();
-        });
-
-        observer.unobserve(workSection);
-      },
-      {
-        root: null,
-        threshold: 0,
-      }
-    );
-
-    workObserver.observe(workSection);
-  </script> -->
-
-  
 
 
 
 
   <section class="gallery" id="gallery">
-    <h1 class="heading">
-      <span>g</span>
-      <span>a</span>
-      <span>l</span>
-      <span>l</span>
-      <span>e</span>
-      <span>r</span>
-      <span>y</span>
-    </h1>
+    <div class="gallery-hero-header">
+      <h1>It&apos;s a <span class="accent">new way</span> of life</h1>
+    </div>
 
-    <!-- <div class="frame">
-      <iframe src="https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview" width="640" height="480"
-        allow="autoplay"></iframe>
-      <iframe src="https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview" width="640" height="480"
-        allow="autoplay"></iframe>
-      <iframe src="https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview" width="640" height="480"
-        allow="autoplay"></iframe>
-
-    </div> -->
-
-    <div id="box-container" class="box-container" style="margin-top: 3%;">
-      <div class="box">
-        <img src="images/g2.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
-        </div>
+    <div class="gallery-hero-row">
+      <div class="gallery-thumb gallery-thumb-left">
+        <img src="images/g2.jpg" alt="Gallery thumbnail left">
       </div>
 
-      <!-- <div class="box">
-        <img src="images/r.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
+      <div class="gallery-main-card">
+        <div class="gallery-main-image-wrap">
+          <img src="images/arti/3.jpg" alt="Gallery main" class="gallery-main-image">
         </div>
-      </div> -->
 
-      <div class="box">
-        <img src="images/arti/3.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
+        <div class="gallery-meta-row">
+          <button type="button" class="gallery-arrow gallery-arrow-left"><i class="fa fa-arrow-left"></i></button>
+          <div class="gallery-meta">
+            <h3>Life at Arti Physiotherapy</h3>
+            <p>Real recovery stories from our patients</p>
+          </div>
+          <button type="button" class="gallery-arrow gallery-arrow-right"><i class="fa fa-arrow-right"></i></button>
         </div>
+
+        <p class="gallery-caption">
+          <i class="fa fa-quote-left"></i>
+          Transforming pain into progress, one session at a time.
+          <i class="fa fa-quote-right"></i>
+        </p>
       </div>
 
-      <!-- <div class="box">
-        <img src="images/arti/4.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
-        </div>
-      </div> -->
-
-      <!-- <div class="box">
-        <img src="images/arti/5.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
-        </div>
-      </div> -->
-
-      <div class="box">
-        <img src="images/g1.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
-        </div>
+      <div class="gallery-thumb gallery-thumb-right">
+        <img src="images/g1.jpg" alt="Gallery thumbnail right">
       </div>
-
-      <div class="box">
-        <img src="images/arti/7.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
-        </div>
-      </div>
-
-      <div class="box">
-        <img src="images/arti/8.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
-        </div>
-      </div>
-
-      <div class="box">
-        <img src="images/arti/9.jpg" alt="">
-        <div class="contents">
-          <a href="https://wa.me/918910924206?text=Inquiring about your Physiotherapy Services availability"
-            class="btns">Book Services</a>
-
-        </div>
-      </div>
+    </div>
 
   </section>
+
+  <div class="testimonials-section">
+    <div id="Review" class="section-header client-hero-header">
+      <h1>It&apos;s a <span class="accent">new way</span> of life</h1>
+    </div>
+
+    <div class="client-hero">
+      <div class="client-thumb client-thumb-left">
+        <img src="images/rahul sina.png" alt="Client thumbnail left">
+      </div>
+
+      <div class="client-main-card">
+        <div class="client-main-image-wrap">
+          <img src="images/srinu chintada.png" alt="Client main video" class="client-main-image">
+          <button type="button" class="client-play-btn">
+            <i class="fa fa-play"></i>
+            <span>Play Video</span>
+          </button>
+        </div>
+
+        <div class="client-meta-row">
+          <button type="button" class="client-arrow client-arrow-left"><i class="fa fa-arrow-left"></i></button>
+          <div class="client-meta">
+            <h3>Srinu Chintada</h3>
+            <p>ACL Rehab Client</p>
+          </div>
+          <button type="button" class="client-arrow client-arrow-right"><i class="fa fa-arrow-right"></i></button>
+        </div>
+
+        <p class="client-quote">
+          <i class="fa fa-quote-left"></i>
+          I&apos;m back on the pitch stronger than ever after my ACL injury.
+          <i class="fa fa-quote-right"></i>
+        </p>
+      </div>
+
+      <div class="client-thumb client-thumb-right">
+        <img src="images/Gaurav Mehra.png" alt="Client thumbnail right">
+      </div>
+    </div>
+  </div>
 
   <div class="testimonials-section">
     <!-- Section Header Starts -->
@@ -1169,10 +1118,10 @@
         <main class="test-card-body">
           <div class="profile">
             <div class="profile-image">
-              <img src="images/srinu chintada.png">
+              <img src="images/Shabbir Hussain.png">
             </div>
             <div class="profile-desc">
-              <span>srinu chintada</span>
+              <span>Shabbir Hussain</span>
               
             </div>
           </div>
@@ -1180,8 +1129,7 @@
             <i class="fa fa-quote-left"></i>
             <h2>Awesome Expirence</h2>
           </div>
-          <p>I had ACL and mencis repaire suragery. I Have been doing physiotherapy in this and i have recovered very
-            well👍</p>
+          <p>I had ACL and Mucoid Degeneration. Dr. Amir and Dr. Riky's friendly, experienced care was excellent. Highly recommended!</p>
           <div class="ratings">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -1199,10 +1147,10 @@
         <main class="test-card-body">
           <div class="profile">
             <div class="profile-image">
-              <img src="images/rahul sina.png">
+              <img src="images/Munir Ali.png">
             </div>
             <div class="profile-desc">
-              <span>rahul sinha</span>
+              <span>Munir Ali</span>
               
             </div>
           </div>
@@ -1210,8 +1158,7 @@
             <i class="fa fa-quote-left"></i>
             <h2>Awesome Expirence</h2>
           </div>
-          <p>Highly knowledgeable, experienced, well-mannered, and trustworthy. Excellent service, strongly recommended
-            to everyone looking for reliable professionals.</p>
+          <p>He is a good person and he treats the patient gently , he speak politely , he is currently curing my patient and I have seen many improvement in just 5 to 6 days.</p>
           <div class="ratings">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -1229,10 +1176,10 @@
         <main class="test-card-body">
           <div class="profile">
             <div class="profile-image">
-              <img src="images/Ranjan Mishra.png">
+              <img src="images/Priti Chopra.png">
             </div>
             <div class="profile-desc">
-              <span>Ranjan Mishra</span>
+              <span>Priti Chopra</span>
               
             </div>
           </div>
@@ -1240,8 +1187,7 @@
             <i class="fa fa-quote-left"></i>
             <h2>Awesome Expirence</h2>
           </div>
-          <p>I received excellent care at Arti Physiotherapy. The team is knowledgeable, attentive, and truly helped
-            with my recovery. Highly recommend!</p>
+          <p>My mother received excellent arthritis treatment from Dr. Ricky and Dr. Amir. Their understanding, service, and politeness were outstanding.</p>
           <div class="ratings">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -1259,10 +1205,10 @@
         <main class="test-card-body">
           <div class="profile">
             <div class="profile-image">
-              <img src="images/putul sarkar.png">
+              <img src="images/Junaid Sultan Khan.png">
             </div>
             <div class="profile-desc">
-              <span>putul sarkar</span>
+              <span>Junaid Sultan Khan</span>
               
             </div>
           </div>
@@ -1270,8 +1216,7 @@
             <i class="fa fa-quote-left"></i>
             <h2>Awesome Expirence</h2>
           </div>
-          <p>My husband was suffering from Parkinson's disease and was treated by Dr Riky was awesome. within few days
-            of physiotherapy he turned around. I like his treatment.</p>
+          <p>Diagnosed with Cervical Spondylosis, my recovery journey was amazing. The results were worth it, and doctors were wonderful!</p>
           <div class="ratings">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -1280,6 +1225,7 @@
             <i class="fa-solid fa-star"></i>
           </div>
         </main>
+
       </div>
       <!-- Item4 Ends -->
 
@@ -1288,10 +1234,10 @@
         <main class="test-card-body">
           <div class="profile">
             <div class="profile-image">
-              <img src="images/Gaurav Mehra.png">
+              <img src="images/shina gupta.png">
             </div>
             <div class="profile-desc">
-              <span>Gaurav Mehra</span>
+              <span>shina gupta</span>
               
             </div>
           </div>
@@ -1299,8 +1245,7 @@
             <i class="fa fa-quote-left"></i>
             <h2>Awesome Expirence</h2>
           </div>
-          <p>My dad had foot drop, and within just 20 days of treatment, he’s showing great recovery. Highly recommend!
-          </p>
+          <p>Had a very good experience with the treatment. I’ll surely recommend it to others. Highly satisfied! 👍👍</p>
           <div class="ratings">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -1309,6 +1254,7 @@
             <i class="fa-solid fa-star"></i>
           </div>
         </main>
+
       </div>
       <!-- Item5 Ends -->
 
@@ -1317,10 +1263,10 @@
         <main class="test-card-body">
           <div class="profile">
             <div class="profile-image">
-              <img src="images/Piyush Chawla.png">
+              <img src="images/Sk akbar Ali.png">
             </div>
             <div class="profile-desc">
-              <span>Piyush Chawla</span>
+              <span>Sk akbar Ali</span>
               
             </div>
           </div>
@@ -1328,8 +1274,7 @@
             <i class="fa fa-quote-left"></i>
             <h2>Awesome Expirence</h2>
           </div>
-          <p>The way they explain and handle things is very very appreciated. Polite and calm way to handle patience.
-            Highly recommended with good results.</p>
+          <p>Had the best experience with the treatment. The service was excellent, and I would highly recommend it to others!</p>
           <div class="ratings">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -1347,7 +1292,7 @@
         <main class="test-card-body">
           <div class="profile">
             <div class="profile-image">
-              <img src="images/Shabbir Hussain.png">
+              <img src="images/Rajnish Kumar Singh.png">
             </div>
             <div class="profile-desc">
               <span>Shabbir Hussain</span>
@@ -1821,7 +1766,7 @@
                 </h3>
                 <p class="post-description">${row.subheading}</p>
                 
-                 <a  id="${row._id}" onclick="RedirectUrl('${row._id}')" class="read-more" style="display:inline-block; margin-top:8px; padding:8px 18px; border-radius:999px; background:linear-gradient(135deg,#1f4037 0%,#99f2c8 100%); color:#ffffff; font-size:0.9rem; font-weight:600; text-decoration:none; text-transform:uppercase; letter-spacing:0.04em; box-shadow:0 8px 18px rgba(31,64,55,0.35); text-align:center;">read-more</a>
+                 <a  id="${row._id}" onclick="RedirectUrl('${row._id}')" class="read-more" style="display:block; margin:8px auto 0; padding:8px 18px; border-radius:999px; background:#ff6347; color:#ffffff; font-size:0.9rem; font-weight:600; text-decoration:none; text-transform:uppercase; letter-spacing:0.04em; box-shadow:0 8px 18px rgba(255,99,71,0.45); text-align:center;">read-more</a>
                
                
               </div>
@@ -1899,17 +1844,19 @@
     });
   </script>
   <script>
-    let menu = document.querySelector('#hamburg');
-    let navbar = document.querySelector('.navbar');
+    const menu = document.querySelector('#hamburg');
+    const navbar = document.querySelector('.navbars');
 
-    menu.addEventListener('click', () => {
-      menu.classList.toggle('fa-times');
-      navbar.classList.toggle('nav-toggle');
-    });
+    if (menu && navbar) {
+      menu.addEventListener('click', () => {
+        menu.classList.toggle('fa-times');
+        navbar.classList.toggle('nav-toggle');
+      });
 
-    window.onscroll = () => {
-      menu.classList.remove('fa-times');
-      navbar.classList.remove('nav-toggle');
+      window.onscroll = () => {
+        menu.classList.remove('fa-times');
+        navbar.classList.remove('nav-toggle');
+      };
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -1943,7 +1890,9 @@
       items: 3,
       loop: true,
       margin: 30,
-      nav: false,
+      nav: true,
+      navText: ["<i class='fa-solid fa-arrow-left'></i>",
+        "<i class='fa-solid fa-arrow-right'></i>"],
       dots: true,
       autoplay: true,
       slideTransition: 'linear',
@@ -2025,7 +1974,6 @@
   <!-- Pop-up Trigger Button -->
   <div class="popup-trigger" onclick="openPopup()">
     <i class="fa-solid fa-phone"></i>
-    <span>Free Consultation</span>
   </div>
 
 
@@ -2048,12 +1996,11 @@
           width: 100vw !important;
           height: 100vh !important;
           background: rgba(0, 0, 0, 0.8) !important;
-          z-index: 99999 !important;
+          backdrop-filter: blur(5px) !important;
           justify-content: center !important;
           align-items: center !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          border: none !important;
+          z-index: 99999 !important;
+          animation: fadeIn 0.3s ease-out !important;
         `;
         document.body.style.overflow = 'hidden';
         
@@ -2071,14 +2018,14 @@
             padding: 0 !important;
             position: relative !important;
             z-index: 1 !important;
-            overflow-y: auto !important;
+            overflow-y: visible !important;
           `;
           
           // Style the header with reduced height
           const header = container.querySelector('.popup-header');
           if (header) {
             header.style.cssText = `
-              background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+              background: #ff6347 !important;
               color: white !important;
               padding: 15px 25px !important;
               border-radius: 15px 15px 0 0 !important;
@@ -2149,7 +2096,7 @@
             const submitBtn = form.querySelector('.submit-btn');
             if (submitBtn) {
               submitBtn.style.cssText = `
-                background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
+                background: #ff6347 !important;
                 color: white !important;
                 border: none !important;
                 padding: 12px 30px !important;
@@ -2261,7 +2208,7 @@
       max-width: 500px !important;
       width: 90% !important;
       max-height: 90vh !important;
-      overflow-y: auto !important;
+      overflow-y: hidden !important;
       position: relative !important;
       animation: slideInUp 0.4s ease-out !important;
       border: 1px solid #e1e5e9 !important;
@@ -2368,7 +2315,7 @@
       right: 15px !important;
       top: 50% !important;
       transform: translateY(-50%) !important;
-      color: #2c5aa0 !important;
+      color: #ff6347 !important;
       font-size: 16px !important;
       pointer-events: none !important;
     }
@@ -2434,20 +2381,21 @@
       position: fixed !important;
       bottom: 30px !important;
       right: 30px !important;
-      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
-      color: white !important;
-      padding: 15px 20px !important;
-      border-radius: 50px !important;
+      background: #ff6347 !important; /* tomato theme */
+      color: #ffffff !important;
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 50% !important;
       cursor: pointer !important;
-      box-shadow: 0 4px 20px rgba(31, 64, 55, 0.35) !important;
+      box-shadow: 0 6px 20px rgba(255, 99, 71, 0.45) !important;
       z-index: 1000 !important;
       display: flex !important;
       align-items: center !important;
-      gap: 10px !important;
-      font-weight: 600 !important;
+      justify-content: center !important;
+      gap: 0 !important;
       transition: all 0.3s ease !important;
       animation: pulse 2s infinite !important;
-      border: 2px solid rgba(255, 255, 255, 0.3) !important;
+      border: 2px solid rgba(255, 255, 255, 0.6) !important;
     }
 
     .popup-trigger:hover {
@@ -2526,8 +2474,8 @@
       .popup-trigger {
         bottom: 20px !important;
         right: 20px !important;
-        padding: 12px 16px !important;
-        font-size: 14px !important;
+        width: 52px !important;
+        height: 52px !important;
       }
 
       .popup-trigger span {
@@ -2535,7 +2483,7 @@
       }
 
       .popup-trigger i {
-        font-size: 16px !important;
+        font-size: 18px !important;
       }
     }
   </style>
