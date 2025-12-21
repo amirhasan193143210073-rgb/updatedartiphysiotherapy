@@ -946,27 +946,43 @@
       z-index: 1;
     }
 
+    /* Card look for What we Treat slider */
     #treat-section .owl-carousel .post-slide {
       background: #fff;
-      border: 1px solid #eef1f6;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e5e7eb;
     }
 
+    #treat-section .owl-carousel .post-img iframe,
     #treat-section .owl-carousel .post-img img {
       width: 100%;
-      height: 190px;
+      height: 220px;
       object-fit: cover;
+      border-radius: 18px 18px 0 0;
     }
 
     #treat-section .owl-carousel .post-content {
-      padding: 10px 14px;
+      padding: 14px 16px 16px;
     }
 
     #treat-section .owl-carousel .post-title a {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
       color: #111827;
       text-decoration: none;
+      margin-bottom: 6px;
+    }
+
+    #treat-section .owl-carousel .post-description {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #4b5563;
+      margin-bottom: 8px;
     }
   </style>
   <div id="treat-section" class="container-fluid">
@@ -1006,7 +1022,7 @@
 
   <section class="gallery" id="gallery">
     <div class="gallery-hero-header">
-      <h1>It&apos;s a <span class="accent">new way</span> of life</h1>
+      <h1>Recovery <span class="accent">stories</span> in action</h1>
     </div>
 
     <div class="gallery-hero-row">
@@ -1041,676 +1057,114 @@
     </div>
 
   </section>
+ 
+
 
   <div class="testimonials-section">
-    <div id="Review" class="section-header client-hero-header">
-      <h1>It&apos;s a <span class="accent">new way</span> of life</h1>
-    </div>
-
-    <div class="client-hero">
-      <div class="client-thumb client-thumb-left">
-        <img src="images/rahul sina.png" alt="Client thumbnail left">
-      </div>
-
-      <div class="client-main-card">
-        <div class="client-main-image-wrap">
-          <img src="images/srinu chintada.png" alt="Client main video" class="client-main-image">
-          <button type="button" class="client-play-btn">
-            <i class="fa fa-play"></i>
-            <span>Play Video</span>
+    <div id="Review" class="testimonials-grid">
+      <div class="testimonials-copy">
+        <h2>Listen from our <span>Arti Physiotherapy</span></h2>
+        <p>Hear powerful stories of recovery and hope from people who turned to Arti Physiotherapy for a life free from
+          pain. Watch their journeys, see their transformation and experience how freedom from pain changes daily life.</p>
+        <div class="testimonials-arrows">
+          <button type="button" class="testimonial-arrow-btn">
+            <i class="fa fa-arrow-left"></i>
+          </button>
+          <button type="button" class="testimonial-arrow-btn">
+            <i class="fa fa-arrow-right"></i>
           </button>
         </div>
-
-        <div class="client-meta-row">
-          <button type="button" class="client-arrow client-arrow-left"><i class="fa fa-arrow-left"></i></button>
-          <div class="client-meta">
-            <h3>Srinu Chintada</h3>
-            <p>ACL Rehab Client</p>
-          </div>
-          <button type="button" class="client-arrow client-arrow-right"><i class="fa fa-arrow-right"></i></button>
-        </div>
-
-        <p class="client-quote">
-          <i class="fa fa-quote-left"></i>
-          I&apos;m back on the pitch stronger than ever after my ACL injury.
-          <i class="fa fa-quote-right"></i>
-        </p>
       </div>
 
-      <div class="client-thumb client-thumb-right">
-        <img src="images/Gaurav Mehra.png" alt="Client thumbnail right">
-      </div>
-    </div>
-  </div>
+      <div class="testimonials-videos">
+        <article class="testimonial-video-card">
+          <div class="testimonial-video-thumb">
+            <iframe src="https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview" width="100%"
+              height="100%" allow="autoplay" frameborder="0" loading="lazy"></iframe>
+            <button type="button" class="testimonial-play-overlay">
+              <i class="fa fa-play"></i>
+            </button>
+          </div>
+          <div class="testimonial-video-meta">
+            <h3>Srikant</h3>
+            <p>ACL Warrior</p>
+          </div>
+        </article>
 
-  <div class="testimonials-section">
-    <!-- Section Header Starts -->
-    <div id="Review" class="section-header">
-      <h1>What Clients Say</h1>
-    </div>
-    <!-- Section Header Ends -->
-
-    <!-- Owl Carousel Slider Starts -->
-    <div class="owl-carousel owl-theme testimonials-container">
-      <!-- Item1 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Shabbir Hussain.png">
-            </div>
-            <div class="profile-desc">
-              <span>Shabbir Hussain</span>
-              
-            </div>
+        <article class="testimonial-video-card">
+          <div class="testimonial-video-thumb">
+            <iframe src="https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview" width="100%"
+              height="100%" allow="autoplay" frameborder="0" loading="lazy"></iframe>
+            <button type="button" class="testimonial-play-overlay">
+              <i class="fa fa-play"></i>
+            </button>
           </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
+          <div class="testimonial-video-meta">
+            <h3>Anuj Kharat</h3>
+            <p>ACL Warrior</p>
           </div>
-          <p>I had ACL and Mucoid Degeneration. Dr. Amir and Dr. Riky's friendly, experienced care was excellent. Highly recommended!</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item1 Ends -->
-
-      <!-- Item2 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Munir Ali.png">
-            </div>
-            <div class="profile-desc">
-              <span>Munir Ali</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>He is a good person and he treats the patient gently , he speak politely , he is currently curing my patient and I have seen many improvement in just 5 to 6 days.</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item2 Ends -->
-
-      <!-- Item3 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Priti Chopra.png">
-            </div>
-            <div class="profile-desc">
-              <span>Priti Chopra</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>My mother received excellent arthritis treatment from Dr. Ricky and Dr. Amir. Their understanding, service, and politeness were outstanding.</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item3 Ends -->
-
-      <!-- Item4 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Junaid Sultan Khan.png">
-            </div>
-            <div class="profile-desc">
-              <span>Junaid Sultan Khan</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>Diagnosed with Cervical Spondylosis, my recovery journey was amazing. The results were worth it, and doctors were wonderful!</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item4 Ends -->
-
-      <!-- Item5 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/shina gupta.png">
-            </div>
-            <div class="profile-desc">
-              <span>shina gupta</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>Had a very good experience with the treatment. I’ll surely recommend it to others. Highly satisfied! 👍👍</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item5 Ends -->
-
-      <!-- Item6 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Sk akbar Ali.png">
-            </div>
-            <div class="profile-desc">
-              <span>Sk akbar Ali</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>Had the best experience with the treatment. The service was excellent, and I would highly recommend it to others!</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item6 Ends -->
-
-      <!-- Item7 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Rajnish Kumar Singh.png">
-            </div>
-            <div class="profile-desc">
-              <span>Shabbir Hussain</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>I had ACL and Mucoid Degeneration. Dr. Amir and Dr. Riky's friendly, experienced care was excellent. Highly
-            recommended!</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item7 Ends -->
-
-      <!-- Item8 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Munir Ali.png">
-            </div>
-            <div class="profile-desc">
-              <span>Munir Ali</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>He is a good person and he treats the patient gently , he speak politely , he is currently curing my
-            patient and I have seen many improvement in just 5 to 6 days.</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item8 Ends -->
-
-      <!-- Item9 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Priti Chopra.png">
-            </div>
-            <div class="profile-desc">
-              <span>Priti Chopra</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>My mother received excellent arthritis treatment from Dr. Ricky and Dr. Amir. Their understanding, service,
-            and politeness were outstanding.</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item9 Ends -->
-
-      <!-- Item10 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Junaid Sultan Khan.png">
-            </div>
-            <div class="profile-desc">
-              <span>Junaid Sultan Khan</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>Diagnosed with Cervical Spondylosis, my recovery journey was amazing. The results were worth it, and
-            doctors were wonderful!</p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item10 Ends -->
-
-      <!-- Item11 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/shina gupta.png">
-            </div>
-            <div class="profile-desc">
-              <span>shina gupta</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>Had a very good experience with the treatment. I’ll surely recommend it to others. Highly satisfied! 👍👍
-          </p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item11 Ends -->
-
-      <!-- Item12 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Sk akbar Ali.png">
-            </div>
-            <div class="profile-desc">
-              <span>Sk akbar Ali</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>Had the best experience with the treatment. The service was excellent, and I would highly recommend it to
-            others!
-          </p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item12 Ends -->
-
-      <!-- Item13 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Rajnish Kumar Singh.png">
-            </div>
-            <div class="profile-desc">
-              <span>
-                Rajnish Kumar Singh</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>Such a very good physiotherapist and so nice behaviour & So laborious with patients always treat with
-            smiles
-          </p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item13 Ends -->
-
-      <!-- Item14 Starts -->
-      <div class="item testimonial-card">
-        <main class="test-card-body">
-          <div class="profile">
-            <div class="profile-image">
-              <img src="images/Wahid Khan.png">
-            </div>
-            <div class="profile-desc">
-              <span>
-                Wahid Khan</span>
-              
-            </div>
-          </div>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <h2>Awesome Expirence</h2>
-          </div>
-          <p>I had an ACL problem. After treatment with Dr. Riky and Dr. Amir, I feel much better. Worth it!
-          </p>
-          <div class="ratings">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </main>
-
-      </div>
-      <!-- Item14 Ends -->
-
-
-    </div>
-    <!-- Owl Carousel Slider Ends -->
-
-  </div>
-
-
-  <!-- <div id="id" class="site">
-    <div class="containers">
-        <div class="testi">
-            <div class="head">
-                <h3>Testimonials.</h3>
-                <p>see what people are saying..</p>
-            </div>
-            <div class="body swiper">
-                <ul class="swiper-wrapper">
-                    <li class="swiper-slide">
-                        <div class="wrapper">
-                            <div class="thumbnail">
-                                <img src="images/riki-ramdani-PtJ5MUIoTNo-unsplash.jpg" alt="">
-                            </div>
-                            <div class="aside">
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque vel est autem. Minima ipsum tempora maxime unde modi voluptatum nam.</p>
-                                <div class="name">
-                                    <h4>Sarah Malik</h4>
-                                    <p>Graphic Designer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="swiper-slide">
-                        <div class="wrapper">
-                            <div class="thumbnail">
-                                <img src="images/hamza-nouasria-n7f-4nbUFzw-unsplash.jpg" alt="">
-                            </div>
-                            <div class="aside">
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque vel est autem. Minima ipsum tempora maxime unde modi voluptatum nam.</p>
-                                <div class="name">
-                                    <h4>Sh Malik</h4>
-                                    <p>Graphic Designer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <div class="swiper-pagination"></div>
-
-                 <!-- If we need navigation buttons  
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-    </div>
-  </div>  -->
-
-  <div class="slider">
-    <div class="slide-track">
-      <div class="slide">
-        <img src="images/logo/aster-prime-logo.webp" height="100" width="100" alt="aster-prime-logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/download.jpg" height="100" width="100" alt="download">
-      </div>
-      <div class="slide">
-        <img src="images/logo/download.png" height="100" width="100" alt="download">
-      </div>
-      <div class="slide">
-        <img src="images/logo/google.png" height="100" width="100" alt="google">
-      </div>
-      <div class="slide">
-        <img src="images/logo/KNBH-Logo.webp" height="100" width="100" alt="KNBH-Logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/Manipal-Hospitals-Logo.webp" height="100" width="100" alt="Manipal-Hospitals-Logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/mehtas-hospital-logo.webp" height="100" width="100" alt="mehtas-hospital-logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/ProMed-Hospital-logo.webp" height="100" width="100" alt="ProMed-Hospital-logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/Sut-Logo.webp" height="100" width="100" alt="Sut-Logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/Vialife-clinic-logo.webp" height="100" width="100" alt="Vialife-clinic-logo">
-      </div>
-
-      <!-- same slide -->
-
-      <div class="slide">
-        <img src="images/logo/aster-prime-logo.webp" height="100" width="100" alt="aster-prime-logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/download.jpg" height="100" width="100" alt="download">
-      </div>
-      <div class="slide">
-        <img src="images/logo/download.png" height="100" width="100" alt="download">
-      </div>
-      <div class="slide">
-        <img src="images/logo/google.png" height="100" width="100" alt="google">
-      </div>
-      <div class="slide">
-        <img src="images/logo/KNBH-Logo.webp" height="100" width="100" alt="KNBH-Logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/Manipal-Hospitals-Logo.webp" height="100" width="100" alt="Manipal-Hospitals-Logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/mehtas-hospital-logo.webp" height="100" width="100" alt="mehtas-hospital-logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/ProMed-Hospital-logo.webp" height="100" width="100" alt="ProMed-Hospital-logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/Sut-Logo.webp" height="100" width="100" alt="Sut-Logo">
-      </div>
-      <div class="slide">
-        <img src="images/logo/Vialife-clinic-logo.webp" height="100" width="100" alt="Vialife-clinic-logo">
+        </article>
       </div>
     </div>
   </div>
+
+ 
+
 
   <section id="footer">
     <footer>
       <div class="container-footer">
-        <div class="row">
-          <div class="col" id="company">
-            <img src="images/riky.png" alt="" class="logo">
-            <!-- <p>
-              Providing expert physiotherapy care focused on your health, recovery, and long-term well-being.
-            </p> -->
 
-            <p>
+        <!-- Social row -->
+        <div class="footer-social-row">
+          <div class="footer-social-icons">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Links + map columns -->
+        <div class="footer-bottom-row">
+          <div class="footer-links-cols">
+            <div class="footer-links-col">
+              <h3>Explore</h3>
+              <a href="index.html">Home</a>
+              <a href="aboutus.html">About Us</a>
+              <a href="contactus.html">Contact Us</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-links-col">
+              <h3>More</h3>
+              <a href="#services">Services</a>
+              <a href="#Review">Patient Reviews</a>
+              <a href="#treat-section">What We Treat</a>
+              <a href="Blog.html">Dashboard</a>
+            </div>
+            <div class="footer-links-col footer-contact-col">
+              <h3>Contact</h3>
+              <p>G-84 Battikal First Lane<br>Garden Reach, Kolkata 700024</p>
+              <p>+91-8910924206<br>+91-9330227965<br>+91-9038657263</p>
+              <p>10AM – 2PM / 6PM – 10PM</p>
+            </div>
+          </div>
+
+          <div class="footer-map-col">
             <div class="map-container">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14741.47130297816!2d88.3230831!3d22.52789!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0279716a70b761%3A0x9c161231a774d50a!2sArti%20Physiotherapy%20Center!5e0!3m2!1sen!2sin!4v1724669192123!5m2!1sen!2sin"
                 width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            </p>
-
-          </div>
-
-
-          <!-- <div class="col" id="services">
-            <h3>Services</h3>
-            <div class="links">
-              <a href="#">Illustration</a>
-              <a href="#">Creatives</a>
-              <a href="#">Poster Design</a>
-              <a href="#">Card Design</a>
-            </div>
-          </div> -->
-
-          <div class="col" id="useful-links">
-            <h3 class="useful-links-h3">Links</h3>
-            <div class="links">
-              <a href="index.html">Home</a>
-              <a href="aboutus.html">About</a>
-              <a href="contactus.html">Contact Us</a>
-              <a href="privacy-policy.html">Privacy Policy</a>
-              <a href="Blog.html">DashBoard</a>
-            </div>
-          </div>
-
-          <div class="col" id="contact">
-            <h3>Contact</h3>
-            <div class="contact-details">
-              <i class="fa fa-location"></i>
-              <!-- <p>FF-42, Procube Avenue, <br> NY, USA</p> -->
-              <p>G-84 Battikal First Lane Garden Reach Kolkata 700024</p>
-            </div>
-            <div class="contact-detailss">
-              <i class="fa fa-phone"></i>
-              <p>+91-8910924206 / <br>+91- 9330227965 / <br>+91- 9038657263</p>
-            </div>
-            <div class="contact-details">
-              <i class="fa-solid fa-clock"></i> 10Am to 2PM / 6PM to 10PM
-            </div>
           </div>
         </div>
 
-        <!-- <div class="row">
-          <div class="form">
-            <form action="">
-              <input type="text" placeholder="Email here...">
-              <button><i class="fa fa-paper-plane"></i></button>
-            </form>
-          </div>
-        </div> -->
-
-        <div class="subsection">
-          <h1 class="credit">©2024 Arti Physiotherapists | all rights reserved!</h1>
+        <div class="footer-credit-row">
+          <p>©2024 Arti Physiotherapy | All rights reserved | Email at support@artiphysiotherapy.com or call at +91-8910924206 for any queries</p>
         </div>
 
       </div>
-
-
-
-
     </footer>
   </section>
 
@@ -1906,6 +1360,173 @@
       });
     });
 
+  </script>
+
+  <script>
+    // Simple gallery slider for the gallery hero section
+    (function () {
+      const slides = [
+        {
+          main: 'images/arti/3.jpg',
+          title: 'Life at Arti Physiotherapy',
+          subtitle: 'Real recovery stories from our patients',
+          caption: 'Transforming pain into progress, one session at a time.'
+        },
+        {
+          main: 'images/g2.jpg',
+          title: 'Clinic Moments',
+          subtitle: 'Guided exercises and one-on-one care',
+          caption: 'Every rep, every stretch brings you closer to pain-free movement.'
+        },
+        {
+          main: 'images/g1.jpg',
+          title: 'Stronger Every Day',
+          subtitle: 'Outdoor recovery and confidence building',
+          caption: 'Recovery is not just about healing, it is about returning stronger.'
+        },
+        {
+          main: 'images/arti/7.jpg',
+          title: 'Personalised Programs',
+          subtitle: 'Treatment plans tailored to your body',
+          caption: 'No two injuries are the same, and neither are our treatment plans.'
+        },
+        {
+          main: 'images/arti/8.jpg',
+          title: 'Team Behind Your Recovery',
+          subtitle: 'Expert physiotherapists you can trust',
+          caption: 'You are never alone on your recovery journey with us beside you.'
+        },
+        {
+          main: 'images/arti/9.jpg',
+          title: 'Back to Doing What You Love',
+          subtitle: 'From pain to performance',
+          caption: 'Our goal is simple: get you back to the activities that make you happy.'
+        }
+      ];
+
+      var currentIndex = 0;
+
+      var mainImg = document.querySelector('.gallery-main-image');
+      var leftThumb = document.querySelector('.gallery-thumb-left img');
+      var rightThumb = document.querySelector('.gallery-thumb-right img');
+      var titleEl = document.querySelector('.gallery-meta h3');
+      var subtitleEl = document.querySelector('.gallery-meta p');
+      var captionEl = document.querySelector('.gallery-caption');
+      var prevBtn = document.querySelector('.gallery-arrow-left');
+      var nextBtn = document.querySelector('.gallery-arrow-right');
+
+      if (!mainImg || !leftThumb || !rightThumb || !titleEl || !subtitleEl || !captionEl || !prevBtn || !nextBtn) {
+        return;
+      }
+
+      function renderSlide() {
+        var total = slides.length;
+        var slide = slides[currentIndex];
+        var prev = slides[(currentIndex - 1 + total) % total];
+        var next = slides[(currentIndex + 1) % total];
+
+        mainImg.src = slide.main;
+        mainImg.alt = slide.title;
+
+        leftThumb.src = prev.main;
+        leftThumb.alt = prev.title;
+
+        rightThumb.src = next.main;
+        rightThumb.alt = next.title;
+
+        titleEl.textContent = slide.title;
+        subtitleEl.textContent = slide.subtitle;
+        captionEl.innerHTML = '<i class="fa fa-quote-left"></i> ' +
+          slide.caption +
+          ' <i class="fa fa-quote-right"></i>';
+      }
+
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        renderSlide();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        renderSlide();
+      });
+
+      // Initial render to sync thumbs and text
+      renderSlide();
+    })();
+  </script>
+
+  <script>
+    // Simple name/role slider for the testimonials video cards arrows
+    (function () {
+      const leftArrow = document.querySelectorAll('.testimonial-arrow-btn')[0];
+      const rightArrow = document.querySelectorAll('.testimonial-arrow-btn')[1];
+      const cards = document.querySelectorAll('.testimonial-video-card');
+
+      if (!leftArrow || !rightArrow || cards.length < 2) return;
+
+      const testimonialSlides = [
+        {
+          left: { name: 'Srikant', role: 'ACL Warrior' },
+          right: { name: 'Anuj Kharat', role: 'ACL Warrior' }
+        },
+        {
+          left: { name: 'Shabbir Hussain', role: 'Knee Pain Recovery' },
+          right: { name: 'Priti Chopra', role: 'Arthritis Relief' }
+        },
+        {
+          left: { name: 'Munir Ali', role: 'Back Pain Recovery' },
+          right: { name: 'Wahid Khan', role: 'ACL Recovery' }
+        }
+      ];
+
+      let index = 0;
+
+      function renderTestimonialSlide() {
+        const slide = testimonialSlides[index];
+        const leftMeta = cards[0].querySelector('.testimonial-video-meta');
+        const rightMeta = cards[1].querySelector('.testimonial-video-meta');
+        if (!leftMeta || !rightMeta) return;
+
+        const leftTitle = leftMeta.querySelector('h3');
+        const leftRole = leftMeta.querySelector('p');
+        const rightTitle = rightMeta.querySelector('h3');
+        const rightRole = rightMeta.querySelector('p');
+
+        if (leftTitle) leftTitle.textContent = slide.left.name;
+        if (leftRole) leftRole.textContent = slide.left.role;
+        if (rightTitle) rightTitle.textContent = slide.right.name;
+        if (rightRole) rightRole.textContent = slide.right.role;
+      }
+
+      renderTestimonialSlide();
+
+      leftArrow.addEventListener('click', function () {
+        index = (index - 1 + testimonialSlides.length) % testimonialSlides.length;
+        renderTestimonialSlide();
+      });
+
+      rightArrow.addEventListener('click', function () {
+        index = (index + 1) % testimonialSlides.length;
+        renderTestimonialSlide();
+      });
+    })();
+  </script>
+
+  <script>
+    // Temporary behavior: play buttons on testimonial cards open the sample video in a new tab
+    (function () {
+      const playButtons = document.querySelectorAll('.testimonial-play-overlay');
+      if (!playButtons.length) return;
+
+      const sampleUrl = 'https://drive.google.com/file/d/1yNAI_0O79WIqLfxDnQ4Z1dPltIq_abXw/preview';
+
+      playButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          window.open(sampleUrl, '_blank');
+        });
+      });
+    })();
   </script>
 
   <!-- Beautiful Pop-up Form -->
