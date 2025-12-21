@@ -2864,22 +2864,38 @@ textarea {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 5%;
-      }
+        padding: 32px 6%;
+    }
 
-      .image {
-        max-width: 100%;
-        margin-bottom: 20px;
-      }
+    .hero-section h1 {
+        font-size: 2.1rem !important;
+        line-height: 1.2 !important;
+    }
 
-      .content {
+    .hero-section p {
+        font-size: 1rem !important;
+    }
+
+    .image {
+        max-width: 85%;
+        margin: 0 auto 20px;
+        padding: 0;
+    }
+
+    .image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .content {
         max-width: 100%;
         padding-left: 0; /* Remove left padding for smaller screens */
-      }
-      .hero-card {
-        border-radius: 30px;
-        margin: 90px auto;
-      }
+    }
+
+    .hero-card {
+        border-radius: 24px;
+        margin: 60px auto 40px;
+    }
 
 
     /* .card-container {
@@ -3046,19 +3062,11 @@ textarea {
 
 
     .content h1 {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 
     .image {
-        padding: 3% 14%;
-        /* margin-left: 13%; */
-    }
-
-    .image img {
-        width: 535px;
-        height: 350px;
-        position: relative;
-        /* left: 14%; */
+        padding: 0;
     }
 
     .section-work-data {
