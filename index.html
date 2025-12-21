@@ -1059,6 +1059,78 @@
   </section>
  
 
+  <section class="recovery-squad" id="recovery-squad">
+    <div class="recovery-squad-inner">
+      <div class="recovery-squad-left">
+        <h2>Meet Our <span>Recovery Squad</span></h2>
+        <ul class="recovery-squad-list">
+          <li class="recovery-squad-item is-active" data-name="Dr. Riky Hela (P.T)" data-tag="Lead Physiotherapist" data-highlight="Treated over 500+ patients" data-text="Lead physiotherapist at Arti Physiotherapy with deep experience in personalized recovery programs, sports injuries and long-term pain relief. Riky focuses on building trust, clear communication and step-by-step progress so every patient knows exactly how they are improving." data-approach="Movement is medicine, Recovery is active, Education builds confidence" data-image="images/riky_photo.png">
+            <div class="recovery-squad-avatar">
+              <img src="images/riky_photo.png" alt="Dr. Riky Hela (P.T)">
+            </div>
+            <div class="recovery-squad-text">
+              <h3>Dr. Riky Hela</h3>
+              <p>Lead Physiotherapist</p>
+            </div>
+            <div class="recovery-squad-stars">★★★★★</div>
+          </li>
+
+          <li class="recovery-squad-item" data-name="Amir Hassan (P.T)" data-tag="Physiotherapist" data-highlight="Focused on functional rehab" data-text="Amir works closely with patients on strength, balance and functional movements so that improvements in the clinic translate to everyday life. He believes in clear home plans and small, consistent wins." data-approach="Function first, Clear home plans, Support at every step" data-image="images/amir_hassan.jpg">
+            <div class="recovery-squad-avatar">
+              <img src="images/amir_hassan.jpg" alt="Amir Hassan (P.T)">
+            </div>
+            <div class="recovery-squad-text">
+              <h3>Amir Hassan</h3>
+              <p>Physiotherapist</p>
+            </div>
+            <div class="recovery-squad-stars">★★★★★</div>
+          </li>
+
+          <li class="recovery-squad-item" data-name="Lata Hela (P.T)" data-tag="Physiotherapist" data-highlight="Gentle, personalised care" data-text="Lata supports patients through recovery with a calm, reassuring approach. She focuses on posture, joint protection and simple routines that fit into daily life." data-approach="Gentle guidance, Posture & joint care, Habits that last" data-image="images/lata_hela.jpg">
+            <div class="recovery-squad-avatar">
+              <img src="images/lata_hela.jpg" alt="Lata Hela (P.T)">
+            </div>
+            <div class="recovery-squad-text">
+              <h3>Lata Hela</h3>
+              <p>Physiotherapist</p>
+            </div>
+            <div class="recovery-squad-stars">★★★★★</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="recovery-squad-right">
+        <div class="recovery-squad-card">
+          <div class="recovery-squad-card-header">
+            <div class="recovery-squad-card-badge" id="recoveryHighlight">Treated over 500+ patients</div>
+          </div>
+          <div class="recovery-squad-card-body">
+            <div class="recovery-squad-quote-mark">“</div>
+            <p id="recoveryText">Lead physiotherapist at Arti Physiotherapy with deep experience in personalized recovery programs, sports injuries and long-term pain relief. Riky focuses on building trust, clear communication and step-by-step progress so every patient knows exactly how they are improving.</p>
+            <div class="recovery-squad-approach">
+              <h4>My approach is rooted in three principles:</h4>
+              <ul id="recoveryApproachList">
+                <li>Movement is medicine — we build recovery around purposeful, structured motion.</li>
+                <li>Recovery is active — consistent effort keeps progress moving forward.</li>
+                <li>Education builds confidence — when you understand your body, you recover better.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="recovery-squad-card-footer">
+            <div class="recovery-squad-card-meta">
+              <h3 id="recoveryName">Dr. Riky Hela (P.T)</h3>
+              <p id="recoveryTag">Lead Physiotherapist</p>
+            </div>
+            <div class="recovery-squad-card-image-wrap">
+              <img id="recoveryImage" src="images/riky_photo.png" alt="Recovery squad doctor">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
   <div class="testimonials-section">
     <div id="Review" class="testimonials-grid">
@@ -1509,6 +1581,55 @@
       rightArrow.addEventListener('click', function () {
         index = (index + 1) % testimonialSlides.length;
         renderTestimonialSlide();
+      });
+    })();
+  </script>
+
+  <script>
+    // Recovery Squad: sync right card with selected doctor on the left
+    (function () {
+      const items = document.querySelectorAll('.recovery-squad-item');
+      if (!items.length) return;
+
+      const nameEl = document.getElementById('recoveryName');
+      const tagEl = document.getElementById('recoveryTag');
+      const highlightEl = document.getElementById('recoveryHighlight');
+      const textEl = document.getElementById('recoveryText');
+      const approachListEl = document.getElementById('recoveryApproachList');
+      const imageEl = document.getElementById('recoveryImage');
+
+      function applyItem(item) {
+        items.forEach(i => i.classList.remove('is-active'));
+        item.classList.add('is-active');
+
+        const name = item.getAttribute('data-name') || '';
+        const tag = item.getAttribute('data-tag') || '';
+        const highlight = item.getAttribute('data-highlight') || '';
+        const text = item.getAttribute('data-text') || '';
+        const approach = item.getAttribute('data-approach') || '';
+        const image = item.getAttribute('data-image') || '';
+
+        if (nameEl) nameEl.textContent = name;
+        if (tagEl) tagEl.textContent = tag;
+        if (highlightEl) highlightEl.textContent = highlight;
+        if (textEl) textEl.textContent = text;
+        if (imageEl && image) imageEl.src = image;
+
+        if (approachListEl) {
+          const points = approach.split(',').map(s => s.trim()).filter(Boolean);
+          approachListEl.innerHTML = '';
+          points.forEach(p => {
+            const li = document.createElement('li');
+            li.textContent = p;
+            approachListEl.appendChild(li);
+          });
+        }
+      }
+
+      items.forEach(item => {
+        item.addEventListener('click', function () {
+          applyItem(this);
+        });
       });
     })();
   </script>
