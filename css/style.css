@@ -3084,6 +3084,126 @@ textarea {
         margin-left: -35%;
     }
 
+    /* Additional responsive tweaks for new sections */
+
+@media (max-width: 992px) {
+    .recovery-squad {
+        padding: 40px 5%;
+    }
+
+    .recovery-squad-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .recovery-squad-left h2 {
+        text-align: left;
+    }
+
+    .recovery-squad-card {
+        padding: 16px 18px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .recovery-squad-left h2 {
+        font-size: 1.8rem;
+    }
+
+    .recovery-squad-card-meta h3 {
+        font-size: 0.95rem;
+    }
+
+    .recovery-squad-card-meta p {
+        font-size: 0.8rem;
+    }
+
+    .recovery-squad-card-image-wrap img {
+        width: 100px;
+        height: 120px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .testimonials-copy {
+        text-align: left;
+    }
+
+    .testimonials-copy h2 {
+        font-size: 2rem;
+    }
+
+    .testimonials-copy p {
+        font-size: 0.95rem;
+    }
+
+    .testimonials-videos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-band {
+        padding: 40px 5%;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .gallery-caption h2 {
+        font-size: 2rem;
+    }
+
+    .gallery-caption p {
+        font-size: 1rem;
+    }
+
+    .recovery-squad-list {
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .recovery-squad-item {
+        margin: 2px 10px;
+        padding: 8px 12px;
+    }
+
+    .recovery-squad-avatar img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .recovery-squad-stars {
+        font-size: 0.7rem;
+    }
+
+    .recovery-squad-card-badge {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+
+    .recovery-squad-card-body p {
+        font-size: 0.9rem;
+    }
+
+    .recovery-squad-approach ul {
+        font-size: 0.85rem;
+    }
+
+    .testimonial-video-card {
+        padding: 10px;
+    }
+
+    .testimonial-video-meta h3 {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-video-meta p {
+        font-size: 0.8rem;
+    }
+}
+
     .container-footer .row .col {
         width: 100%;
         text-align: left;
