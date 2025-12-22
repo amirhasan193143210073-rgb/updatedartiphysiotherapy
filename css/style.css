@@ -36,16 +36,16 @@
 .conditions-eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 700;
     color: #9ca3af;
     margin: 0 0 8px;
 }
 
 .conditions-column-center h2 {
-    font-size: 2.4rem;
-    font-weight: 800;
-    margin: 0 0 10px;
+    font-size: 2.9rem;
+    font-weight: 900;
+    margin: 0 0 14px;
 }
 
 .conditions-column-center h2 span {
@@ -54,7 +54,8 @@
 
 .conditions-subtitle {
     margin: 0 0 20px;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    font-weight: 500;
     color: #1f2933;
 }
 
@@ -161,7 +162,7 @@
     }
 
     .conditions-column-center h2 {
-        font-size: 2rem;
+        font-size: 2.3rem;
         margin-bottom: 15px;
     }
 
@@ -4084,5 +4085,215 @@ textarea {
 
     .about_team_heading {
         margin-bottom: -20%;
+    }
+}
+
+/* About Us - Our Mission hero (matches Granimals-style layout) */
+
+.about-mission-hero {
+    margin: 80px 0 0;
+    padding: 70px 7% 80px;
+    background: #18181b;
+    color: #f9fafb;
+}
+
+.about-mission-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-mission-header {
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 760px;
+}
+
+.about-mission-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 12px;
+}
+
+.about-mission-header h1 span {
+    color: #ff6347;
+}
+
+.about-mission-subtitle {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #e5e7eb;
+}
+
+.about-mission-team-row {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.about-mission-card {
+    border-radius: 24px;
+    padding: 18px 14px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-mission-card-dark {
+    background: #27272f;
+}
+
+.about-mission-card-accent {
+    background: #ff6347;
+}
+
+.about-mission-card-blue {
+    background: #3fb3f5;
+}
+
+.about-mission-avatar {
+    width: 100%;
+    height: 190px;
+    border-radius: 18px;
+    object-fit: cover;
+    object-position: center top;
+    margin-bottom: 14px;
+}
+
+.about-mission-card h3 {
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #f9fafb;
+}
+
+.about-mission-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #e5e7eb;
+}
+
+/* Why We Exist section - base styles */
+
+.why-exist-section {
+    padding: 80px 8% 90px;
+    background: linear-gradient(180deg, #fff7f2 0%, #ffece3 100%);
+    margin-top: 0;
+}
+
+.why-exist-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.why-exist-heading {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 0 0 36px;
+    color: #111827;
+}
+
+.why-exist-heading span {
+    color: #ff6347;
+}
+
+.why-exist-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.why-exist-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 18px 16px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+.why-exist-card-wide {
+    /* On desktop (3-column grid), keep each wide card in a single column so
+       the two "wide" cards can sit side by side on the same row. Actual
+       wide behavior is handled in the @media (max-width: 992px) rule. */
+    grid-column: span 1;
+}
+
+.why-exist-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: #fff7ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.why-exist-icon-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.why-exist-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #374151;
+}
+
+/* Responsive layout for doctor cards row */
+
+@media (max-width: 1100px) {
+    .about-mission-team-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .about-mission-hero {
+        padding: 60px 6% 60px;
+    }
+
+    .about-mission-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .about-mission-team-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .why-exist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .why-exist-card-wide {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .why-exist-section {
+        padding: 50px 6% 60px;
+    }
+
+    .why-exist-heading {
+        font-size: 2.2rem;
+        margin-bottom: 24px;
+    }
+
+    .why-exist-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .why-exist-card-wide {
+        grid-column: span 1;
     }
 }

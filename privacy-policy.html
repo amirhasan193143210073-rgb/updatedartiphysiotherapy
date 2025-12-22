@@ -20,20 +20,243 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Match header gradient and link color with global green–teal theme */
-    header { background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important; }
-    header .navbars a,
-    header .navbars a:link,
-    header .navbars a:visited,
-    header .navbars a:hover,
-    header .navbars a:active { color: #fff !important; text-decoration: none; }
-    #hamburg { color: #fff !important; }
+    /* Cool and Catchy Navbar Styles - Doctor Theme (Tomato variant) */
+    header {
+      background: #ff6347 !important;
+      backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25) !important;
+      transition: all 0.3s ease !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+      padding: 4px 7% !important;
+    }
+
+    header:hover {
+      box-shadow: 0 12px 40px rgba(44, 62, 80, 0.85) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    header .logo {
+      display: flex !important;
+      align-items: center !important;
+      transition: all 0.3s ease !important;
+    }
+
+    header .logo:hover {
+      transform: scale(1.05) !important;
+    }
+
+    header .logo img {
+      height: 50px !important;
+      width: auto !important;
+      border-radius: 10px !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    header .logo img:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    header .navbars ul {
+      display: flex !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 22px !important;
+    }
+
+    header .navbars ul li {
+      position: relative !important;
+    }
+
+    header .navbars ul li a {
+      color: white !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
+      padding: 6px 14px !important;
+      border-radius: 20px !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+      overflow: hidden !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    header .navbars ul li a::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: -100% !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+      transition: left 0.5s ease !important;
+    }
+
+    header .navbars ul li a:hover::before {
+      left: 100% !important;
+    }
+
+    header .navbars ul li a:hover {
+      background: rgba(255, 255, 255, 0.18) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    /* Dropdown Menu Styling */
+    header .navbars ul li ul {
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      border-radius: 15px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+      padding: 10px 0 !important;
+      min-width: 200px !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: translateY(-10px) !important;
+      transition: all 0.3s ease !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    header .navbars ul li:hover ul {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+    }
+
+    header .navbars ul li ul li a {
+      color: #333 !important;
+      padding: 12px 20px !important;
+      display: block !important;
+      border-radius: 0 !important;
+      text-shadow: none !important;
+    }
+
+    header .navbars ul li ul li a:hover {
+      background: #ff6347 !important;
+      color: #ffffff !important;
+      transform: translateX(5px) !important;
+    }
+
+    /* Header CTA button */
+    header .navbars ul li .cta-header-btn {
+      background: #ffffff !important;
+      color: #ff6347 !important;
+      font-weight: 700 !important;
+      border-radius: 999px !important;
+      padding: 8px 22px !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+      text-decoration: none !important;
+      display: inline-block !important;
+      transition: all 0.25s ease !important;
+    }
+
+    header .navbars ul li .cta-header-btn:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22) !important;
+      background: #ffffff !important;
+      color: #ff6347 !important;
+    }
+
+    /* Hamburger Menu Styling */
+    #hamburg {
+      display: none !important;
+      color: white !important;
+      font-size: 24px !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      padding: 10px !important;
+      border-radius: 50% !important;
+    }
+
+    #hamburg:hover {
+      background: rgba(255, 255, 255, 0.2) !important;
+      transform: rotate(90deg) !important;
+    }
+
+    /* Mobile Responsive Navbar */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 5% !important;
+      }
+
+      header .logo img {
+        height: 40px !important;
+      }
+
+      #hamburg {
+        display: block !important;
+      }
+
+      header .navbars {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #ff6347 !important;
+        backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        display: none !important;
+        padding: 20px 0 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      #menu-bar:checked ~ .navbars {
+        display: block !important;
+        animation: slideDown 0.3s ease !important;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      header .navbars ul {
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 0 20px !important;
+      }
+
+      header .navbars ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      header .navbars ul li:last-child {
+        border-bottom: none !important;
+      }
+
+      header .navbars ul li a {
+        padding: 15px 20px !important;
+        border-radius: 0 !important;
+        display: block !important;
+      }
+
+      header .navbars ul li ul {
+        position: static !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <a href="index.html" class="logo"><img src="images/riky.png" alt=""></a>
+    <a href="#" class="logo"><img src="images/riky.png" alt=""></a>
     <input type="checkbox" id="menu-bar"><label id="hamburg" for="menu-bar" class="fas fa-bars"></label>
     <nav class="navbars">
       <ul>
@@ -42,16 +265,21 @@
         <li>
           <a href="#">For Patients ▼</a>
           <ul>
-            <li><a href="index.html#Review">Patient Reviews</a></li>
+            <li><a href="#Review">Patient Reviews</a></li>
           </ul>
         </li>
         <li><a href="contactus.html">Contact Us</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+
+        <li>
+          <a href="#" onclick="openPopup(); return false;" class="cta-header-btn" style="background-color: white; color: tomato; border-radius: 20px; padding: 10px 20px; text-decoration: none;">Book a Call Today</a>
+        </li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero banner -->
-  <section style="margin:0; padding:60px 7%; background: linear-gradient(135deg,#1f4037 0%,#99f2c8 100%); color:#fff;">
+  <section style="margin:0; padding:80px 7% 60px; background: linear-gradient(135deg,#ff6347 0%,#ff9966 50%,#ffe0d5 100%); color:#fff;">
     <div style="max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
       <div style="flex:1; min-width:260px;">
         <h1 style="margin:0 0 10px; font-size:40px; font-weight:800;">Privacy Policy</h1>
@@ -64,16 +292,16 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <div class="privacy-policy-content" style="background: white; padding: 32px; border-radius: 12px; box-shadow: 0 18px 40px rgba(0,0,0,0.12); border:1px solid rgba(31,64,55,0.12);">
+          <div class="privacy-policy-content" style="background: #ffffff; padding: 32px; border-radius: 16px; box-shadow: 0 18px 40px rgba(0,0,0,0.12); border:1px solid rgba(255,99,71,0.18);">
             
-            <h1 class="text-center mb-5" style="color: #1f4037; font-size: 2.5rem; font-weight: bold;">Privacy Policy</h1>
+            <h1 class="text-center mb-5" style="color: #ff6347; font-size: 2.5rem; font-weight: bold;">Privacy Policy</h1>
             
-            <div class="last-updated mb-4" style="background:#f8fafc; border-left:4px solid #1f4037; padding:10px 12px; border-radius:6px;">
+            <div class="last-updated mb-4" style="background:#fff5f2; border-left:4px solid #ff6347; padding:10px 12px; border-radius:6px;">
               <p style="margin:0;"><strong>Last Updated:</strong> December 2024</p>
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">1. Introduction</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">1. Introduction</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify;">
                 Welcome to Arti Physiotherapy ("we," "our," or "us"). This Privacy Policy explains how we collect, 
                 use, disclose, and safeguard your information when you visit our website or use our physiotherapy services. 
@@ -82,9 +310,9 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">2. Information We Collect</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">2. Information We Collect</h2>
               
-              <h3 style="color: #1f4037; margin-bottom: 15px; font-size: 1.4rem;">2.1 Personal Information</h3>
+              <h3 style="color: #ff6347; margin-bottom: 15px; font-size: 1.4rem;">2.1 Personal Information</h3>
               <ul style="line-height: 1.8; color: #555; margin-left: 20px;">
                 <li>Name, date of birth, and contact information (phone number, email address, home address)</li>
                 <li>Medical history and current health conditions</li>
@@ -93,7 +321,7 @@
                 <li>Photographs or videos for treatment purposes (with consent)</li>
               </ul>
 
-              <h3 style="color: #1f4037; margin-bottom: 15px; font-size: 1.4rem; margin-top: 25px;">2.2 Technical Information</h3>
+              <h3 style="color: #ff6347; margin-bottom: 15px; font-size: 1.4rem; margin-top: 25px;">2.2 Technical Information</h3>
               <ul style="line-height: 1.8; color: #555; margin-left: 20px;">
                 <li>IP address and browser information</li>
                 <li>Device information and operating system</li>
@@ -103,7 +331,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">3. How We Use Your Information</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">3. How We Use Your Information</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify; margin-bottom: 15px;">
                 We use your information for the following purposes:
               </p>
@@ -120,7 +348,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">4. Information Sharing and Disclosure</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">4. Information Sharing and Disclosure</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify; margin-bottom: 15px;">
                 We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:
               </p>
@@ -135,7 +363,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">5. Data Security</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">5. Data Security</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify;">
                 We implement appropriate technical and organizational measures to protect your personal information against 
                 unauthorized access, alteration, disclosure, or destruction. This includes secure servers, encrypted data 
@@ -145,7 +373,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">6. Data Retention</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">6. Data Retention</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify;">
                 We retain your personal and health information for as long as necessary to provide services, comply with 
                 legal obligations, resolve disputes, and enforce our agreements. Medical records are typically retained for 
@@ -154,7 +382,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">7. Your Rights</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">7. Your Rights</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify; margin-bottom: 15px;">
                 You have the following rights regarding your personal information:
               </p>
@@ -170,7 +398,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">8. Cookies and Tracking Technologies</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">8. Cookies and Tracking Technologies</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify;">
                 Our website may use cookies and similar tracking technologies to enhance your browsing experience, 
                 analyze website traffic, and personalize content. You can control cookie settings through your browser 
@@ -179,7 +407,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">9. Third-Party Links</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">9. Third-Party Links</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify;">
                 Our website may contain links to third-party websites. We are not responsible for the privacy practices 
                 or content of these external sites. We encourage you to review the privacy policies of any third-party 
@@ -188,7 +416,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">10. Children's Privacy</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">10. Children's Privacy</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify;">
                 Our services are not directed to children under 13 years of age. We do not knowingly collect personal 
                 information from children under 13. If we become aware that we have collected personal information from 
@@ -197,7 +425,7 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">11. Changes to This Privacy Policy</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">11. Changes to This Privacy Policy</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify;">
                 We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. 
                 We will notify you of any material changes by posting the updated policy on our website and updating the 
@@ -206,20 +434,20 @@
             </div>
 
             <div class="privacy-section mb-5">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">12. Contact Information</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">12. Contact Information</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify; margin-bottom: 15px;">
                 If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
               </p>
-              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #1f4037;">
+              <div style="background: #fff5f2; padding: 20px; border-radius: 8px; border-left: 4px solid #ff6347;">
                 <p style="margin-bottom: 10px;"><strong>Arti Physiotherapy</strong></p>
-                <p style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="color: #1f4037; margin-right: 10px;"></i>G-84 Battikal First Lane, Garden Reach, Kolkata 700024</p>
-                <p style="margin-bottom: 10px;"><i class="fas fa-phone" style="color: #1f4037; margin-right: 10px;"></i>+91-8910924206 / +91-9330227965 / +91-9038657263</p>
-                <p style="margin-bottom: 0;"><i class="fas fa-envelope" style="color: #1f4037; margin-right: 10px;"></i>Contact us through our website contact form</p>
+                <p style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="color: #ff6347; margin-right: 10px;"></i>G-84 Battikal First Lane, Garden Reach, Kolkata 700024</p>
+                <p style="margin-bottom: 10px;"><i class="fas fa-phone" style="color: #ff6347; margin-right: 10px;"></i>+91-8910924206 / +91-9330227965 / +91-9038657263</p>
+                <p style="margin-bottom: 0;"><i class="fas fa-envelope" style="color: #ff6347; margin-right: 10px;"></i>Contact us through our website contact form</p>
               </div>
             </div>
 
             <div class="privacy-section mb-4">
-              <h2 style="color: #2f3542; margin-bottom: 20px; font-size: 1.8rem;">13. Compliance</h2>
+              <h2 style="color: #2b2d42; margin-bottom: 20px; font-size: 1.8rem;">13. Compliance</h2>
               <p style="line-height: 1.8; color: #555; text-align: justify;">
                 This Privacy Policy is designed to comply with applicable data protection laws and healthcare privacy 
                 regulations, including but not limited to the Indian Information Technology Act, 2000, and related rules. 
@@ -236,48 +464,56 @@
   <section id="footer">
     <footer>
       <div class="container-footer">
-        <div class="row">
-          <div class="col" id="company">
-            <img src="images/riky.png" alt="" class="logo">
-            <p>
+
+        <!-- Social row -->
+        <div class="footer-social-row">
+          <div class="footer-social-icons">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Links + map columns -->
+        <div class="footer-bottom-row">
+          <div class="footer-links-cols">
+            <div class="footer-links-col">
+              <h3>Explore</h3>
+              <a href="index.html">Home</a>
+              <a href="aboutus.html">About Us</a>
+              <a href="contactus.html">Contact Us</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-links-col">
+              <h3>More</h3>
+              <a href="#services">Services</a>
+              <a href="#Review">Patient Reviews</a>
+              <a href="#treat-section">What We Treat</a>
+              <a href="Blog.html">Dashboard</a>
+            </div>
+            <div class="footer-links-col footer-contact-col">
+              <h3>Contact</h3>
+              <p>G-84 Battikal First Lane<br>Garden Reach, Kolkata 700024</p>
+              <p>+91-8910924206<br>+91-9330227965<br>+91-9038657263</p>
+              <p>10AM – 2PM / 6PM – 10PM</p>
+            </div>
+          </div>
+
+          <div class="footer-map-col">
             <div class="map-container">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14741.47130297816!2d88.3230831!3d22.52789!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0279716a70b761%3A0x9c161231a774d50a!2sArti%20Physiotherapy%20Center!5e0!3m2!1sen!2sin!4v1724669192123!5m2!1sen!2sin"
                 width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            </p>
-          </div>
-
-          <div class="col" id="useful-links">
-            <h3 class="useful-links-h3">Links</h3>
-            <div class="links">
-              <a href="index.html">Home</a>
-              <a href="aboutus.html">About</a>
-              <a href="contactus.html">Contact Us</a>
-              <a href="privacy-policy.html">Privacy Policy</a>
-            </div>
-          </div>
-
-          <div class="col" id="contact">
-            <h3>Contact</h3>
-            <div class="contact-details">
-              <i class="fa fa-location"></i>
-              <p>G-84 Battikal First Lane Garden Reach Kolkata 700024</p>
-            </div>
-            <div class="contact-detailss">
-              <i class="fa fa-phone"></i>
-              <p>+91-8910924206 / <br>+91- 9330227965 / <br>+91- 9038657263</p>
-            </div>
-            <div class="contact-details">
-              <i class="fa-solid fa-clock"></i> 10Am to 2PM / 6PM to 10PM
-            </div>
           </div>
         </div>
 
-        <div class="subsection">
-          <h1 class="credit">©2024 Arti Physiotherapists | all rights reserved!</h1>
+        <div class="footer-credit-row">
+          <p>©2024 Arti Physiotherapy | All rights reserved | Email at support@artiphysiotherapy.com or call at +91-8910924206 for any queries</p>
         </div>
+
       </div>
     </footer>
   </section>

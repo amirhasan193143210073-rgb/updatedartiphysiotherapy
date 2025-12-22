@@ -29,17 +29,237 @@
     crossorigin="anonymous"></script>
 
   <style>
-    /* Header follows global green–teal theme */
+    /* Cool and Catchy Navbar Styles - Doctor Theme (Tomato variant) */
     header {
-      background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%) !important;
-      background-color: transparent !important;
+      background: #ff6347 !important;
+      backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25) !important;
+      transition: all 0.3s ease !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+      padding: 4px 7% !important;
     }
-    header .navbars a,
-    header .navbars a:link,
-    header .navbars a:visited,
-    header .navbars a:hover,
-    header .navbars a:active { color: #fff !important; text-decoration: none; }
-    #hamburg { color: #fff !important; }
+
+    header:hover {
+      box-shadow: 0 12px 40px rgba(44, 62, 80, 0.85) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    header .logo {
+      display: flex !important;
+      align-items: center !important;
+      transition: all 0.3s ease !important;
+    }
+
+    header .logo:hover {
+      transform: scale(1.05) !important;
+    }
+
+    header .logo img {
+      height: 50px !important;
+      width: auto !important;
+      border-radius: 10px !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    header .logo img:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    header .navbars ul {
+      display: flex !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 22px !important;
+    }
+
+    header .navbars ul li {
+      position: relative !important;
+    }
+
+    header .navbars ul li a {
+      color: white !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
+      padding: 6px 14px !important;
+      border-radius: 20px !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+      overflow: hidden !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    header .navbars ul li a::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: -100% !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+      transition: left 0.5s ease !important;
+    }
+
+    header .navbars ul li a:hover::before {
+      left: 100% !important;
+    }
+
+    header .navbars ul li a:hover {
+      background: rgba(255, 255, 255, 0.18) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    /* Dropdown Menu Styling */
+    header .navbars ul li ul {
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      border-radius: 15px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+      padding: 10px 0 !important;
+      min-width: 200px !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: translateY(-10px) !important;
+      transition: all 0.3s ease !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    header .navbars ul li:hover ul {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+    }
+
+    header .navbars ul li ul li a {
+      color: #333 !important;
+      padding: 12px 20px !important;
+      display: block !important;
+      border-radius: 0 !important;
+      text-shadow: none !important;
+    }
+
+    header .navbars ul li ul li a:hover {
+      background: #ff6347 !important;
+      color: #ffffff !important;
+      transform: translateX(5px) !important;
+    }
+
+    /* Header CTA button */
+    header .navbars ul li .cta-header-btn {
+      background: #ffffff !important;
+      color: #ff6347 !important;
+      font-weight: 700 !important;
+      border-radius: 999px !important;
+      padding: 8px 22px !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+      text-decoration: none !important;
+      display: inline-block !important;
+      transition: all 0.25s ease !important;
+    }
+
+    header .navbars ul li .cta-header-btn:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22) !important;
+      background: #ffffff !important;
+      color: #ff6347 !important;
+    }
+
+    /* Hamburger Menu Styling */
+    #hamburg {
+      display: none !important;
+      color: white !important;
+      font-size: 24px !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      padding: 10px !important;
+      border-radius: 50% !important;
+    }
+
+    #hamburg:hover {
+      background: rgba(255, 255, 255, 0.2) !important;
+      transform: rotate(90deg) !important;
+    }
+
+    /* Mobile Responsive Navbar */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 5% !important;
+      }
+
+      header .logo img {
+        height: 40px !important;
+      }
+
+      #hamburg {
+        display: block !important;
+      }
+
+      header .navbars {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #ff6347 !important;
+        backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        display: none !important;
+        padding: 20px 0 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      #menu-bar:checked ~ .navbars {
+        display: block !important;
+        animation: slideDown 0.3s ease !important;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      header .navbars ul {
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 0 20px !important;
+      }
+
+      header .navbars ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      header .navbars ul li:last-child {
+        border-bottom: none !important;
+      }
+
+      header .navbars ul li a {
+        padding: 15px 20px !important;
+        border-radius: 0 !important;
+        display: block !important;
+      }
+
+      header .navbars ul li ul {
+        position: static !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+    }
 
     /* About page: Team section cards themed to green–teal */
     .about-team .post-slide {
@@ -83,7 +303,7 @@
     <input type="checkbox" id="menu-bar"><label id="hamburg" for="menu-bar" class="fas fa-bars"></label>
     <nav class="navbars">
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
         <li>
           <a href="#">For Patients ▼</a>
@@ -95,196 +315,158 @@
         <li><a href="contactus.html">Contact Us</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
 
+        <li>
+          <a href="#" onclick="openPopup(); return false;" class="cta-header-btn" style="background-color: white; color: tomato; border-radius: 20px; padding: 10px 20px; text-decoration: none;">Book a Call Today</a>
+        </li>
+
       </ul>
     </nav>
   </header>
 
-  <!-- Hero banner -->
-  <section style="margin:0; padding:60px 7%; background: linear-gradient(135deg,#1f4037 0%,#99f2c8 100%); color:#fff;">
-    <div style="max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
-      <div style="flex:1; min-width:260px;">
-        <h1 style="margin:0 0 10px; font-size:42px; font-weight:800;">About Arti Physiotherapy</h1>
-        <p style="margin:0; font-size:18px; opacity:.95;">Expert, compassionate care focused on pain relief, recovery and lasting mobility.</p>
+  <!-- Our Mission hero section -->
+  <section class="about-mission-hero">
+    <div class="about-mission-inner">
+      <div class="about-mission-header">
+        <h1>Our <span>Mission</span></h1>
+        <p class="about-mission-subtitle">
+          To end the global pain pandemic by delivering expert, empowering and science-backed
+          recovery programs — the very care our patients wish they had in their toughest moments.
+        </p>
       </div>
-      <img src="images/riky_photo.png" alt="Clinic" style="width:160px; height:160px; object-fit:cover; border-radius:16px; border:2px solid rgba(255,255,255,.5);"/>
+
+      <div class="about-mission-team-row">
+        <article class="about-mission-card about-mission-card-dark">
+          <img src="images/riky_photo.png" alt="Dr. Riky Hela" class="about-mission-avatar">
+          <h3>Dr. Riky Hela (P.T)</h3>
+          <p>Founder &amp; Lead Physiotherapist</p>
+        </article>
+
+        <article class="about-mission-card about-mission-card-dark">
+          <img src="images/lata_hela.jpg" alt="Dr. Lata Hela" class="about-mission-avatar">
+          <h3>Dr. Lata Hela (P.T)</h3>
+          <p>Senior Physiotherapist</p>
+        </article>
+
+        <article class="about-mission-card about-mission-card-accent">
+          <img src="images/amir_hassan.jpg" alt="Amir Hassan" class="about-mission-avatar">
+          <h3>Amir Hassan (P.T)</h3>
+          <p>Physiotherapist</p>
+        </article>
+
+        <article class="about-mission-card about-mission-card-blue">
+          <img src="images/riky_photo.png" alt="Physiotherapist" class="about-mission-avatar">
+          <h3>Arti Care Team</h3>
+          <p>Pain &amp; Recovery Specialists</p>
+        </article>
+
+        <article class="about-mission-card about-mission-card-dark">
+          <img src="images/lata_hela.jpg" alt="Physiotherapist" class="about-mission-avatar">
+          <h3>Extended Team</h3>
+          <p>Clinic &amp; Home Care Support</p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <main id="about-main" style="padding: 30px 7% 10px; text-align:center;">
-    <h1 style="color:#1f4037; font-size:2.4rem; margin-bottom:1.5%;">Welcome to Arti Physiotherapists</h1>
-    <section id="about-section" style="margin:2% auto; max-width:900px; background:#ffffff; padding:24px 24px 20px; border-radius:16px; box-shadow:0 18px 40px rgba(0,0,0,0.12); border:1px solid rgba(31,64,55,0.12); text-align:left;">
-      <h2 style="color:#1f4037; font-size:2rem; margin-bottom:1.5%;">About Us</h2>
-      <p style="margin-bottom:15px; font-size:1.3rem; color:#475569;">At Arti Physiotherapist, we are committed to providing expert physiotherapy care that helps you achieve
-        optimal
-        health and mobility. Our personalized approach ensures that each patient receives tailored treatment
-        based on
-        their unique needs, promoting faster recovery and long-term well-being.</p>
-      <p style="margin-bottom:15px; font-size:1.3rem; color:#475569;">We offer a wide range of services, including pain management, rehabilitation, post-surgery care, and
-        injury
-        prevention, utilizing the latest techniques and technology to deliver outstanding results.</p>
-      <p style="margin-bottom:0; font-size:1.3rem; color:#475569;">Discover the difference with Arti Physiotherapist—where your health and recovery are our top priorities.
-        Contact us
-        today to start your journey to better health.</p>
-    </section>
-    <!-- Highlights -->
-    <section style="margin-top:24px;">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
-        <div style="background:#fff; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.06); padding:18px; border:1px solid #eef1f6;">
-          <h3 style="margin:0 0 6px; color:#1f4037; font-size:18px;">Personalized Plans</h3>
-          <p style="margin:0; color:#475569;">One-to-one sessions customized to your goals and condition.</p>
-        </div>
-        <div style="background:#fff; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.06); padding:18px; border:1px solid #eef1f6;">
-          <h3 style="margin:0 0 6px; color:#1f4037; font-size:18px;">Evidence‑based Care</h3>
-          <p style="margin:0; color:#475569;">Modern techniques backed by research and experience.</p>
-        </div>
-        <div style="background:#fff; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.06); padding:18px; border:1px solid #eef1f6;">
-          <h3 style="margin:0 0 6px; color:#1f4037; font-size:18px;">Results Focused</h3>
-          <p style="margin:0; color:#475569;">Reduce pain, restore function and return to what you love.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- <p class="about-contact">Contact us: +91-8620803512 / +91-9051121256</p> -->
+  <!-- Why We Exist section -->
+  <section class="why-exist-section">
+    <div class="why-exist-inner">
+      <h2 class="why-exist-heading">Why <span>We Exist</span></h2>
 
-
-  <div class="container-fluid about-team">
-    <h1 class="about_team_heading">Team</h1>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="news-slider" class="owl-carousel">
-          <div class="post-slide" style="height: auto !important;">
-            <div class="post-img post-imgss">
-              <img src="images/riky_photo.png" alt="">
-
-            </div>
-            <div class="post-content">
-              <h3 class="post-title">
-                <a href="#">Dr. Riky Hela (P.T)</a>
-              </h3>
-              <p class="post-description">Dr. Riky Hela is the head of Arti Physiotherapy, specializing in personalized
-                care, pain management, and rehabilitation for optimal recovery.</p>
-              <!-- <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span> -->
-              <!-- <a href="#" class="read-more">read more</a> -->
-            </div>
+      <div class="why-exist-grid">
+        <article class="why-exist-card">
+          <div class="why-exist-icon-wrap">
+            <img src="images/eye.8b64c274316592a784e4.png" alt="Root cause assessment icon">
           </div>
+          <p>Pinpoint and fix the root cause of pain.</p>
+        </article>
 
-          <div class="post-slide" style="height: auto !important;">
-            <div class="post-imgss">
-              <img src="images/amir_hassan.jpg" alt="">
-
-            </div>
-            <div class="post-content">
-              <h3 class="post-title">
-                <a href="#">Amir Hassan (P.T)</a>
-              </h3>
-              <p class="post-description">Amir Hassan, a junior physiotherapist under Dr. Riky Hela, is dedicated to
-                supporting patient recovery with enthusiasm and personalized care.</p>
-              <!-- <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span> -->
-              <!-- <a href="#" class="read-more">read more</a> -->
-            </div>
+        <article class="why-exist-card">
+          <div class="why-exist-icon-wrap">
+            <img src="images/board.bb2b1d162625090d5df1.png" alt="Progression planning icon">
           </div>
+          <p>Create logical progressions for lasting results.</p>
+        </article>
 
-          <div class="post-slide" style="height: auto !important;">
-            <div class="post-imgss">
-              <img src="images/lata_hela.jpg" alt="">
-
-            </div>
-            <div class="post-content">
-              <h3 class="post-title">
-                <a href="#">Lata Hela (P.T)</a>
-              </h3>
-              <p class="post-description">Lata Hela, a junior doctor working alongside Dr. Riky Hela, is committed to
-                delivering compassionate care and aiding patient rehabilitation.</p>
-              <!-- <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span> -->
-              <!-- <a href="#" class="read-more">read more</a> -->
-            </div>
+        <article class="why-exist-card">
+          <div class="why-exist-icon-wrap">
+            <img src="images/patient.55d573a5243b1663a921.png" alt="Patient education icon">
           </div>
+          <p>Teach patients to stay strong for life.</p>
+        </article>
 
+        <article class="why-exist-card why-exist-card-wide">
+          <div class="why-exist-icon-wrap">
+            <img src="images/persons.a7916ebc81cbaab24255.png" alt="Roadmap and follow-up icon">
+          </div>
+          <p>Provide a clear, trackable recovery roadmap.</p>
+        </article>
 
-        </div>
+        <article class="why-exist-card why-exist-card-wide">
+          <div class="why-exist-icon-wrap">
+            <img src="images/medal.03eb941a6eaaa803dde7.png" alt="Success and recovery icon">
+          </div>
+          <p>Rebuild strength, confidence, and movement skills.</p>
+        </article>
       </div>
     </div>
-  </div>
-  </div>
+  </section>
+
 
   <section id="footer">
     <footer>
       <div class="container-footer">
-        <div class="row">
-          <div class="col" id="company">
-            <img src="images/riky.png" alt="" class="logo">
-            <!-- <p>
-              Providing expert physiotherapy care focused on your health, recovery, and long-term well-being.
-            </p> -->
 
-            <p>
+        <!-- Social row -->
+        <div class="footer-social-row">
+          <div class="footer-social-icons">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Links + map columns -->
+        <div class="footer-bottom-row">
+          <div class="footer-links-cols">
+            <div class="footer-links-col">
+              <h3>Explore</h3>
+              <a href="index.html">Home</a>
+              <a href="aboutus.html">About Us</a>
+              <a href="contactus.html">Contact Us</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-links-col">
+              <h3>More</h3>
+              <a href="#services">Services</a>
+              <a href="#Review">Patient Reviews</a>
+              <a href="#treat-section">What We Treat</a>
+              <a href="Blog.html">Dashboard</a>
+            </div>
+            <div class="footer-links-col footer-contact-col">
+              <h3>Contact</h3>
+              <p>G-84 Battikal First Lane<br>Garden Reach, Kolkata 700024</p>
+              <p>+91-8910924206<br>+91-9330227965<br>+91-9038657263</p>
+              <p>10AM – 2PM / 6PM – 10PM</p>
+            </div>
+          </div>
+
+          <div class="footer-map-col">
             <div class="map-container">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14741.47130297816!2d88.3230831!3d22.52789!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0279716a70b761%3A0x9c161231a774d50a!2sArti%20Physiotherapy%20Center!5e0!3m2!1sen!2sin!4v1724669192123!5m2!1sen!2sin"
                 width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            </p>
-
-          </div>
-
-
-          <!-- <div class="col" id="services">
-            <h3>Services</h3>
-            <div class="links">
-              <a href="#">Illustration</a>
-              <a href="#">Creatives</a>
-              <a href="#">Poster Design</a>
-              <a href="#">Card Design</a>
-            </div>
-          </div> -->
-
-          <div class="col" id="useful-links">
-            <h3 class="useful-links-h3">Links</h3>
-            <div class="links">
-              <a href="index.html">Home</a>
-              <a href="aboutus.html">About</a>
-              <a href="contactus.html">Contact Us</a>
-              <a href="privacy-policy.html">Privacy Policy</a>
-              <!--<a href="#">Help</a> -->
-            </div>
-          </div>
-
-          <div class="col" id="contact">
-            <h3>Contact</h3>
-            <div class="contact-details">
-              <i class="fa fa-location"></i>
-              <!-- <p>FF-42, Procube Avenue, <br> NY, USA</p> -->
-              <p>G-84 Battikal First Lane Garden Reach Kolkata 700024</p>
-            </div>
-            <div class="contact-detailss">
-              <i class="fa fa-phone"></i>
-              <p>+91-8910924206 / <br>+91- 9330227965 / <br>+91- 9038657263</p>
-            </div>
-            <div class="contact-details">
-              <i class="fa-solid fa-clock"></i> 10Am to 2PM / 6PM to 10PM
-            </div>
           </div>
         </div>
 
-        <!-- <div class="row">
-          <div class="form">
-            <form action="">
-              <input type="text" placeholder="Email here...">
-              <button><i class="fa fa-paper-plane"></i></button>
-            </form>
-          </div>
-        </div> -->
-
-        <div class="subsection">
-          <h1 class="credit">©2024 Arti Physiotherapists | all rights reserved!</h1>
+        <div class="footer-credit-row">
+          <p>©2024 Arti Physiotherapy | All rights reserved | Email at support@artiphysiotherapy.com or call at +91-8910924206 for any queries</p>
         </div>
 
       </div>
-
-
-
-
     </footer>
   </section>
 
