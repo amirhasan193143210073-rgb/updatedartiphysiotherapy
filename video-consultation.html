@@ -23,6 +23,238 @@
       padding: 0;
     }
     
+       /* Cool and Catchy Navbar Styles - Doctor Theme (Tomato variant) */
+    header {
+      background: #ff6347 !important;
+      backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25) !important;
+      transition: all 0.3s ease !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+      padding: 4px 7% !important;
+    }
+
+    header:hover {
+      box-shadow: 0 12px 40px rgba(44, 62, 80, 0.85) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    header .logo {
+      display: flex !important;
+      align-items: center !important;
+      transition: all 0.3s ease !important;
+    }
+
+    header .logo:hover {
+      transform: scale(1.05) !important;
+    }
+
+    header .logo img {
+      height: 50px !important;
+      width: auto !important;
+      border-radius: 10px !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    header .logo img:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    header .navbars ul {
+      display: flex !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 22px !important;
+    }
+
+    header .navbars ul li {
+      position: relative !important;
+    }
+
+    header .navbars ul li a {
+      color: white !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
+      padding: 6px 14px !important;
+      border-radius: 20px !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+      overflow: hidden !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    header .navbars ul li a::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: -100% !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+      transition: left 0.5s ease !important;
+    }
+
+    header .navbars ul li a:hover::before {
+      left: 100% !important;
+    }
+
+    header .navbars ul li a:hover {
+      background: rgba(255, 255, 255, 0.18) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    /* Dropdown Menu Styling */
+    header .navbars ul li ul {
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      border-radius: 15px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+      padding: 10px 0 !important;
+      min-width: 200px !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: translateY(-10px) !important;
+      transition: all 0.3s ease !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    header .navbars ul li:hover ul {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+    }
+
+    header .navbars ul li ul li a {
+      color: #333 !important;
+      padding: 12px 20px !important;
+      display: block !important;
+      border-radius: 0 !important;
+      text-shadow: none !important;
+    }
+
+    header .navbars ul li ul li a:hover {
+      background: #ff6347 !important;
+      color: #ffffff !important;
+      transform: translateX(5px) !important;
+    }
+
+    /* Header CTA button */
+    header .navbars ul li .cta-header-btn {
+      background: #ffffff !important;
+      color: #ff6347 !important;
+      font-weight: 700 !important;
+      border-radius: 999px !important;
+      padding: 8px 22px !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+      text-decoration: none !important;
+      display: inline-block !important;
+      transition: all 0.25s ease !important;
+    }
+
+    header .navbars ul li .cta-header-btn:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22) !important;
+      background: #ffffff !important;
+      color: #ff6347 !important;
+    }
+
+    /* Hamburger Menu Styling */
+    #hamburg {
+      display: none !important;
+      color: white !important;
+      font-size: 24px !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      padding: 10px !important;
+      border-radius: 50% !important;
+    }
+
+    #hamburg:hover {
+      background: rgba(255, 255, 255, 0.2) !important;
+      transform: rotate(90deg) !important;
+    }
+
+    /* Mobile Responsive Navbar */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 5% !important;
+      }
+
+      header .logo img {
+        height: 40px !important;
+      }
+
+      #hamburg {
+        display: block !important;
+      }
+
+      header .navbars {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #ff6347 !important;
+        backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        display: none !important;
+        padding: 20px 0 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      #menu-bar:checked ~ .navbars {
+        display: block !important;
+        animation: slideDown 0.3s ease !important;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      header .navbars ul {
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 0 20px !important;
+      }
+
+      header .navbars ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      header .navbars ul li:last-child {
+        border-bottom: none !important;
+      }
+
+      header .navbars ul li a {
+        padding: 15px 20px !important;
+        border-radius: 0 !important;
+        display: block !important;
+      }
+
+      header .navbars ul li ul {
+        position: static !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+    }
+
     .consultation-container {
       max-width: 1600px;
       margin: 0 auto;
@@ -33,12 +265,13 @@
     }
     
     .consultation-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      background: linear-gradient(135deg, #ff6347 0%, #ff8567 100%);
+      color: #ffffff;
       padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 6px 18px rgba(255, 99, 71, 0.35);
     }
     
     .consultation-header h1 {
@@ -381,24 +614,27 @@
   </style>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo"><img src="images/riky.png" alt=""></a>
+<header>
+    <a href="#" class="logo"><img src="images/riky.png" alt=""></a>
     <input type="checkbox" id="menu-bar"><label id="hamburg" for="menu-bar" class="fas fa-bars"></label>
     <nav class="navbars">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
         <li>
-          <a href="#">For Patients cc</a>
+          <a href="#">For Patients ▼</a>
           <ul>
             <li><a href="#Review">Patient Reviews</a></li>
+            <!-- <li><a href="#">Prescription</a></li> -->
           </ul>
         </li>
         <li><a href="contactus.html">Contact Us</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
+
         <li>
-          <a href="tel:+918910924206" class="cta-header-btn" style="background-color: white; color: tomato; border-radius: 20px; padding: 10px 20px; text-decoration: none;">Book a Call Today</a>
+          <a href="#" onclick="openPopup(); return false;" class="cta-header-btn" style="background-color: white; color: tomato; border-radius: 20px; padding: 10px 20px; text-decoration: none;">Book a Call Today</a>
         </li>
+
       </ul>
     </nav>
   </header>
