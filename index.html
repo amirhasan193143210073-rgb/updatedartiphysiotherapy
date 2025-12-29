@@ -67,6 +67,7 @@
       color: #ff6347 !important;
       font-size: 2.8rem !important;
       font-weight: 800 !important;
+      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
       margin-bottom: 20px !important;
       text-shadow: none !important;
       background: none !important;
@@ -80,6 +81,7 @@
       color: #ff6347 !important;
       font-size: 1.3rem !important;
       line-height: 1.6 !important;
+      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
       margin-bottom: 30px !important;
       text-shadow: none !important;
       animation: fadeInUp 1s ease-out 0.3s both !important;
@@ -729,6 +731,159 @@
         padding: 4px 10px;
       }
     }
+
+    /* Pain info modal styles */
+    .pain-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .pain-modal-overlay.is-visible {
+      display: flex;
+    }
+
+    .pain-modal {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 22px 22px 20px;
+      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.45);
+      position: relative;
+      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      border: 1px solid rgba(255, 99, 71, 0.18);
+    }
+
+    .pain-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .pain-modal-header-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pain-modal-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffe1d9, #ff6347);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 10px 18px rgba(255, 99, 71, 0.45);
+      flex-shrink: 0;
+    }
+
+    .pain-modal-icon i {
+      font-size: 18px;
+    }
+
+    .pain-modal-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pain-modal-title {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ff6347;
+    }
+
+    .pain-modal-tagline {
+      margin: 4px 0 0;
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+
+    .pain-modal-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.08);
+      color: #16a34a;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      white-space: nowrap;
+    }
+
+    .pain-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #9ca3af;
+    }
+
+    .pain-modal-body {
+      border-top: 1px dashed #e5e7eb;
+      padding-top: 12px;
+    }
+
+    .pain-modal-section {
+      margin-bottom: 10px;
+    }
+
+    .pain-modal-section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pain-modal-section-label i {
+      font-size: 0.8rem;
+      color: #ff6347;
+    }
+
+    .pain-modal-text {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 10px;
+    }
+
+    .pain-modal-text:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .pain-modal {
+        padding: 18px 16px 16px;
+      }
+
+      .pain-modal-title {
+        font-size: 1.25rem;
+      }
+
+      .pain-modal-icon {
+        width: 34px;
+        height: 34px;
+      }
+    }
   </style>
 </head>
 
@@ -799,7 +954,7 @@
       <div class="pain-text">
         <p class="pain-eyebrow">WHAT WE TREAT</p>
         <h2>Say <span>Goodbye</span> To Pain</h2>
-        <p class="pain-subtitle">Granimals provides treatment for all musculoskeletal issues from head to toe 
+        <p class="pain-subtitle">Arti Physiotherapy provides treatment for all musculoskeletal issues from head to toe 
           &mdash; neck, back, shoulder, knee and more &mdash; so you can move freely again.</p>
         <img src="images/arrow.96051d509cdbe450ab10eee122c38e4c.svg" alt="Curved arrow" class="pain-arrow-img">
       </div>
@@ -809,11 +964,11 @@
           <img src="images/running.png" alt="Running woman physiotherapy">
 
           <!-- Orange pain highlight dots on body -->
-          <div class="pain-dot pain-dot-shoulder"></div>
+          <!-- <div class="pain-dot pain-dot-shoulder"></div>
           <div class="pain-dot pain-dot-elbow"></div>
           <div class="pain-dot pain-dot-hip"></div>
           <div class="pain-dot pain-dot-knee"></div>
-          <div class="pain-dot pain-dot-ankle"></div>
+          <div class="pain-dot pain-dot-ankle"></div> -->
         </div>
         <div class="pain-right-panel">
           <div class="pain-right-inner">
@@ -835,7 +990,7 @@
                   <h3>Elbow</h3>
                   <p>Tennis elbow, golfer&apos;s elbow and biceps tendinopathy</p>
                 </div>
-                <button class="pain-card-close" type="button">&times;</button>
+                
               </div>
               <button type="button" class="pain-know-more-btn" onclick="openPopup()">know more</button>
             </div>
@@ -844,6 +999,34 @@
       </div>
     </div>
   </section>
+
+  <!-- Pain info modal -->
+  <div id="painInfoModal" class="pain-modal-overlay">
+    <div class="pain-modal" role="dialog" aria-modal="true" aria-labelledby="painModalTitle">
+      <button type="button" class="pain-modal-close" aria-label="Close" id="painModalCloseBtn">&times;</button>
+      <div class="pain-modal-header">
+        <div class="pain-modal-header-main">
+          <span class="pain-modal-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+          <div class="pain-modal-title-wrap">
+            <h3 id="painModalTitle" class="pain-modal-title">Pain area</h3>
+            <p class="pain-modal-tagline">Understand the common causes and how physiotherapy at Arti can help.</p>
+          </div>
+        </div>
+        <span class="pain-modal-badge">Personalised care</span>
+      </div>
+      <div class="pain-modal-body">
+        <div class="pain-modal-section">
+          <div class="pain-modal-section-label"><i class="fa-solid fa-circle-exclamation"></i><span>Common causes</span></div>
+          <p id="painModalCause" class="pain-modal-text"></p>
+        </div>
+        <div class="pain-modal-section">
+          <div class="pain-modal-section-label"><i class="fa-solid fa-hand-holding-heart"></i><span>How we help</span></div>
+          <p id="painModalSolution" class="pain-modal-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="services" class="services-section">
     <h1 class="heading services-heading">Our Services</h1>
     <div class="service_card_container services-cards-row">
@@ -1340,6 +1523,109 @@
       window.location.href = `service.html?id=${id}`
     }
 
+  </script>
+
+  <script>
+    // Pain info modal for each body part in the pain list
+    (function () {
+      var modalOverlay = document.getElementById('painInfoModal');
+      if (!modalOverlay) return;
+
+      var titleEl = document.getElementById('painModalTitle');
+      var causeEl = document.getElementById('painModalCause');
+      var solutionEl = document.getElementById('painModalSolution');
+      var closeBtn = document.getElementById('painModalCloseBtn');
+
+      var painData = {
+        'Neck': {
+          cause: 'Poor posture at desk or mobile, long hours of sitting, stress-related muscle tension or past injuries.',
+          solution: 'Targeted neck and upper-back mobility work, posture correction, ergonomic guidance and strengthening of deep neck and shoulder stabilisers.'
+        },
+        'Shoulder': {
+          cause: 'Rotator cuff strain, frozen shoulder, impingement, overuse from sports or overhead work.',
+          solution: 'Manual therapy, joint mobilisation and a graded strengthening program to restore pain-free overhead and daily movements.'
+        },
+        'Elbow': {
+          cause: 'Repetitive gripping or lifting, computer work, racquet sports leading to tennis or golfer’s elbow.',
+          solution: 'Load management, soft-tissue treatment and progressive strengthening of forearm and shoulder muscles.'
+        },
+        'Lower Back': {
+          cause: 'Prolonged sitting, weak core and hip muscles, lifting with poor technique or previous disc issues.',
+          solution: 'Core and hip strengthening, mobility work, posture retraining and education on safe bending and lifting.'
+        },
+        'Hip': {
+          cause: 'Arthritis, muscle imbalance, prolonged sitting, sports strain or post-surgery stiffness.',
+          solution: 'Hip mobility drills, glute activation, gait re-training and personalised strengthening exercises.'
+        },
+        'Wrist': {
+          cause: 'Typing and mobile overuse, repetitive manual work or falls on an outstretched hand.',
+          solution: 'Activity modification, joint mobilisation and specific hand–wrist strengthening and stretching.'
+        },
+        'Hand': {
+          cause: 'Arthritis, nerve compression, repetitive gripping tasks or overuse injuries.',
+          solution: 'Joint protection strategies, mobility work and functional hand-strengthening exercises.'
+        },
+        'Knee': {
+          cause: 'Ligament or meniscus strain, arthritis, weak hip and thigh muscles or sudden change in activity levels.',
+          solution: 'Strength and balance training for hip, knee and ankle, along with gait and movement pattern correction.'
+        },
+        'Ankle': {
+          cause: 'Sprains, unstable ankles, previous injuries not fully rehabilitated or repetitive impact sports.',
+          solution: 'Stability and balance work, calf and foot strengthening and a graded return-to-sport plan.'
+        }
+      };
+
+      function openPainModal(area) {
+        var info = painData[area];
+        if (!info) return;
+
+        if (titleEl) titleEl.textContent = area + ' pain';
+        if (causeEl) causeEl.textContent = info.cause;
+        if (solutionEl) solutionEl.textContent = info.solution;
+
+        modalOverlay.classList.add('is-visible');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePainModal() {
+        modalOverlay.classList.remove('is-visible');
+        document.body.style.overflow = '';
+      }
+
+      // Attach click handlers to each symbol next to the body part name
+      var symbols = document.querySelectorAll('.pain-areas-list li .symbol');
+      symbols.forEach(function (symbol) {
+        symbol.style.cursor = 'pointer';
+        symbol.addEventListener('click', function (event) {
+          event.stopPropagation();
+          var labelEl = this.previousElementSibling;
+          var area = labelEl ? (labelEl.textContent || '').trim() : '';
+          if (!area) return;
+          openPainModal(area);
+        });
+      });
+
+      // Close on close button
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          closePainModal();
+        });
+      }
+
+      // Close when clicking outside the modal box
+      modalOverlay.addEventListener('click', function (event) {
+        if (event.target === modalOverlay) {
+          closePainModal();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && modalOverlay.classList.contains('is-visible')) {
+          closePainModal();
+        }
+      });
+    })();
   </script>
 
   <script>
