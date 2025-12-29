@@ -108,13 +108,23 @@
     }
 
     button {
-      background: #25d366;
+      width: 100%;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, #3fb3f5 0%, #2c82d4 100%);
       color: #fff;
       border: none;
-      padding: 10px 16px;
       border-radius: 6px;
       font-size: 14px;
       cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(63, 179, 245, 0.4);
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #2c82d4 0%, #2167aa 100%);
+      box-shadow: 0 6px 16px rgba(44, 130, 212, 0.45);
+      transform: translateY(-1px);
     }
 
     button:disabled {
