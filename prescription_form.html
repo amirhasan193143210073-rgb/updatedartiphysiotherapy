@@ -9,16 +9,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/Admin-style.css">
     <style>
-      /* Themed header and sidebar to match admin pages */
+      /* Themed header and sidebar to match admin pages (blue #3fb3f5 theme) */
       #content nav {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background: linear-gradient(135deg, #3fb3f5 0%, #2c82d4 100%) !important;
         color: #fff !important;
         border-bottom: 1px solid rgba(255,255,255,.15);
       }
       .arrowicon { color: #fff !important; }
 
       #sidebar {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background: linear-gradient(135deg, #3fb3f5 0%, #2c82d4 100%) !important;
         color: #fff !important;
       }
       #sidebar .brand { background: transparent !important; color: #fff !important; }
@@ -27,6 +27,25 @@
       #sidebar .side-menu.top li a:hover { color: #CFE8FF !important; }
       #sidebar .side-menu.top li.active a { color: #CFE8FF !important; }
       #sidebar .side-menu li.active { background: rgba(255,255,255,.15) !important; }
+
+      /* Primary submit button in blue theme */
+      button.btn {
+        padding: 10px 18px;
+        background: linear-gradient(135deg, #3fb3f5 0%, #2c82d4 100%);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        box-shadow: 0 4px 12px rgba(63, 179, 245, 0.4);
+        transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      }
+
+      button.btn:hover {
+        background: linear-gradient(135deg, #2c82d4 0%, #2167aa 100%);
+        box-shadow: 0 6px 16px rgba(44, 130, 212, 0.45);
+        transform: translateY(-1px);
+      }
     </style>
 </head>
 
