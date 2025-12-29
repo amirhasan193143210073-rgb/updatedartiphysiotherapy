@@ -7,16 +7,16 @@
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="css/Admin-style.css">
   <style>
-    /* Themed header and sidebar to match admin pages */
+    /* Themed header and sidebar to match admin pages (blue #3fb3f5 theme) */
     #content nav {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      background: linear-gradient(135deg, #3fb3f5 0%, #2c82d4 100%) !important;
       color: #fff !important;
       border-bottom: 1px solid rgba(255,255,255,.15);
     }
     .arrowicon { color: #fff !important; }
 
     #sidebar {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      background: linear-gradient(135deg, #3fb3f5 0%, #2c82d4 100%) !important;
       color: #fff !important;
     }
     #sidebar .brand { background: transparent !important; color: #fff !important; }
@@ -41,9 +41,34 @@
     th { background: #fafafa; }
     .row-actions { white-space: nowrap; }
     .actions { display: flex; gap: 12px; margin-top: 16px; }
-    button { cursor: pointer; padding: 10px 14px; border: 0; background: #2563eb; color: white; border-radius: 4px; }
-    button.secondary { background: #111827; }
-    button.ghost { background: transparent; color: #2563eb; border: 1px solid #2563eb; }
+    button {
+      cursor: pointer;
+      padding: 10px 14px;
+      border: 0;
+      background: linear-gradient(135deg, #3fb3f5 0%, #2c82d4 100%);
+      color: white;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(63, 179, 245, 0.4);
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #2c82d4 0%, #2167aa 100%);
+      box-shadow: 0 6px 16px rgba(44, 130, 212, 0.45);
+      transform: translateY(-1px);
+    }
+    button.secondary { background: #111827; box-shadow: none; }
+    button.secondary:hover { background: #020617; box-shadow: none; transform: none; }
+    button.ghost {
+      background: transparent;
+      color: #3fb3f5;
+      border: 1px solid #3fb3f5;
+      box-shadow: none;
+    }
+    button.ghost:hover {
+      background: rgba(63, 179, 245, 0.08);
+      transform: none;
+      box-shadow: none;
+    }
     .status { margin-top: 12px; font-size: 14px; color: #0f5132; }
     .error { color: #842029; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
