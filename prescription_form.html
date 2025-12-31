@@ -160,7 +160,7 @@
             if (selectedGender) {
                 // If a radio button is selected, get its value
                 const label = document.querySelector(`label[for="${selectedGender.id}"]`).innerText;
-                const url = `/prescription.html?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}&age=${encodeURIComponent(Age)}&patientProblem=${encodeURIComponent(Patient_Problem)}&doctorNote=${encodeURIComponent(Doctor_Note)}&gender=${encodeURIComponent(label)}`;
+                const url = `prescription.html?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}&age=${encodeURIComponent(Age)}&patientProblem=${encodeURIComponent(Patient_Problem)}&doctorNote=${encodeURIComponent(Doctor_Note)}&gender=${encodeURIComponent(label)}`;
 
                 console.log(name, Age, Patient_Problem, Doctor_Note, label)
                 window.location.href = url;
