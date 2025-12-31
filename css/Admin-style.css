@@ -18,12 +18,12 @@ li {
 	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
 
-	--light: #F9F9F9;
-	--blue: #3C91E6;
-	--light-blue: #CFE8FF;
-	--grey: #CFE8FF;
-	--dark-grey: #AAAAAA;
-	--dark: #342E37;
+	--light: #ffffff;
+	--blue: #89d909;
+	--light-blue: #adf071;
+	--grey: #deedd0;
+	--dark-grey: #4b5563;
+	--dark: #000000;
 	--red: #DB504A;
 	--yellow: #FFCE26;
 	--light-yellow: #FFF2C6;
@@ -287,20 +287,22 @@ input[type="file"] {
 }
 
 button.btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    text-align: center;
+	width: 100%;
+	padding: 10px;
+	background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%);
+	color: #000000;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 20px;
+	text-align: center;
+	box-shadow: 0 4px 12px rgba(137, 217, 9, 0.35);
 }
 
 button.btn:hover {
-    background-color: #004494;
+	background: linear-gradient(135deg, #89d909 0%, #89d909 100%);
+	box-shadow: 0 6px 16px rgba(137, 217, 9, 0.45);
 }
 
 .container {
