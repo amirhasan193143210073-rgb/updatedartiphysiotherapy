@@ -479,7 +479,7 @@ header .navbars ul li:hover>ul {
 
 #hamburg {
     font-size: 20px !important;
-    color: #8de0e8 !important;
+    color: #89d909 !important;
     cursor: pointer !important;
     display: none !important;
 }
@@ -712,9 +712,9 @@ header .navbars ul li:hover>ul {
     justify-content: space-between !important;
     align-items: center !important;
     padding: 40px !important;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%) !important;
     border-radius: 25px !important;
-    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18) !important;
     margin: 20px 0 !important;
     position: relative !important;
     overflow: hidden !important;
