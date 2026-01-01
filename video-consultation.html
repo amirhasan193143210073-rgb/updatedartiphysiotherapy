@@ -646,18 +646,14 @@
       <form id="joinForm">
         <div class="role-options">
           <label>
-            <input type="radio" name="role" value="patient" checked>
-            Patient
-          </label>
-          <label>
-            <input type="radio" name="role" value="therapist">
+            <input type="radio" name="role" value="therapist" checked>
             Physiotherapist
           </label>
         </div>
-        <div id="patientFields" class="role-fields">
+        <div id="patientFields" class="role-fields hidden">
           <p style="margin: 6px 0; color:#374151;">No ID needed. Click Continue to join as a patient. We’ll automatically connect you when your physiotherapist starts the session.</p>
         </div>
-        <div id="therapistFields" class="role-fields hidden">
+        <div id="therapistFields" class="role-fields">
           <p style="margin: 6px 0; color:#374151;">No ID needed. Click Continue to start a session as a physiotherapist. We’ll handle IDs automatically.</p>
         </div>
         <p id="joinError" class="error-text hidden"></p>
