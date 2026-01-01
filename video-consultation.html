@@ -1116,7 +1116,7 @@
     let userType = urlParams.get('userType') || '';
     let userId = urlParams.get('userId') || '';
     let peerId = urlParams.get('peerId') || '';
-    let autoJoin = urlParams.get('autoJoin') === '1';
+    let patientIdFromUrl = urlParams.get('patientId') || '';
 
     let webrtcClient = null;
     let currentSession = null;
@@ -1420,13 +1420,17 @@
 
       if (selectedRole === 'patient') {
         userType = 'patient';
-        userId = `patient_${Date.now()}`;
+        userId = patientIdFromUrl || `patient_${Date.now()}`;
         peerId = '';
         sessionId = '';
         hideJoinModal();
         updateUrlParams();
         updateUIForUserType();
-        autoJoinPatientSession();
+        if (patientIdFromUrl) {
+          loadSessionForPatient(patientIdFromUrl);
+        } else {
+          autoJoinPatientSession();
+        }
       } else {
         const therapistIdVal = `therapist_${Date.now()}`;
         const generatedPatientId = `patient_${Date.now()}`;
@@ -1578,10 +1582,18 @@
     // Initialize on page load
     window.addEventListener('load', () => {
       if (!userType) userType = 'patient';
-      if (!userId) userId = userType === 'therapist' ? `therapist_${Date.now()}` : `patient_${Date.now()}`;
+      if (!userId) {
+        if (userType === 'therapist') {
+          userId = `therapist_${Date.now()}`;
+        } else if (patientIdFromUrl) {
+          userId = patientIdFromUrl;
+        } else {
+          userId = `patient_${Date.now()}`;
+        }
+      }
       updateUIForUserType();
-      if (autoJoin && userType === 'patient') {
-        autoJoinPatientSession();
+      if (userType === 'patient' && patientIdFromUrl) {
+        loadSessionForPatient(patientIdFromUrl);
         return;
       }
       const autoStart = (userType === 'therapist' && sessionId) || (userType === 'patient' && (peerId || sessionId));

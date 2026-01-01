@@ -1084,7 +1084,19 @@
             <span>10 min read</span>
           </div>
           <div class="services-card-divider"></div>
-          <button type="button" class="services-read-btn" onclick="window.location.href='video-consultation.html?userType=patient&autoJoin=1';">
+          <button type="button" class="services-read-btn" onclick="(function(){
+            try {
+              var existingId = window.localStorage ? window.localStorage.getItem('arti_patient_id') : null;
+              var pid = existingId || ('patient_' + Date.now());
+              if (window.localStorage && !existingId) {
+                window.localStorage.setItem('arti_patient_id', pid);
+              }
+              var url = 'video-consultation.html?userType=patient&patientId=' + encodeURIComponent(pid);
+              window.location.href = url;
+            } catch (e) {
+              window.location.href = 'video-consultation.html?userType=patient';
+            }
+          })();">
             <i class="fa fa-video-camera" aria-hidden="true"></i>
             <span>Online Consultation</span>
           </button>
