@@ -1520,7 +1520,9 @@
         if (loadingIndicator) loadingIndicator.style.display = 'none';
         joinError.textContent = error.message || 'Failed to find a session. Please verify your patient ID.';
         joinError.classList.remove('hidden');
-        showJoinModal();
+        if (userType !== 'patient') {
+          showJoinModal();
+        }
       }
     }
 
