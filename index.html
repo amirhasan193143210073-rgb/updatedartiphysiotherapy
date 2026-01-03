@@ -134,49 +134,33 @@
 
     /* The Heart Behind Arti Section Styles */
     .container_inspiration {
-      background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%) !important;
-      padding: 80px 40px !important;
+      background: #f9fafb !important;
+      padding: 30px 24px !important;
       position: relative !important;
-      overflow: hidden !important;
-      margin: 40px 20px !important;
-      border-radius: 25px !important;
-      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3) !important;
+      margin: 25px auto !important;
+      border-radius: 16px !important;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10) !important;
+      max-width: 1000px !important;
     }
 
     .container_inspiration::before {
-      content: '' !important;
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M25,15 C25,10 30,5 35,5 C40,5 45,10 45,15 C45,20 40,25 35,30 C30,25 25,20 25,15 Z" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>') !important;
-      pointer-events: none !important;
+      content: none !important;
     }
 
     .container_inspiration h1 {
-      font-size: 3.5rem !important;
+      font-size: 2.2rem !important;
       font-weight: 800 !important;
-      text-align: center !important;
-      margin-bottom: 40px !important;
-      color: white !important;
-      text-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+      text-align: left !important;
+      margin-bottom: 20px !important;
+      color: #111827 !important;
+      text-shadow: none !important;
       position: relative !important;
       z-index: 2 !important;
       animation: fadeInUp 1s ease-out !important;
     }
 
     .container_inspiration h1::after {
-      content: '💖' !important;
-      display: block !important;
-      font-size: 2rem !important;
-      margin-top: 15px !important;
-      animation: heartbeat 2s ease-in-out infinite !important;
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      content: none !important;
     }
 
     .container_inspiration .row {
@@ -202,38 +186,22 @@
     }
 
     .container_inspiration p {
-      font-size: 1.4rem !important;
+      font-size: 1.2rem !important;
       line-height: 1.8 !important;
-      color: rgba(255, 255, 255, 0.95) !important;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+      color: #1f2933 !important;
       margin: 0 !important;
-      padding: 30px !important;
-      background: rgba(255, 255, 255, 0.1) !important;
-      border-radius: 15px !important;
-      backdrop-filter: blur(10px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      padding: 10px 0 !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      border: none !important;
+      text-shadow: none !important;
       animation: fadeInRight 1s ease-out 0.7s both !important;
       position: relative !important;
     }
 
-    .container_inspiration p::before {
-      content: '"' !important;
-      font-size: 4rem !important;
-      color: rgba(255, 255, 255, 0.3) !important;
-      position: absolute !important;
-      top: -10px !important;
-      left: 20px !important;
-      font-family: serif !important;
-    }
-
+    .container_inspiration p::before,
     .container_inspiration p::after {
-      content: '"' !important;
-      font-size: 4rem !important;
-      color: rgba(255, 255, 255, 0.3) !important;
-      position: absolute !important;
-      bottom: -20px !important;
-      right: 20px !important;
-      font-family: serif !important;
+      content: none !important;
     }
 
     @keyframes fadeInLeft {
@@ -1232,28 +1200,71 @@
 
 
   <div class="container-fluid doctor-section" style="padding: 50px 25px; margin: 30px 15px; border-radius: 20px; background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-     <div class="row align-items-center">
-       <div class="col-md-7 col-sm-12">
-         <div class="doctor-card" style="background: rgba(0,0,0,0.65); border-radius: 16px; padding: 24px; color: #fff;">
-           <h2 style="margin-bottom:10px;">Dr. Amir Hasan</h2>
-           <h3 style="color:#adf071; margin-bottom:16px;">Physiotherapist (BPT)</h3>
-           <p style="font-size:1.05rem; line-height:1.8; margin:0;">Physiotherapist (BPT) with 5 years of clinical experience. I specialize in chronic pain management, post-stroke rehabilitation, arthritis care, and the management of muscular dystrophy.</p>
-         </div>
-       </div>
-       <div class="col-md-5 col-sm-12 mb-3">
-         <div class="doctor-card" style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.15); border-radius: 16px; padding: 12px;">
-           <img src="images/AmirHasan.png" alt="Dr. Amir Hasan" style="width:100%; height:360px; object-fit:cover; object-position:center top; border-radius:12px; border: 2px solid rgba(255,255,255,0.4);">
-         </div>
-       </div>
-     </div>
-   </div>
+    <div class="row align-items-center">
+      <div class="col-md-7 col-sm-12">
+        <div class="doctor-card" style="background: rgba(0,0,0,0.65); border-radius: 16px; padding: 24px; color: #fff;">
+          <h2 style="margin-bottom:10px;">Dr. Riky Hela</h2>
+          <h3 style="color:#adf071; margin-bottom:10px;">PGD in Orthopaedic (Physiotherapy &amp; Rehabilitation), BPT, DPT<br>Medical College Kolkata</h3>
+          <p style="font-size:1.05rem; line-height:1.8; margin:0 0 6px 0;"><strong>Specialist in:</strong></p>
+          <ul style="margin:0 0 10px 18px; padding:0; font-size:1.02rem; line-height:1.7; list-style-type:disc;">
+            <li>Autism &amp; paediatric neuro-developmental rehab</li>
+            <li>Sports Physiotherapy &mdash; on-field and post-injury recovery</li>
+            <li>Musculoskeletal Physiotherapy &amp; long-term Rehabilitation</li>
+            <li>Speech Therapy support as part of holistic rehab</li>
+          </ul>
+          <p style="font-size:1.02rem; line-height:1.7; margin:0;">
+            <strong>Affiliations:</strong> Life Member of the <strong>Indian Red Cross Society</strong> and <strong>Senior Physiotherapist</strong> at <strong>Red Cross Hospital</strong>, bringing hospital-grade expertise and humanitarian care into every treatment plan.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-12 mb-3">
+        <div class="doctor-card" style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.15); border-radius: 16px; padding: 12px;">
+          <img src="images/Dr-Riky.jpeg" alt="Dr. Riky Hela" style="width:100%; height:360px; object-fit:cover; object-position:center top; border-radius:12px; border: 2px solid rgba(255,255,255,0.4);">
+        </div>
+      </div>
+    </div>
+  </div>
 
 
+  <div class="container-fluid doctor-section" style="padding: 50px 25px; margin: 30px 15px; border-radius: 20px; background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+    <div class="row align-items-center">
+      <div class="col-md-7 col-sm-12">
+        <div class="doctor-card" style="background: rgba(0,0,0,0.65); border-radius: 16px; padding: 24px; color: #fff;">
+          <h2 style="margin-bottom:10px;">Dr. Amir Hasan</h2>
+          <h3 style="color:#adf071; margin-bottom:16px;">Physiotherapist (BPT)</h3>
+          <p style="font-size:1.05rem; line-height:1.8; margin:0;">Physiotherapist (BPT) with 5 years of clinical experience. I specialize in chronic pain management, post-stroke rehabilitation, arthritis care, and the management of muscular dystrophy.</p>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-12 mb-3">
+        <div class="doctor-card" style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.15); border-radius: 16px; padding: 12px;">
+          <img src="images/AmirHasan.png" alt="Dr. Amir Hasan" style="width:100%; height:360px; object-fit:cover; object-position:center top; border-radius:12px; border: 2px solid rgba(255,255,255,0.4);">
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="container-fluid doctor-section" style="padding: 50px 25px; margin: 30px 15px; border-radius: 20px; background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%); box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+    <div class="row align-items-center">
+      <div class="col-md-7 col-sm-12">
+        <div class="doctor-card" style="background: rgba(0,0,0,0.65); border-radius: 16px; padding: 24px; color: #fff;">
+          <h2 style="margin-bottom:12px;">The Heart Behind Arti Physiotherapist: My Mother’s Influence</h2>
+          <p style="font-size:1.05rem; line-height:1.8; margin:0;">
+            Arti Physiotherapy was born from the quiet strength and sacrifice of my mother. Watching her put family and
+            community before herself taught me that care is more than treatment plans – it is patience, listening and
+            standing beside someone on their toughest days. Every session, every smile and every recovery story at this
+            clinic carries a piece of her courage and compassion.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-12 mb-3">
+        <div class="doctor-card" style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.15); border-radius: 16px; padding: 12px;">
+          <img src="images/chachi.png" alt="My mother – the heart behind Arti Physiotherapy" style="width:100%; height:360px; object-fit:cover; object-position:center top; border-radius:12px; border: 2px solid rgba(255,255,255,0.4);">
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-
-  <section class="gallery" id="gallery">
+ <section class="gallery" id="gallery">
     <div class="gallery-hero-header">
       <h1>Recovery <span class="accent">stories</span> in action</h1>
     </div>

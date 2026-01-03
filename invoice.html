@@ -184,9 +184,23 @@
         <td data-label="Description"><input type="text" id="TreatmentDescription" name="description" placeholder="Description" value="${prefill.description || ''}" required></td>
         <td data-label="Quantity"><input type="number" name="quantity" step="1" min="1" value="${prefill.quantity || 1}" required oninput="recalcRow(this)"></td>
         <td data-label="Unit Price"><input type="number" name="unitPrice" step="0.01" min="0" value="${prefill.unitPrice || 0}" required oninput="recalcRow(this)"></td>
-        <td class="row-actions" data-label="Amount"><input type="text" name="amount" readonly value="${(prefill.quantity||1)*(prefill.unitPrice||0)}"></td>
+        <td class="row-actions" data-label="Amount">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <input type="text" name="amount" readonly value="${(prefill.quantity||1)*(prefill.unitPrice||0)}">
+            <button type="button" class="ghost" title="Remove item" onclick="removeItemRow(this)" style="padding:6px 8px; min-width:32px;">
+              <i class='bx bx-trash'></i>
+            </button>
+          </div>
+        </td>
       `;
       tbody.appendChild(tr);
+    }
+
+    function removeItemRow(btn) {
+      const tr = btn.closest('tr');
+      if (!tr) return;
+      const tbody = tr.parentElement;
+      tbody.removeChild(tr);
     }
 
     function recalcRow(el){
