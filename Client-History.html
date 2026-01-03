@@ -156,7 +156,7 @@
           var ds = d ? d.toLocaleDateString() : '';
           var id = inv._id || '';
           var no = inv.invoiceNumber || '';
-          var patientNumber = inv.patientPhone || inv.phoneNumber || '';
+          var patientNumber = inv.patientId || '';
           tr.innerHTML = `
             <td data-label="Date">${ds}</td>
             <td data-label="Patient Name">${inv.patientName || ''}</td>
@@ -222,7 +222,7 @@
           var d = p.date ? new Date(p.date) : null;
           var ds = d ? d.toLocaleDateString() : '';
           var details = p.details || p.title || '';
-          var patientNumber = p.patientPhone || p.phoneNumber || '';
+          var patientNumber = p.phoneNumber || '';
           tr.innerHTML =
             '<td data-label="Date">' + ds + '</td>' +
             '<td data-label="Patient Name">' + (p.patientName || '') + '</td>' +

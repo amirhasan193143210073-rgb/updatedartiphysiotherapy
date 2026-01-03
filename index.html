@@ -104,10 +104,30 @@
       border-radius: 15px !important;
       box-shadow: 0 15px 30px rgba(0,0,0,0.2) !important;
       transition: transform 0.3s ease !important;
+      width: 100% !important;
+      height: auto !important;
     }
 
     .hero-section .image img:hover {
       transform: scale(1.05) !important;
+    }
+
+    /* Hero Section: mobile responsiveness */
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column-reverse !important;
+        padding: 20px !important;
+      }
+
+      .hero-section .content,
+      .hero-section .image {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+
+      .hero-section .content {
+        margin-top: 12px !important;
+      }
     }
 
     @keyframes fadeInUp {
