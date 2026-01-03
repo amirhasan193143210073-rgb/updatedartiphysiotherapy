@@ -173,6 +173,10 @@
       }
 
       const genderLabel = document.querySelector(`label[for="${selectedGender.id}"]`).innerText;
+      const genderNormalized = genderLabel.trim().toLowerCase();
+      let genderValue = 'Other';
+      if (genderNormalized === 'male') genderValue = 'Male';
+      else if (genderNormalized === 'female') genderValue = 'Female';
 
       try {
         if (!API_BASE || API_BASE.includes('YOUR_API_BASE_URL')) {
@@ -189,7 +193,7 @@
             patientName: name,
             phoneNumber: phoneNumber,
             age: Age,
-            gender: genderLabel,
+            gender: genderValue,
             patientProblem: Patient_Problem,
             doctorNote: Doctor_Note,
             date: new Date().toISOString().slice(0, 10)
