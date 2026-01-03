@@ -149,10 +149,7 @@
     </form>
 
     <script>
-    const API_BASE = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com';
-    const API = API_BASE.replace(/\/dev\/?$/, '');
-
-    document.getElementById("upload-submit").addEventListener("click", async function (event) {
+    document.getElementById("upload-submit").addEventListener("click", function (event) {
       event.preventDefault();
 
       var name = document.getElementById("name").value.trim();
@@ -173,44 +170,10 @@
       }
 
       const genderLabel = document.querySelector(`label[for="${selectedGender.id}"]`).innerText;
-      const genderNormalized = genderLabel.trim().toLowerCase();
-      let genderValue = 'Other';
-      if (genderNormalized === 'male') genderValue = 'Male';
-      else if (genderNormalized === 'female') genderValue = 'Female';
 
-      try {
-        if (!API_BASE || API_BASE.includes('YOUR_API_BASE_URL')) {
-          alert('Prescription API base URL is not configured.');
-          return;
-        }
+      const url = `prescription.html?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}&age=${encodeURIComponent(Age)}&patientProblem=${encodeURIComponent(Patient_Problem)}&doctorNote=${encodeURIComponent(Doctor_Note)}&gender=${encodeURIComponent(genderLabel)}`;
 
-        const res = await fetch(`${API}/prescription`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            patientName: name,
-            phoneNumber: phoneNumber,
-            age: Age,
-            gender: genderValue,
-            patientProblem: Patient_Problem,
-            doctorNote: Doctor_Note,
-            date: new Date().toISOString().slice(0, 10)
-          })
-        });
-
-        if (!res.ok) {
-          const text = await res.text();
-          throw new Error(text || 'Failed to save prescription');
-        }
-
-        alert('Prescription saved successfully! Redirecting to Client History.');
-        window.location.href = 'Client-History.html';
-      } catch (err) {
-        console.error('Error saving prescription:', err);
-        alert('Failed to save prescription. Please try again.');
-      }
+      window.location.href = url;
     });
   </script>
     <script src="js/admin-script.js"></script>

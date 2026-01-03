@@ -227,8 +227,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-
-
     <!-- <script type="text/javascript">
         $(document).ready(function ($) {
             $(document).on('click', '.print_pdf', function (event) {
@@ -252,20 +250,30 @@
                 };
 
                 // New Promise-based usage:
-                html2pdf().set(opt).from(element).save();
-            })
-        })
-    </script> -->
     <script type="text/javascript">
-$(document).ready(function ($) {
+    const API_BASE = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com';
+    const API = API_BASE.replace(/\/dev\/?$/, '');
+
+    $(document).ready(function ($) {
     $(document).on('click', '.print_pdf', async function (event) {
         event.preventDefault();
 
         var name = document.getElementById("displayName").innerHTML;
+        var phoneNumber = document.getElementById("phoneNumber").innerHTML;
+        var Age = document.getElementById("displayAge").innerHTML;
+        var genderText = document.getElementById("displayGender").innerHTML;
+        var PatientProblem = document.getElementById("displayPatientProblem").innerHTML;
+        var DoctorNote = document.getElementById("displayDoctorNote").innerHTML;
         const today = new Date();
         const day = String(today.getDate()).padStart(2, '0');
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const formattedDate = `${day}-${month}`;
+
+        // Normalize gender to match backend enum
+        const genderNormalized = genderText.trim().toLowerCase();
+        let genderValue = 'Other';
+        if (genderNormalized === 'male') genderValue = 'Male';
+        else if (genderNormalized === 'female') genderValue = 'Female';
 
         var element = document.getElementById('container_content');
 
@@ -279,16 +287,36 @@ $(document).ready(function ($) {
         };
 
         try {
-            // Generate PDF as Blob (not just save)
+            // 1) Save metadata to backend (best-effort, don't block PDF if it fails)
+            try {
+                if (API_BASE && !API_BASE.includes('YOUR_API_BASE_URL')) {
+                    await fetch(`${API}/prescription`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            patientName: name,
+                            phoneNumber: phoneNumber,
+                            age: Age,
+                            gender: genderValue,
+                            patientProblem: PatientProblem,
+                            doctorNote: DoctorNote,
+                            date: new Date().toISOString().slice(0, 10)
+                        })
+                    });
+                }
+            } catch (e) {
+                console.error('Failed to save prescription metadata:', e);
+            }
+
+            // 2) Generate PDF as Blob
             const pdfBlob = await html2pdf().set(opt).from(element).outputPdf('blob');
 
-            // Prepare form data like your first example
+            // 3) Upload PDF and send via WhatsApp (existing flow)
             const formData = new FormData();
             formData.append("file", pdfBlob, opt.filename);
             formData.append("PhonenumberID", '861212063734417');
             formData.append("PermanentAccessToken",'EAASRpl7ndooBPll2bLHoE8uRdZB1Ld9VZCKnNVp5NNlx60GF0WNwwMTzXeonzzx9rLdDAYO5FkE6tpF1X8zfOOQdNiGHIVS1BeSsyPmK3oy5QvuSMMMwxx46BYL5kKnT7GBG9dAFZAdEyGDCuheDQpx8NTTI4pZCUrzOcN3JL96CXGzo6ZADHvb4Myi4W5HWX6QZDZD');
 
-            // Upload and get MediaID
             const response = await fetch("https://botclap.com/getMediaID", {
                 method: "POST",
                 body: formData,
@@ -298,22 +326,19 @@ $(document).ready(function ($) {
             const MediaID = result['MediaID'];
 
             console.log("✅ PDF uploaded successfully. MediaID:", MediaID);
-              const phoneNumber=document.getElementById("phoneNumber").innerHTML
+
             // Optionally download PDF locally too
             html2pdf().set(opt).from(element).save();
             const prescriptionDate = new Date().toLocaleDateString("en-GB");
-            const PatientProblem = document.getElementById("displayPatientProblem").innerHTML;
-const var1 = encodeURIComponent(PatientProblem);
-    const var2 = encodeURIComponent(prescriptionDate);
-     const finalUrl = `https://botclap.com/apinotification/764610403118927/919875386318/prescriptionartiphysiotherapy/UTILITY/${phoneNumber}/Prescription/EAASRpl7ndooBPll2bLHoE8uRdZB1Ld9VZCKnNVp5NNlx60GF0WNwwMTzXeonzzx9rLdDAYO5FkE6tpF1X8zfOOQdNiGHIVS1BeSsyPmK3oy5QvuSMMMwxx46BYL5kKnT7GBG9dAFZAdEyGDCuheDQpx8NTTI4pZCUrzOcN3JL96CXGzo6ZADHvb4Myi4W5HWX6QZDZD/861212063734417?mediaURL=${MediaID}&body1=${PatientProblem}&body2=${var2}`;
+            const var2 = encodeURIComponent(prescriptionDate);
+            const finalUrl = `https://botclap.com/apinotification/764610403118927/919875386318/prescriptionartiphysiotherapy/UTILITY/${phoneNumber}/Prescription/EAASRpl7ndooBPll2bLHoE8uRdZB1LdVZCKnNVp5NNlx60GF0WNwwMTzXeonzzx9rLdDAYO5FkE6tpF1X8zfOOQdNiGHIVS1BeSsyPmK3oy5QvuSMMMwxx46BYL5kKnT7GBG9dAFZAdEyGDCuheDQpx8NTTI4pZCUrzOcN3JL96CXGzo6ZADHvb4Myi4W5HWX6QZDZD/861212063734417?mediaURL=${MediaID}&body1=${PatientProblem}&body2=${var2}`;
 
-    console.log("📨 Final API URL:", finalUrl);
+            console.log("📨 Final API URL:", finalUrl);
 
-    // 5️⃣ Hit your backend GET endpoint
-    const respo = await fetch(finalUrl);
-    if(respo.ok){
-        window.location.href = `https://amirhasan193143210073-rgb.github.io/updatedartiphysiotherapy/prescription_form.html`
-    }
+            const respo = await fetch(finalUrl);
+            if(respo.ok){
+                window.location.href = `https://amirhasan193143210073-rgb.github.io/updatedartiphysiotherapy/prescription_form.html`;
+            }
        
         //       $.ajax({
         //     url: "https://botclap.com/WebhookForSendPDF",
