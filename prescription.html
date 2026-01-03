@@ -258,7 +258,7 @@
                 filename: `Prescription_${name}_${formattedDate}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
             try {
@@ -282,7 +282,8 @@
                     console.error('Failed to save prescription metadata:', e);
                 }
 
-                const pdfBlob = await html2pdf().set(opt).from(element).outputPdf('blob');
+                const worker = html2pdf().set(opt).from(element);
+                const pdfBlob = await worker.outputPdf('blob');
 
                 const formData = new FormData();
                 formData.append("file", pdfBlob, opt.filename);
@@ -299,7 +300,7 @@
 
                 console.log("✅ PDF uploaded successfully. MediaID:", MediaID);
 
-                html2pdf().set(opt).from(element).save();
+                await worker.save();
                 const prescriptionDate = new Date().toLocaleDateString("en-GB");
                 const var2 = encodeURIComponent(prescriptionDate);
                 const finalUrl = `https://botclap.com/apinotification/764610403118927/919875386318/prescriptionartiphysiotherapy/UTILITY/${phoneNumber}/Prescription/EAASRpl7ndooBQTudWvGZBu0DsblZBg9ZCjZAjC1imNVZC5cuX4YUlAmWCssyYQ0QlOhM1x66LMjQjdg9ELdrSHOjERf7z0RUcph1dnc3QDggPcrwFUcqLXWEt485TTbV47vHXIi25IJELCRWEX5q52yiQiKnHZCcvZB2LFyUZAZCKmJoie6ZBfjQuxdUIRppzsd2lTiAZDZD/861212063734417?mediaURL=${MediaID}&body1=${PatientProblem}&body2=${var2}`;
