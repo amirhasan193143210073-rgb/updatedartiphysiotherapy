@@ -143,35 +143,66 @@
     </form>
 
     <script>
+    const API_BASE = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com';
+    const API = API_BASE.replace(/\/dev\/?$/, '');
 
+    document.getElementById("upload-submit").addEventListener("click", async function (event) {
+      event.preventDefault();
 
-        document.getElementById("upload-submit").addEventListener("click", function () {
-            event.preventDefault();
-            // Get the selected gender radio button
-            
-            var name = document.getElementById("name").value;
-            var phoneNumber = document.getElementById("phoneNumber").value;
-            var Age = document.getElementById("age").value;
-            var Patient_Problem = document.getElementById("problem").value;
-            var Doctor_Note = document.getElementById("dr_note").value;
-            const selectedGender = document.querySelector('input[name="gender"]:checked');
-            console.log(selectedGender)
+      var name = document.getElementById("name").value.trim();
+      var phoneNumber = document.getElementById("phoneNumber").value.trim();
+      var Age = document.getElementById("age").value;
+      var Patient_Problem = document.getElementById("problem").value.trim();
+      var Doctor_Note = document.getElementById("dr_note").value.trim();
+      const selectedGender = document.querySelector('input[name="gender"]:checked');
 
-            if (selectedGender) {
-                // If a radio button is selected, get its value
-                const label = document.querySelector(`label[for="${selectedGender.id}"]`).innerText;
-                const url = `prescription.html?name=${encodeURIComponent(name)}&phoneNumber=${encodeURIComponent(phoneNumber)}&age=${encodeURIComponent(Age)}&patientProblem=${encodeURIComponent(Patient_Problem)}&doctorNote=${encodeURIComponent(Doctor_Note)}&gender=${encodeURIComponent(label)}`;
+      if (!selectedGender) {
+        alert("No gender selected!");
+        return;
+      }
 
-                console.log(name, Age, Patient_Problem, Doctor_Note, label)
-                window.location.href = url;
-            } else {
-                // If no radio button is selected
-                alert("No gender selected!");
-            }
-          
+      if (!name) {
+        alert("Please enter patient name.");
+        return;
+      }
 
+      const genderLabel = document.querySelector(`label[for="${selectedGender.id}"]`).innerText;
+
+      try {
+        if (!API_BASE || API_BASE.includes('YOUR_API_BASE_URL')) {
+          alert('Prescription API base URL is not configured.');
+          return;
+        }
+
+        const res = await fetch(`${API}/prescription`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            patientName: name,
+            phoneNumber: phoneNumber,
+            age: Age,
+            gender: genderLabel,
+            patientProblem: Patient_Problem,
+            doctorNote: Doctor_Note,
+            date: new Date().toISOString().slice(0, 10)
+          })
         });
-    </script>
+
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text || 'Failed to save prescription');
+        }
+
+        alert('Prescription saved successfully! Redirecting to Client History.');
+        window.location.href = 'Client-History.html';
+      } catch (err) {
+        console.error('Error saving prescription:', err);
+        alert('Failed to save prescription. Please try again.');
+      }
+    });
+  </script>
     <script src="js/admin-script.js"></script>
 
 </body>
