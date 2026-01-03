@@ -146,7 +146,7 @@
         var items = Array.isArray(data.items) ? data.items : [];
         if (items.length === 0) {
           var emptyRow = document.createElement('tr');
-          emptyRow.innerHTML = '<td colspan="4">No invoices found.</td>';
+          emptyRow.innerHTML = '<td colspan="5">No invoices found.</td>';
           tbody.appendChild(emptyRow);
           return;
         }
@@ -156,9 +156,11 @@
           var ds = d ? d.toLocaleDateString() : '';
           var id = inv._id || '';
           var no = inv.invoiceNumber || '';
+          var patientNumber = inv.patientPhone || inv.phoneNumber || '';
           tr.innerHTML = `
             <td data-label="Date">${ds}</td>
             <td data-label="Patient Name">${inv.patientName || ''}</td>
+            <td data-label="Patient Number">${patientNumber}</td>
             <td data-label="Invoice No.">${no}</td>
             <td data-label="Download">
               <button type="button" class="download-btn" onclick="downloadInvoiceHistoryPdf('${id}', '${no}')">Download</button>
@@ -168,7 +170,7 @@
         });
       } catch (e) {
         var errRow = document.createElement('tr');
-        errRow.innerHTML = '<td colspan="4">Failed to load invoice history.</td>';
+        errRow.innerHTML = '<td colspan="5">Failed to load invoice history.</td>';
         tbody.appendChild(errRow);
       }
     }
@@ -211,7 +213,7 @@
         var items = Array.isArray(data.items) ? data.items : [];
         if (items.length === 0) {
           var emptyRow = document.createElement('tr');
-          emptyRow.innerHTML = '<td colspan="4">No prescriptions found.</td>';
+          emptyRow.innerHTML = '<td colspan="5">No prescriptions found.</td>';
           tbody.appendChild(emptyRow);
           return;
         }
@@ -220,16 +222,18 @@
           var d = p.date ? new Date(p.date) : null;
           var ds = d ? d.toLocaleDateString() : '';
           var details = p.details || p.title || '';
+          var patientNumber = p.patientPhone || p.phoneNumber || '';
           tr.innerHTML =
             '<td data-label="Date">' + ds + '</td>' +
             '<td data-label="Patient Name">' + (p.patientName || '') + '</td>' +
+            '<td data-label="Patient Number">' + patientNumber + '</td>' +
             '<td data-label="Details">' + details + '</td>' +
             '<td data-label="Download"><button type="button" class="download-btn" onclick="downloadPrescriptionPdf(\'' + (p._id || '') + '\')">Download</button></td>';
           tbody.appendChild(tr);
         });
       } catch (e) {
         var errRow = document.createElement('tr');
-        errRow.innerHTML = '<td colspan="4">Failed to load prescription history.</td>';
+        errRow.innerHTML = '<td colspan="5">Failed to load prescription history.</td>';
         tbody.appendChild(errRow);
       }
     }
@@ -346,6 +350,7 @@
                 <tr>
                   <th>Date</th>
                   <th>Patient Name</th>
+                  <th>Patient Number</th>
                   <th>Details</th>
                   <th>Download</th>
                 </tr>
@@ -365,6 +370,7 @@
                 <tr>
                   <th>Date</th>
                   <th>Patient Name</th>
+                  <th>Patient Number</th>
                   <th>Invoice No.</th>
                   <th>Download</th>
                 </tr>
