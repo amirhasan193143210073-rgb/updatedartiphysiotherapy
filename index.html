@@ -503,6 +503,28 @@
       color: #000000 !important;
     }
 
+    /* Mobile header CTA button (appears before hamburger on small screens) */
+    .mobile-header-cta {
+      display: none !important;
+      margin-left: auto !important;
+      margin-right: 8px !important;
+      background: #adf071 !important;
+      color: #000000 !important;
+      font-weight: 700 !important;
+      border-radius: 999px !important;
+      padding: 6px 14px !important;
+      text-decoration: none !important;
+      font-size: 0.85rem !important;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18) !important;
+      white-space: nowrap !important;
+    }
+
+    .mobile-header-cta:focus,
+    .mobile-header-cta:hover {
+      background: #deedd0 !important;
+      color: #000000 !important;
+    }
+
     /* Hamburger Menu Styling */
     #hamburg {
       display: none !important;
@@ -527,6 +549,13 @@
 
       header .logo img {
         height: 40px !important;
+      }
+
+      /* Show compact CTA on mobile */
+      .mobile-header-cta {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
       }
 
       #hamburg {
@@ -891,6 +920,7 @@
 <body>
   <header>
     <a href="#" class="logo"><img src="images/riky.png" alt=""></a>
+    <a href="#" class="mobile-header-cta" onclick="openPopup(); return false;">Book a Call Today</a>
     <input type="checkbox" id="menu-bar"><label id="hamburg" for="menu-bar" class="fas fa-bars"></label>
     <nav class="navbars">
       <ul>
