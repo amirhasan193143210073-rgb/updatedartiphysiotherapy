@@ -402,16 +402,27 @@ header {
 }
 
 header .logo {
-    font-weight: bolder !important;
-    font-size: 25px !important;
+    display: flex !important;
+    align-items: center !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
     color: #333 !important;
     text-decoration: none;
 }
 
 header .logo img {
-    height: 62px;
-    width: 100%;
-    margin: 3% 4%;
+    height: 50px !important;
+    width: auto !important;
+    margin: 0 !important;
+}
+
+header .logo-text {
+    margin-left: 10px !important;
+    color: #333 !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
 }
 
 header .navbars ul {
