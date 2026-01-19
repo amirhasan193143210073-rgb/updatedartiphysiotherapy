@@ -406,7 +406,7 @@ header .logo {
     align-items: center !important;
     font-weight: 700 !important;
     font-size: 18px !important;
-    color: #333 !important;
+    color: #ffffff !important;
     text-decoration: none;
 }
 
@@ -418,7 +418,7 @@ header .logo img {
 
 header .logo-text {
     margin-left: 10px !important;
-    color: #333 !important;
+    color: #ffffff !important;
     font-weight: 700 !important;
     font-size: 18px !important;
     line-height: 1 !important;
