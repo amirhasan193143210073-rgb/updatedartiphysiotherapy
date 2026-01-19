@@ -536,30 +536,31 @@
       border-radius: 50% !important;
     }
 
-    #hamburg:hover {
-      background: rgba(255, 255, 255, 0.2) !important;
-      transform: rotate(90deg) !important;
-    }
+/* Mobile Responsive Navbar */
+@media (max-width: 768px) {
+  header {
+    padding: 8px 4% !important;
+  }
 
-    /* Mobile Responsive Navbar */
-    @media (max-width: 768px) {
-      header {
-        padding: 10px 5% !important;
-      }
+  header .logo img {
+    height: 36px !important;
+  }
 
-      header .logo img {
-        height: 40px !important;
-      }
+  header .logo {
+    margin-left: 4px !important;
+    margin-right: 8px !important;
+  }
 
-      header .logo {
-        margin-left: 8px !important;
-        margin-right: 8px !important;
-      }
+  /* Show compact CTA on mobile */
+  .mobile-header-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 
-      /* Show compact CTA on mobile */
-      .mobile-header-cta {
-        display: inline-flex !important;
-        align-items: center !important;
+  #hamburg {
+    display: block !important;
+  }
         justify-content: center !important;
       }
 
