@@ -16,25 +16,25 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <!-- Theme Styles - Matching index.html -->
+    <!-- Theme Styles - Matching index.html header -->
     <style>
-        /* Cool and Catchy Navbar Styles */
+        /* Cool and Catchy Navbar Styles - Doctor Theme (Tomato variant) */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            background: #89d909 !important;
             backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25) !important;
             transition: all 0.3s ease !important;
             position: fixed !important;
             top: 0 !important;
             left: 0 !important;
             right: 0 !important;
             z-index: 1000 !important;
-            padding: 15px 7% !important;
+            padding: 4px 7% !important;
         }
 
         header:hover {
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4) !important;
+            box-shadow: 0 12px 40px rgba(44, 62, 80, 0.85) !important;
             transform: translateY(-2px) !important;
         }
 
@@ -52,7 +52,7 @@
             height: 50px !important;
             width: auto !important;
             border-radius: 10px !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+            box-shadow: none !important;
             transition: all 0.3s ease !important;
         }
 
@@ -60,29 +60,36 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
         }
 
+        header .logo-text {
+            margin-left: 10px !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            font-size: 18px !important;
+            line-height: 1 !important;
+            white-space: nowrap !important;
+            font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+        }
+
         header .navbars ul {
             display: flex !important;
             list-style: none !important;
             margin: 0 !important;
             padding: 0 !important;
-            gap: 30px !important;
+            gap: 22px !important;
         }
 
         header .navbars ul li {
             position: relative !important;
         }
 
-        header .navbars ul li a,
-        header .navbars ul li a:link,
-        header .navbars ul li a:visited,
-        header .navbars ul li a:hover,
-        header .navbars ul li a:active {
+        header .navbars ul li a {
             color: white !important;
             text-decoration: none !important;
             font-weight: 600 !important;
-            font-size: 16px !important;
-            padding: 10px 20px !important;
-            border-radius: 25px !important;
+            font-size: 15px !important;
+            padding: 6px 14px !important;
+            border-radius: 20px !important;
             transition: all 0.3s ease !important;
             position: relative !important;
             overflow: hidden !important;
@@ -105,9 +112,10 @@
         }
 
         header .navbars ul li a:hover {
-            background: rgba(255, 255, 255, 0.2) !important;
+            background: rgba(255, 255, 255, 0.18) !important;
+            color: #ffffff !important;
             transform: translateY(-2px) !important;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25) !important;
         }
 
         /* Dropdown Menu Styling */
@@ -120,12 +128,12 @@
             border-radius: 15px !important;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
             padding: 10px 0 !important;
-            margin-top: 10px !important;
             min-width: 200px !important;
             opacity: 0 !important;
             visibility: hidden !important;
             transform: translateY(-10px) !important;
             transition: all 0.3s ease !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
         }
 
         header .navbars ul li:hover ul {
@@ -138,19 +146,286 @@
             color: #333 !important;
             padding: 12px 20px !important;
             display: block !important;
-            transition: all 0.3s ease !important;
+            border-radius: 0 !important;
             text-shadow: none !important;
         }
 
         header .navbars ul li ul li a:hover {
-            background: rgba(102, 126, 234, 0.1) !important;
-            color: #667eea !important;
+            background: #89d909 !important;
+            color: #ffffff !important;
             transform: translateX(5px) !important;
         }
 
-        /* Body padding for fixed header */
-        body {
-            padding-top: 80px !important;
+        /* Header CTA button */
+        header .navbars ul li .cta-header-btn {
+            background: #adf071 !important;
+            color: #000000 !important;
+            font-weight: 700 !important;
+            border-radius: 999px !important;
+            padding: 8px 22px !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            transition: all 0.25s ease !important;
+        }
+
+        header .navbars ul li .cta-header-btn:hover {
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22) !important;
+            background: #deedd0 !important;
+            color: #000000 !important;
+        }
+
+        /* Mobile header CTA button (appears before hamburger on small screens) */
+        .mobile-header-cta {
+            display: none !important;
+            margin-left: auto !important;
+            margin-right: 8px !important;
+            background: #adf071 !important;
+            color: #000000 !important;
+            font-weight: 700 !important;
+            border-radius: 999px !important;
+            padding: 6px 14px !important;
+            text-decoration: none !important;
+            font-size: 0.85rem !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18) !important;
+            white-space: nowrap !important;
+        }
+
+        .mobile-header-cta:focus,
+        .mobile-header-cta:hover {
+            background: #deedd0 !important;
+            color: #000000 !important;
+        }
+
+        /* Hamburger Menu Styling */
+        #hamburg {
+            display: none !important;
+            color: white !important;
+            font-size: 24px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            padding: 10px !important;
+            border-radius: 50% !important;
+        }
+
+        #hamburg:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            transform: rotate(90deg) !important;
+        }
+
+        /* Mobile Responsive Navbar */
+        @media (max-width: 768px) {
+            header {
+                padding: 8px 4% !important;
+            }
+
+            header .logo img {
+                height: 36px !important;
+            }
+
+            header .logo {
+                margin-left: 4px !important;
+                margin-right: 8px !important;
+            }
+
+            header .logo-text {
+                font-size: 12px !important;
+                margin-left: 4px !important;
+            }
+
+            /* Show compact CTA on mobile */
+            .mobile-header-cta {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            #hamburg {
+                display: block !important;
+            }
+
+            header .navbars {
+                position: absolute !important;
+                top: 100% !important;
+                left: 0 !important;
+                right: 0 !important;
+                background: #89d909 !important;
+                backdrop-filter: blur(20px) !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+                display: none !important;
+                padding: 20px 0 !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+            }
+
+            #menu-bar:checked ~ .navbars {
+                display: block !important;
+                animation: slideDown 0.3s ease !important;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            header .navbars ul {
+                flex-direction: column !important;
+                gap: 0 !important;
+                padding: 0 20px !important;
+            }
+
+            header .navbars ul li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            }
+
+            header .navbars ul li:last-child {
+                border-bottom: none !important;
+            }
+
+            header .navbars ul li a {
+                padding: 15px 20px !important;
+                border-radius: 0 !important;
+                display: block !important;
+            }
+
+            header .navbars ul li ul {
+                position: static !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+            }
+        }
+
+        /* Scrolling announcement band below header */
+        .announcement-band {
+            position: sticky;
+            top: 60px;
+            z-index: 29;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 0;
+            background: linear-gradient(to bottom, #adf071, #deedd0);
+            overflow: hidden;
+        }
+
+        .announcement-band-inner {
+            width: 80%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .announcement-marquee {
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            animation: marquee-left 40s linear infinite;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .announcement-marquee span {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .announcement-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: #000;
+            opacity: 0.7;
+            display: inline-block;
+        }
+
+        .offer-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            background: #89d909;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: inset 6px 7px 5px -6px rgba(255, 255, 255, 0.4),
+                        inset -6px -7px 5px -7px rgba(0, 0, 0, 0.4);
+            white-space: nowrap;
+        }
+
+        .offer-button-prices {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 4px;
+        }
+
+        .offer-old-price {
+            position: relative;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .offer-old-price::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 1.5px;
+            background: #000000;
+            transform: rotate(12deg);
+        }
+
+        .offer-new-price {
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+
+        .offer-button-icon {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 4px;
+        }
+
+        @keyframes marquee-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .announcement-band-inner {
+                width: 96%;
+                gap: 8px;
+            }
+
+            .announcement-marquee {
+                font-size: 0.75rem;
+                gap: 12px;
+            }
+
+            .offer-button {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
         }
 
         /* Hero Service Section Styling */
@@ -375,24 +650,48 @@
 
 <body>
     <header>
-        <a href="index.html" class="logo"><img src="images/riky.png" alt=""></a>
+        <a href="#" class="logo"><img src="images/riky.png" alt=""><span class="logo-text" style="color: white;">Arti Physiotherapy</span></a>
+        <a href="#" class="mobile-header-cta" onclick="openPopup(); return false;">Book a Call Today</a>
         <input type="checkbox" id="menu-bar"><label id="hamburg" for="menu-bar" class="fas fa-bars"></label>
         <nav class="navbars">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li>
-                    <a href="#">For Patients ▼</a>
-                    <ul>
-                        <li><a href="#Review">Patient Reviews</a></li>
-                        <!-- <li><a href="#">Prescription</a></li> -->
-                    </ul>
-                </li>
-                <li><a href="contactus.html">Contact Us</a></li>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li>
+              <a href="#">For Patients ▼</a>
+              <ul>
+                <li><a href="#Review">Patient Reviews</a></li>
+                <!-- <li><a href="#">Prescription</a></li> -->
+              </ul>
+            </li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
 
-            </ul>
+            <li>
+              <a href="#" onclick="openPopup(); return false;" class="cta-header-btn" style="background-color: #adf071; color: #000000; border-radius: 20px; padding: 10px 20px; text-decoration: none;">Book a Call Today</a>
+            </li>
+
+          </ul>
         </nav>
-    </header>
+      </header>
+      <div class="announcement-band">
+        <div class="announcement-band-inner">
+          <div class="announcement-marquee">
+            <span>Care That Moves With You<span class="announcement-dot"></span>Indias only online rehab<span class="announcement-dot"></span>Christmas &amp; New Year Special<span class="announcement-dot"></span>A Healthier Start Begins This Season<span class="announcement-dot"></span>Move Better<span class="announcement-dot"></span>Live Better<span class="announcement-dot"></span>Start Today<span class="announcement-dot"></span>Care Beyond Exercise<span class="announcement-dot"></span>Pain-Free Living Starts Here<span class="announcement-dot"></span>Choose a Pain-Free Tomorrow</span>
+          </div>
+
+          <button type="button" class="offer-button" onclick="openPopup()">
+            <span>Grab your offer now</span>
+            <span class="offer-button-prices">
+              <span class="offer-old-price">₹1500</span>
+              <span class="offer-new-price">₹249</span>
+            </span>
+            <span class="offer-button-icon">
+              <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </div>
 
         <div id="hero_service_section" class="hero-service-section">
             <div class="service-content">
@@ -492,81 +791,57 @@
     <section id="footer">
         <footer>
           <div class="container-footer">
-            <div class="row">
-              <div class="col" id="company">
-                <img src="images/riky.png" alt="" class="logo">
-                <!-- <p>
-                  Providing expert physiotherapy care focused on your health, recovery, and long-term well-being.
-                </p> -->
-    
-                <p>
+
+            <!-- Social row -->
+            <div class="footer-social-row">
+              <div class="footer-social-icons">
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+
+            <!-- Links + map columns -->
+            <div class="footer-bottom-row">
+              <div class="footer-links-cols">
+                <div class="footer-links-col">
+                  <h3>Explore</h3>
+                  <a href="index.html">Home</a>
+                  <a href="aboutus.html">About Us</a>
+                  <a href="contactus.html">Contact Us</a>
+                  <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-links-col">
+                  <h3>More</h3>
+                  <a href="#services">Services</a>
+                  <a href="#Review">Patient Reviews</a>
+                  <a href="#treat-section">What We Treat</a>
+                  <a href="Blog.html">Dashboard</a>
+                </div>
+                <div class="footer-links-col footer-contact-col">
+                  <h3>Contact</h3>
+                  <p>G-84 Battikal First Lane<br>Garden Reach, Kolkata 700024</p>
+                  <p>+91-8910924206<br>+91-9330227965<br>+91-9038657263</p>
+                  <p>10AM – 2PM / 6PM – 10PM</p>
+                </div>
+              </div>
+
+              <div class="footer-map-col">
                 <div class="map-container">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14741.47130297816!2d88.3230831!3d22.52789!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0279716a70b761%3A0x9c161231a774d50a!2sArti%20Physiotherapy%20Center!5e0!3m2!1sen!2sin!4v1724669192123!5m2!1sen!2sin"
                     width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                </p>
-    
-              </div>
-    
-    
-              <!-- <div class="col" id="services">
-                <h3>Services</h3>
-                <div class="links">
-                  <a href="#">Illustration</a>
-                  <a href="#">Creatives</a>
-                  <a href="#">Poster Design</a>
-                  <a href="#">Card Design</a>
-                </div>
-              </div> -->
-    
-              <div class="col" id="useful-links">
-                <h3 class="useful-links-h3">Links</h3>
-                <div class="links">
-                  <a href="#">Home</a>
-                  <a href="#">About</a>
-                  <a href="#">Contact Us</a>
-                  <a href="#"></a>
-                  <!--<a href="#">Help</a> -->
-                </div>
-              </div>
-    
-              <div class="col" id="contact">
-                <h3>Contact</h3>
-                <div class="contact-details">
-                  <i class="fa fa-location"></i>
-                  <!-- <p>FF-42, Procube Avenue, <br> NY, USA</p> -->
-                  <p>G-84 Battikal First Lane Garden Reach Kolkata 700024</p>
-                </div>
-                <div class="contact-detailss">
-                  <i class="fa fa-phone"></i>
-                  <p>+91-8910924206 / <br>+91- 9330227965 / <br>+91- 9038657263</p>
-                </div>
-                <div class="contact-details">
-                  <i class="fa-solid fa-clock"></i> 10Am to 2PM / 6PM to 10PM
-                </div>
               </div>
             </div>
-    
-            <!-- <div class="row">
-              <div class="form">
-                <form action="">
-                  <input type="text" placeholder="Email here...">
-                  <button><i class="fa fa-paper-plane"></i></button>
-                </form>
-              </div>
-            </div> -->
-    
-            <div class="subsection">
-              <h1 class="credit">©2024 Arti Physiotherapists | all rights reserved!</h1>
+
+            <div class="footer-credit-row">
+              <p>2024 Arti Physiotherapy | All rights reserved | Email at support@artiphysiotherapy.com or call at +91-8910924206 for any queries</p>
             </div>
-    
+
           </div>
-    
-    
-    
-    
         </footer>
       </section>
     <script>
