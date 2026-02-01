@@ -289,6 +289,16 @@
         }
 
 
+        // Call backend Lambda to delete a YouTube video by ID
+        function DeleteYoutubeVideo(videoId) {
+            return $.ajax({
+                url: `${API_BASE}/delete-youtube-video`,
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ videoId }),
+            });
+        }
+
         function DeleteBlog(Id, youtubeVideoId) {
             alert("DeleteBlog", Id)
             
@@ -297,8 +307,9 @@
                 return;
             }
 
-            // Delete YouTube video
+            // Delete YouTube video via backend
             DeleteYoutubeVideo(youtubeVideoId).then(function() {
+
                 // After YouTube video deletion, delete from database
                 $.ajax({
                     url: `${API_BASE}/deleteusers/${Id}`,
