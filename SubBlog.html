@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/Admin-style.css">
+  <style>
+    /* Themed header and sidebar to match site gradient */
+    #content nav {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+    .arrowicon { color: #fff !important; }
+
+    #sidebar {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+    }
+    #sidebar .brand { background: transparent !important; color: #fff !important; }
+    #sidebar .brand .bx { color: #fff !important; }
+    #sidebar .side-menu li a { background: transparent !important; color: #fff !important; }
+    #sidebar .side-menu.top li a:hover { color: #CFE8FF !important; }
+    #sidebar .side-menu.top li.active a { color: #CFE8FF !important; }
+    #sidebar .side-menu li.active { background: rgba(255,255,255,.15) !important; }
+  </style>
+    <!-- <style>
+        h2 {
+    margin-top: 20px;
+    color: #0056b3;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"], textarea, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #555;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="file"] {
+    padding: 3px;
+}
+
+button.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+button.btn:hover {
+    background-color: #004494;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+    </style> -->
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-smile'></i>
+            <span class="text">Admin Panel</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="Blog.html">
+                    <i class='bx bxs-dashboard icon'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="SubBlog.html">
+                    <i class='bx bxs-image-add icon'></i>
+                    <span class="text">Service gallery</span>
+                </a>
+            </li>
+            <li>
+                <a href="select_section_view.html">
+                    <i class='bx bxs-shopping-bag-alt icon'></i>
+                    <span class="text">section view</span>
+                </a>
+            </li>
+            <li >
+                <a href="prescription_form.html">
+                    <i class='bx bxs-shopping-bag-alt icon'></i>
+                    <span class="text">Create Prescription</span>
+                </a>
+            </li>
+           <li>
+                <a href="invoice.html">
+                    <i class='bx bxs-cog icon'></i>
+                    <span class="text">Create Invoice</span>
+                </a>
+            </li>
+        </ul>
+        
+    </section>
+    <!-- SIDEBAR -->
+
+    <section id="content">
+        <nav>
+            <!-- <i class='bx bx-menu' ></i> -->
+            <i class='bx bx-left-arrow-alt arrowicon'></i>
+            <i class='bx bx-right-arrow-alt arrowicon' style="display: none;"></i>
+        </nav>
+    </section>
+
+    <form enctype="multipart/form-data" id="upload_submit">
+        <div class="container">
+            <div class="section">
+                <h2>SubSection</h2>
+                <label for="clsname" class="form-label-control col-sm-4" style="color: black;">Select Your Blog</label>
+                <div id="UploadChapterSolutionClassDiv" class="col-sm-9 mb-3 mb-sm-0">
+                </div>
+            </div>
+            <label for="blogimage">Image:</label>
+            <input type="file" name="LiveLectureThumbNailFile" id="LiveLectureThumbNailFile" required>
+            <label for="section-heading">Heading:</label>
+            <input type="text" id="sub_image_heading" name="sub_image_heading">
+            <label for="Subdescription">SubPart:</label>
+            <input type="text" id="Subdescription1" name="Subdescription1">
+            <input type="text" id="Subdescription2" name="Subdescription2">
+            <input type="text" id="Subdescription3" name="Subdescription3">
+            <input type="text" id="Subdescription4" name="Subdescription4">
+            <input type="text" id="Subdescription5" name="Subdescription5">
+
+            <button class="btn">Done</button>
+
+        </div>
+        </div>
+    </form>
+
+    <div class="container">
+        <progress id="progress-bar" value="0" max="100"></progress><br>
+        <label for="progress-bar">0%</label>
+    </div>
+
+    <script>
+
+        var UploadChapterSolutionClassDiv = document.getElementById("UploadChapterSolutionClassDiv");
+        var selectListChapterSolution = document.createElement("select");
+        selectListChapterSolution.setAttribute("id", "AddClassToChapterSolutionSelect");
+        selectListChapterSolution.setAttribute("class", "form-control text-center");
+        UploadChapterSolutionClassDiv.appendChild(selectListChapterSolution);
+        var option = document.createElement("option");
+        option.setAttribute("value", -1);
+        option.text = "Select Blog Heading";
+        selectListChapterSolution.appendChild(option);
+        var BlogID;
+
+        function AddClassToChapterSolutionDropDown() {
+            $.ajax({
+                url: 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com/v1/users',
+                type: 'get',
+                dataType: "json",
+                success: function (response, staus) {
+                    console.log(response)
+                    if (response.length > 0) {
+
+                        response.forEach(function (row) {
+                            var option = document.createElement("option");
+                            option.setAttribute("value", row._id);
+                            option.text = row.heading;
+                            selectListChapterSolution.appendChild(option);
+                        });
+                    }
+                    else {
+                        var option = document.createElement("option");
+                        option.setAttribute("value", "");
+                        option.text = "No Class is Added";
+                        selectListChapterSolution.appendChild(option);
+                    }
+                }
+            })
+        }
+
+        AddClassToChapterSolutionDropDown()
+        var AddClassToChapterSolutionSelectt = document.getElementById("AddClassToChapterSolutionSelect");
+        AddClassToChapterSolutionSelectt.onchange = function () {
+            alert(this.value)
+            BlogID = this.value
+        }
+
+
+    </script>
+
+
+
+
+    <script src="js/admin-script.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $('#upload_submit').submit(async function (e) {
+            e.preventDefault();
+            var form = this;
+
+            // OAuth credentials must not contain real secrets in frontend code.
+            // Keep only safe placeholders here; move real values to a backend service.
+
+            const clientId = 'YOUR_GOOGLE_CLIENT_ID';
+            const clientSecret = 'YOUR_GOOGLE_CLIENT_SECRET';
+            const refreshToken = 'YOUR_GOOGLE_REFRESH_TOKEN';
+
+
+            
+            var subimageheading = document.getElementById("sub_image_heading").value
+            var Subdescription1 = document.getElementById("Subdescription1").value
+            var Subdescription2 = document.getElementById("Subdescription2").value
+            var Subdescription3 = document.getElementById("Subdescription3").value
+            var Subdescription4 = document.getElementById("Subdescription4").value
+            var Subdescription5 = document.getElementById("Subdescription5").value
+            var Thumbnailfield = $(form).find('input[name=LiveLectureThumbNailFile]');
+            var Thumbnailfile = Thumbnailfield[0].files[0];
+            var filename = Thumbnailfile.name
+            var mimetype = Thumbnailfile.type
+            alert(BlogID)
+            console.log(BlogID, subimageheading, Subdescription1, Subdescription2, Subdescription3, Subdescription4, Subdescription5)
+            console.log(filename, mimetype)
+            var accessToken;
+            getAccessToken()
+            function getAccessToken() {
+                $.ajax({
+                    url: 'https://oauth2.googleapis.com/token',
+                    method: 'POST',
+                    data: {
+                        client_id: clientId,
+                        client_secret: clientSecret,
+                        refresh_token: refreshToken,
+                        grant_type: 'refresh_token'
+                    },
+                    success: function (response) {
+                        accessToken = response.access_token;
+                        console.log('Access Token:', accessToken);
+
+                        //AlamNewProject parents: ["1ckTIHf84cyjtcBOS2TRTWaadPF9FJtgc"],
+
+                        var metadata = {
+
+                            name: filename,
+                            mimeType: mimetype,
+                            // parents: [parentFolder]
+                            parents: ["1UkegR8rFUlf9Itm3Z3zKV7llSKZMpUGi"],
+                        };
+                        var formData = new FormData();
+                        formData.append("metadata", new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+                        formData.append("file", Thumbnailfile);
+                        console.log('Access Tokenwa:', accessToken);
+
+                        const progress = document.getElementById('progress-bar');
+                        const req = new XMLHttpRequest();
+                        req.open('POST', 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart');
+                        req.setRequestHeader("Authorization", "Bearer " + accessToken);
+
+                        req.upload.addEventListener('progress', function (e) {
+                            const percentComplete = (e.loaded / e.total) * 100;
+                            progress.setAttribute('value', percentComplete);
+                            progress.nextElementSibling.nextElementSibling.innerText = Math.round(percentComplete) + "%";
+                        })
+
+                        req.addEventListener('load', function () {
+                            console.log(req.status);
+                            console.log(req.response);
+                            var response = JSON.parse(req.responseText);
+                            console.log(response);
+                            console.log(response.id);
+                            const Image_Id = response.id
+
+                            UploadFileToDB(Image_Id)
+                        })
+
+                        req.send(formData);
+
+                        function UploadFileToDB(Image_Id) {
+                            $.ajax({
+                                type: "Post",
+                                contentType: "application/json",
+                                data: JSON.stringify({
+                                    BlogId: BlogID,
+                                    SubImageId: Image_Id,
+                                    SectionHeading: subimageheading,
+                                    SubPart1: Subdescription1,
+                                    SubPart2: Subdescription2,
+                                    SubPart3: Subdescription3,
+                                    SubPart4: Subdescription4,
+                                    SubPart5: Subdescription5,
+                                    mime_Type: mimetype
+                                }),
+                                url: "https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com/v1/blogsub",
+                                success: function (data, status) {
+                                    alert("Success")
+                                    console.log(data)
+
+                                },
+                                error: function (data) {
+                                    console.log("Error", data);
+                                }
+                            })
+                        }
+
+
+                        //Old Code for single upload
+                        // var metadata = {
+
+                        //     name: filename,
+                        //     mimeType: mimetype,
+                        //     // parents: [parentFolder]
+                        //     parents: ["1ckTIHf84cyjtcBOS2TRTWaadPF9FJtgc"],
+                        // };
+                        // var formData = new FormData();
+                        // formData.append("metadata", new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+                        // formData.append("file", Thumbnailfile);
+                        // console.log('Access Tokenwa:', accessToken);
+
+                        // const progress = document.getElementById('progress-bar');
+                        // const req = new XMLHttpRequest();
+                        // req.open('POST', 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart');
+                        // req.setRequestHeader("Authorization", "Bearer " + accessToken);
+
+                        // req.upload.addEventListener('progress', function (e) {
+                        //     const percentComplete = (e.loaded / e.total) * 100;
+                        //     progress.setAttribute('value', percentComplete);
+                        //     progress.nextElementSibling.nextElementSibling.innerText = Math.round(percentComplete) + "%";
+                        // })
+
+                        // req.addEventListener('load', function () {
+                        //     console.log(req.status);
+                        //     console.log(req.response);
+                        //     Image_Id = req.response.id
+                        //     console.log(Image_Id)
+                        // })
+
+                        // req.send(formData);
+                        // Use the access token to make authorized API requests
+                        // makeApiRequest(accessToken);
+                    },
+                    error: function (error) {
+                        console.error('Error obtaining access token:', error);
+                    }
+                });
+            }
+
+
+
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>

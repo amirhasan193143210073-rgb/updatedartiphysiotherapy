@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/section_view.css">
+  <style>
+    /* Theme header and sidebar to match other admin pages */
+    #content nav {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+    .arrowicon { color: #fff !important; }
+
+    #sidebar {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: #fff !important;
+    }
+    #sidebar .brand { background: transparent !important; color: #fff !important; }
+    #sidebar .brand .bx { color: #fff !important; }
+    #sidebar .side-menu li a { background: transparent !important; color: #fff !important; }
+    #sidebar .side-menu.top li a:hover { color: #CFE8FF !important; }
+    #sidebar .side-menu.top li.active a { color: #CFE8FF !important; }
+    #sidebar .side-menu li.active { background: rgba(255,255,255,.15) !important; }
+  </style>
+    <meta name="google-site-verification" content="84o3iUyvHJbElm_tTYK5bwMoPUtu3HAr5t--lpm8Gsc" />
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-smile'></i>
+            <span class="text">Admin Panel</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="Blog.html">
+                    <i class='bx bxs-dashboard icon'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="SubBlog.html">
+                    <i class='bx bxs-image-add icon'></i>
+                    <span class="text">Service gallery</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="select_section_view.html">
+                    <i class='bx bxs-shopping-bag-alt icon'></i>
+                    <span class="text">section view</span>
+                </a>
+            </li>
+            <li >
+                <a href="prescription_form.html">
+                    <i class='bx bxs-shopping-bag-alt icon'></i>
+                    <span class="text">Create Prescription</span>
+                </a>
+            </li>
+            <li>
+                <a href="invoice.html">
+                    <i class='bx bxs-cog icon'></i>
+                    <span class="text">Create Invoice</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+    <section id="content">
+        <nav>
+            <!-- <i class='bx bx-menu' ></i> -->
+            <i class='bx bx-left-arrow-alt arrowicon'></i>
+            <i class='bx bx-right-arrow-alt arrowicon' style="display: none;"></i>
+        </nav>
+    </section>
+
+    <form enctype="multipart/form-data" id="upload_submit">
+        <div class="form-container">
+            <div class="section">
+                <h2>Select you blog to view that Blog Page</h2>
+                <label for="clsname" id="label" class="form-label-control col-sm-4" style="color: black;">Select Your
+                    Blog</label>
+                <div id="UploadChapterSolutionClassDiv" class="col-sm-9 mb-3 mb-sm-0">
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+    <div id="hero_service_section" class="hero_service_section" style="z-index: 900;">
+
+    </div>
+
+    <div id="program_service_section" class="program_service_section">
+
+    </div>
+
+    <div id="delete_blog" class="delete_blog">
+
+    </div>
+
+    <div id="service_section" class="service_section">
+
+    </div>
+
+
+    <!-- <div id="service_card_video" class="service_card_video"></div> -->
+    <div id="service_card_video_container" class="service_card_video_container"></div>
+
+    <div id="service_card_container" class="service_card_container">
+
+    </div>
+
+    <script>
+        const API_BASE = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com';
+
+        var UploadChapterSolutionClassDiv = document.getElementById("UploadChapterSolutionClassDiv");
+        var selectListChapterSolution = document.createElement("select");
+        selectListChapterSolution.setAttribute("id", "AddClassToChapterSolutionSelect");
+        selectListChapterSolution.setAttribute("class", "form-control text-center");
+        UploadChapterSolutionClassDiv.appendChild(selectListChapterSolution);
+        var option = document.createElement("option");
+        option.setAttribute("value", -1);
+        option.text = "Select Blog Heading";
+        selectListChapterSolution.appendChild(option);
+        var BlogID;
+
+        function AddClassToChapterSolutionDropDown() {
+            $.ajax({
+                url: `${API_BASE}/users`,
+                type: 'get',
+                dataType: "json",
+                success: function (response, staus) {
+                    console.log(response)
+                    if (response.length > 0) {
+
+                        response.forEach(function (row) {
+                            var option = document.createElement("option");
+                            option.setAttribute("value", row._id);
+                            option.text = row.heading;
+                            selectListChapterSolution.appendChild(option);
+                        });
+                    }
+                    else {
+                        var option = document.createElement("option");
+                        option.setAttribute("value", "");
+                        option.text = "No Class is Added";
+                        selectListChapterSolution.appendChild(option);
+                    }
+                }
+            })
+        }
+
+        AddClassToChapterSolutionDropDown()
+        var AddClassToChapterSolutionSelectt = document.getElementById("AddClassToChapterSolutionSelect");
+        AddClassToChapterSolutionSelectt.onchange = function () {
+            alert(this.value)
+            document.getElementById("hero_service_section").innerHTML = ''
+            document.getElementById('program_service_section').innerHTML = ''
+            document.getElementById('delete_blog').innerHTML = ''
+            document.getElementById("service_section").innerHTML = ''
+            document.getElementById('service_card_video_container').innerHTML = ''
+            document.getElementById('service_card_container').innerHTML = ''
+
+            BlogID = this.value
+            $.ajax({
+                url: `${API_BASE}/users/${BlogID}`,
+                type: 'get',
+                dataType: "json",
+                success: function (response, staus) {
+                    console.log(response)
+                    
+                    // Only process if YouTube video exists (skip Google Drive)
+                    if (!response.Youtube_Video_Id) {
+                        alert('This blog does not have a YouTube video. Only YouTube videos are supported.');
+                        return;
+                    }
+                    
+                    var content = `<div id="remove"><div class="service-overlay"></div>
+        <div class="service-content">
+            <h1 style="color: white;">${response.heading}</h1>
+            <p>${response.subheading}</p>
+            <p>Home &raquo; Physiotherapy Specializations &raquo; Sports Physiotherapy</p>
+        </div></div>`;
+                    $('#hero_service_section').append(content)
+                    
+                    // Store YouTube video ID for deletion
+                    var youtubeVideoId = response.Youtube_Video_Id;
+                    
+                    var deletesection = `<h2>Want to delete this Blog Press This Delete Button Below</h2>
+         <button onclick="DeleteBlog('${response._id}', '${youtubeVideoId}')">Delete</button>`
+                    var blog = `  <div id="program-service-content" class="program-service-content">
+<h2>${response.blogheading}</h2>
+<p>${response.ArticleBlog_1}</p>
+            <p>${response.ArticleBlog_2}</p>
+            <ul class="service-objectives-list">
+            </ul>
+        </div>
+        <div id="service-image-container" class="service-image-container">
+            <iframe src="https://www.youtube.com/embed/${response.Youtube_Video_Id}" width="77%" height="280" allow="autoplay; encrypted-media" allowfullscreen frameborder="0" hspace="0" vspace="0" marginheight="0" marginwidth="0" style="border:none;"></iframe>
+        </div>`;
+
+                    var service_section = `<h2 class="service-section-title">${response.SubHeading}</h2>
+        <p class="service-section-description">
+            ${response.SubDescription} 
+        </p>`;
+
+
+
+
+
+                    $('#program_service_section').append(blog)
+
+
+
+                    $('#delete_blog').append(deletesection)
+
+                    $('#service_section').append(service_section)
+
+                    ShowSubPart(BlogID)
+                },
+                error: function (err) {
+                    console.log('Error:', err);
+                }
+            })
+
+            function ShowSubPart(BlogID) {
+
+                $.ajax({
+                    url: `${API_BASE}/blogsub/${BlogID}`,
+                    type: 'get',
+                    dataType: "json",
+                    success: function (response, staus) {
+                        for (let i = 0; i < response.length; i++) {
+                            console.log(response[i].SubImageId)
+                            console.log(response[i])
+                            console.log(response[i].SubHeading)
+
+                            var mime_Type = response[i].mime_Type
+                            // Only show images from Google Drive, skip videos (no Google Drive videos)
+                            if (mime_Type && Array.isArray(mime_Type)) {
+                                mime_Type.forEach((mimeType, index) => {
+                                    // Skip video/mp4 - only show images
+                                    if (mimeType == 'image/jpg' || mimeType == 'image/png' || mimeType == 'image/webp' || mimeType == 'image/jpeg') {
+                                        console.log(mimeType, index)
+                                        console.log(response[i].SubImageId[index])
+                                        var newDiv = document.createElement("div");
+                                        newDiv.className = "service-card";
+                                        newDiv.id = `service_card${i}`
+                                        $('#service_card_container').append(newDiv)
+                                        var service_card = `<img src= "https://drive.google.com/thumbnail?id=${response[i].SubImageId[index]}" alt="Leg and Foot Pain">`
+                                        $(`#service_card${i}`).append(service_card)
+                                        var Service_card_content = `<div class="service-card-content">
+                    <h3>${response[i].SectionHeading}</h3>
+                    <ul>
+                        <li>${response[i].SubPart1}</li>
+                        <li>${response[i].SubPart2}</li>
+                        <li>${response[i].SubPart3}</li>
+                        <li>${response[i].SubPart4}</li>
+                        <li>${response[i].SubPart5}</li>
+                    </ul>
+                    <button onclick="DeleteSubBlog('${response[i]._id}','${JSON.stringify(response[i].SubImageId)}')">Delete</button>
+                </div>`;
+                                        $(`#service_card${i}`).append(Service_card_content)
+                                    }
+                                    // Skip video/mp4 - we don't show Google Drive videos anymore
+                                });
+                            }
+
+                        }
+
+                    },
+                    error: function (err) {
+                        console.log('Error:', err);
+                    }
+
+
+                })
+
+            }
+        }
+
+
+        function DeleteBlog(Id, youtubeVideoId) {
+            alert("DeleteBlog", Id)
+            
+            if (!youtubeVideoId || youtubeVideoId.trim() === '') {
+                alert('No YouTube video ID found. Cannot delete.');
+                return;
+            }
+
+            // Delete YouTube video
+            DeleteYoutubeVideo(youtubeVideoId).then(function() {
+                // After YouTube video deletion, delete from database
+                $.ajax({
+                    url: `${API_BASE}/deleteusers/${Id}`,
+                    type: 'get',
+                    dataType: "json",
+                    success: function (response, staus) {
+                        alert(response.msg)
+                        console.log(response.data)
+
+                        $.ajax({
+                            url: `${API_BASE}/deletemanyblogsub/${Id}`,
+                            type: 'get',
+                            dataType: "json",
+                            success: function (response, staus) {
+                                alert(response.msg)
+                                console.log(response.data)
+                                location.reload();
+                            },
+                            error: function (err) {
+                                console.log('Error:', err);
+                            }
+                        })
+                    },
+                    error: function (err) {
+                        console.log('Error:', err);
+                    }
+                })
+            }).catch(function(error) {
+                console.error('Error deleting YouTube video:', error);
+                alert('Error deleting YouTube video: ' + error.message);
+            });
+        }
+
+        function DeleteSubBlog(Id, ImageId) {
+            alert("DeleteSubBlog", Id);
+            // Frontend no longer talks directly to Google Drive.
+            // Only delete metadata from our backend; Drive cleanup should be done server-side.
+            deleteSubBlogFromDB(Id);
+        }
+
+
+        function deleteSubBlogFromDB(Id) {
+            $.ajax({
+                url: `${API_BASE}/deleteoneblogsub/${Id}`,
+                type: 'get',
+                dataType: "json",
+                success: function (response, status) {
+                    alert(response.msg);
+                    console.log(response.data);
+                    location.reload();
+                },
+                error: function (err) {
+                    console.log('Error:', err);
+                }
+            });
+        }
+
+        // All Google Drive file deletion logic has been removed from the frontend.
+        // Implement Drive cleanup within a secure backend if needed.
+
+    </script>
+
+
+    <script src="js/admin-script.js"></script>
+</body>
+
+</html>
