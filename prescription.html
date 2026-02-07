@@ -287,8 +287,8 @@
 
                 const formData = new FormData();
                 formData.append("file", pdfBlob, opt.filename);
-                formData.append("PhonenumberID", '861212063734417');
-                formData.append("PermanentAccessToken",'EAASRpl7ndooBQTudWvGZBu0DsblZBg9ZCjZAjC1imNVZC5cuX4YUlAmWCssyYQ0QlOhM1x66LMjQjdg9ELdrSHOjERf7z0RUcph1dnc3QDggPcrwFUcqLXWEt485TTbV47vHXIi25IJELCRWEX5q52yiQiKnHZCcvZB2LFyUZAZCKmJoie6ZBfjQuxdUIRppzsd2lTiAZDZD');
+                formData.append("PhonenumberID", '829751103552244');
+                formData.append("PermanentAccessToken",'EAAL4gcSM2z0BQNrMwIHFm7v0TyTpmzBZBHmiCG3StYPwiGlSc7yHoShCTYeA7rRnPVrb1MMVI2SiUjpq9TtidCqBh58uH9WiRWq654zTD9FIrmcyW02pT1iHS5yUpgxMqZBOyWYJcyY0gn1qvsaWXxjPO5u8SZCqiV8MCVDvU3HZCOAws8eTYjICXyE1oZAKXRAZDZD');
 
                 const response = await fetch("https://botclap.com/getMediaID", {
                     method: "POST",
@@ -303,7 +303,7 @@
                 await worker.save();
                 const prescriptionDate = new Date().toLocaleDateString("en-GB");
                 const var2 = encodeURIComponent(prescriptionDate);
-                const finalUrl = `https://botclap.com/apinotification/764610403118927/919875386318/prescriptionartiphysiotherapy/UTILITY/${phoneNumber}/Prescription/EAASRpl7ndooBQTudWvGZBu0DsblZBg9ZCjZAjC1imNVZC5cuX4YUlAmWCssyYQ0QlOhM1x66LMjQjdg9ELdrSHOjERf7z0RUcph1dnc3QDggPcrwFUcqLXWEt485TTbV47vHXIi25IJELCRWEX5q52yiQiKnHZCcvZB2LFyUZAZCKmJoie6ZBfjQuxdUIRppzsd2lTiAZDZD/861212063734417?mediaURL=${MediaID}&body1=${PatientProblem}&body2=${var2}`;
+                const finalUrl = `https://botclap.com/apinotification/1352106806564501/919038657263/prescriptionartiphysiotherapy/UTILITY/${phoneNumber}/Prescription/EAAL4gcSM2z0BQNrMwIHFm7v0TyTpmzBZBHmiCG3StYPwiGlSc7yHoShCTYeA7rRnPVrb1MMVI2SiUjpq9TtidCqBh58uH9WiRWq654zTD9FIrmcyW02pT1iHS5yUpgxMqZBOyWYJcyY0gn1qvsaWXxjPO5u8SZCqiV8MCVDvU3HZCOAws8eTYjICXyE1oZAKXRAZDZD/829751103552244?mediaURL=${MediaID}&body1=${PatientProblem}&body2=${var2}`;
 
                 console.log("📨 Final API URL:", finalUrl);
 

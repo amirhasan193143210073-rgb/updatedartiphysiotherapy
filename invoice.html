@@ -304,8 +304,8 @@
       try {
         const formData = new FormData();
         formData.append('file', pdfBlob, filename);
-        formData.append('PhonenumberID', '861212063734417');
-        formData.append('PermanentAccessToken', 'EAASRpl7ndooBPll2bLHoE8uRdZB1Ld9VZCKnNVp5NNlx60GF0WNwwMTzXeonzzx9rLdDAYO5FkE6tpF1X8zfOOQdNiGHIVS1BeSsyPmK3oy5QvuSMMMwxx46BYL5kKnT7GBG9dAFZAdEyGDCuheDQpx8NTTI4pZCUrzOcN3JL96CXGzo6ZADHvb4Myi4W5HWX6QZDZD');
+        formData.append('PhonenumberID', '829751103552244');
+        formData.append('PermanentAccessToken', 'EAAL4gcSM2z0BQNrMwIHFm7v0TyTpmzBZBHmiCG3StYPwiGlSc7yHoShCTYeA7rRnPVrb1MMVI2SiUjpq9TtidCqBh58uH9WiRWq654zTD9FIrmcyW02pT1iHS5yUpgxMqZBOyWYJcyY0gn1qvsaWXxjPO5u8SZCqiV8MCVDvU3HZCOAws8eTYjICXyE1oZAKXRAZDZD');
 
         const uploadRes = await fetch('https://botclap.com/getMediaID', { method: 'POST', body: formData });
         const result = await uploadRes.json();
@@ -314,7 +314,7 @@
 const invoiceDate = new Date().toLocaleDateString("en-GB");
 const var1 = encodeURIComponent(TreatmentDescription);
     const var2 = encodeURIComponent(invoiceDate);
-     const finalUrl = `https://botclap.com/apinotification/764610403118927/919875386318/clinicrecp/UTILITY/${patientNumber}/ArtiPhysiotherapy-Invoice/EAASRpl7ndooBPll2bLHoE8uRdZB1Ld9VZCKnNVp5NNlx60GF0WNwwMTzXeonzzx9rLdDAYO5FkE6tpF1X8zfOOQdNiGHIVS1BeSsyPmK3oy5QvuSMMMwxx46BYL5kKnT7GBG9dAFZAdEyGDCuheDQpx8NTTI4pZCUrzOcN3JL96CXGzo6ZADHvb4Myi4W5HWX6QZDZD/861212063734417?mediaURL=${mediaId}&body1=${var1}&body2=${var2}`;
+     const finalUrl = `https://botclap.com/apinotification/1352106806564501/919038657263/clinicrecp/UTILITY/${patientNumber}/ArtiPhysiotherapy-Invoice/EAAL4gcSM2z0BQNrMwIHFm7v0TyTpmzBZBHmiCG3StYPwiGlSc7yHoShCTYeA7rRnPVrb1MMVI2SiUjpq9TtidCqBh58uH9WiRWq654zTD9FIrmcyW02pT1iHS5yUpgxMqZBOyWYJcyY0gn1qvsaWXxjPO5u8SZCqiV8MCVDvU3HZCOAws8eTYjICXyE1oZAKXRAZDZD/829751103552244?mediaURL=${mediaId}&body1=${var1}&body2=${var2}`;
 
     console.log("📨 Final API URL:", finalUrl);
 
