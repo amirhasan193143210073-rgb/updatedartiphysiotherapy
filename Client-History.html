@@ -156,7 +156,7 @@
           var ds = d ? d.toLocaleDateString() : '';
           var id = inv._id || '';
           var no = inv.invoiceNumber || '';
-          var patientNumber = inv.patientId || '';
+          var patientNumber = inv.patientId || inv.phoneNumber || inv.phone || '';
           tr.innerHTML = `
             <td data-label="Date">${ds}</td>
             <td data-label="Patient Name">${inv.patientName || ''}</td>
