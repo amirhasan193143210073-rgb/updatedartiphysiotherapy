@@ -128,10 +128,20 @@
       sections.forEach(function (sec) {
         sec.classList.toggle('active', sec.id === tab + '-section');
       });
+
+      var search = document.getElementById('history-search');
+      if (search) search.value = '';
+    }
+
+    function includesText(hay, needle) {
+      if (!needle) return true;
+      if (!hay) return false;
+      return String(hay).toLowerCase().includes(String(needle).toLowerCase());
     }
 
     async function loadInvoiceHistory() {
       var tbody = document.getElementById('invoice-history-body');
+      var q = (document.getElementById('history-search') || {}).value || '';
       if (!tbody || !API_BASE || API_BASE.includes('YOUR_API_BASE_URL')) return;
       tbody.innerHTML = '';
       try {
@@ -151,6 +161,9 @@
           return;
         }
         items.forEach(function (inv) {
+          if (q && !(includesText(inv.patientName, q) || includesText(inv.patientId, q) || includesText(inv.phoneNumber, q) || includesText(inv.phone, q) || includesText(inv.invoiceNumber, q))) {
+            return;
+          }
           var tr = document.createElement('tr');
           var d = inv.date ? new Date(inv.date) : null;
           var ds = d ? d.toLocaleDateString() : '';
@@ -199,6 +212,7 @@
 
     async function loadPrescriptionHistory() {
       var tbody = document.getElementById('prescription-body');
+      var q = (document.getElementById('history-search') || {}).value || '';
       if (!tbody || !API_BASE || API_BASE.includes('YOUR_API_BASE_URL')) return;
       tbody.innerHTML = '';
       try {
@@ -218,6 +232,9 @@
           return;
         }
         items.forEach(function (p) {
+          if (q && !(includesText(p.patientName, q) || includesText(p.phoneNumber, q) || includesText(p.patientProblem, q) || includesText(p.doctorNote, q))) {
+            return;
+          }
           var tr = document.createElement('tr');
           var d = p.date ? new Date(p.date) : null;
           var ds = d ? d.toLocaleDateString() : '';
@@ -267,6 +284,18 @@
       switchTab('prescription');
       loadPrescriptionHistory();
       loadInvoiceHistory();
+
+      var search = document.getElementById('history-search');
+      if (search) {
+        let t = null;
+        search.addEventListener('input', function () {
+          clearTimeout(t);
+          t = setTimeout(function () {
+            loadPrescriptionHistory();
+            loadInvoiceHistory();
+          }, 150);
+        });
+      }
     });
   </script>
 </head>
@@ -338,6 +367,10 @@
       <div class="card" style="padding: 22px; max-width: 920px;">
         <h1 style="margin:0 0 4px; color:#111827; font-size: 24px;">Patient History</h1>
         <p class="hint">View past prescriptions and invoices. Use the tabs to switch between history types and download records.</p>
+
+        <div style="margin: 8px 0 14px; max-width: 420px;">
+          <input id="history-search" type="text" placeholder="Search by name / number" style="width:100%; padding:10px 12px; border:1px solid #e5e7eb; border-radius:10px; outline:none;" />
+        </div>
 
         <div class="tabs">
           <button type="button" class="tab-btn active" data-tab="prescription" onclick="switchTab('prescription')">Prescription</button>
