@@ -221,7 +221,10 @@
           var tr = document.createElement('tr');
           var d = p.date ? new Date(p.date) : null;
           var ds = d ? d.toLocaleDateString() : '';
-          var details = p.details || p.title || '';
+          var details = p.patientProblem || p.doctorNote || p.details || p.title || '';
+          if (details && details.length > 60) {
+            details = details.slice(0, 60) + '...';
+          }
           var patientNumber = p.phoneNumber || '';
           tr.innerHTML =
             '<td data-label="Date">' + ds + '</td>' +
