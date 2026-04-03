@@ -229,7 +229,7 @@
 
     <script type="text/javascript">
     const API_BASE = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com';
-    const API = API_BASE.replace(/\/dev\/?$/, '');
+    const API = API_BASE;
 
     $(document).ready(function ($) {
         $(document).on('click', '.print_pdf', async function (event) {
@@ -264,7 +264,7 @@
             try {
                 try {
                     if (API_BASE && !API_BASE.includes('YOUR_API_BASE_URL')) {
-                        await fetch(`${API}/prescription`, {
+                        const res = await fetch(`${API}/prescription`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
@@ -277,6 +277,10 @@
                                 date: new Date().toISOString().slice(0, 10)
                             })
                         });
+                        if (!res.ok) {
+                            const t = await res.text().catch(() => '');
+                            throw new Error(`Prescription metadata save failed: ${res.status} ${res.statusText} ${t}`);
+                        }
                     }
                 } catch (e) {
                     console.error('Failed to save prescription metadata:', e);
