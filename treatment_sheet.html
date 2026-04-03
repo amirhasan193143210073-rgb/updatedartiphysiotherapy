@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treatment Sheet</title>
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/Admin-style.css" />
+  <style>
+    #content nav {
+      background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%) !important;
+      color: #000000 !important;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+    }
+    .arrowicon { color: #000000 !important; }
+
+    #sidebar {
+      background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%) !important;
+      color: #000000 !important;
+    }
+    #sidebar .brand { background: transparent !important; color: #000000 !important; }
+    #sidebar .brand .bx { color: #000000 !important; }
+    #sidebar .side-menu li a { background: transparent !important; color: #000000 !important; }
+    #sidebar .side-menu.top li a:hover { color: #89d909 !important; }
+    #sidebar .side-menu.top li.active a { color: #89d909 !important; }
+    #sidebar .side-menu li.active { background: rgba(0, 0, 0, .06) !important; }
+
+    body { font-family: Arial, sans-serif; margin: 0; color: #222; }
+    .card { border: 1px solid #eef1f6; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.06); background: #fff; }
+    .hint { color: #666; margin-bottom: 16px; font-size: 14px; }
+
+    form { max-width: 920px; }
+    fieldset { border: 1px solid #ddd; padding: 12px; margin-bottom: 16px; }
+    legend { padding: 0 6px; color: #444; }
+    label { display: block; margin: 8px 0 4px; font-size: 14px; }
+    input[type="text"], input[type="number"], select { width: 100%; padding: 8px; box-sizing: border-box; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .treatment-grid { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 420px; }
+    .treatment-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid #eee; border-radius: 10px; background: #fafafa; }
+
+    button {
+      cursor: pointer;
+      padding: 10px 14px;
+      border: 0;
+      background: linear-gradient(135deg, #89d909 0%, #adf071 50%, #deedd0 100%);
+      color: #000000;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(137, 217, 9, 0.35);
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #89d909 0%, #89d909 100%);
+      box-shadow: 0 6px 16px rgba(137, 217, 9, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid #e5e5e5; padding: 8px; text-align: left; }
+    th { background: #fafafa; }
+
+    @media (max-width: 768px) {
+      #content main { padding: 16px !important; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script>
+    function formatDateDDMMYYYY(d) {
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const year = d.getFullYear();
+      return `${day}/${month}/${year}`;
+    }
+
+    function getSelectedTreatments() {
+      const boxes = document.querySelectorAll('input[name="treatment"]:checked');
+      return Array.from(boxes).map(b => b.value);
+    }
+
+    function createRow(e) {
+      e.preventDefault();
+
+      const patientName = document.getElementById('patientName').value.trim();
+      const age = document.getElementById('patientAge').value.trim();
+      const sex = document.getElementById('patientSex').value;
+      const number = document.getElementById('patientNumber').value.trim();
+      const date = document.getElementById('displayDate').textContent;
+      const treatments = getSelectedTreatments();
+
+      if (!patientName) return;
+
+      const tbody = document.getElementById('treatment-body');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${date}</td>
+        <td>${patientName}</td>
+        <td>${number}</td>
+        <td>${age}</td>
+        <td>${sex || ''}</td>
+        <td>${treatments.join(', ')}</td>
+      `;
+      tbody.prepend(tr);
+
+      document.querySelectorAll('input[name="treatment"]').forEach(b => { b.checked = false; });
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      const now = new Date();
+      document.getElementById('displayDate').textContent = formatDateDDMMYYYY(now);
+    });
+  </script>
+</head>
+<body>
+  <section id="sidebar">
+    <a href="#" class="brand">
+      <i class='bx bxs-smile'></i>
+      <span class="text">Admin Panel</span>
+    </a>
+    <ul class="side-menu top">
+      <li>
+        <a href="Blog.html">
+          <i class='bx bxs-dashboard icon'></i>
+          <span class="text">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="SubBlog.html">
+          <i class='bx bxs-image-add icon'></i>
+          <span class="text">Service gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="select_section_view.html">
+          <i class='bx bxs-slideshow icon'></i>
+          <span class="text">section view</span>
+        </a>
+      </li>
+      <li>
+        <a href="prescription_form.html">
+          <i class='bx bxs-cog icon'></i>
+          <span class="text">Create Prescription</span>
+        </a>
+      </li>
+      <li>
+        <a href="invoice.html">
+          <i class='bx bxs-receipt icon'></i>
+          <span class="text">Create Invoice</span>
+        </a>
+      </li>
+      <li>
+        <a href="Client-History.html">
+          <i class='bx bxs-book-open icon'></i>
+          <span class="text">Patient Record</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="treatment_sheet.html">
+          <i class='bx bx-notepad icon'></i>
+          <span class="text">Treatment Sheet</span>
+        </a>
+      </li>
+      <li>
+        <a href="video-consultation.html">
+          <i class='bx bxs-video icon'></i>
+          <span class="text">Video Consultation</span>
+        </a>
+      </li>
+      <li>
+        <a href="send-video-whatsapp.html">
+          <i class='bx bxs-share icon'></i>
+          <span class="text">Shre Video</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="content">
+    <nav>
+      <i class='bx bx-left-arrow-alt arrowicon'></i>
+      <i class='bx bx-right-arrow-alt arrowicon' style="display: none;"></i>
+    </nav>
+
+    <main style="padding: 24px;">
+      <div class="card" style="padding: 22px; max-width: 920px;">
+        <h1 style="margin:0 0 4px; color:#111827; font-size: 24px;">Treatment Sheet</h1>
+        <p class="hint">Create a treatment sheet by selecting treatments given to the patient for the current date.</p>
+
+        <form onsubmit="createRow(event)">
+          <fieldset>
+            <legend>Patient</legend>
+            <div class="two-col">
+              <div>
+                <label for="patientName">Patient Name</label>
+                <input id="patientName" type="text" required />
+              </div>
+              <div>
+                <label for="patientNumber">Number</label>
+                <input id="patientNumber" type="text" />
+              </div>
+            </div>
+            <div class="two-col">
+              <div>
+                <label for="patientAge">Age</label>
+                <input id="patientAge" type="number" min="0" />
+              </div>
+              <div>
+                <label for="patientSex">Sex</label>
+                <select id="patientSex">
+                  <option value="">Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Treatment</legend>
+            <div style="margin-bottom: 10px;">
+              <label>Date</label>
+              <div id="displayDate" style="padding: 8px 10px; border:1px solid #e5e5e5; border-radius:10px; display:inline-block; background:#fafafa;"></div>
+            </div>
+
+            <div class="treatment-grid">
+              <div class="treatment-row"><div>Exercise</div><div><input type="checkbox" name="treatment" value="Exercise" /></div></div>
+              <div class="treatment-row"><div>UST</div><div><input type="checkbox" name="treatment" value="UST" /></div></div>
+              <div class="treatment-row"><div>SWD</div><div><input type="checkbox" name="treatment" value="SWD" /></div></div>
+              <div class="treatment-row"><div>TENS</div><div><input type="checkbox" name="treatment" value="TENS" /></div></div>
+              <div class="treatment-row"><div>IFT</div><div><input type="checkbox" name="treatment" value="IFT" /></div></div>
+              <div class="treatment-row"><div>FS</div><div><input type="checkbox" name="treatment" value="FS" /></div></div>
+              <div class="treatment-row"><div>GS</div><div><input type="checkbox" name="treatment" value="GS" /></div></div>
+              <div class="treatment-row"><div>IRR</div><div><input type="checkbox" name="treatment" value="IRR" /></div></div>
+              <div class="treatment-row"><div>WB</div><div><input type="checkbox" name="treatment" value="WB" /></div></div>
+              <div class="treatment-row"><div>IASTM</div><div><input type="checkbox" name="treatment" value="IASTM" /></div></div>
+            </div>
+          </fieldset>
+
+          <div style="margin-top: 10px;">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+
+        <div style="margin-top: 18px;">
+          <h2 style="margin: 0 0 10px; font-size: 18px; color:#111827;">Treatment Given</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Patient Name</th>
+                  <th>Number</th>
+                  <th>Age</th>
+                  <th>Sex</th>
+                  <th>Treatment</th>
+                </tr>
+              </thead>
+              <tbody id="treatment-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script src="js/admin-script.js"></script>
+</body>
+</html>
