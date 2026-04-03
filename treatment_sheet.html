@@ -83,8 +83,6 @@
       e.preventDefault();
 
       const patientName = document.getElementById('patientName').value.trim();
-      const age = document.getElementById('patientAge').value.trim();
-      const sex = document.getElementById('patientSex').value;
       const number = document.getElementById('patientNumber').value.trim();
       const date = document.getElementById('displayDate').textContent;
       const treatments = getSelectedTreatments();
@@ -97,8 +95,6 @@
         <td>${date}</td>
         <td>${patientName}</td>
         <td>${number}</td>
-        <td>${age}</td>
-        <td>${sex || ''}</td>
         <td>${treatments.join(', ')}</td>
       `;
       tbody.prepend(tr);
@@ -252,8 +248,6 @@
                   <th>Date</th>
                   <th>Patient Name</th>
                   <th>Number</th>
-                  <th>Age</th>
-                  <th>Sex</th>
                   <th>Treatment</th>
                 </tr>
               </thead>
