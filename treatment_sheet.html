@@ -84,6 +84,8 @@
     const API_BASE = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com';
     const TREATMENT_COLUMNS = ['Exercise', 'UST', 'SWD', 'TENS', 'IFT', 'FS', 'GS', 'IRR', 'WB', 'IASTM'];
 
+    let LAST_PATIENT = { name: '', number: '', sex: '' };
+
     function formatDateDDMMYYYY(d) {
       const day = String(d.getDate()).padStart(2, '0');
       const month = String(d.getMonth() + 1).padStart(2, '0');
@@ -116,6 +118,14 @@
       if (nameEl) {
         const pn = Array.isArray(items) && items.length ? (items[0].patientName || '') : '';
         nameEl.textContent = pn ? pn : '-';
+      }
+
+      if (Array.isArray(items) && items.length) {
+        LAST_PATIENT = {
+          name: items[0].patientName || '',
+          number: items[0].phoneNumber || '',
+          sex: items[0].sex || ''
+        };
       }
 
       if (!Array.isArray(items) || items.length === 0) return;
@@ -161,6 +171,17 @@
       }
 
       renderRows(data.items || []);
+    }
+
+    function exportPdf() {
+      const number = document.getElementById('filterNumber').value.trim();
+      if (!number) {
+        alert('Please enter patient number and load records first');
+        return;
+      }
+
+      const url = `${API_BASE}/treatment-sheet/pdf?phoneNumber=${encodeURIComponent(number)}`;
+      window.open(url, '_blank');
     }
 
     async function deleteRow(id) {
@@ -409,6 +430,10 @@
               </thead>
               <tbody id="treatment-body"></tbody>
             </table>
+          </div>
+
+          <div style="margin-top: 12px; display:flex; justify-content:flex-end;">
+            <button type="button" onclick="exportPdf()">Export PDF</button>
           </div>
         </div>
       </div>
