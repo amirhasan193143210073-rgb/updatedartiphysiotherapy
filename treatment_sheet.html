@@ -63,6 +63,18 @@
 
     td.tick, th.tick { text-align: center; }
 
+    button.icon-btn {
+      background: transparent;
+      box-shadow: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    button.icon-btn:hover {
+      background: rgba(0,0,0,.06);
+      box-shadow: none;
+      transform: none;
+    }
+
     @media (max-width: 768px) {
       #content main { padding: 16px !important; }
       .two-col { grid-template-columns: 1fr; }
@@ -107,11 +119,23 @@
         const dateStr = d && !isNaN(d.getTime()) ? formatDateDDMMYYYY(d) : '';
         const set = new Set(Array.isArray(item.treatments) ? item.treatments : []);
         const ticks = TREATMENT_COLUMNS.map(t => (set.has(t) ? '✓' : ''));
+        const id = item._id || item.id || '';
         tr.innerHTML = `
           <td>${dateStr}</td>
           ${ticks.map(v => `<td class="tick">${v}</td>`).join('')}
+          <td class="tick">
+            <button class="icon-btn" type="button" onclick="onClickDelete('${id}')" title="Delete">
+              <i class='bx bx-trash' style="font-size:18px; color:#b91c1c;"></i>
+            </button>
+          </td>
         `;
         tbody.appendChild(tr);
+      });
+    }
+
+    function onClickDelete(id) {
+      deleteRow(id).catch(err => {
+        alert(err && err.message ? err.message : 'Failed to delete');
       });
     }
 
@@ -130,6 +154,23 @@
       }
 
       renderRows(data.items || []);
+    }
+
+    async function deleteRow(id) {
+      const number = document.getElementById('filterNumber').value.trim();
+      if (!id) return;
+      const ok = confirm('Delete this record?');
+      if (!ok) return;
+
+      const res = await fetch(`${API_BASE}/treatment-sheet/${encodeURIComponent(id)}`, {
+        method: 'DELETE'
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data && data.error ? data.error : `Failed to delete (${res.status})`);
+      }
+
+      await loadRowsByNumber(number);
     }
 
     async function createRow(e) {
@@ -350,6 +391,7 @@
                   <th class="tick">IRR</th>
                   <th class="tick">WB</th>
                   <th class="tick">IASTM</th>
+                  <th class="tick">Delete</th>
                 </tr>
               </thead>
               <tbody id="treatment-body"></tbody>
