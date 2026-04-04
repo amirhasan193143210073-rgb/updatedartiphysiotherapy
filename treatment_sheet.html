@@ -111,6 +111,13 @@
     function renderRows(items) {
       const tbody = document.getElementById('treatment-body');
       tbody.innerHTML = '';
+
+      const nameEl = document.getElementById('loadedPatientName');
+      if (nameEl) {
+        const pn = Array.isArray(items) && items.length ? (items[0].patientName || '') : '';
+        nameEl.textContent = pn ? pn : '-';
+      }
+
       if (!Array.isArray(items) || items.length === 0) return;
 
       items.forEach(item => {
@@ -192,6 +199,9 @@
       const sex = document.getElementById('patientSex').value;
       const parsedDate = parseDateDDMMYYYY(date);
       const isoDate = parsedDate ? parsedDate.toISOString() : new Date().toISOString();
+
+      const nameEl = document.getElementById('loadedPatientName');
+      if (nameEl) nameEl.textContent = patientName ? patientName : '-';
 
       try {
         const res = await fetch(`${API_BASE}/treatment-sheet`, {
@@ -367,6 +377,9 @@
 
         <div style="margin-top: 18px;">
           <h2 style="margin: 0 0 10px; font-size: 18px; color:#111827;">Treatment Given</h2>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom: 6px;">
+            <div style="font-weight:600; color:#111827;">Patient Name: <span id="loadedPatientName">-</span></div>
+          </div>
           <div class="two-col" style="margin-bottom: 10px;">
             <div>
               <label for="filterNumber">Patient Number</label>
