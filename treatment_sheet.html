@@ -61,6 +61,8 @@
     th, td { border: 1px solid #e5e5e5; padding: 8px; text-align: left; }
     th { background: #fafafa; }
 
+    td.tick, th.tick { text-align: center; }
+
     @media (max-width: 768px) {
       #content main { padding: 16px !important; }
       .two-col { grid-template-columns: 1fr; }
@@ -68,6 +70,7 @@
   </style>
   <script>
     const API_BASE = 'https://d17q6ufckg.execute-api.ap-south-1.amazonaws.com';
+    const TREATMENT_COLUMNS = ['Exercise', 'UST', 'SWD', 'TENS', 'IFT', 'FS', 'GS', 'IRR', 'WB', 'IASTM'];
 
     function formatDateDDMMYYYY(d) {
       const day = String(d.getDate()).padStart(2, '0');
@@ -102,10 +105,11 @@
         const tr = document.createElement('tr');
         const d = item.date ? new Date(item.date) : null;
         const dateStr = d && !isNaN(d.getTime()) ? formatDateDDMMYYYY(d) : '';
-        const treatmentsStr = Array.isArray(item.treatments) ? item.treatments.join(', ') : '';
+        const set = new Set(Array.isArray(item.treatments) ? item.treatments : []);
+        const ticks = TREATMENT_COLUMNS.map(t => (set.has(t) ? '✓' : ''));
         tr.innerHTML = `
           <td>${dateStr}</td>
-          <td>${treatmentsStr}</td>
+          ${ticks.map(v => `<td class="tick">${v}</td>`).join('')}
         `;
         tbody.appendChild(tr);
       });
@@ -336,7 +340,16 @@
               <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Treatment</th>
+                  <th class="tick">Exercise</th>
+                  <th class="tick">UST</th>
+                  <th class="tick">SWD</th>
+                  <th class="tick">TENS</th>
+                  <th class="tick">IFT</th>
+                  <th class="tick">FS</th>
+                  <th class="tick">GS</th>
+                  <th class="tick">IRR</th>
+                  <th class="tick">WB</th>
+                  <th class="tick">IASTM</th>
                 </tr>
               </thead>
               <tbody id="treatment-body"></tbody>
