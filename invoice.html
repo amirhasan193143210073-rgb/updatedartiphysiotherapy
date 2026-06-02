@@ -209,14 +209,6 @@
       return descriptions.join(', ');
     }
 
-    // Get session fee and total days, calculate total session amount and optionally add to items
-    function getSessionFeeAndDays() {
-      const sessionFee = parseFloat(document.getElementById('sessionFee').value || '0');
-      const totalDays = parseInt(document.getElementById('totalDays').value || '0', 10);
-      return { sessionFee, totalDays };
-    }
-
-    // Optionally auto-add session item (if desired) but we will include fields in request payload
     async function createInvoice(e) {
       e.preventDefault();
       const status = document.getElementById('status');
@@ -242,71 +234,41 @@
       const sex = document.getElementById('patientSex').value;
       const sessionFrom = document.getElementById('sessionFrom').value;
       const sessionTo = document.getElementById('sessionTo').value;
-      
-      // Get new session fee and total days
-      const sessionFee = parseFloat(document.getElementById('sessionFee').value || '0');
-      const totalDays = parseInt(document.getElementById('totalDays').value || '0', 10);
-      
       const taxRateEl = document.getElementById('taxRate');
       const taxRate = taxRateEl ? parseFloat(taxRateEl.value || '0') / 100 : 0;
       const notesEl = document.getElementById('notes');
       const notes = notesEl ? notesEl.value.trim() : '';
 
-      // Build items array from dynamic rows
-      let items = Array.from(document.querySelectorAll('#items-body tr')).map(tr => {
+      const items = Array.from(document.querySelectorAll('#items-body tr')).map(tr => {
         const description = tr.querySelector('input[name="description"]').value.trim();
         const quantity = parseFloat(tr.querySelector('input[name="quantity"]').value || '0');
         const unitPrice = parseFloat(tr.querySelector('input[name="unitPrice"]').value || '0');
         return { description, quantity, unitPrice };
       }).filter(it => it.description);
 
-      // If sessionFee and totalDays both > 0, optionally we can add a special session item or just send as separate fields.
-      // To match typical invoice logic, we add an automatic item line for "Session Fee" based on total days * sessionFee.
-      // But backend might also accept separate fields; but existing backend expects 'items'. So we inject.
-      if (sessionFee > 0 && totalDays > 0) {
-        const sessionDescription = `Session Fee (${totalDays} day${totalDays !== 1 ? 's' : ''} @ ${sessionFee.toFixed(2)}/day)`;
-        const sessionAmount = sessionFee * totalDays;
-        // Check if a session item already exists (to avoid duplication)
-        const sessionExists = items.some(item => item.description.toLowerCase().includes('session fee'));
-        if (!sessionExists) {
-          items.unshift({
-            description: sessionDescription,
-            quantity: totalDays,
-            unitPrice: sessionFee
-          });
-        } else {
-          // Update existing? we avoid complexity, but we just add if not present.
-        }
-      }
-
       if (items.length === 0) {
-        status.textContent = 'Add at least one item or provide Session Fee & Total Days.';
+        status.textContent = 'Add at least one item.';
         status.classList.add('error');
         setButtonLoading(createBtn, false, 'Creating...', 'Create Invoice');
         return;
       }
 
-      // Prepare payload with new fields included for backend reference (even if backend may ignore, it's there)
-      const payload = {
-        date,
-        patientName,
-        patientId,
-        age,
-        sex,
-        sessionFrom,
-        sessionTo,
-        sessionFee,      // NEW: per day fee
-        totalDays,       // NEW: total number of days
-        items,
-        taxRate,
-        notes
-      };
-
       try {
         const res = await fetch(`${API}/invoice`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({
+            date,
+            patientName,
+            patientId,
+            age,
+            sex,
+            sessionFrom,
+            sessionTo,
+            items,
+            taxRate,
+            notes
+          })
         });
         if (!res.ok) {
           const t = await res.text();
@@ -662,19 +624,6 @@
               <div>
                 <label for="sessionTo">Session To</label>
                 <input id="sessionTo" type="datetime-local" />
-              </div>
-            </div>
-            <!-- NEW ROW: Session Fee (Per Day) & Total Days -->
-            <div class="two-col" style="margin-top: 8px;">
-              <div>
-                <label for="sessionFee">Session Fee (Per Day)</label>
-                <input type="number" id="sessionFee" step="0.01" min="0" value="0" placeholder="e.g., 500.00" />
-                <small style="color: #666;">Fee for each day of session</small>
-              </div>
-              <div>
-                <label for="totalDays">Total Days</label>
-                <input type="number" id="totalDays" step="1" min="0" value="0" placeholder="Number of days" />
-                <small style="color: #666;">Total number of days for this session</small>
               </div>
             </div>
           </fieldset>
