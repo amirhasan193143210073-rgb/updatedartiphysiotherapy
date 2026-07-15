@@ -14,21 +14,27 @@
             background-color: #f8f9fa;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 5px auto 0;
-            background-color: #ffffff;
-            padding: 16px 20px 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            /* Position relative for the watermark */
-            z-index: 1;
-            /* Ensures the watermark is behind the content */
-            overflow: hidden;
-            /* Ensures the watermark doesn't overflow the container */
-        }
+   .container {
+    max-width: 800px;
+    margin: 5px auto 0;
+    background-color: #ffffff;
+    padding: 16px 20px 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    position: relative;
+    z-index: 1;
+    height: auto;
+    min-height: auto;
+}
 
-        
+#displayDoctorNote{
+    font-family: Arial, sans-serif;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    line-height: 1.6;
+    border: none;
+    background: transparent;
+}
         .header {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -114,13 +120,24 @@
         .doctor-notes {
             margin: 20px 0;
         }
+        .patient-problem,
+.doctor-notes{
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
 
         .patient-problem h3,
         .doctor-notes h3 {
             margin-bottom: 10px;
             color: #28c6e1;
         }
-
+.patient-problem p,
+.doctor-notes p{
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+}
         .signature-line {
             border: 2.3px solid #28c6e1;
             /* Solid black horizontal line */
@@ -214,8 +231,8 @@
 
         <div class="doctor-notes" style="z-index: 2;">
             <h3>Doctor's Notes:</h3>
-            <p id="displayDoctorNote">Recommended physiotherapy sessions 3 times a week and prescribed pain relief
-                medication.</p>
+            <pre id="displayDoctorNote">Recommended physiotherapy sessions 3 times a week and prescribed pain relief
+                medication.</pre>
         </div>
         <hr class="signature-line" style="z-index: 2;">
         <p class="signature-text">This Prescription is System Generated Signature not Required</p>
@@ -240,7 +257,7 @@
             var Age = document.getElementById("displayAge").innerHTML;
             var genderText = document.getElementById("displayGender").innerHTML;
             var PatientProblem = document.getElementById("displayPatientProblem").innerHTML;
-            var DoctorNote = document.getElementById("displayDoctorNote").innerHTML;
+            var DoctorNote = document.getElementById("displayDoctorNote").textContent;
             const today = new Date();
             const day = String(today.getDate()).padStart(2, '0');
             const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -253,13 +270,34 @@
 
             var element = document.getElementById('container_content');
 
+            // var opt = {
+            //     margin: 0.5,
+            //     filename: `Prescription_${name}_${formattedDate}.pdf`,
+            //     image: { type: 'jpeg', quality: 0.98 },
+            //     html2canvas: { scale: 2 },
+            //     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            // };
             var opt = {
-                margin: 0.5,
-                filename: `Prescription_${name}_${formattedDate}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+    margin: [10,10,10,10],
+    filename: `Prescription_${name}_${formattedDate}.pdf`,
+    image: {
+        type: 'jpeg',
+        quality: 1
+    },
+    html2canvas: {
+        scale: 3,
+        useCORS: true,
+        scrollY: 0
+    },
+    jsPDF: {
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait'
+    },
+    pagebreak: {
+        mode: ['avoid-all', 'css', 'legacy']
+    }
+};
 
             try {
                 try {
@@ -360,7 +398,7 @@
         document.getElementById("phoneNumber").innerText = params.phoneNumber;
         document.getElementById("displayAge").innerText = params.age;
         document.getElementById("displayPatientProblem").innerText = params.patientProblem;
-        document.getElementById("displayDoctorNote").innerText = params.doctorNote;
+        document.getElementById("displayDoctorNote").textContent = params.doctorNote;
         document.getElementById("displayGender").innerText = params.gender;
         document.getElementById("date").innerHTML = formattedDate;
     </script>
