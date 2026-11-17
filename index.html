@@ -2292,44 +2292,47 @@ if (formElement) {
     const Name = formData.get('name');
     const PhoneNumber = formData.get('phone');
     const message = formData.get('message');
+ 
 
-    $.ajax({
-      url: 'https://botclap.com/webhook/contact/1352106806564501',
-      method: 'POST',
-      dataType: 'json',
-      timeout: 30000,
+$.ajax({
+  url: 'https://botclap.com/webhook/contact/1352106806564501',
+  method: 'POST',
+  contentType: 'application/json',
+  dataType: 'json',
 
-      data: {
-        Name: Name,
-        PhoneNumber: PhoneNumber,
-        ContactList: [],
-        Tags: [],
-        CustomAttributes: {}
-      },
+  data: JSON.stringify({
+    Name: Name,
+    PhoneNumber: PhoneNumber,
+    Message: message,
 
-      success: function(response) {
-        console.log('BotClap Response:', response);
+    ClinicEmails: [
+        'amirhasan193143210073@gmail.com',
+      'shibalam1012@gmail.com'
+    ],
 
-        if (response.success === true) {
-          alert('Message sent successfully!');
+    ContactList: [],
+    Tags: [],
+    CustomAttributes: {}
+  }),
 
-          formElement.reset();
-          closePopup();
-        } else {
-          alert('Unable to submit your enquiry. Please try again.');
-        }
-      },
+  success: function(response) {
+    console.log('BotClap Response:', response);
 
-      error: function(xhr, status, error) {
-        console.error('BotClap AJAX Error:', {
-          status: xhr.status,
-          response: xhr.responseText,
-          error: error
-        });
+    if (response.success === true) {
+      alert('Message sent successfully!');
 
-        alert('Unable to submit your enquiry. Please try again.');
-      }
-    });
+      formElement.reset();
+      closePopup();
+    }
+  },
+
+  error: function(xhr) {
+    console.error('Contact form error:', xhr.responseText);
+
+    alert('Unable to submit your enquiry. Please try again.');
+  }
+});
+
   });
 }
 
