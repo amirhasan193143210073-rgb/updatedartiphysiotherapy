@@ -2281,6 +2281,7 @@
 
       // Form submission
     
+
 const formElement = document.getElementById('visitorForm');
 
 if (formElement) {
@@ -2292,50 +2293,65 @@ if (formElement) {
     const Name = formData.get('name');
     const PhoneNumber = formData.get('phone');
     const message = formData.get('message');
- 
 
-$.ajax({
-  url: 'https://botclap.com/webhook/contact/1352106806564501',
-  method: 'POST',
-  contentType: 'application/json',
-  dataType: 'json',
+    const submitButton = formElement.querySelector('[type="submit"]');
 
-  data: JSON.stringify({
-    Name: Name,
-    PhoneNumber: PhoneNumber,
-    Message: message,
-
-    ClinicEmails: [
-        'amirhasan193143210073@gmail.com',
-      'shibalam1012@gmail.com'
-    ],
-
-    ContactList: [],
-    Tags: [],
-    CustomAttributes: {}
-  }),
-
-  success: function(response) {
-    console.log('BotClap Response:', response);
-
-    if (response.success === true) {
-      alert('Message sent successfully!');
-
-      formElement.reset();
-      closePopup();
+    if (submitButton) {
+      submitButton.disabled = true;
     }
-  },
 
-  error: function(xhr) {
-    console.error('Contact form error:', xhr.responseText);
+    $.ajax({
+      url: 'https://botclap.com/webhook/contact/1352106806564501',
+      method: 'POST',
+      contentType: 'application/json',
+      dataType: 'json',
 
-    alert('Unable to submit your enquiry. Please try again.');
-  }
-});
+      data: JSON.stringify({
+        Name: Name,
+        PhoneNumber: PhoneNumber,
+        Message: message,
 
+        ClinicEmails: [
+          'amirhasan193143210073@gmail.com',
+          'shibalam1012@gmail.com'
+        ],
+
+        ContactList: [],
+        Tags: [],
+        CustomAttributes: {}
+      }),
+
+      success: function(response) {
+        console.log('BotClap Response:', response);
+
+        if (response.success === true) {
+          alert('Your enquiry has been submitted successfully!');
+
+          if (response.emailSent === false) {
+            console.warn('Clinic email notification was not accepted.');
+          }
+
+          formElement.reset();
+          closePopup();
+        } else {
+          alert('Unable to submit your enquiry. Please try again.');
+        }
+      },
+
+      error: function(xhr) {
+        console.error('Contact form error:', xhr.responseText);
+
+        alert('Unable to submit your enquiry. Please try again.');
+      },
+
+      complete: function() {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      }
+    });
   });
 }
-
 
       // Close with Escape key
       document.addEventListener('keydown', function(e) {
