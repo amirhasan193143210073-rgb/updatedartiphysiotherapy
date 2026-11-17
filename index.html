@@ -2280,35 +2280,59 @@
       }
 
       // Form submission
-      const formElement = document.getElementById('visitorForm');
-      if (formElement) {
-        formElement.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const formData = new FormData(this);
-          const Name = formData.get('name');
-          const PhoneNumber = formData.get('phone');
-          const message = formData.get('message');
-          
-        $.ajax({
-                    url: 'https://botclap.com/webhook/contact/1352106806564501',
-                    method: 'POST',
-                    data: {
-                        Name: Name,
-                        PhoneNumber: PhoneNumber,
-                        ContactList: [],
-                        Tags: [],
-                        CustomAttributes:{}
-                    },
-                    success: async function (response) {
-                      alert('message sent')
-                    }
-                  })
-          
-          // Close popup
+    
+const formElement = document.getElementById('visitorForm');
+
+if (formElement) {
+  formElement.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    const Name = formData.get('name');
+    const PhoneNumber = formData.get('phone');
+    const message = formData.get('message');
+
+    $.ajax({
+      url: 'https://botclap.com/webhook/contact/1352106806564501',
+      method: 'POST',
+      dataType: 'json',
+      timeout: 30000,
+
+      data: {
+        Name: Name,
+        PhoneNumber: PhoneNumber,
+        ContactList: [],
+        Tags: [],
+        CustomAttributes: {}
+      },
+
+      success: function(response) {
+        console.log('BotClap Response:', response);
+
+        if (response.success === true) {
+          alert('Message sent successfully!');
+
+          formElement.reset();
           closePopup();
+        } else {
+          alert('Unable to submit your enquiry. Please try again.');
+        }
+      },
+
+      error: function(xhr, status, error) {
+        console.error('BotClap AJAX Error:', {
+          status: xhr.status,
+          response: xhr.responseText,
+          error: error
         });
+
+        alert('Unable to submit your enquiry. Please try again.');
       }
+    });
+  });
+}
+
 
       // Close with Escape key
       document.addEventListener('keydown', function(e) {
